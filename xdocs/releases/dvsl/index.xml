@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<document>
+  <properties>
+    <title>Velocity DVSL</title>
+    <author email="velocity-dev@jakarta.apache.org">Velocity Documentation
+      Team</author>
+  </properties>
+  
+  <body>
+    <section name="Velocity DVSL">
+      <p>Velocity DVSL
+          (Declarative Velocity Style Language) is a tool modeled after XSLT and is intended
+          for general XML transformations using the Velocity Template Language as the
+          transformation language. </p>
+
+      <p>From this page, you can branch to the official documentation for
+         released versions:</p>
+
+      <ul>
+        <li><a href="/releases/DVSL/velocity-dvsl-1.0">Velocity DVSL 1.0</a></li>
+      </ul>
+    </section>
+  </body>
+</document>

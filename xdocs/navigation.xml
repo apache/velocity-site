@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Jakarta Velocity" href="http://jakarta.apache.org/velocity/">
+  <title>Jakarta Velocity</title>
+
+  <body>
+    <links>
+      <item name="Home"   href="/index.html"/>
+      <item name="Engine" href="/engine/"/>
+      <item name="Tools"  href="/tools/"/>
+    </links>
+
+    <menu name="General">
+      <item name="Home"          href="/index.html"/>
+      <item name="Mailing Lists" href="/mail-lists.html"/>
+      <item name="Project team"  href="/team-list.html"/>
+    </menu>
+
+    <menu name="Subprojects">
+      <item name="Velocity Engine" href="/engine/"/>
+      <item name="Velocity Tools"  href="/tools/"/>
+      <item name="Velocity DVSL"   href="/dvsl/"/>
+    </menu>
+
+    <menu name="Releases">
+      <item name="Downloads"
+        href="http://jakarta.apache.org/site/downloads/downloads_velocity.cgi"/>
+      <item name="Velocity" href="/releases/engine/index.html" collapse="true">
+        <item name="Velocity-1.3.1" href="/releases/engine/velocity-1.3.1/index.html" collapse="true"/>
+        <item name="Velocity-1.4" href="/releases/engine/velocity-1.4/index.html" collapse="true"/>
+        <item name="Velocity-1.5" href="/releases/engine/velocity-1.5/index.html" collapse="true"/>
+      </item>
+      <item name="Velocity Tools" href="/releases/tools/index.html" collapse="true">
+        <item name="Velocity Tools 1.1"
+          href="/releases/tools/velocity-tools-1.1/index.html" collapse="true"/>
+        <item name="Velocity Tools 1.2"
+          href="/releases/tools/velocity-tools-1.2/index.html" collapse="true"/>
+      </item>
+      <item name="Velocity DVSL" href="/releases/dvsl/index.html" collapse="true">
+        <item name="Velocity DVSL 1.0"
+          href="/releases/dvsl/velocity-dvsl-1.0/index.html" collapse="true"/>
+      </item>
+    </menu>
+
+    <menu name="Community">
+        <item name="Wiki"                     href="http://wiki.apache.org/jakarta-velocity/"/>
+        <item name="Recent News"              href="http://wiki.apache.org/jakarta-velocity/VelocityNews"/>
+        <item name="Powered By Velocity"      href="http://wiki.apache.org/jakarta-velocity/PoweredByVelocity"/>
+        <item name="IDE/Editor Plugins"       href="http://wiki.apache.org/jakarta-velocity/VelocityEditors"/>
+        <item name="Articles and Books"       href="http://wiki.apache.org/jakarta-velocity/PublishedArticlesAndBooks"/>
+        <item name="Get Involved"             href="http://wiki.apache.org/jakarta-velocity/GetInvolved"/>
+        <item name="Mailing Lists"            href="http://jakarta.apache.org/site/mail.html"/>
+    </menu>
+
+    <menu name="Developers">
+        <item name="Source Code Repository"   href="http://www.apache.org/dev/version-control.html"/>
+        <item name="Issues"                   href="http://issues.apache.org/jira/browse/VELOCITY"/>
+        <item name="Nightly Snapshots"        href="http://cvs.apache.org/snapshots/velocity/"/>
+        <item name="Road Map"                 href="http://wiki.apache.org/jakarta-velocity/RoadMap"/>
+        <item name="Coding Standards"         href="http://wiki.apache.org/jakarta-velocity/CodeStandards"/>    
+        <item name="Documentation Guidelines" href="http://wiki.apache.org/jakarta-velocity/DocumentationGuidelines"/>    
+    </menu>
+
+    <powered-by>
+      <item name="Velocity" href="http://jakarta.apache.org/velocity/" img="/images/powered-by-logo.gif" />
+    </powered-by>
+  </body>
+</project>
+        
