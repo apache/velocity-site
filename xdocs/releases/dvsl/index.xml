@@ -14,12 +14,10 @@
           for general XML transformations using the Velocity Template Language as the
           transformation language. </p>
 
-      <p>From this page, you can branch to the official documentation for
-         released versions:</p>
+      <p>DVSL has had no official release yet.</p>
 
-      <ul>
-        <li><a href="/releases/DVSL/velocity-dvsl-1.0">Velocity DVSL 1.0</a></li>
-      </ul>
+      <p>The latest development version is available <a href="../../dvsl">from the development tree</a>.</p>
+
     </section>
   </body>
 </document>

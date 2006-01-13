@@ -75,7 +75,7 @@
       <name>Henning P. Schmiedehausen</name>
       <id>henning</id>
       <email>hps@intermeta.de</email>
-      <organization>INTERMETA - Gesellschaft fuer Mehrwertdienste mbH</organization>
+      <organization>INTERMETA - Gesellschaft für Mehrwertdienste mbH</organization>
       <roles>
         <role>Java Developer</role>
       </roles>
@@ -95,9 +95,10 @@
 
   <contributors/>
 
-  <!-- Can you believe that? -->
   <reports>
     <report>maven-license-plugin</report>
+<!-- The link check report is not referenced from the site but useful to check whether a referenced link has been broken -->
+    <report>maven-linkcheck-plugin</report>
   </reports>
 </project>
 

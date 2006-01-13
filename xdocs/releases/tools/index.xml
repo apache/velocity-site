@@ -19,9 +19,12 @@
          released versions:</p>
 
       <ul>
-        <li><a href="/releases/tools/velocity-tools-1.1">Velocity Tools 1.1</a></li>
-        <li><a href="/releases/tools/velocity-tools-1.2">Velocity Tools 1.2</a></li>
+        <li><a href="1.1">Velocity Tools 1.1</a></li>
+        <li><a href="1.2">Velocity Tools 1.2</a></li>
       </ul>
+
+      <p>The latest development version is available <a href="../../tools">from the development tree</a>.</p>
+
     </section>
   </body>
 </document>
