@@ -125,3 +125,9 @@ dt.question {
   color: #900;
   background-color: #eee;
 }
+
+dl {
+  padding: 4px 4px 4px 6px;
+  border: 1px solid #aaa;
+  background-color: white;
+}

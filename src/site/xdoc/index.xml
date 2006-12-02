@@ -1,158 +1,148 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE document PUBLIC "-//Apache Software Foundation//DTD XDOC 1.0//EN" "http://extra.intermeta.de/dtds-foo/xdoc_1_0.dtd">
 <document>
   <properties>
-    <title>Velocity</title>
-
-    <author email="velocity-dev@jakarta.apache.org">Velocity Documentation
-    Team</author>
+    <title>The Apache Velocity Project</title>
+    <author email="dev@velocity.apache.org">
+      Velocity Documentation Team
+    </author>
   </properties>
 
   <body>
-    <section name="What is Velocity?"><p>Velocity is a Java-based template
-    engine. It permits anyone to use a simple yet powerful template language
-    to reference objects defined in Java code.</p><p>Velocity is written in
-    100% pure Java and can be easily embedded into your own applications. It
-    also provides easy integration into web applications through a servlet and
-    tasks for using Velocity from <a href="http://ant.apache.org/">Apache
-    Ant</a>.</p></section>
+    <section name="The Apache Velocity Project">
+      <p>
+        Velocity is a project of the
+        <a href="http://www.apache.org/">Apache Software Foundation</a>,
+        charged with the creation and maintenance of open-source
+        software related to the
+        <a href="engine/index.html">Apache Velocity Engine</a>
+        . All software created at the Velocity project is available
+        under the
+        <a href="http://www.apache.org/licenses/LICENSE-2.0.txt">Apache Software License</a>
+        and free of charge for the public.
+      </p>
+    </section>
 
-    <section name="Where can Velocity be used?"><subsection
-    name="Web based applications"><p> When Velocity is used for web
-    development, Web designers can work in parallel with Java programmers to
-    develop web sites according to the Model-View-Controller (MVC) model,
-    meaning that web page designers can focus solely on creating a site that
-    looks good, and programmers can focus solely on writing top-notch code.
-    Velocity separates Java code from the web pages, making the web site more
-    maintainable over its lifespan and providing a viable alternative to <a
-    href="http://java.sun.com/products/jsp/">Java Server Pages</a> (JSPs) or
-    <a href="http://www.php.net/">PHP</a>.</p></subsection><subsection
-    name="Template based code and report generation"><p>Velocity's
-    capabilities reach well beyond the realm of the web; for example, it can
-    be used to generate SQL, PostScript and XML (see <a
-    href="engine/anakia/">Anakia</a> for more information on XML
-    transformations) from templates. It can be used either as a standalone
-    utility for generating source code and reports, or as an integrated
-    component of other systems.</p></subsection><subsection
-    name="Framework Integration"><p>A huge number of other projects have
-    Velocity integration either natively or through 3rd party add-ons. Some
-    examples are:</p><ul>
-        <li><a href="http://jakarta.apache.org/turbine/">Turbine</a> uses
-        Velocity as its main view layer.</li>
+    <section name="Apache Software Foundation">
+      <p>
+        The Apache Software Foundation provides support for the Apache
+        community of open-source software projects. The
+        <a href="http://projects.apache.org/">Apache projects</a>
+        are characterized by a collaborative, consensus based
+        development process, an open and pragmatic
+        <a href="http://www.apache.org/foundation/licence-FAQ.html">software license</a>,
+        and a desire to create high quality software that leads the
+        way in its field.
+      </p>
+    </section>
 
-        <li><a href="http://struts.apache.org/">Struts</a> offers Velocity
-        integration through a Velocity subproject called <a
-        href="tools/">Velocity Tools</a> .</li>
+    <section name="Apache Velocity projects">
+      <p>Apache Velocity offers the following projects:</p>
+      <dl>
+        <dt><a href="engine/index.html">Velocity Engine</a></dt>
+        <dd>
+          This is the actual templating engine which does all the work.
+          If you came here because you heard about Velocity somewhere on
+          the web, this is probably the right place to start.
+        </dd>
 
-        <li><a href="http://www.springframework.org">Spring Framework</a>
-        supports Velocity through its <code>VelocityConfigurer</code> and
-        <code>VelocityViewResolver</code>.</li>
-      </ul></subsection></section>
+        <dt><a href="tools/index.html">Velocity Tools</a></dt>
+        <dd>
+          This project contains tools and other useful infrastructure
+          to build web- and non-web application using the Velocity
+          engine. You will find e.g. code for
+          <a href="http://struts.apache.org/">Struts</a>
+          integration or the standalone Velocity View Servlet here.
+        </dd>
 
-    <section name="How do I get started"><p>The Velocity engine subproject
-    contains the documentation to get started using Velocity and embedding
-    Velocity into your own applications. Please select either a <a
-    href="releases/engine/">released version</a> to get started.
-    </p></section>
+        <dt><a href="dvsl/">Velocity DVSL</a></dt>
+        <dd>
+          DVSL (Declarative Velocity Style Language) is a tool modeled
+          after XSLT and is intended for general XML transformations
+          using the Velocity Template Language as the transformation
+          language.
+        </dd>
+      </dl>
+    </section>
 
-    <section name="Velocity subprojects"><p>Velocity currently consists of
-    three subprojects:</p><ul>
-        <li><a href="engine/">Velocity Engine</a>. This is the actual
-        templating engine which does all the work. This subproject contains
-        also the task definitions for using Velocity from <a
-        href="http://ant.apache.org/">Apache Ant</a>.</li>
 
-        <li><a href="tools/">Velocity Tools</a>. This subproject contains
-        tools and other useful infrastructure to build web- and non-web
-        application using Velocity. You will find e.g. code for <a
-        href="http://struts.apache.org/">Struts</a> integration or the
-        standalone Velocity View Servlet here.</li>
+    <section name="Release status">
 
-        <li><a href="dvsl/">Velocity DVSL</a>. DVSL (Declarative Velocity
-        Style Language) is a tool modeled after XSLT and is intended for
-        general XML transformations using the Velocity Template Language as
-        the transformation language.</li>
-      </ul></section>
-
-    <section
-    name="What are the current releases and where do I get them?"><p>These are
-    the current releases of all subprojects: </p><table>
+      <p>These are the current releases of all Apache Velocity projects:</p>
+      <table>
         <tr>
           <th>Project</th>
-
           <th>Release Version</th>
-
-          <th>Development Version</th>
+          <th>Alpha/Beta/RC Release version</th>
         </tr>
 
         <tr>
-          <td>Engine</td>
-
-          <td><a href="releases/engine/1.4/">1.4</a></td>
-
-          <td><a href="engine/">1.5</a></td>
+          <td>Velocity Engine</td>
+          <td>
+            <a href="engine/releases/1.4/index.html">1.4</a>
+          </td>
+          <td>
+            <a href="engine/releases/1.5-beta2/index.html">1.5-beta2</a>
+          </td>
         </tr>
 
         <tr>
-          <td>Tools</td>
-
-          <td><a href="releases/tools/1.2/">1.2</a></td>
-
-          <td><a href="tools/">1.3</a></td>
+          <td>Velocity Tools</td>
+          <td>
+            <a href="releases/tools/1.2/">1.2</a>
+          </td>
+          <td>(currently none available)</td>
         </tr>
 
         <tr>
           <td>DVSL</td>
-
-          <td>-</td>
-
-          <td><a href="dvsl/">1.0</a></td>
+          <td>(currently none available)</td>
+          <td>(currently none available)</td>
         </tr>
-      </table><p>The release distribution is available as a combined
-    source/binary distribution in <code>tar.gz</code> and <code>zip</code>
-    formats, and can be downloaded through the <a
-    href="http://jakarta.apache.org/site/downloads/downloads_velocity.cgi">
-    Apache Mirror system</a>.</p><p>The Velocity jars are also available
-    through the <a href="http://www.ibiblio.org/maven/velocity/">central Maven
-    repository</a>.</p><p>Older releases are archived at the <a
-    href="http://archive.apache.org/dist/jakarta/velocity/">Jakarta Velocity
-    archives</a>.</p></section>
+      </table>
+      <p>
+        The release distribution is available as a combined
+        source/binary distribution in tar.gz and zip formats, and can be
+        downloaded from
+        <a href="download.html">our download page</a>.
+      </p>
+    </section>
 
-    <section name="Where do I get nightly snapshots?"><p>Nightly snapshots of
-    the source code for all subprojects can be found <a
-    href="http://svn.apache.org/dist/jakarta/velocity/nightly/">
-    here</a>.<br/>They are meant to provide easy access to the project source
-    code if you are located behind a firewall or don't want to deal with a
-    subversion client and are created automatically from the Subversion
-    repository.<br/>As this is our live development workspace, there are no
-    guarantees as to what you will find there, although we do our best to
-    maintain a buildable source tree. If you are looking for the stable
-    supported release, please use <a href="releases/">a released
-    version</a>.</p><p>If you are willing to risk getting dirty, we invite you
-    to try the nightly snapshot to see the current state of affairs. (and help
-    out!) <a href="http://www.apache.org/dev/version-control.html">Public
-    Subversion access</a> is also available.</p></section>
+    <section name="More information">
+      <p>
+        For more information about the Apache Velocity Project, see
 
-    <section
-    name="How do I contribute, give feedback, fix bugs and so on?"><p>The
-    Velocity project appreciates any contributions, including documentation
-    help, source code and feedback. Suggested changes should come in the form
-    of source code and/or feedback.</p><ul>
-        <li>Report bugs, ask questions, and help new users on the <a
-        href="mail-lists.html"> Velocity mailing lists</a>.</li>
+        <ul>
+          <li>
+            <a href="how-it-works.html">How the Apache Velocity project works</a>
+          </li>
+          <li>
+            <a href="guidelines.html">General guidelines and rules that we adhere to</a>
+          </li>
+          <li>
+            <a href="who-we-are.html">Who are the people behind the Apache Velocity project</a>
+          </li>
+          <li>
+            <a href="get-involved.html">Find out how to get involved with the Apache Velocity
+              project</a>
+          </li>
+          <li>
+            <a href="contact.html">Contact the Apache Velocity project</a>
+          </li>
+        </ul>
+      </p>
 
-        <li>There's a list of issues waiting to be addressed in <a
-        href="http://issues.apache.org/jira/browse/VELOCITY"> JIRA</a>.</li>
+      <p>
+        For more information about the Apache Software Foundation, see
 
-        <li><a href="http://wiki.apache.org/jakarta-velocity/FrontPage"> Our
-        Wiki</a> has a large collection of community written content. Add your
-        own article or contribute to the FAQ!</li>
-
-        <li>Read-only access to the Subversion
-        <strong>jakarta-velocity</strong> repository is available both <a
-        href="http://svn.apache.org/repos/asf/jakarta/velocity/"> online</a>
-        and with a <a href="http://www.apache.org/dev/version-control.html">
-        Subversion client</a>.</li>
-      </ul></section>
+        <ul>
+          <li>
+            <a href="http://www.apache.org/">Foundation Home page</a>
+          </li>
+          <li>
+            <a href="http://www.apache.org/foundation/licence-FAQ.html">Apache License and Distribution FAQ</a>
+          </li>
+        </ul>
+      </p>
+    </section>
   </body>
 </document>

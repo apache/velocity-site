@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document>
+  <properties>
+    <title>Velocity Engine</title>
+    <author email="dev@velocity.apache.org">
+      Velocity Documentation Team
+    </author>
+  </properties>
+
+  <body>
+    <section name="Apache Velocity Engine">
+      <p>
+        The Apache Velocity Engine is a free open-source templating
+        engine.
+      </p>
+
+      <p>
+        Velocity permits you to use a simple yet powerful template
+        language to reference objects defined in Java code.
+
+        It is written in 100% pure Java and can be easily embedded into
+        your own applications.
+
+        The engine is the core of the
+        <a href="http://velocity.apache.org/">
+          Apache Velocity Project
+        </a>.
+      </p>
+    </section>
+
+    <section name="Velocity Integration">
+      <p>
+        The Velocity engine includes a number of predefined tasks for
+        easy integration into
+        <a href="http://ant.apache.org/">Apache Ant</a>.
+      </p>
+
+      <p>
+        Integration into web applications and frameworks is available
+        through the
+        <a href="/tools/index.html">Apache Velocity Tools Project</a>.
+      </p>
+    </section>
+
+    <section name="Getting started">
+      <p>
+        The Velocity engine subproject contains the documentation to get
+        started using the Velocity templating language and embedding
+        Velocity into your own applications. Please select a
+        <a href="releases/index.html">released version</a>
+        to get started. Once you are more familiar with Velocity or if
+        you need a feature not yet released, you can check out the
+        <a href="devel/index.html">Development Site</a>.
+      </p>
+    </section>
+  </body>
+</document>
