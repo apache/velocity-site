@@ -42,8 +42,8 @@ When Velocity is used for web development, Web designers can work in parallel wi
     </release>
     <repository>
       <SVNRepository>
-        <location rdf:resource="http://svn.apache.org/repos/asf/jakarta/velocity/engine/trunk"/>
-        <browse rdf:resource="http://svn.apache.org/viewvc/jakarta/velocity/engine/trunk"/>
+        <location rdf:resource="http://svn.apache.org/repos/asf/velocity/engine/trunk"/>
+        <browse rdf:resource="http://svn.apache.org/viewvc/velocity/engine/trunk"/>
       </SVNRepository>
     </repository>
   </Project>

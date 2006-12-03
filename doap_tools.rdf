@@ -35,8 +35,8 @@
     </release>
     <repository>
       <SVNRepository>
-        <location rdf:resource="http://svn.apache.org/repos/asf/jakarta/velocity/tools/trunk"/>
-        <browse rdf:resource="http://svn.apache.org/viewvc/jakarta/velocity/tools/trunk/"/>
+        <location rdf:resource="http://svn.apache.org/repos/asf/velocity/tools/trunk"/>
+        <browse rdf:resource="http://svn.apache.org/viewvc/velocity/tools/trunk/"/>
       </SVNRepository>
     </repository>
   </Project>

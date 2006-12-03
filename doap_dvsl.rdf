@@ -28,8 +28,8 @@
     <category rdf:resource="http://projects.apache.org/category/library"/>
     <repository>
       <SVNRepository>
-        <location rdf:resource="http://svn.apache.org/repos/asf/jakarta/velocity/dvsl/trunk"/>
-        <browse rdf:resource="http://svn.apache.org/viewvc/jakarta/velocity/dvsl/trunk"/>
+        <location rdf:resource="http://svn.apache.org/repos/asf/velocity/dvsl/trunk"/>
+        <browse rdf:resource="http://svn.apache.org/viewvc/velocity/dvsl/trunk"/>
       </SVNRepository>
     </repository>
   </Project>
