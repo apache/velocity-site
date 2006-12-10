@@ -9,10 +9,15 @@
 
   <poweredBy>
     <logo name="Apache Velocity" 
-          href="http://velocity.apache.org/"
+          href="http://velocity.apache.org"
           img="/images/pbv90x30.png" />
   </poweredBy>
 
+  <skin>
+    <groupId>org.apache.velocity</groupId>
+    <artifactId>velocity-site-skin</artifactId>
+    <version>1.0.0</version>
+  </skin>
   <body>
     <breadcrumbs>
       <item name="Apache" href="http://www.apache.org"/>
@@ -28,7 +33,7 @@
     <menu name="General">
       <item name="Welcome" href="index.html"/>
       <item name="News" href="news.html"/>
-      <item name="Downloads" href="downloads.html"/>
+      <item name="Downloads" href="download.cgi"/>
       <item name="Projects" href="projects.html"/>
     </menu> 
 

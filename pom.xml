@@ -23,7 +23,7 @@
   </distributionManagement>
 
   <build>
-    <defaultGoal>site:site</defaultGoal>
+    <defaultGoal>site</defaultGoal>
   </build>
 
   <licenses>
