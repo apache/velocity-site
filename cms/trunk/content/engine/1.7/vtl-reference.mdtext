@@ -1,0 +1,287 @@
+title: Apache Velocity Engine VTL Reference
+
+## About this Guide
+
+This guide is the reference for the Velocity Template Language (VTL). For more information, please also refer to the [Velocity User Guide](user-guide.html).
+
+## References
+
+### Variables
+
+Notation:
+
+**$** [ **!** ][ **{** ][**a..z**, **A..Z** ][ **a..z**, **A..Z**, **0..9**, **-**, **_** ][ **}** ]
+
+Examples:
+
++ Shorthand notation: `$mud-Slinger_9`
++ Silent Shorthand notation: `$!mud-Slinger_9`
++ Formal notation: `${mud-Slinger_9}`
++ Silent Formal notation: `$!{mud-Slinger_9}`
+
+### Properties
+
+Notation:
+
+**$** [ **{** ][ **a..z**, **A..Z** ][ **a..z**, **A..Z**, **0..9**, **-**, **_** ]* **.**[**a..z**, **A..Z** ][**a..z**, **A-Z**, **0..9**, **-**, **_** ]* [ **}** ]
+
+Examples:
+
++ Regular Notation: `$customer.Address`
+<li>Formal Notation: `${purchase.Total}`
+
+### Methods
+
+Notation:
+
+**$** [ **{** ][ **a..z**, **A..Z** ][ **a..z**, **A..Z**, **0..9**, **-**, **_** ]* **.**[ **a..z**, **A..Z** ][**a..z**, **A..Z**, **0..9**, **-**, **_** ]***(** [*optional parameter list...* ] **)** [** } **]
+
+Examples:
+
++ Regular Notation: `$customer.getAddress()`
++ Formal Notation: `${purchase.getTotal()}`
++ Regular Notation with Parameter List: `$page.setTitle( "My Home Page" )`
+
+VTL Properties can be used as a shorthand notation for VTL Methods that take *get* and *set*. Either *$object.getMethod()* or *$object.setMethod()* can be abbreviated as *$object.Method*. It is generally preferable to use a Property when available. The main difference between Properties and Methods is that you can specify a parameter list to a Method.
+
+## Directives
+
+### #set - Establishes the value of a reference
+
+Format:
+
+**#** [ **{** ] **set** [ **}** ] ** ( $**ref **=** [ **"**,
+    **'** ]arg[ **"**, **'** ] )
+
+Usage:
+
+
++ *$ref* - The LHS of the assignment must be a variable reference or a property reference.
++ *arg* - The RHS of the assignment, *arg* is parsed if enclosed in double quotes, and not parsed if enclosed in single quotes.  If the RHS evaluates to *null*, it is **not** assigned to the LHS.
+
+Examples:
+
++ Variable reference: `#set( $monkey = $bill )`
++ String literal: `#set( $monkey.Friend = 'monica' )`
++ Property reference: `#set( $monkey.Blame = $whitehouse.Leak )`
++ Method reference: `#set( $monkey.Plan = $spindoctor.weave($web) )`
++ Number literal: `#set( $monkey.Number = 123 )`
++ Range operator: `#set( $monkey.Numbers = [1..3] )`
++ Object list: `#set( $monkey.Say = ["Not", $my, "fault"] )`
++ Object map: `#set( $monkey.Map = {"banana" : "good", "roast beef" : "bad"})`
+
+The RHS can also be a simple arithmetic expression, such as:
+
++ Addition: `#set( $value = $foo + 1 )`
++ Subtraction: `#set( $value = $bar - 1 )`
++ Multiplication: `#set( $value = $foo * $bar )`
++ Division: `#set( $value = $foo / $bar )`
++ Remainder: `#set( $value = $foo % $bar )`
+
+### #if/#elseif/#else - Output conditional on truth of statements
+
+Format:
+
+**#** [ **{** ] **if** [ **}** ] **(** [condition] **)** [output] [**#** [ **{** ] **elseif** [ **}** ] **( **[condition] **)** [output] ]* [**#** [ **{** ] **else** [ **}** ]  [output] ] **#** [ **{** ] **end** [ **}** ]
+
+Usage:
+
++ *condition* - If a boolean, considered true if it has a true false; if not a boolean, considered true if not null.
++ *output* - May contain VTL.
+
+Examples (showing different operators):
+
+Operator Name | Symbol | Alternative Symbol | Example
+--------------|--------|--------------------|--------
+Equals Number | == | eq | `#if( $foo == 42 )`
+Equals String | == | eq | `#if( $foo == "bar" )`
+Object Equivalence | == | eq | `#if( $foo == $bar )`
+Not Equals | != | ne | `#if( $foo != $bar )`
+Greater Than | > | gt | `#if( $foo > 42 )`
+Less Than | < | lt | `#if( $foo < 42 )`
+Greater Than or Equal To | >= | ge | `#if( $foo >= 42 )`
+Less Than or Equal To | <= | le | `#if( $foo <= 42 )`
+Boolean NOT | ! | not | `#if( !$foo )`
+
+Notes:
+
+1. The == operator can be used to compare numbers, strings, objects of the same class, or objects of different classes.  In the last case (when objects are of different classes), the toString() method is called on each object and the resulting Strings are compared.
+2. You can also use brackets to delimit directives.  This is especially useful when text immediately follows an `#else` directive.
+
+        #if($foo == $bar)it's true!#{else}it's not!#end
+
+
+### #foreach - Loops through a list of objects
+
+Format:
+
+**#** [ **{** ] **foreach** [ **}** ] **(***$ref***in***arg***)***statement***#** [ **{** ] **end** [ **}** ]
+
+Usage:
+
++ *$ref* - The first variable reference is the item.
++ *arg* - May be one of the following: a reference to a list (i.e. object array, collection, or map), an array list, or the range operator.
++ *statement* - What is output each time Velocity finds a valid item in the list denoted above as *arg*.  This output is any valid VTL and is rendered each iteration of the loop.
+
+Examples of the #foreach(), omitting the statement block :
+
++ Reference: `#foreach ( $item in $items )`
++ Array list: `#foreach ( $item in ["Not", $my, "fault"] )`
++ Range operator: `#foreach ( $item in [1..3] )`
+
+Velocity provides an easy way to get the loop counter so that you can do something like the following:
+
+    <table>
+    #foreach( $customer in $customerList )
+        <tr><td>$foreach.count</td><td>$customer.Name</td></tr>
+    #end
+    </table>
+
+Additionally, the maximum allowed number of loop iterations can be controlled engine-wide (an ability introduced in Velocity 1.5). By default, there is no limit:
+
+    # The maximum allowed number of loops.
+    directive.foreach.maxloops = -1
+
+### #include - Renders local file(s) that are not parsed by Velocity
+
+Format:
+
+**#** [ **{** ] **include** [ **}** ] **( **arg[ arg2  ... argn]** )**
+
+Usage:
+
++ *arg* - Refers to a valid file under TEMPLATE_ROOT.
+
+Examples:
+
++ String: `#include( "disclaimer.txt"  "opinion.txt" )`+
++ Variable: `#include( $foo  $bar )`
+
+### #parse - Renders a local template that is parsed by Velocity
+
+Format:
+
+**#** [ **{** ] **parse** [ **}** ] **(** arg **)**</p>
+
+Usage:
+
++ *arg* - Refers to a template under TEMPLATE_ROOT.
+
+Examples:
+
++ String: `#parse( "lecorbusier.vm" )`
++ Variable: `#parse( $foo )`
+
+Recursion permitted. See *parse_directive.maxdepth* in `velocity.properties` to change from parse depth. (The default parse depth is 10.)
+
+### #stop - Stops the template engine
+
+Format:
+
+**#** [ **{** ] **stop** [ **}** ]
+
+Usage:
+
+This will stop execution of the current template. This is good for debugging a template.
+
+### #break - Stops the current directive
+
+Format:
+
+**#** [ **{** ] **break** [ **}** ]
+
+Usage:
+
+This will break execution of the current content directive. This is good for exiting a #foreach loop early, but also works in other scopes. You can even pass the scope control reference for a specific outer scope to break execution of all scopes outward to the specified one.
+
+### #evaluate - Dynamically evaluates a string or reference
+
+Format:
+
+**#** [ **{** ] **evaluate** [ **}** ] **( **arg** )**
+
+Usage:
+
++ *arg* - String literal or reference to be dynamically evaluated.
+    
+Examples:
+
++ String: `#evaluate( 'string with VTL #if(true)will be displayed#end' )`
++ Variable: `#evaluate( $foo )`
+
+### #define - Assigns a block of VTL to a reference
+
+Format:
+
+**#** [ **{** ] **define** [ **}** ] **( ***$ref*** )***statement***#** [ **{** ] **end** [ **}** ]
+
+Usage:
+
++ *$ref* - Reference that is assigned the VTL block as a value.
++ *statement* - Statement that is assigned to the reference.
+
+Example:
+
++ `#define( $hello ) Hello $who #end #set( $who = "World!") $hello ## displays Hello World!`
+
+### #macro - Allows users to define a Velocimacro (VM), a repeated segment of a VTL template, as required
+
+Format:
+
+**#** [ **{** ] **macro** [ **}** ] **(** vmname $arg1 [ $arg2 $arg3 ... $argn ] **)** [ VM VTL code... ] **#** [ **{** ] **end** [ **}** ]
+
+Usage:
+
++ *vmname* - Name used to call the VM (*#vmname*)
++ *$arg1 $arg2 [ ... ]* - Arguments to the VM. There can be any number of arguments, but the number used at invocation must match the number specified in the definition.
++ *[ VM VTL code... ]* - Any valid VTL code, anything you can put into a template, can be put into a VM.
+
+Once defined, the VM is used like any other VTL directive in a template.
+
+    #vmname( $arg1 $arg2 )
+
+**Except**, that when you wish to call a VM with a body, then you must prefix the name of the VM with @.  The content of that body may be referenced in the macro definition via $!bodyContent as many or few times as you like.
+
+    #@vmname( $arg1 $arg2 ) here is the body#end
+
+VMs can be defined in one of two places:
+
+1. *Template library:* can be either VMs pre-packaged with Velocity or custom-made, user-defined, site-specific VMs; available from any template
+2. *Inline:* found in regular templates, only usable when *velocimacro.permissions.allowInline=true* in `velocity.properties`.
+
+## Comments
+
+Comments are not rendered at runtime.
+
+### Single Line Comments
+
+Example:
+
+    ## This is a comment.**
+
+### Multi Line Comments
+
+Example:
+
+    #**
+      This is a multiline comment.
+      This is the second line.
+    *#
+
+## Unparsed Content
+
+Unparsed content is rendered at runtime, but is not parsed or interpreted.
+
+Example:
+
+
+    #[[
+
+    This has invalid syntax that would normally need 
+    "poor man's escaping" like:
+    
+     - #define()
+     - ${blah
+
+    ]]#
+

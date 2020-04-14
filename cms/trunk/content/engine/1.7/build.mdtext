@@ -1,0 +1,112 @@
+Title: Apache Velocity Engine - Building
+
+## Installation
+
+Velocity runs on a variety of platforms that have installed the Java 2 Virtual Machine. The J2SDK is required for users who want to compile Velocity from its source code.
+
+Everything required to build Velocity comes with the distribution, which can be obtained from [Subversion](http://www.apache.org/dev/version-control.html). However, you will need to install Ant to build the Velocity sources.
+
+Ant is also an Apache project, and can be found [here](http://ant.apache.org/). To build Apache Velocity, you need at least Version 1.7 of Apache Ant.
+
+The directory tree of the distribution looks like:
+
+    build/      This is where the build scripts live.
+    convert/    The WebMacro to Apache Velocity conversion program.
+    docs/       Velocity Documentation in HTML format.
+    docs/api/   Velocity Javadocs.
+    examples/   Examples how to use Velocity.
+    lib/        Dependencies for building and using Velocity.
+    lib/test/   Dependencies needed for the various unit tests.
+    src/        This is where all of the source code is located.
+    test/       Contains test files needed for the unit tests.
+    xdocs/      Here are the .xml files for building the .html files
+                related to the website and documentation. The files
+                located in docs/ have been built from these sources.
+
+## Required Tools
+
+To make building Velocity easy and consistent, we require an Apache project called [Ant](http://ant.apache.org/) version 1.7 or higher to perform the build process. We assume that you have followed Ant's installation instructions and have it properly installed.
+
+Velocity requires JDK 1.4 or greater to compile.  It's possible to use JDK 1.3 to compile but several useful features will not be included.  Velocity requires a minimum of JDK 1.3 to run.
+
+Finally, if you wish to modify Velocity's grammar you will need to a tool called [JavaCC](http://javacc.dev.java.net). We recommend version 3.2 or greater (for compatibility with JDK 1.5 syntax changes).
+
+## Jar Dependencies
+
+Velocity requires various third party jar files for compiling and for running.  Not all jar files are required in all cases.  When building, all dependencies will be downloaded automatically. You can control the download with the `skip.jar.loading` and `force.jar.loading` properties in the `build.properties` file.
+
+Jar | Purpose | Required at Runtime?
+----|---------|---------------------
+`antlr-2.7.5.jar` | XML parsing (XPath queries in particular) | Only for Anakia
+`avalon-logkit-2.1.jar` | Possible means of logging | No
+`commons-collection-3.1.jar` | Used in parsing configuration | Yes
+`commons-lang-2.1.jar` | Various String utility functions | Yes
+`commons-logging-1.1.jar` | To redirect log output to commons-logging | Only for those using commons-logging
+`jdom-1.0.jar` | XML parsing | Only for Anakia
+`log4j.1.2.12.jar` | Possible means of logging | No
+`oro-2.0.8.jar` | For regular expression parsing in tests and event handlers | Only for reference escaping event handlers
+`servletapi-2.3.jar` | For the deprecated VelocityServlet and redirecting log output to the servlet log. | Only for VelocityServlet or ServletLogChute
+`werken-xpath-0.9.4.jar` | XML parsing | Only for Anakia
+`junit-3.8.1.jar` | For running unit tests | No
+`hsqldb-1.7.1.jar` | For running database related unit tests | No
+`ant.jar` | Required for compilation. Provided by the ant build tool. | No
+
+Note that you can always create a jar with all required run-time dependencies by executing the `jar-dep` task.
+
+## Building
+
+In each case below, it is assumed that you were successful in getting the distribution from Subversion or as a nightly build, and with the latter, were successful in unpacking.  Also, it is assumed that you are starting in the 'velocity' directory, the root of the distribution tree. All directory references will be relative to 'velocity'.
+
+Change to the **build** directory (`cd build`). Then, to build the jar file, simply type:
+
+    ant
+
+Executing this script will create a **bin** directory within the Velocity distribution directory. The **bin** directory will contain the compiled class files (inside a **classes** directory) as well as a **velocity-XX.jar** file, where XX is the current version number. Be sure to update your classpath to include Velocity's **.jar** file.
+
+Note that to build any of the specific build targets simply add the target name to the command line.  For example, to build the Javadoc API documentation:
+
+ant javadocs
+
+Some of the most useful targets are:
+
++ **`jar`** builds the complete Velocity jar in the `bin` directory.  This jar will be called 'velocity-X.jar', where 'X' is the current version number. This jar does not include necessary dependencies for Velocity.  If you use this target, you must put the required dependent jars in your CLASSPATH (or WEB-INF/lib). For convenience, you can use the `jar-dep` target to build a jar with all required dependent classes included.
++ **`jar-dep`** builds the complete Velocity jar in the `bin` directory.
++ **`clean`** deletes all generated classes, jars, documentation, and other files.
++ **`real-clean`** like `clean` but also deletes all downloaded jars.
++ **`docs`** builds these docs in the `docs` directory using Velocity's [Anakia](/anakia/) XML transformation tool. Allows you to use Velocity templates in place of stylesheets - give it a try!
++ **`examples`** builds the example code in the example programs found in the `examples` directory. 
++ **`jar-src`** bundles all the Velocity source code into a single jar, placed in the `bin` directory.
++ **`javadocs`** builds the Javadoc class documentation in the `docs/api` directory
++ **`package`** will generate the complete Velocity distribution package.
++ **`parser`** will compile the JavaCC parser files from src/Parser.jjt into the appropriate Java source files.  Requires JavaCC 3.2+ to be installed, and the property `javacc.home` to contain a path to the installed JavaCC directory.
++ **`test`** (after jar) will test Velocity against its testbed suite of test routines.
+
+Velocity should build 'out of the box', independent of your classpath. If you get an error building Velocity, try a different nightly build (as sometimes we make a mistake and the Subversion at the time of the nightly snapshot isn't complete) or refresh from Subversion (you might have gotten a Subversion snapshot while a developer was checking things in.)
+
+If the problems persist, do not hesitate to ask the Velocity community via our [mail lists](/contact.html).
+
+The Velocity developers use an automated test facility, and it is included in the distribution. You can use it to make sure that all is well with your build of Velocity.
+
+To run the test suite, simply use the build target **test** when you build:
+
+    ant test
+
+If all is well, you should see output similar to:
+
+    test:
+        [mkdir] Created dir: ..../bin/test-reports
+        [junit] Running org.apache.velocity.io.UnicodeInputStreamTestCase
+        [junit] Tests run: 8, Failures: 0, Errors: 0, Time elapsed: 0.011 sec
+        [junit] Running org.apache.velocity.test.AbsoluteFileResourceLoaderTestCase
+        [junit] Tests run: 1, Failures: 0, Errors: 0, Time elapsed: 0.015 sec
+        [junit] Running org.apache.velocity.test.ArithmeticTestCase
+        [junit] Tests run: 7, Failures: 0, Errors: 0, Time elapsed: 0.006 sec
+        [junit] Running org.apache.velocity.test.BuiltInEventHandlerTestCase
+        
+        ...
+
+    BUILD SUCCESSFUL
+    Total time: 42 seconds
+
+Note that the number of tests may vary from those shown above, but if you see 'OK' after the tests are run, all is well.
+

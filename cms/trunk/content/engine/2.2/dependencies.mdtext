@@ -1,0 +1,29 @@
+Title: Apache Velocity Engine Dependencies
+
+## Velocity Dependencies
+
+Since 2.1, Velocity Engine requires Java 1.8+.
+
+When building from sources, Maven should fetch all needed dependencies. At runtime, velocity only needs commons-lang, slf4j-api, and one of the slf4j bindings.
+
+The following table lists all needed jars.
+
+Jar name | Version | Compilation | Tests | Runtime | Comment
+---------|---------|---------|-------|-------------|--------
+slf4j-api | 1.7.30 | Yes | Yes | Yes | you'll also need an slf4j binding at runtime
+commons-lang | 3.8.1 | Yes | Yes | Yes |
+junit | 4.13 | No | Yes | No |
+hsqldb | 2.5.0 | No | Yes | No |
+commons-io | 2.6 | No | Yes | No |
+slf4j-simple | 1.7.30 | No | Yes | No | Your application will need *one* SLF4J binding, see below
+
+Here is a list of slf4j bindings:
+
++ [AVSL](http://software.clapper.org/avsl/) - “A Very Simple Logger”
++ [SLF4J JDK14 Adapter](http://www.slf4j.org/api/org/slf4j/impl/JDK14LoggerAdapter.html) - redirect logs towards Java 1.4+ logging framework
++ [SLF4J Log4J Adapter](http://www.slf4j.org/api/org/slf4j/impl/Log4jLoggerAdapter.html) - redirects logs towards Log4J
++ [SLF4J Simple Logger](http://www.slf4j.org/api/org/slf4j/impl/SimpleLogger.html) - minimalistic logger
++ [SLF4J Android](http://www.slf4j.org/android/) - logger for Android platforms
++ [LogBack](http://logback.qos.ch/) - full featured logging framework
++ [WebApp SLF4J Logger](https://github.com/arkanovicz/webapp-slf4j-logger) - redirects logs towards the J2EE container log
+

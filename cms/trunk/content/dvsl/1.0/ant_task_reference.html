@@ -1,0 +1,596 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>Apache DVSL - 
+  DVSL Ant Task Reference</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+    <link rel="alternate" href="http://feeds.feedburner.com/ApacheVelocitySiteNews" type="application/rss+xml" title="Apache DVSL - 
+  DVSL Ant Task Reference News" />
+          <meta name="author" content="
+  Bill Burton" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../../../" id="bannerLeft">
+    
+                                            <img src="images/velocity_project_wide.png" alt="" />
+    
+            </a>
+                          <span id="bannerRight">
+    
+                                            <img src="images/dvsl.png" alt="" />
+    
+            </span>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+          
+          <a href="http://www.apache.org/">Apache</a>
+              &gt;
+      
+          <a href="../../../">Velocity</a>
+              &gt;
+      
+          DVSL
+                </div>
+            <div class="xright">      <a href="../../../engine/devel/">Engine</a>
+          |
+          <a href="../../../tools/devel/">Tools</a>
+          |
+          <a href="../../../anakia/devel/">Anakia</a>
+          |
+          <a href="../../../texen/devel/">Texen</a>
+          |
+          <a href="../../../docbook/">DocBook</a>
+          |
+          <a href="../../devel/">DVSL</a>
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>DVSL</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="index.html">General</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../download.cgi">Download</a>
+        </li>
+          </ul>
+          <h5>Documentation</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="users-guide.html">User Guide</a>
+        </li>
+              
+    <li class="none">
+              <strong>Ant Task Reference</strong>
+        </li>
+              
+    <li class="none">
+              <a href="more-resources.html">More Resources</a>
+        </li>
+          </ul>
+          <h5>Community</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/">Wiki</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/GetInvolved">Get Involved</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../contact.html">Mailing Lists</a>
+        </li>
+          </ul>
+          <h5>Velocity Development</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/CodeStandards">Coding Standards</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/DocumentationGuidelines">Documentation Guidelines</a>
+        </li>
+              
+    <li class="none">
+              <a href="https://issues.apache.org/jira/browse/DVSL">Issues</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../who-we-are.html">Who we are</a>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-info.html">Project Information</a>
+              </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-reports.html">Project Reports</a>
+              </li>
+          </ul>
+                                             
+                        
+                        
+                        <a class="poweredBy" href="../../../" title="Apache Velocity" ><img class="poweredBy" alt="Apache Velocity" src="images/pbv90x30.png" /></a>
+                                
+                        
+                        
+                        <a class="poweredBy" href="../../../rss/news.rss" title="Velocity News Feed" ><img class="poweredBy" alt="Velocity News Feed" src="images/feed-icon-24x24.jpg" /></a>
+                    
+
+           
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        
+
+ 
+
+ 
+
+  <a name="dvsl_ant_task_reference"></a><div class="section"><h2>DVSL Ant Task Reference</h2>
+
+    <p>
+    Processes a set of XML documents using a stylesheet written in DVSL
+    (Declarative Velocity Style Language).
+    </p>
+    <p>
+    This is useful for building views of XML based documentation,
+    or for generating code, etc.  Conceptually, this task performs the same
+    function as the &lt;style&gt; task included with the Ant distribution
+    but using a stylesheet with DVSL syntax instead of XSLT.
+    </p>
+    <p>
+    As DVSL has a tight binding with Java objects, access is provided to
+    the &quot;Toolbox&quot; which loads properties and objects which are then exposed to
+    the stylesheet in a transparent manner.
+    </p>
+    <p>
+    Since DVSL utilizes Velocity for rendering its output, access is
+    provided to allow configuring the Velocity runtime environment from within
+    this task.
+    </p>
+    <p>
+    It is possible to refine the set of files that are being processed. This
+    can be done with the <i>includes</i>, <i>includesfile</i>, <i>excludes</i>,
+    <i>excludesfile</i> and <i>defaultexcludes</i> attributes. With the <i>includes</i>
+    or <i>includesfile</i> attribute you specify the files you want to have included
+    by using patterns. The <i>exclude</i> or <i>excludesfile</i> attribute is used
+    to specify the files you want to have excluded. This is also done with patterns.
+    And finally with the <i>defaultexcludes</i> attribute, you can specify whether you
+    want to use default exclusions or not. See the section on <a href="../dirtasks.html#directorybasedtasks">directory based tasks</a>, on how the
+    inclusion/exclusion of files works, and how to write patterns.
+    </p>
+    <p>
+    This task forms an implicit <a href="../CoreTypes/fileset.html">FileSet</a> and supports all
+    attributes of <code>&lt;fileset&gt;</code> (<code>dir</code> becomes <code>basedir</code>)
+    as well as the nested <code>&lt;include&gt;</code>, <code>&lt;exclude&gt;</code>
+    and <code>&lt;patternset&gt;</code> elements.
+    </p>
+    <p>
+    DVSL supports the use of a &lt;tool&gt; element which is used to pass values
+    to the DVSL toolbox configuration.
+    </p>
+    <p>All Velocity messages are routed through Ant's logging system but
+    will only be output if their level exceeds that of Ant's current logging
+    level.  By default, this means Velocity informational messages are
+    suppressed while warning and error messages are output.  The following
+    table shows the mapping between Ant logging options and the corresponding
+    levels of Velocity messages which are output.
+    </p>
+    <table class="bodyTable">
+      <tr class="a">
+        <td ><b>Ant Logging Option</b></td>
+        <td ><b>Velocity Messages Output</b></td>
+      </tr>
+      <tr class="b">
+        <td ><code>-quiet</code></td>
+        <td >errors</td>
+      </tr>
+      <tr class="a">
+        <td ><code>no option</code></td>
+        <td >errors, warnings</td>
+      </tr>
+      <tr class="b">
+        <td ><code>-verbose</code></td>
+        <td >errors, warnings, informational</td>
+      </tr>
+      <tr class="a">
+        <td ><code>-debug</code></td>
+        <td >errors, warnings, informational, debug</td>
+      </tr>
+    </table>
+    <p>If the <code>logfile</code> attribute is specified to this task,
+    all Velocity messages are written to the specified log file without
+    regard to any logging option specified to Ant.
+    </p>
+
+  </div>
+
+  <a name="parameters"></a><div class="section"><h2>Parameters</h2>
+
+    <table class="bodyTable">
+      <tr class="b">
+        <td ><b>Attribute</b></td>
+        <td ><b>Description</b></td>
+        <td ><b>Required</b></td>
+      </tr>
+      <tr class="a">
+        <td >basedir</td>
+        <td >where to find the source XML file, default is the
+          project's basedir.</td>
+        <td >No</td>
+      </tr>
+      <tr class="b">
+        <td >destdir</td>
+        <td >directory in which to store the results.</td>
+        <td >Yes, unless in and out have been
+          specified.</td>
+      </tr>
+      <tr class="a">
+        <td >extension</td>
+        <td >desired file extension to be used for the targets. If not
+          specified, the default is &quot;.html&quot;.</td>
+        <td >No</td>
+      </tr>
+      <tr class="b">
+        <td >style</td>
+        <td >name of the stylesheet to use - given either relative
+          to the project's basedir or as an absolute path
+        </td>
+        <td >Yes</td>
+      </tr>
+      <tr class="a">
+        <td >classpath</td>
+        <td >classpath to use when loading toolbox and velocity
+          configuration classes.</td>
+        <td >No</td>
+      </tr>
+      <tr class="b">
+        <td >classpathref</td>
+        <td >the classpath to use, given as <a href="../using.html#references">reference</a> to a path defined elsewhere.</td>
+        <td >No</td>
+      </tr>
+      <tr class="a">
+        <td >force</td>
+        <td >Recreate target files, even if they are newer
+          than their corresponding source files or the stylesheet.</td>
+        <td >No</td>
+      </tr>
+      <tr class="b">
+        <td >includes</td>
+        <td >comma separated list of patterns of files that must be included.
+          All files are included when omitted.</td>
+        <td >No</td>
+      </tr>
+      <tr class="a">
+        <td >includesfile</td>
+        <td >the name of a file. Each line of this file is taken to be
+          an include pattern</td>
+        <td >No</td>
+      </tr>
+      <tr class="b">
+        <td >excludes</td>
+        <td >comma separated list of patterns of files that must be excluded.
+          No files (except default excludes) are excluded when omitted.</td>
+        <td >No</td>
+      </tr>
+      <tr class="a">
+        <td >excludesfile</td>
+        <td >the name of a file. Each line of this file is taken to be
+          an exclude pattern</td>
+        <td >No</td>
+      </tr>
+      <tr class="b">
+        <td >defaultexcludes</td>
+        <td >indicates whether default excludes should be used or not
+          (&quot;yes&quot;/&quot;no&quot;). Default excludes are used when omitted.</td>
+        <td >No</td>
+      </tr>
+      <tr class="a">
+        <td >in</td>
+        <td >specifies a single XML document to be styled. Should be used
+          with the out attribute.</td>
+        <td >No</td>
+      </tr>
+      <tr class="b">
+        <td >out</td>
+        <td >specifies the output name for the styled result from the
+          in attribute.</td>
+        <td >No</td>
+      </tr>
+      <tr class="a">
+        <td >outputencoding</td>
+        <td >encoding to be used for output files. If not
+          specified, the default is UTF-8.</td>
+        <td >No</td>
+      </tr>
+      <tr class="b">
+        <td >logfile</td>
+        <td >log file for Velocity messages.  The default is to
+          log through Ant's logging system but limit output based on Ant's
+          logging level.  Specifying this attribute causes all Velocity
+          messages to be sent to the specified file instead.</td>
+        <td >No</td>
+      </tr>
+      <tr class="a">
+        <td >toolboxfile</td>
+        <td >specifies the toolbox properties file name.</td>
+        <td >No</td>
+      </tr>
+      <tr class="b">
+        <td >velocityconfigclass</td>
+        <td >specifies a class to load which sets Velocity properties.
+          The class must implement the <code>java.util.Map</code> interface.</td>
+        <td >No</td>
+      </tr>
+      <tr class="a">
+        <td >validatingparser</td>
+        <td >specifies that the parser for the input XML should
+        validate.  Boolean valued, default is <code>false</code></td>
+        <td >No</td>
+      </tr>
+    </table>
+
+  </div>
+
+  <a name="parameters_specified_as_nested_elements"></a><div class="section"><h2>Parameters specified as nested elements</h2>
+
+    <a name="classpath"></a><div class="section"><h3>classpath</h3>
+
+      <p>Classpath to use when loading toolbox and velocity configuration
+      classes.  This is defined using a
+      <a href="../using.html#path">path</a>-like structure.</p>
+
+    </div>
+
+    <a name="tool"></a><div class="section"><h3>tool</h3>
+
+      <p>Set a toolbox property.  Properties specified with this nested element
+      override those defined in a properties file specified by the
+      <code>toolboxfile</code> attribute.</p>
+
+      <strong>Parameters</strong>
+
+      <table class="bodyTable">
+        <tr class="b">
+          <td ><b>Attribute</b></td>
+          <td ><b>Description</b></td>
+          <td ><b>Required</b></td>
+        </tr>
+        <tr class="a">
+          <td >name</td>
+          <td >Name of the toolbox property</td>
+          <td >Yes</td>
+        </tr>
+        <tr class="b">
+          <td >value</td>
+          <td >Value of the toolbox property.</td>
+          <td >Yes</td>
+        </tr>
+      </table>
+
+    </div>
+
+    <a name="velconfig"></a><div class="section"><h3>velconfig</h3>
+
+      <p>Velconfig is used to set a Velocity configuration property.  Properties
+        specified with this nested element override those defined in a class loaded
+        via the <code>velocityconfigclass</code> attribute. </p>
+
+      <strong>Parameters</strong>
+
+      <table class="bodyTable">
+        <tr class="a">
+          <td ><b>Attribute</b></td>
+          <td ><b>Description</b></td>
+          <td ><b>Required</b></td>
+        </tr>
+        <tr class="b">
+          <td >name</td>
+          <td >Name of the Velocity configuration property</td>
+          <td >Yes</td>
+        </tr>
+        <tr class="a">
+          <td >value</td>
+          <td >Value of the Velocity configuration property.</td>
+          <td >Yes</td>
+        </tr>
+      </table>
+
+    </div>
+
+  </div>
+
+  <a name="application_values"></a><div class="section"><h2>Application Values</h2>
+
+  <p>
+  DVSL as of v0.43, supports applications making application specific values
+  available via the $context API. (Please see DVSL User Guide.)  When using
+  Ant and DVSL, the following values are accessable :
+  </p>
+
+  <ul>
+  <li>
+  <b>infilename</b> : the current input file name, sans path.  Ex. 'input.xml'.
+  This can be accessed via <code>$context.getAppValue('infilename')</code>
+  </li>
+  <li>
+  <b>outfilename</b> : the current output file name, sans path.
+  Ex. 'output.html'.
+  This can be accessed via <code>$context.getAppValue('outfilename')</code>
+  </li>
+  </ul>
+
+  </div>
+
+  <a name="declaring_the_dvsl_task_in_the_build_file"></a><div class="section"><h2>Declaring the DVSL Task in the build file</h2>
+
+    <p>This task as with any other task not shipped with Ant must be defined
+    in the build file using a <code>&lt;taskdef&gt;</code> declaration.  For
+    example, the following declaration associates a task named &lt;dvsl&gt;
+    with the class <code>org.apache.dvsl.DVSLTask</code>.  In addition,
+    the required jars for DVSL support are specified in classpath using a
+    FileSet.</p>
+
+<div class="source"><pre>
+&lt;taskdef name=&quot;dvsl&quot; classname=&quot;org.apache.dvsl.DVSLTask&quot;&gt;
+  &lt;classpath&gt;
+    &lt;fileset dir=&quot;${lib.dir}&quot;&gt;
+      &lt;include name=&quot;velocity-dvsl-*.jar&quot; /&gt;
+      &lt;include name=&quot;velocity-dep-*.jar&quot; /&gt;
+      &lt;include name=&quot;dom4j-*.jar&quot; /&gt;
+    &lt;/fileset&gt;
+  &lt;/classpath&gt;
+&lt;/taskdef&gt;
+</pre></div>
+
+  </div>
+
+  <a name="examples"></a><div class="section"><h2>Examples</h2>
+
+   <p><strong>Simple case running a transformation on all files in a
+   directory:</strong></p>
+<div class="source"><pre>
+&lt;dvsl basedir=&quot;doc&quot; destdir=&quot;build/doc&quot;
+      extension=&quot;.html&quot; style=&quot;style/apache.dvsl&quot; /&gt;
+</pre></div>
+
+   <p><strong>Using parameters to set Toolbox and Velocity
+   properties:</strong></p>
+<div class="source"><pre>
+&lt;dvsl basedir=&quot;doc&quot; destdir=&quot;build/doc&quot;
+      extension=&quot;.html&quot; style=&quot;style/apache.xsl&quot;
+      classpath=&quot;.&quot;&gt;
+  &lt;tool name=&quot;toolbox.string.mystring&quot; value=&quot;Some arbitrary text&quot; /&gt;
+  &lt;tool name=&quot;toolbox.tool.footool&quot; value=&quot;Footool&quot; /&gt;
+  &lt;velconfig name=&quot;runtime.log&quot; value=&quot;${basedir}/dvsl.log&quot; /&gt;
+&lt;/dvsl&gt;
+</pre></div>
+
+  </div>
+
+ 
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2002-2007
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+    
+             Last Published: 2007-08-13 16:24:18
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

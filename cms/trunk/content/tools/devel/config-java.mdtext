@@ -1,0 +1,26 @@
+Title: Apache Velocity Tools - Configuration Using Java
+
+## Configuration using Java
+
+As of VelocityTools 2, its no longer merely possible to configure things purely via Java, it is now much easier to do and can be done in several different ways. Here again, is an example that is equivalent to those demonstrated in the [properties](config-properties.html) and [XML](config-xml.html) configurations:
+
+    :::java
+    EasyFactoryConfiguration config = new EasyFactoryConfiguration();
+    config.toolbox("request").property("xhtml", true)
+    .tool("toytool", ToyTool.class).restrictTo("index.vm")
+    .tool("custom", CustomTool.class).property("randomProperty", "whatever");
+    config.toolbox("session").property("create-session", true)
+    .tool("map", HashMap.class);
+    config.toolbox("application")
+    .tool(DateTool.class);
+    config.number("version", 1.1);
+    config.data("date", "Mon Sep 17 10:08:03 PDT 2007")
+    .target(Date.class)
+    .converter(DateLocaleConverter.class);
+    config.bool("isSimple", true);
+    config.string("foo", "this is foo.");
+    config.string("bar", "this is bar.");
+    config.data("dataKeys", "list", "version,date,isSimple,foo,bar,dataKeys,switches");
+    config.data("switches", "list.boolean", "true,false,false,true");
+
+This example uses the [EasyFactoryConfiguration](apidocs/org/apache/velocity/tools/config/EasyFactoryConfiguration.html) API for brevity, but you can also directly use the [FactoryConfiguration](apidocs/org/apache/velocity/tools/config/FactoryConfiguration.html)/ [ToolboxConfiguration](apidocs/org/apache/velocity/tools/config/ToolboxConfiguration.html)/ [ToolConfiguration](apidocs/org/apache/velocity/tools/config/ToolConfiguration.html)/ [Data](apidocs/org/apache/velocity/tools/config/Data.html) API, as you would probably do if you were to construct your configuration via a dependency injection framework (such as Spring).

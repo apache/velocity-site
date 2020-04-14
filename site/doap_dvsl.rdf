@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl"?>
+<rdf:RDF xml:lang="en"
+         xmlns="http://usefulinc.com/ns/doap#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:asfext="http://projects.apache.org/ns/asfext#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<!--
+  =======================================================================
+
+   Copyright (c) 2006 The Apache Software Foundation.
+   All rights reserved.
+
+  =======================================================================
+-->
+  <Project rdf:about="http://velocity.apache.org/dvsl/devel/">
+    <created>2006-11-21</created>
+    <license rdf:resource="http://usefulinc.com/doap/licenses/asl20" />
+    <name>Apache Velocity DVSL</name>
+    <homepage rdf:resource="http://velocity.apache.org/dvsl/devel/" />
+    <asfext:pmc rdf:resource="http://velocity.apache.org/"/>
+    <shortdesc>A tool modeled after XSLT and intended for general XML transformations using the Velocity Template Language.</shortdesc>
+    <description>DVSL (Declarative Velocity Style Language) is a tool modeled after XSLT and is intended for general XML transformations using the Velocity Template Language as the templating language for the transformations. The key differences are that it incorporates easy access to Java objects and allows you to use the Velocity template language and it's features for expressing the transformation templates.</description>
+    <bug-database rdf:resource="http://issues.apache.org/jira/browse/VELOCITY" />
+    <mailing-list rdf:resource="http://velocity.apache.org/mail-lists.html" />
+    <download-page rdf:resource="http://velocity.apache.org/download.cgi" />
+    <programming-language>Java</programming-language>
+    <category rdf:resource="http://projects.apache.org/category/library"/>
+    <release>
+      <Version>
+        <name>Latest Stable Release</name>
+        <created>2007-08-13</created>
+        <revision>1.0</revision>
+      </Version>
+    </release>
+    <repository>
+      <SVNRepository>
+        <location rdf:resource="http://svn.apache.org/repos/asf/velocity/dvsl/trunk"/>
+        <browse rdf:resource="http://svn.apache.org/viewvc/velocity/dvsl/trunk"/>
+      </SVNRepository>
+    </repository>
+  </Project>
+</rdf:RDF>

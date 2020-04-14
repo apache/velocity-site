@@ -1,0 +1,81 @@
+Title: Apache Velocity Tools - VelocityView
+
+## Overview
+
+VelocityView includes all of the [GenericTools](generic.html) and adds infrastructure and specialized tools for using Velocity in the view layer of web applications (Java EE projects). This includes the VelocityViewServlet or VelocityLayoutServlet for processing Velocity template requests and the VelocityViewTag for embedding Velocity in JSP.
+
+Key features:
+
++ [**VelocityViewServlet**](view-servlet.html) - standalone servlet that renders Velocity templates. Invoked directly from web clients requests, or via servlet forwarding similar to how JSP files are rendered by JSPServlet.
++ The [HttpServletRequest](http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html), [HttpSession](http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpSession.html), [ServletContext](http://docs.oracle.com/javaee/6/api/javax/servlet/ServletContext.html), and their attributes are automatically available in your templates.
++ Tools can also be made available to your templates, through a **tools** [configuration](configuration.html) file.
++ A number of useful, extendable tools for developing web applications are already provided for your convenience.
++ Logging can be directed to the log infrastructure of the Web application. (default is the logging facility provided by the Servlet API).
+
+## Default Configuration
+
+The default configuration provided for VelocityView is [here](http://svn.apache.org/viewvc/velocity/tools/tags/2.0/src/main/java/org/apache/velocity/tools/generic/tools.xml?view=markup") and [here](http://svn.apache.org/viewvc/velocity/tools/tags/2.0/src/main/java/org/apache/velocity/tools/view/tools.xml).
+
+## Dependencies
+
+The dependencies required for VelocityView can be found on our [dependencies chart](dependencies.html#VelocityView).
+
+## VelocityView Object
+
+The [VelocityView](apidocs/org/apache/velocity/tools/view/VelocityView.html) object forms the core of the VelocityView infrastructure.  In particular, it serves as the base class for the following:
+
+### [VelocityViewServlet](view-servlet.html)
+
+The [VelocityViewServlet](apidocs/org/apache/velocity/tools/view/VelocityViewServlet.html) class is a standalone servlet that renders Velocity templates. It can be invoked directly from web client's requests, or via servlet forwarding similar to how JSP files are rendered by JSPServlet.
+
+Detailed documentation is [here](view-servlet.html).
+
+### [VelocityLayoutServler](view-layoutservlet.html)
+
+One derivative of the VelocityViewServlet is the [**VelocityLayoutServlet**](view-layoutservlet.html. This servlet performs a simplified 'two-pass render' in order to apply a shared, common layout to all of the web pages in an application.
+
+The Struts "template" tag library does something similar, but requires a separate file to define which 'layout' file to use and which .jsp files to render into that layout. The VelocityLayoutServlet takes a simpler approach. It first renders the primary template being called (example: showDetails.vm) into a content holder variable (ex. $screen_content). Next, the servlet loads a 'layout' file. It uses the existing data, including any additional variables set or changed by the first template, to render a the layout template.
+
+
+The VelocityLayoutServlet also allows you to specify an 'error' template to be displayed when an exception is thrown during the processing of a requested template.  This allows you to provide a customized error screen for a more user-friendly application.
+
+Detailed documentation is [here](view-layoutservlet.html).
+
+### [VelocityViewTag](view-tag.html)
+
+This is a JSP tag that allows you to use Velocity and VelocityTools from within your JSP tags and files. This tag can both process templates in separate files, VTL in the tag body, or combine the two.
+
+Detailed documentation is [here](view-tag.html).
+
+## Tools
+
+These are in addition to those provided by [GenericTools](generic.html#Tools):
+
++ [AbstractSearchTool](apidocs/org/apache/velocity/tools/view/AbstractSearchTool.html) - For doing "searching" and robust pagination of search results. Requires you to create a subclass.
++ [BrowserTool](apidocs/org/apache/velocity/tools/view/BrowserTool.html) - For identifying the browser and features thereof requesting the template.
++ [CookieTool](apidocs/org/apache/velocity/tools/view/CookieTool.html) - For convenient cookie access and creation.
++ [ImportTool](apidocs/org/apache/velocity/tools/view/ImportTool.html) - For pulling down textual content from a URL.
++ [LinkTool](apidocs/org/apache/velocity/tools/view/LinkTool.html) - For easy building of URLs (both relative or absolute).
++ [PagerTool](apidocs/org/apache/velocity/tools/view/PagerTool.html) - For doing request-based pagination of items in an arbitrary list.
++ [ParameterTool](apidocs/org/apache/velocity/tools/view/ParameterTool.html) - For easy retrieval and parsing of ServletRequest parameters.
++ [ViewContextTool](apidocs/org/apache/velocity/tools/view/ViewContextTool.html) - For convenient access to ViewContext data and meta-data.
+
+## Examples
+
+A simple application example has been included to demonstrate the use of the VelocityViewServlet with automatically loaded view tools.
+
+To run the examples you need Tomcat 4+ or a compatible servlet runner.
+
+The 'ant examples' target of the build process automatically generates ready-to-deploy **simple.war** and **showcase.war** archive files located in the examples subdirectory of the distribution. Deploy (i.e. copy) one or both of these war files to the webapps directory of your servlet runner and restart. Now point a web browser at the following urls:
+
+**http://<your_server>:<port>/simple/**
+
+**http://<your_server>:<port>/showcase/**
+
+You can also use the embedded servlet runner to start and stop the showcase webapp on localhost's 8081 port using the **start.showcase.webapp** and **stop.showcase.webapp** ant targets.
+
+## Known Issues
+
+Since Tomcat 5.5 used commons-logging as a complete logging facility and the Struts example directs commons-logging output to the servlet log via LogChuteCommonsLog, you will get an infinite loop if you try to run the Struts example on Tomcat 5.5.  To fix this, upgrade to Tomcat 6.x or delete the commons-logging.properties file from the Struts example's classpath root.
+
+You may, of course, experience the same thing if you are running your web application on Tomcat 5.5 and decide to use LogChuteCommonsLog for commons-logging and stick with the ServletLogChute (the default) for Velocity(Tools) logging. You will have to change one of these two settings or else upgrade your servlet engine.

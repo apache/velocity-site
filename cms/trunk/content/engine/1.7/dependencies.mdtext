@@ -1,0 +1,24 @@
+Title: Apache Velocity Engine Dependencies
+
+## Velocity Dependencies
+
+Velocity has a number of external jar dependencies. However, not all of these are needed every time. This document should help you do decide which jars must also be present if you want to integrate Velocity into your application.
+
+All of these jars must be present when building Apache Velocity. The build process downloads all of them automatically from the Internet.
+
+Jar name | Required | Explanation
+---------|----------|------------
+commons-collections | Yes | Needed for all parts of Velocity.
+commons-lang | Yes | Needed for all parts of Velocity.
+commons-logging | No | Must be present if log system is configured to use [CommonsLogLogChute](apidocs/org/apache/velocity/runtime/log/CommonsLogLogChute.html). Otherwise, it is not needed.
+oro | Yes | Must be present if you have Velocity configured to [automatically escape references](developer-guide.html#configuring-event-handlers). Otherwise, it is not needed.
+Log4j | No | Must be present if log4j Logging has been selected. Not needed if any other logging style has been selected.
+logkit (or avalon-logkit) | No | Must be present if Avalon Logging has been selected. Not needed if any other logging style has been selected.
+servletapi | No | Only needed in the context of a web application. Should normally be supplied by the servlet container. **VelocityServlet is deprecated and should be replaced with VelocityViewServlet from the [velocity-tools](/tools/devel) distribution.**
+jdom | No | Only required for the deprecated Anakia tool / ant task
+werken-xpath | No | Only required for the deprecated Anakia tool / ant task
+antlr | No | Only required for the deprecated Anakia tool / ant task
+ant | No | Only needed for compilation.
+junit | No | Only needed for running the tests during compilation.
+hsqldb | No | Only needed for running the tests during compilation.
+{.standard}

@@ -1,0 +1,32 @@
+-classpath 'C:/java/apache/velocity/1.5/target/classes;C:/Documents and Settings/Nathan/.m2/repository/commons-lang/commons-lang/2.1/commons-lang-2.1.jar;C:/Documents and Settings/Nathan/.m2/repository/javax/servlet/servlet-api/2.3/servlet-api-2.3.jar;C:/Documents and Settings/Nathan/.m2/repository/log4j/log4j/1.2.12/log4j-1.2.12.jar;C:/Documents and Settings/Nathan/.m2/repository/commons-collections/commons-collections/3.1/commons-collections-3.1.jar;C:/Documents and Settings/Nathan/.m2/repository/oro/oro/2.0.8/oro-2.0.8.jar;C:/Documents and Settings/Nathan/.m2/repository/logkit/logkit/2.0/logkit-2.0.jar;C:/Documents and Settings/Nathan/.m2/repository/jdom/jdom/1.0/jdom-1.0.jar;C:/Documents and Settings/Nathan/.m2/repository/werken-xpath/werken-xpath/0.9.4/werken-xpath-0.9.4.jar;C:/Documents and Settings/Nathan/.m2/repository/ant/ant/1.6/ant-1.6.jar' -protected
+-sourcepath
+'C:/java/apache/velocity/1.5/src/java'
+-author
+-bottom
+'Copyright &copy; 2000-2007 <a href="http://www.apache.org/">The Apache Software Foundation</a>. All Rights Reserved.'
+-charset
+'ISO-8859-1'
+-d
+'C:/java/apache/velocity/1.5/target/site/apidocs'
+-doctitle
+'Apache Velocity 1.5 API'
+-link
+'http://java.sun.com/j2se/1.4.2/docs/api'
+-link
+'http://jakarta.apache.org/oro/api'
+-link
+'http://jakarta.apache.org/commons/lang/api-release'
+-link
+'http://jakarta.apache.org/commons/collections/api-release'
+-link
+'http://www.jdom.org/docs/apidocs'
+-link
+'http://logging.apache.org/log4j/docs/api'
+-link
+'http://excalibur.apache.org/apidocs'
+-link
+'http://tomcat.apache.org/tomcat-4.1-doc/servletapi'
+-use
+-version
+-windowtitle
+'Apache Velocity 1.5 API'

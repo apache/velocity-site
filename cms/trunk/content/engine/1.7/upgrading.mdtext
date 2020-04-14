@@ -1,0 +1,36 @@
+Title: Apache Velocity Engine - Upgrading
+
+## Upgrading from earlier versions
+
+Release with the same major number (1.x) are intended to be drop-in replacements. However, in most cases the versions of dependency jars must be adjusted because newer versions of Velocity might require updates.
+
+### Upgrading from Velocity 1.6
+
+There are no changes in the dependencies since Velocity 1.6
+
++ Deprecated $velocityCount; please use $foreach.count or $foreach.index
++ Deprecated $velocityHasNext; please use $foreach.hasNext, $foreach.first or $foreach.last
++ Deprecated velocimacro.context.localscope setting; please get/set local #macro references as members of the provided $macro scope control instead. (e.g. #set( $macro.foo = 'bar' ) and $macro.foo )
++ Deprecated directive.evaluate.context.class setting; please get/set local #evaluate references as members of the provided $evaluate scope control instead. (e.g. #set( $evaluate.foo = 'bar' ) and $evaluate.foo )
++ Deprecated #literal directive; please use #[[this syntax]]# instead.
++ Changed #stop to end template rendering rather than template parsing.
++ Removed obsolete Veltag (use VelocityViewTag in VelocityTools project)
++ Removed obsolete WebMacro conversion code.
+
+### Upgrading from Velocity 1.5
+
++ [Commons Collections](http://commons.apache.org/collections/) has been upgraded to version 3.2.1.
++ [Commons Lang](http://commons.apache.org/lang/) has been upgraded to version 2.4.
++ [Commons Logging](http://commons.apache.org/logging/) is required for compiling and using CommonsLogLogChute.
+
+### Upgrading from Velocity 1.4 or earlier
+
++ [JDOM](http://www.jdom.org) has been upgraded to version 1.0.
++ [Commons Collections](http://jakarta.apache.org/commons/collections/) has been upgraded to version 3.1.
++ [Commons Lang](http://jakarta.apache.org/commons/lang/) 2.1 has been added.</li>
+
+Optional:
++ [Apache Ant](http://ant.apache.org) 1.6 or better is required for rebuilding.
++ [JavaCC](http://javacc.dev.java.net) 3.2 is recommended to compile the parser files.
++ [HSQLDB](http://www.hsqldb.org) 1.7.1 is required for running unit tests.
+

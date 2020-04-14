@@ -1,0 +1,339 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>Apache DVSL - 
+        DVSL</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+    <link rel="alternate" href="http://feeds.feedburner.com/ApacheVelocitySiteNews" type="application/rss+xml" title="Apache DVSL - 
+        DVSL News" />
+          <meta name="author" content="
+        Geir Magnusson Jr." />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../../../" id="bannerLeft">
+    
+                                            <img src="images/velocity_project_wide.png" alt="" />
+    
+            </a>
+                          <span id="bannerRight">
+    
+                                            <img src="images/dvsl.png" alt="" />
+    
+            </span>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+          
+          <a href="http://www.apache.org/">Apache</a>
+              &gt;
+      
+          <a href="../../../">Velocity</a>
+              &gt;
+      
+          DVSL
+                </div>
+            <div class="xright">      <a href="../../../engine/devel/">Engine</a>
+          |
+          <a href="../../../tools/devel/">Tools</a>
+          |
+          <a href="../../../anakia/devel/">Anakia</a>
+          |
+          <a href="../../../texen/devel/">Texen</a>
+          |
+          <a href="../../../docbook/">DocBook</a>
+          |
+          <a href="../../devel/">DVSL</a>
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>DVSL</h5>
+        <ul>
+              
+    <li class="none">
+              <strong>General</strong>
+        </li>
+              
+    <li class="none">
+              <a href="../../../download.cgi">Download</a>
+        </li>
+          </ul>
+          <h5>Documentation</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="users-guide.html">User Guide</a>
+        </li>
+              
+    <li class="none">
+              <a href="ant_task_reference.html">Ant Task Reference</a>
+        </li>
+              
+    <li class="none">
+              <a href="more-resources.html">More Resources</a>
+        </li>
+          </ul>
+          <h5>Community</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/">Wiki</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/GetInvolved">Get Involved</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../contact.html">Mailing Lists</a>
+        </li>
+          </ul>
+          <h5>Velocity Development</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/CodeStandards">Coding Standards</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/DocumentationGuidelines">Documentation Guidelines</a>
+        </li>
+              
+    <li class="none">
+              <a href="https://issues.apache.org/jira/browse/DVSL">Issues</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../who-we-are.html">Who we are</a>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-info.html">Project Information</a>
+              </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-reports.html">Project Reports</a>
+              </li>
+          </ul>
+                                             
+                        
+                        
+                        <a class="poweredBy" href="../../../" title="Apache Velocity" ><img class="poweredBy" alt="Apache Velocity" src="images/pbv90x30.png" /></a>
+                                
+                        
+                        
+                        <a class="poweredBy" href="../../../rss/news.rss" title="Velocity News Feed" ><img class="poweredBy" alt="Velocity News Feed" src="images/feed-icon-24x24.jpg" /></a>
+                    
+
+           
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        
+
+    
+
+    
+
+    <a name="dvsl_:_declarative_xml_transformation_and_templating"></a><div class="section"><h2>DVSL : Declarative XML Transformation and Templating</h2>
+
+        <p>
+        DVSL (Declarative Velocity Style Language) is a tool modeled after
+        XSLT and is intended for general XML transformations using the
+        Velocity Template Language as the templating language for the
+        transformations.  The key
+        differences are that it
+        incorporates easy access to Java objects and allows you to use
+        the Velocity template language and it's features for expressing the
+        transformation templates.
+        </p>
+
+        <strong> Similarities to XSLT</strong>
+
+        <p>
+        DVSL steals two of the best features of XSLT:
+        </p>
+
+        <ul>
+            <li>
+            It uses a declarative syntax like XSLT.
+            </li>
+            <li>
+            Document control and selection is based on XPath.
+            </li>
+        </ul>
+
+        <strong>Differences From XSLT</strong>
+
+        <p>
+        DVSL differs from XSLT in a few ways
+        </p>
+
+        <ul>
+        <li>
+        DVSL's template language is Velocity, so conventional Velocity syntax is
+        used to get and set data, to perform looping and flow control, etc. All
+        features of VTL are available.
+        </li>
+        <li>
+        Because DVSL is based on Velocity, it offers a very tight binding to
+        Java objects.  This means that it's easy to access other data sources
+        from within the DVSL stylesheet, using conventional method call syntax,
+        allowing you to integrate, collect, and
+        transform with and to outside data like databases, calculation libraries, etc
+        </li>
+        </ul>
+
+    </div>
+
+    <a name="current_status"></a><div class="section"><h2>Current Status</h2>
+
+        <p>
+        DVSL is now mature and usable in production environments.
+        </p>
+
+    </div>
+
+    <a name="nightly_snapshots"></a><div class="section"><h2>Nightly Snapshots</h2>
+
+        <p>
+        Nightly snapshots of the DVSL Subversion are available
+        <a href="http://cvs.apache.org/snapshots/velocity/dvsl/" class="externalLink">
+        here</a>.
+        </p>
+
+    </div>
+
+    <a name="subversion_access"></a><div class="section"><h2>Subversion Access</h2>
+
+    <p>
+    Access to the DVSL Subversion repository is available :
+    </p>
+
+    <ul>
+    <li><a href="http://svn.apache.org/viewvc/velocity/dvsl/trunk/" class="externalLink">Online</a> in your browser.
+    </li>
+    <li>
+     Using a <a href="http://www.apache.org/dev/version-control.html" class="externalLink">
+     Subversion client</a>
+    </li>
+    </ul>
+    </div>
+
+ 
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2002-2007
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+    
+             Last Published: 2007-08-13 16:24:19
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

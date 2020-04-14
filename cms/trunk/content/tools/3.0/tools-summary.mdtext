@@ -1,0 +1,467 @@
+Title: Apache Velocity Tools Usage Summary
+
+## Tools Usage Summary
+
+You will find here a summary of all the available standard tools, sufficient for a basic integration and usage of each of them. Please refer to the javadoc for a complete reference of all their methods and properties, since only an excerpt is show here.
+
+### Index
+
+#### Generic Tools
+
++ [`$alt` - AlternatorTool](#AlternatorTool)
++ [`$class` - ClassTool](#ClassTool),
++ [`$context` - ContextTool](#ContextTool),
++ [`$convert` - ConversionTool](#ConversionTool),
++ [`$date` - ComparisonDateTool](#ComparisonDateTool),
++ [`$disp` - DisplayTool](#DisplayTool),
++ [`$esc` - EscapeTool](#EscapeTool),
++ [`$field` - FieldTool](#FieldTool),
++ [`$link` - LinkTool](#LinkTool),
++ [`$log` - LogTool](#LogTool),
++ [`$math` - MathTool](#MathTool),
++ [`$number` - NumberTool](#NumberTool),
++ [`$render` - RenderTool](#RenderTool),
++ [`$sort` - SortTool](#SortTool),
++ [`$text` - ResourceTool](#ResourceTool),
++ [`$xml` - XmlTool](#XmlTool)
+
+#### View Tools
+
++ [`$browser` - BrowserTool](#BrowserTool),
++ [`$context` - ViewContextTool](#ViewContextTool)
++ [`$cookie` - CookieTool](#CookieTool),
++ [`$import` - ImportTool](#ImportTool),
++ [`$include` - IncludeTool](#IncludeTool),
++ [`$link` - LinkTool](#LinkTool2),
++ [`$pager` - PagerTool](#PagerTool),
++ [`$params` - ParameterTool](#ParameterTool),
++ [`$search` - AbstractSearchTool](#AbstractSearchTool),
+
+### Generic Tools
+
+#### [**AlternatorTool**](apidocs/org/apache/velocity/tools/generic/AlternatorTool.html){#AlternatorTool} - tool to create [alternators](apidocs/org/apache/velocity/tools/generic/Alternator.html) (variables that cycle through an array)
+
+**`$alternator`** |
+--|--
+`config.autoAlternate` [&nbsp;=&nbsp;`true`&nbsp;] | boolean, states whether the alternator will automatically switch values at each rendering
+`$alternator.autoAlternateDefault` | returns `true` if alternators created by this tool will auto-alternate by default, or set the property to a new boolean value
+`#set( $alt = $alternator.auto(value1,value2,...) )` | creates an automatic alternator
+`#set( $alt = $alternator.make(value1,value2,...) )` | creates an alternator with default auto behaviour
+`#set( $alt = $alternator.manual(value1,value2,...) )` | creates a manual alternator
+`$alt` | displays current value (and shift for automatic alternators)
+`alt.current` | displays current value
+`$alt.next` | displays current value and shift
+`$alt.shift` | shifts to next value
+`$alt.auto` | read/write property stating if this is an automatic alternator
+
+#### [**ClassTool**](apidocs/org/apache/velocity/tools/generic/ClassTool.html) - tool meant to use Java reflection in templates{#ClassTool}
+
+**`$class`** | 
+--|--
+`config.inspect` [&nbsp;=&nbsp;`java.lang.Object`&nbsp;] | string, class name of the class which is to be inspected
+`config.safeMode` [&nbsp;=&nbsp;`true`&nbsp;] | boolean, indicates whether to only show public members, fields and constructors
+`config.showDeprecated` [&nbsp;=&nbsp;`false`&nbsp;] | boolean, states whether deprecated members, fields and constructors are to be shown
+`$class.annotations` | returns a list of the [`Annotations`](http://java.sun.com/j2se/1.5.0/docs/api/java/lang/annotation/Annotation.html) of the class being inspected
+`$class.constructors` | returns a list of [`ConstructorSub`](apidocs/org/apache/velocity/tools/generic/ClassTool.ConstructorSub.html)s for each constructor declared in the inspected class, with the following methods and read-only properties: `$ctor.name`, `$ctor.parameters` (array of `Class`), `$ctor.isVarArgs()`, `$ctor.modifiers` (some were omitted)
+`$class.field` | returns a list of [`FieldSub`](apidocs/org/apache/velocity/tools/generic/ClassTool.FieldSub.html)s for each field declared in the inspected class, with the following read-only properties: `$field.name`, `$field.modifiers`, `$field.staticValue`, `$field.type` (some were omitted)
+`$class.fullName` | full name of the inspected class
+`$class.methods` | returns a list of [`MethodSub`](apidocs/org/apache/velocity/tools/generic/ClassTool.MethodSub.html)s for each method declared in the inspected class, with the following methods and read-only properties: `$method.name`, `$method.parameters` (array of `Class`), `$method.returns`, `$method.isVarArgs()`, `$method.modifiers`, `$method.propertyName` (If this method can be treated as a bean property in Velocity, then it will return the "bean property" equivalent of the method name), `$method.isVoid()` (some were omitted)
+`$class.name` | returns the simple name of the class being inspected
+`$class.package` | returns the package name of the class being inspected
+`$class.showDeprecated` | returns or sets the current showDeprecated setting
+`$class.super` | returns a new ClassTool instance that inspects the immediate superclass of the class being inspected
+`$class.type` | returns the actual Class being inspected
+`$class.inspect(`&nbsp;*class/object/string*&nbsp;`)` | returns a new ClassTool instance that inspects the specified class or object
+`$class.abstract` | returns true if the class being inspected is abstract
+`$class.deprecated` | returns true if the class being inspected is deprecated
+`$class.final` | returns true if the class being inspected is final
+`$class.interface` | returns true if the class being inspected is an interface
+`$class.supportsNewInstance()` | returns true if a new instance of the class being inspected can be created via `$class.type.newInstance()`
+
+#### [**ContextTool**](apidocs/org/apache/velocity/tools/generic/ContextTool.html) - tool allowing Velocity context introspection{#ContextTool}
+
+**`$context`** |
+--|--
+`$context.keys` | returns a `java.util.Set` of the keys available in the current request context
+`$context.this` | returns the ViewContext currently being analyzed by this tool
+`$context.toolbox` | returns a `java.util.Map` of all the tools available in the current request context and their context keys
+`$context.values` | returns a `java.util.Set` of the values available in the current request context
+`$context.get(`&nbsp;*key*&nbsp;`)` | returns the value for the specified key in the current request context
+
+#### [**ConversionTool**](apidocs/org/apache/velocity/tools/generic/ConversionTool.html) - tool allowing conversions between datatypes{#ConversionTool}
+
+**`$convert`** |
+--|--
+`config.stringsDelimiter` [&nbsp;=&nbsp;`','`&nbsp;] | delimiter used when parsing concatenated strings arrays
+`config.trimStrings` [&nbsp;=&nbsp;`true`&nbsp;] | boolean, states whether or not trim strings when parsing concatenated strings arrays
+`config.numberFormat` [&nbsp;=&nbsp;JVM Locale number format&nbsp;] | number format to use when parsing numbers
+`config.dateFormat` [&nbsp;=&nbsp;JVM Locale date format&nbsp;] | date format to use when parsing dates
+`$convert.stringsDelimiter` | delimiter used when parsing concatenated strings arrays
+`$convert.stringsTrim` | whether or not strings are trimmed when parsing concatenated strings arrays
+`$convert.dateFormat` | current date format used when parsing dates
+`$convert.numberFormat` | current number format used when parsing numbers
+`$convert.parseDate(`&nbsp;*string* [ , *format* [ , *locale* [ , *timezone*&nbsp;]&nbsp;]&nbsp;]&nbsp;`)` | parses a date
+`$convert.parseNumber(`&nbsp;*string* [ , *format* [ , *locale*&nbsp;]&nbsp;]&nbsp;`)` | parses a number
+`$convert.to`*Type*`(`&nbsp;*object*&nbsp;`)` | converts an object to an instance of *Type*, where *Type* can be one of `Boolean`, `Calendar`, `Date`, `Double`, `Integer`, `Locale`, `Number`, `String`
+`$convert.to`*Type*`s(`&nbsp;*object*&nbsp;`)` | converts an array, Collection, delimited String, or object to an array of *Type*s, where *Type* can be one of `Boolean`, `Calendar`, `Date`, `Double`, `Integer`, `Locale`, `Number`, `String`
+
+#### [**ComparisonDateTool**](apidocs/org/apache/velocity/tools/generic/ComparisonDateTool.html) - tool used to format, parse and compare dates{#ComparisonDateTool}
+
+**`$date`** | 
+--|--
+`config.format` = [ JVM Locale default format&nbsp;] | default format (see [formatting patterns](apidocs/org/apache/velocity/tools/generic/DateTool.html#format(java.lang.String, java.lang.Object, java.util.Locale, java.util.TimeZone)))
+`config.locale` = [ JVM Locale&nbsp;] | default locale
+`config.timezone` = [ JVM timezone&nbsp;] | time zone
+`$date` | returns the current date and time formatted with the default format
+`$date.format(`&nbsp;[ *format*,&nbsp;] *object* [ , *locale* [ ,*timezone*&nbsp;]&nbsp;]&nbsp;`)` | formats the specified object
+`$date.get(`&nbsp;*format*&nbsp;`)` | returns the current date and time formatted using the given format
+`$date.get(`&nbsp;*date style*,&nbsp;*time style*&nbsp;`)` | returns the current date and time formatted using given styles, where each style is one of `full`, `long`, `medium`, `short`, `default`
+`$date.day` | current day in month
+`$date.month` | current month (warning: zero-based!)
+`$date.year` | current year
+`$date.getDay(`&nbsp;*object*&nbsp;`)` | day of month of given date
+`$date.getMonth(`&nbsp;*object*&nbsp;`)` | month of given date (warning: zero-based!)
+`$date.getYear(`&nbsp;*object*&nbsp;`)` | year of given date
+`$date.format` | returns or sets the pattern or style to be used for formatting dates when none is specified
+`$date.locale` | returns or sets the default Locale configured for this instance
+`$date.timeZone` | returns or sets the default TimeZone configured for this instance - `$date.timeZone.ID` displays the ID of the currently active TimeZone
+`$date.systemDate` | gets the Date at the time this page was rendered for the system running this application
+`$date.toCalendar(`&nbsp;*object*&nbsp;`)` | converts the given object to a java.util.Calendar
+`$date.toDate(`&nbsp;*object*&nbsp;`)` | convers the given object to a java.util.Date
+`$date.whenIs(`&nbsp;*object*&nbsp;`)` | returns a [`ComparisonDateTool.Comparison`](apidocs/org/apache/velocity/tools/generic/ComparisonDateTool.Comparison.html) between current and specified date ; returned comparison will have properties like: `$comp.years`, `$comp.months`, `$comp.weeks`, `$comp.days`, `$comp.hours`, `$comp.minutes`, `$comp.seconds`, `$comp.milliseconds`, along with several other formatting methods
+`$date.whenIs(`&nbsp;*object*,&nbsp;*object*&nbsp;`)` | returns a [`ComparisonDateTool.Comparison`](apidocs/org/apache/velocity/tools/generic/ComparisonDateTool.Comparison.html) between the two specified dates ; returned comparison will have properties like: `$comp.years`, `$comp.months`, `$comp.weeks`, `$comp.days`, `$comp.hours`, `$comp.minutes`, `$comp.seconds`, `$comp.milliseconds`, along with several other formatting methods
+
+#### [**DisplayTool**] - tool providing a variety of methods for controlling the output displayed by various references in your templates{#DisplayTool}
+
+**`$display`** | 
+--|--
+`config.listDelim` [&nbsp;=&nbsp;`','`&nbsp;] | default delimiter used between items by the list formatting methods
+`config.listFinalDelim` [&nbsp;=&nbsp;`'\''`&nbsp;] | default delimiter used between the last two items by the list formatting methods (defaults to ' and ')
+`config.truncateLength` [&nbsp;=&nbsp;`30`&nbsp;] | default length used by `truncate(Object)`
+`config.truncateSuffix` [&nbsp;=&nbsp;`"..."`&nbsp;] | default suffix used by the truncate methods
+`config.truncateAtWord` [&nbsp;=&nbsp;`false`&nbsp;] | boolean, whether to truncate at a precise character or the last fitting word
+`config.cellLength` [&nbsp;=&nbsp;`30`&nbsp;] | cell size
+`config.cellSuffix` [&nbsp;=&nbsp;`"..."`&nbsp;] | suffix used when cell contents need truncating
+`config.defaultAlternate` [&nbsp;=&nbsp;`null`&nbsp;] | alternate used by `alt(Object)`
+`config.allowedTags` [&nbsp;=&nbsp;`null`&nbsp;] | tags allowed to remain by `stripTags(Object)`
+`config.locale` [&nbsp;=&nbsp;JVM Locale&nbsp;] | used locale
+`$display.listDelimiter` | returns or sets the configured default delimiter used between items by the list formatting methods
+`$display.listFinalDelimiter` | returns or sets the configured default delimiter used between the last two items by the list formatting methods
+`$display.truncateLength` | returns or sets the configured default length used by `truncate(Object)`
+`$display.truncateSuffix` | returns or sets the default suffix used by the truncate methods
+`$display.truncateAtWord` | returns or sets whether or not to truncate at a precise character or the last fitting word
+`$display.cellLength` | returns or sets configured cell length
+`$display.cellSuffix` | returns or sets the suffix used when cell contents need truncating
+`$display.defaultAlternate` | returns or sets the configured default alternate used by `alt(Object)`
+`$display.allowedTags` | returns or sets the configured tags allowed to remain by `stripTags(Object)`
+`$display.alt(`&nbsp;*object* [ , *object*&nbsp;]&nbsp;`)` | returns the configured default value (or the second argument if specified) if the specified first value is null
+`$display.br(`&nbsp;*object*&nbsp;`)` | inserts HTML line break tag (<br/>) in front of all newline characters of the string value of the specified object and returns the resulting string
+`$display.capitalize(`&nbsp;*object*&nbsp;`)` | changes the first character of the string value of the specified object to upper case and returns the resulting string
+`$display(`&nbsp;*object* [ , *suffix*&nbsp;] [ , *length*&nbsp;]&nbsp;`)` | truncates or pads the string value of the specified object as necessary to ensure that the returned string's length equals the default or specified cell size, using the default suffix or the specified one when truncation is needed
+`$display.list(`&nbsp;*object* [ , *delim* [ , *finalDelim*&nbsp;]&nbsp;]&nbsp;`)` | Formats a collection or array into a string, using the default or provided delimiter and final delimiter
+`$display.measure(`&nbsp;*object*&nbsp;`)` | returns the measurements of the string value of the specified object
+`$display.message(`&nbsp;*string*,&nbsp;*object*...`)` | uses `java.text.MessageFormat` to format the specified string with the specified arguments. If there are no arguments, then the string is returned directly
+`$display.plural(`&nbsp;*count*,&nbsp;*singular* [ , *plural*&nbsp;]&nbsp;`)` | based on *count*, returns singular or build/specified plural
+`$display.printf(`&nbsp;*format*,&nbsp;*object*...&nbsp;`)` | uses `String.format(Locale,String,Object...)` to format the specified String with the specified arguments. Please note that the format required here is quite different from that of `message(String,Object...)`
+`$display.space(`&nbsp;*int*&nbsp;`)` | returns a string of spaces of the specified length
+`$display.stripTags(`&nbsp;*object* [ , *allowedTags*&nbsp;]&nbsp;`)` | removes all not allowed HTML tags from the string value of the specified object and returns the resulting string
+`$display.truncate(`&nbsp;*object* [ , *size*&nbsp;] [ , *suffix*&nbsp;]&nbsp;`)` | limits the string output of the first argument to the specified or default number of characters. If the string gets curtailed, the specified or default suffix is used as the ending of the truncated string
+`$display.uncapitalize(`&nbsp;*object*&nbsp;`)` | changes the first character of the string value of the specified object to lower case and returns the resulting string
+
+#### [**EscapeTool**](apidocs/org/apache/velocity/tools/generic/EscapeTool.html) - tool providing some escaping facilities{#EscapeTool}
+
+**`$esc`** |
+--|--
+`$esc.b` , `$esc.backslash` | renders a backslash (\\)
+`$esc.d` , `$esc.dollar` | renders a dollar sign ($)
+`$esc.e` , `$esc.exclamation` | renders an exclamation mark (!)
+`$esc.h` , `$esc.hash` | renders a hash (#)
+`$esc.q` , `$esc.quote` | renders a double quotation mark (")
+`$esc.s` , `$esc.singleQuote` | renders a single quotation mark (')
+`$esc.html(`&nbsp;*string*&nbsp;`)` | escapes the characters in a string using HTML entities
+`$esc.url(`&nbsp;*string*&nbsp;`)` | escapes the characters in a string using UTF-8 URL character encoding
+`$esc.java(`&nbsp;*string*&nbsp;`)` | escapes the characters in a String using Java String rules
+`$esc.javascript(`&nbsp;*string*&nbsp;`)` | escapes the characters in a String using JavaScript String rules
+`$esc.sql(`&nbsp;*string*&nbsp;`)` | escapes the characters in a String to be suitable to pass to an SQL query
+`$esc.xml(`&nbsp;*string*&nbsp;`)` | escapes the characters in a String using XML entities
+`$esc.propertyKey(`&nbsp;*string*&nbsp;`)` | escapes the characters in a String using java.util.Properties rules for escaping keys
+`$esc.propertyValue(`&nbsp;*string*&nbsp;`)` | escapes the characters in a String using java.util.Properties rules for escaping values
+
+#### [**FieldTool**](apidocs/org/apache/velocity/tools/generic/FieldTool.html) - tool allowing easy access to public static fields in classes, such as string constants{#FieldTool}
+
+**`$field`** |
+--|--
+`config.include` [&nbsp;=&nbsp;`null`&nbsp;] | coma-separated list of class names to include at initialization
+`config.storeDynamicLookups` [&nbsp;=&nbsp;`true`&nbsp;] | whether to keep fields of inspected classes
+`$field.get(`&nbsp;*string*&nbsp;`)` | returns the value of the field with the specified name, if found
+`$fields.in(`&nbsp;*class/object/string*&nbsp;`)` | loads all public static fields in the specified class or object
+
+#### [**LinkTool**](apidocs/org/apache/velocity/tools/generic/LinkTool.html) - tool used to format hyperlinks ; this tool is somewhat unusual in that every method that takes parameters will return a new instance of the tool that is a copy of the one the method was called upon, with the additional change specified by the method call, allowing for chained calls like `href="$link.relative('foobar.html').param('id','25').anchor('section4')"` (which would produce `href="foobar.html?id=25#section4"`){#LinkTool}
+
+**`$link`** |
+--|--
+`config.uri` [&nbsp;=&nbsp;`null`&nbsp;] | sets the default scheme, user info, host, port, path, query, and anchor elements all at once
+`config.scheme` [&nbsp;=&nbsp;`"http"`&nbsp;] | sets the default scheme (`http`, `https`, `mailto`, ...)
+`config.info` [&nbsp;=&nbsp;`null`&nbsp;] | sets the default user info
+`config.host` [&nbsp;=&nbsp;`null`&nbsp;] | sets the default host
+`config.port` [&nbsp;=&nbsp;`null`&nbsp;] | sets the default port
+`config.requestPath` [&nbsp;=&nbsp;`null`&nbsp;] | sets the default path
+`config.params` [&nbsp;=&nbsp;`null`&nbsp;] | sets the defaut query parameters
+`config.anchor` [&nbsp;=&nbsp;`null`&nbsp;] | sets the defaut anchor
+`config.charset` [&nbsp;=&nbsp;`"UTF-8"`&nbsp;] | sets the defaut charset
+`config.xhtml` [&nbsp;=&nbsp;`true`&nbsp;] | if `true`, uses `&amp;` as query delimiter, otherwise uses `&`
+`config.appendParameters` [&nbsp;=&nbsp;`true`&nbsp;] | sets whether or not the `#setParam()` method will override existing query values (`false`) for the same key or simply append the new value to a list of existing values (`true`)
+`config.forceRelative` [&nbsp;=&nbsp;`false`&nbsp;] | sets whether or not the `#createURI()` method should ignore the scheme, user, port and host values for non-opaque URIs, thus making `#toString` print the link as a relative one, not an absolute one ;  NOTE: using `#absolute()` or `#relative()` will alter this setting accordingly on the new instances they return
+`$link.anchor` | returns the anchor set for this link
+`$link.path` | returns the path currently set for this link
+`$link.params` | returns the query data set for this link
+`$link.contextURI` | returns the URI that addresses this web application, e.g. http://myserver.net/myapp ; this string may not end with a "/"
+`$link.contextPath` | returns the context path that addresses this web application, e.g. /myapp ; this string starts with a "/" but does not end with a "/"
+`$link.requestPath` | retrieves the path for the current request regardless of whether this is a direct request or an include by the `RequestDispatcher`
+`$link.baseRef` | returns the full URI of this template without any query data. e.g. `http://myserver.net/myapp/stuff/View.vm`
+`$link.self` | this method returns a new self-referencing `$link` for the current request (e.g. `/myapp/stuff/View.vm`) ; however, the behavior can be changed via toolbox configuration to use absolute URIs and/or add the current request parameters
+`$link.anchor(`&nbsp;*string*&nbsp;`)` | returns a new `$link` with the addition of the specified anchor value
+`$link.path(`&nbsp;*string*&nbsp;`)` | returns a new `$link` with the addition of the specified path value
+`$link.relative(`&nbsp;*string*&nbsp;`)` | returns a new `$link` with the addition of the specified relative value
+`$link.absolute(`&nbsp;*string*&nbsp;`)` | returns a new `$link` with the addition of the specified absolute value
+`$link.params(`&nbsp;*key*,&nbsp;*value*&nbsp;`)` | returns a new $link with the addition of the specified parameter
+`$link.encode(`&nbsp;*string*&nbsp;`)` | performs URL encoding on the specified text
+`$link` | displays link
+
+#### [**LogTool**](apidocs/org/apache/velocity/tools/generic/LogTool.html) - tool to trigger logs from withing templates{#LogTool}
+
+**`$log`** |
+--|--
+`$log.trace(`&nbsp;*string*&nbsp;`)` | emits a trace message
+`$log.debug(`&nbsp;*string*&nbsp;`)` | emits a debug message
+`$log.info(`&nbsp;*string*&nbsp;`)` | emits an info message
+`$log.warn(`&nbsp;*string*&nbsp;`)` | emits a warning message
+`$log.error(`&nbsp;*string*&nbsp;`)` | emits an error message
+
+#### [**MathTool**](apidocs/org/apache/velocity/tools/generic/MathTool.html) - tool providing math functions{#MathTool}
+
+**`$math`** |
+--|--
+`$math.add(`&nbsp;*object*,&nbsp;*object*&nbsp;`)` | returns the sum of the numbers or `null` if they are invalid
+`$math.sub(`&nbsp;*object*,&nbsp;*object*&nbsp;`)` | returns the difference of the numbers or `null` if they are invalid
+`$math.mul(`&nbsp;*object*,&nbsp;*object*&nbsp;`)` | returns the product of the numbers or `null` if they are invalid
+`$math.div(`&nbsp;*object*,&nbsp;*object*&nbsp;`)` | returns the quotient of the numbers or `null` if they are invalid
+`$math.pow(`&nbsp;*object*,&nbsp;*object*&nbsp;`)` | returns the first number raised to the power of the second or `null` if they are invalid
+`$math.idiv(`&nbsp;*object*,&nbsp;*object*&nbsp;`)` | returns the integer division of the numbers or `null` if they are invalid
+`$math.mod(`&nbsp;*object*,&nbsp;*object*&nbsp;`)` | returns the integer molulus operation on the numbers or `null` if they are invalid
+`$math.max(`&nbsp;*object*,&nbsp;*object*&nbsp;`)` | returns the largest of the numbers or `null` if they are invalid
+`$math.min(`&nbsp;*object*,&nbsp;*object*&nbsp;`)` | returns the smallest of the numbers or `null` if they are invalid
+`$math.abs(`&nbsp;*object*&nbsp;`)` | returns the absolute value of the number or `null` if it is invalid
+`$math.ceil(`&nbsp;*object*&nbsp;`)` | returns the smallest integer that is not less than the given number or `null` if it is invalid
+`$math.floor(`&nbsp;*object*&nbsp;`)` | returns the integer portion of the given number or `null` if it is invalid
+`$math.round(`&nbsp;*object*&nbsp;`)` | returns the given number rounded to the nearest whole Integer or null if it is invalid
+`$math.roundTo(`&nbsp;*object*,&nbsp;*decimals*&nbsp;`)` | rounds a number to the specified number of decimal places
+`$math.random` | returns a pseudo-random Double greater than or equal to 0.0 and less than 1.0
+`$math.random(`&nbsp;*lower*,&nbsp;*upper*&nbsp;`)` | this returns a random Number within the specified range - the returned value will be greater than or equal to the first number and less than the second number - if both arguments are whole numbers then the returned number will also be, otherwise a double will be returned
+`$math.toInteger(`&nbsp;*object*&nbsp;`)` | converts an object with a numeric value into an `Integer` ; valid formats are `Number` or a string representation of a number
+`$math.toDouble(`&nbsp;*object*&nbsp;`)` | converts an object with a numeric value into a `Double` ; valid formats are `Number` or a string representation of a number
+`$math.toNumber(`&nbsp;*object* `)` | converts an object with a numeric value into a `Number` ; valid formats are `Number` or a string representation of a number
+
+#### [**NumberTool**](apidocs/org/apache/velocity/tools/generic/NumberTool.html) - tool used to format numbers{#NumberTool}
+
+**`$number`** |
+--|--
+`config.format` [&nbsp;=&nbsp;JVM Locale number format&nbsp;] | default number format (depends upon the default locale by default, '#0.0' for en_US locale, '#0,0' for fr_FR, ...)
+`config.locale` [&nbsp;=&nbsp;JVM Locale&nbsp;] | default locale
+`$number.format` | returns or sets the pattern or style to be used for formatting numbers when none is specified
+`$number.locale` | returns or sets the default locale
+`$number.format(`&nbsp;[ *format/style*,&nbsp;] *object* [ , *locale* &nbsp;]&nbsp;`)` | formats the given number using the default or specified format or style, and the default or provided locale ; *style* is one of `currency`, `integer`, `number`, `percent`
+`$number.currency(`&nbsp;*object*&nbsp;`)` | convenience method equivalent to `$number.format("currency", $foo)`
+`$number.integer(`&nbsp;*object*&nbsp;`)` | convenience method equivalent to `$number.format("integer", $foo)`
+`$number.number(`&nbsp;*object*&nbsp;`)` | convenience method equivalent to `$number.format("number", $foo)`
+`$number.percent(`&nbsp;*object*&nbsp;`)` | convenience method equivalent to `$number.format("percent", $foo)`
+
+#### [**RenderTool**](apidocs/org/apache/velocity/tools/generic/RenderTool.html) - tool that exposes methods to evaluate the given strings as VTL (Velocity Template Language) using either a pre-configured context or one you provide directly{#RenderTool}
+
+**`$render`** |
+--|--
+`config.parse.depth` [&nbsp;=&nbsp;`20`&nbsp;] | default depth for recursive evaluation
+`config.catch.exceptions` [&nbsp;=&nbsp;`true`&nbsp;] | whether to catch exceptions during rendering
+`config.forceThreadSafe` [&nbsp;=&nbsp;`true`&nbsp;] | whether to force a thread-safe evaluation
+`$render.eval(`&nbsp;*string*&nbsp;`)` | evaluates a String containing VTL using the current context, and returns the result as a String
+`$render.recurse(`&nbsp;*string*&nbsp;`)` | recursively evaluates a String containing VTL using the current context, and returns the result as a String
+
+#### [**SortTool**](apidocs/org/apache/velocity/tools/generic/SortTool.html) - tool used to sort collections{#SortTool}
+
+**`$sort`** |
+--|--
+`$sorter.sort(`&nbsp;*collection* [ , *property  / property list*&nbsp;]&nbsp;`)` | sorts the values of the specified `Collection`, `Map`, or array of `Objects`, either by their natural order or  according to the values returned by the specified property or list of properties
+
+#### [**ResourceTool**](apidocs/org/apache/velocity/tools/generic/ResourceTool.html) - tool for accessing ResourceBundles and formatting messages therein ;  most methods return a new object that has mostly the same methods as the original, allowing you to build up parameters elegantly and simply, rather than try to remember how to use methods with many parameters that must be in a specific order: so, you can access a resource with the key `'hello.whoever'` in the `'otherStuff'` bundle with one message argument like this: `$text.hello.whoever.bundle('otherStuff').insert('World')` instead of like this: `$text.get('hello.whoever','otherStuff', $null, 'World')`{#ResourceTool}
+
+**`$text`** |
+--|--
+`config.defaultBundle` [&nbsp;=&nbsp;`null`&nbsp;] | default (unique) bundle
+`config.bundles` | coma-separated list of bundles (the first one being used as the default)
+`config.locale` [&nbsp;=&nbsp;JVM Locale&nbsp;] | current locale
+`config.defaultLocale` [&nbsp;=&nbsp;JVM Locale&nbsp;] | default locale
+`$text.`*key* | returns the resource with the specified name, if it exists
+`$text.`*prefix*`.keys` | returns a list of the available keys starting with the given prefix
+`$text.`*key*`.bundle(`&nbsp;*bundle*&nbsp;`)` | returns the resource with the specified name in the specified bundle, if it exists
+`$text.`*key*`.locale(`&nbsp;*locale*&nbsp;`)` | returns a new $text that will try to find the resource with the specified name for the specified locale
+`$text.`*key*`.insert(`&nbsp;*value* [ , *value* ...&nbsp;]&nbsp;`)` | returns the named resource with the specified values inserted
+`$text.locale` | returns or sets the current locale
+
+#### [**XmlTool**](apidocs/org/apache/velocity/tools/generic/XmlTool.html) - tool used for reading/navigating XML files; this uses dom4j under the covers to provide complete XPath support for traversing XML files{#XmlTool}
+
+**`$xml`** |
+--|--
+`config.file` | target XML file
+`$xml.attr(`&nbsp;*string*&nbsp;`)` | returns the value of the specified attribute for the first/sole Node in the internal Node list for this instance, if that Node is an Element; if it is a non-Element node type or there is no value for that attribute in this element, then this will return `null`
+`$xml.attributes()` | returns a Map of all attributes for the first/sole Node held internally by this instance; if that Node is not an Element, this will return `null`
+`$xml.children()` | returns a new XmlTool instance that wraps all the child Elements of all the current internally held nodes that are Elements themselves
+`$xml.find(`&nbsp;*xpath*&nbsp;`)` | performs an XPath selection on the current set of Nodes held by this instance and returns a new instance that wraps those results; if the specified value is `null` or this instance does not currently hold any nodes, then this will return `null`; if the specified value, when converted to a string, does not contain a '/' character, then it has "//" prepended to it; this means that a call to `$xml.find("a")` is equivalent to calling `$xml.find("//a")`; the full range of XPath selectors is supported here
+`$xml.first` | returns a new instance that wraps only the first Node from this instance's internal Node list
+`$xml.last` | returns a new instance that wraps only the last Node from this instance's internal Node list
+`$xml.name` | asks `get(Object)` for "name"; if none, this will return the result of `getNodeName()`
+`$xml.nodeName` | returns the name of the root node; if the internal Node list has more than one Node, it will only return the name of the first node in the list
+`$xml.parent` | returns a new XmlTool instance that wraps the parent Element of the first/sole Node being wrapped by this instance
+`$xml.path` | returns the XPath that identifies the first/sole Node represented by this instance
+`$xml.text` | returns the concatenated text content of all the internally held nodes; obviously, this is most useful when only one node is held
+`$xml.get(`&nbsp;*number*&nbsp;`)` | returns a new instance that wraps the specified Node from this instance's internal Node list
+`$xml.`*name*, `$xml.get(`&nbsp;*string*&nbsp;`)` | this will first attempt to find an attribute with the specified name and return its value; if no such attribute exists or its value is `null`, this will attempt to convert the given value to a Number and get the result of `get(Number)`; if the number conversion fails, then this will convert the object to a string; if that string does not start contain a '/', it appends the result of `getPath()` and a '/' to the front of it; finally, it delegates the string to the `find(String)` method and returns the result of that
+`$xml.empty` | returns `true` if there are no Nodes internally held by this instance
+`$xml.iterator()` | returns an Iterator that returns new XmlTool instances for each Node held internally by this instance; this allows VTL like `#foreach($node in $xml)...#end`
+`$xml.node()` | returns the first/sole Node from this instance's internal Node list, if any
+`$xml.parents()` | returns a new XmlTool instance that wraps the parent Elements of each of the Nodes being wrapped by this instance; this does not return all ancestors, just the immediate parents
+`$xml.parse(`&nbsp;*string*&nbsp;`)` | accepts XML strings. If the XML is valid, it will return a new XmlTool instance with the XML's root as its internal node
+`$xml.read(`&nbsp;*filename/URL*&nbsp;`)` | returns `null` if safe mode is on; otherwise this will accept url pointing to an XML document; it will then parse that document and return a new instance with that document's root element as its node
+`$xml.size()`= | returns the number of Nodes internally held by this instance
+`$xml` | if this instance has no XML Nodes, then this returns the result of super.toString(); otherwise, it returns the XML (as a string) of all the internally held nodes that are not Attributes; for attributes, only the value is used
+
+### View Tools
+
+#### [**BrowserTool**](apidocs/org/apache/velocity/tools/view/BrowserTool.html) - browser-sniffing tool; it defines properties that are used to test the client browser, operating system, device, language... apart from properties related to browser version and language, all properties are booleans.{#BrowserTool}
+
+**`$browser`** |
+--|--
+**scope** | session
+`config.languagesFilter` [&nbsp;=&nbsp;`null`&nbsp;] | an optional coma-separated list of admissible languages in the webapp
+`$browser.languageFilter | `returns or sets the current languages filter
+`$browser.version` | returns browser version
+`$browser.majorVersion` | returns browser major version
+`$browser.minorVersion` | returns browser minor version
+`$browser.geckoVersion` | version of the Gecko rendering engine for browsers belonging to the Mozilla family
+`$browser.`*browser* | tests for the specified browser, among: `mosaic netscape nav2 nav3 nav4 nav4up nav45 nav45up nav6 nav6up navgold firefox safari ie ie3 ie4 ie4up ie5 ie5up ie55 ie55up ie6 ie6up ie7 ie7up ie8 ie8up opera opera3 opera4 opera5 opera6 opera7 opera8 opera9 lynx links w3m aol aol3 aol4 aol5 aol6 neoplanet neoplanet2 amaya icab avantgo emacs mozilla gecko webtv staroffice java hotjava httpclient lobo lotusnotes konqueror galeon kmeleon chrome`
+`$browser.`*OS* | tests for the specified operating system, among: `win16 win3x win31 win95 win98 winnt windows win32 winme win2k winxp vista dotnet mac macosx mac68k macppc os2 unix sun sun4 sun5 suni86 irix irix5 irix6 hpux hpux9 hpux10 aix aix1 aix2 aix3 aix4 linux sco unixware mpras reliant dec sinix freebsd bsd vms x11 amiga`
+`$browser`.*device* | tests for the specified handled device, among: `palm audrey iopener wap blackberry`
+`$browser.`*feature* | tests for the given feature, among: `javascript css css1 css2 dom0 dom1 dom2`
+`$browser.robot` | tests for special request is issued by a known robot
+`$browser`.*robot* | tests for known robots: `wget getright yahoo altavista lycos infoseek lwp webcrawler linkexchange slurp google java`
+`$browser.preferredLanguageTag` | returns the browser's preferred langage tag (a string like 'en', 'da', 'en-US', ...), optionnaly affected by the languagesFilter configuration property
+`$browser.preferredLocale` | returns the browser's preferred locale
+
+#### [**ViewContextTool**](apidocs/org/apache/velocity/tools/view/ViewContextTool.html) - extension of the generic ContextTool that includes keys and values from the HttpServletRequest, HttpSession and ServletContext attributes; inherits all methods and properties from the generic [`ContextTool`](#ContextTool){#ViewContextTool}
+
+**`$context`** |
+--|--
+**scope** | request
+
+#### [**CookieTool**](apidocs/org/apache/velocity/tools/view/CookieTool.html) - tool used to read and set cookies{#CookieTool}
+
+**`$cookies`** |
+--|--
+**scope** | request
+`$cookies.add(`&nbsp;*Cookie*&nbsp;`)` | Adds the cookie to the current servlet response; this does NOT add it to the current request
+`$cookies.add(`&nbsp;*name*,&nbsp;*value* [ , *expiry time*&nbsp;]&nbsp;`)` | adds a new Cookie with the specified name and value to the current servlet response; this does not add a Cookie to the current request
+`$cookies.create(`&nbsp;*name*,&nbsp;*value* [ , *expiry time*&nbsp;]&nbsp;`)` | creates a new Cookie with the specified name and value; this does not add the Cookie to the response, so the created Cookie will not be set unless you do `$cookies.add($myCookie)`
+`$cookies.delete(`&nbsp;*name*&nbsp;`)` | instructs the browser to remove the specified cookie by setting it with a Max-Age of 0
+`$cookies.all` | returns a list of Cookies for this request
+`$cookies.`*name*, `$cookies.get(`&nbsp;*name*&nbsp;`)` | returns the Cookie with the specified name, if it exists
+`$cookies` | if there are no Cookies in the request, this returns the standard Object.toString output; otherwise, it returns a pretty printed list of cookie names and values
+
+#### [**ImportTool**](apidocs/org/apache/velocity/tools/view/ImportTool.html) - general-purpose text-importing view tool for templates{#ImportTool}
+
+**`$import`** |
+--|--
+**scope** | request
+`$import.read(`&nbsp;*url*&nbsp;`)` | returns the content read from the specified URL
+
+#### [**IncludeTool**](apidocs/org/apache/velocity/tools/view/IncludeTool.html) - tool allowing for transparent content negotiation in a manner mimicking Apache httpd's MultiViews; reads the default language out of the ViewToolContext as `org.apache.velocity.tools.view.i18n.defaultLanguage`; please note that it does NOT do the actual `#include` or `#parse` for you, but is merely to aid in include content negotiation{#IncludeTool}
+
+**`$include`** |
+--|--
+**scope** | request or session
+`config.org.apache.velocity.tools.view.i18n.defaultLanguage` [&nbsp;=&nbsp;JVM default&nbsp;] | this property is not searched directly in the provided tool's properties, but looked first at the Velocity context, then the servlet context, then lastly at the JVM default; this "narrow scope to wide scope" pattern makes it easy to setup language overrides at different levels within your application
+`$include.exists(`&nbsp;*name* [ , *locale*&nbsp;]&nbsp;`)` | checks whether or not a resource is available with the specified name and, if provided, specified language suffix
+`$include.find(`&nbsp;*name* [ , *locale / language code*&nbsp;]&nbsp;`)` | returns the localized name for the specified resource, with the specified Locales language suffix if specified; if one for that language is unavailable, then it will "widen" the language until one is found; if none is found at all, the name parameter is returned
+
+#### [**LinkTool**](apidocs/org/apache/velocity/tools/view/LinkTool.html) - tool used to format hyperlinks ; this tool is somewhat unusual in that every method that takes parameters will return a new instance of the tool that is a copy of the one the method was called upon, with the additional change specified by the method call, allowing for chained calls like `href="$link.relative('foobar.html').param('id','25').anchor('section4')"` (which would produce `href="foobar.html?id=25#section4"`); all methods and properties from the generic [`LinkTool`](#LinkTool) are inherited{#LinkTool2}
+
+**`$link`** |
+--|--
+**scope** | request
+`config.includeRequestParams` [&nbsp;=&nbsp;`false`&nbsp;] | controls whether or not this tool starts off with all parameters from the last request automatically
+`$link.includeRequestParams` | returns or sets the includeRequestParams flag
+`$link.requestPath` | returns the path for the current request, regardless of whether this is a direct request or an include by the RequestDispatcher
+`$link.addRequestParams(`&nbsp;[ *amongThisOne* [ , *andThisOne* ...&nbsp;]&nbsp;]&nbsp;`)` | adds the specified parameters (if they exist) from the current request to the query data of a copy of this instance; if no parameters are specified, then all of the current request's parameters will be added
+`$link.addRequestParamsExcept(`&nbsp;[ *exceptThisOne* [ , *andThisOne* ...&nbsp;]&nbsp;]&nbsp;`)` | adds all of the current request's parameters to this link's query data except for those whose keys match any of the specified strings
+`$link.addMissingRequestParams(`&nbsp;[ *exceptThisOne* [ , *andThisOne* ...&nbsp;]&nbsp;]&nbsp;`)` | adds all of the current request's parameters to this link's query data except for those whose keys match any of the specified strings or already have a value set for them in the current instance
+
+#### [**PagerTool**](apidocs/org/apache/velocity/tools/view/PagerTool.html) - tool for doing request-based pagination of items in an a list
+
+**`$pager`** |
+--|--
+**scope** | request
+`config.newItemsKey` [&nbsp;=&nbsp;`"new.items"`&nbsp;] | key name used to search for items in request attributes
+`config.indexKey` [&nbsp;=&nbsp;`"index"`&nbsp;] | key name used to search for current page index in request attributes
+`config.itemsPerPageKey` [&nbsp;=&nbsp;`"show"`&nbsp;] | key name used to search for the number of items to be shown per page in request attributes
+`config.slipSizeKey` [&nbsp;=&nbsp;`"slipSize"`&nbsp;] | key name used to search for the max number of page indices to show in request attributes
+`config.itemsPerPage` [&nbsp;=&nbsp;`10`&nbsp;] | number of items per page
+`config.slipsize` [&nbsp;=&nbsp;`20`&nbsp;] | maximum number of page indices to show
+`$pager.newItemsKey` | returns or sets the key name used to search for items in request attributes
+`$pager.indexKey` | returns or sets the key name used to search for the first index in the current page in request attributes
+`$pager.itemsPerPageKey` | returns or sets the key name used to search for the number of items to be shown per page in request attributes
+`$pager.slipSizeKey` | returns or sets the key name used to search for the max number of page indices to show in request attributes
+`$pager.items` | returns or sets the current list of items
+`$pager.index` | returns or sets the first index in the current page (differs from `$index.firstIndex` in that it is not adjusted to fit the reality of the items available)
+`$pager.itemsPerPage` | returns or sets the number of items to show per page
+`$pager.slipSize` | returns or sets the maximum number of page indices to show
+`$pager.hasItems()` | checks whether or not the result list is empty
+`$pager.firstIndex` | returns the first index in the current page (as determined by the current index, items per page, and the number of items; differs from `$index.index` in that it is adjusted to fit the reality of the items available)
+`$pager.lastIndex` | returns the index of the last item on the current page of results (as determined by the current index, items per page, and the number of items)
+`$pager.prevIndex` | return the index for the previous page of items (as determined by the current index, items per page, and the number of items)
+`$pager.nextIndex` | returns the index for the next page of items (as determined by the current index, items per page, and the number of items)
+`$pager.page` | returns the current page of search items
+`$pager.pageDescription` | returns a description of the current page ("1 of *n*")
+`$pager.pageNumber` | returns the page number for the current index
+`$pager.pageNumber(`&nbsp;*integer*&nbsp;`)` | returns the page number for the specified index
+`$pager.pagesAvailable` | returns the number of pages that can be made from this list given the set number of items per page
+`$pager.total` | returns the total number of items available
+`$pager.slip` | returns a Sliding List of Indices for Pages of items
+
+#### [**ParameterTool**](apidocs/org/apache/velocity/tools/view/ParameterTool.html) - tool used to parse request parameters{#ParameterTool}
+
+**`$params`** |1
+--|--
+**scope** | request
+`config.stringsDelimiter` [&nbsp;=&nbsp;*&lt;empty string&gt;*&nbsp;] | String which is used by the `getStrings()` method to split input strings - no splitting occurs if empty (the default value is `','` in the base class, `org.apache.velocity.toos.generic.ValueParser`).
+`$params.exists(`&nbsp;*name*&nbsp;`)` | checks whether given request parameter exists
+`$params.`*name*, `$params.get(`&nbsp;*name*&nbsp;`)`, `$params.getString(`&nbsp;*name* [ , *alternate*&nbsp;]&nbsp;`)` | returns the parameter with the specified key as a string, if it exists; otherwise, returns the specified alternate value if specified
+`$params.getBoolean(`&nbsp;*name* [ , *alternate*&nbsp;]&nbsp;`)` | returns the parameter with the specified key as a java.lang.Boolean, if it exists; otherwise, returns the specified alternate Boolean if specified
+`$params.getNumber(`&nbsp;*name* [ , *alternate*&nbsp;]&nbsp;`)` | returns the parameter with the specified key as a java.lang.Number, if it exists; otherwise, returns the specified alternate Number if specified
+`$params.getDouble(`&nbsp;*name* [ , *alternate*&nbsp;]&nbsp;`)` | returns the parameter with the specified key as a java.lang.Double, if it exists; otherwise, returns the specified alternate Double if specified
+`$params.getInteger(`&nbsp;*name* [ , *alternate*&nbsp;]&nbsp;`)` | returns the parameter with the specified key as a java.lang.Integer, if it exists; otherwise, returns the specified alternate Integer if specified
+`$params.getLocale(`&nbsp;*name* [ , *alternate*&nbsp;]&nbsp;`)` | returns the parameter with the specified key as a java.util.Locale, if it exists; otherwise, returns the specified alternate Locale if specified
+`$params.getStrings(`&nbsp;*name*&nbsp;`)` | returns the parameter(s) with the specified key in an array of strings, if any exist; otherwise, returns `null`
+`$params.getBooleans(`&nbsp;*name*&nbsp;`)` | returns the parameter(s) with the specified key in an array of java.lang.Boolean, if any exist; otherwise, returns `null`
+`$params.getNumbers(`&nbsp;*name*&nbsp;`)` | returns the parameter(s) with the specified key in an array of java.lang.Number, if any exist; otherwise, returns `null`
+`$params.getDoubles(`&nbsp;*name*&nbsp;`)` | returns the parameter(s) with the specified key in an array of java.lang.Doubles, if any exist; otherwise, returns `null`
+`$params.getIntegers(`&nbsp;*name*&nbsp;`)` | returns the parameter(s) with the specified key in an array of java.lang.Integers, if any exist; otherwise, returns `null`
+`$params.all` | returns the map of all parameters available for the current request
+
+#### [**AbstractSearchTool**](apidocs/org/apache/velocity/tools/view/AbstractSearchTool.html) - this tool is meant to be extended by a class defining the `protected List executeQuery(Object crit)` Java method; it allows doing "searching" and robust pagination of search results; the goal here is to provide a simple and uniform API for "search tools" that can be used in velocity templates (or even a standard Search.vm template); in particular, this class provides good support for result pagination and some very simple result caching; also check inherited configuration and properties from [PagerTool](#PagerTool){#AbstractSearchTool}
+
+**`$search`** |
+--|--
+**scope** | request
+`config.criteriaKey` [&nbsp;=&nbsp;`"find"`&nbsp;] | search criteria key which is looked up in request parameters
+`$search.criteriaKey` | get or set the criteria key which is looked up in request parameters
+`$search.criteria` | returns or sets the current search criteria
+`$search.reset()` | resets the search criteria
+`$search.storedItems` | return selected items if valid, otherwise `null`

@@ -1,0 +1,2 @@
+DirectoryIndex index.cgi
+AddOutputFilter INCLUDES .html

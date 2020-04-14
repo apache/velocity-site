@@ -1,0 +1,35 @@
+Title: Apache Velocity Tools - Configuration Using Properties
+
+## Configuration using Properties
+
+VelocityTools 2 can be configured using a properties file. Here's the same configuration as the [XML](config-xml.html) and [Java](config-java.html) examples in the properties format:
+
+    :::properties
+    tools.toolbox = request,session,application
+    
+    tools.request.property.xhtml = true
+    tools.request.toytool = ToyTool
+    tools.request.toytool.restrictTo = index.vm
+    tools.request.custom = org.mine.CustomTool
+    tools.request.custom.randomProperty = whatever
+    
+    tools.session.property.create-session = true
+    tools.session.property.create-session.type = boolean
+    tools.session.map = java.util.HashMap
+    
+    tools.application.date = org.apache.velocity.tools.generic.DateTool
+    
+    tools.data.version = 1.1
+    tools.data.version.type = number
+    tools.data.date = Mon Sep 17 10:08:03 PDT 2007
+    tools.data.date.class = java.util.Date
+    tools.data.date.converter = org.apache.commons.beanutils.locale.converters.DateLocaleConverter
+    tools.data.isSimple = true
+    tools.data.type = boolean
+    tools.data.foo = this is foo.
+    tools.data.bar = this is bar.
+    tools.data.dataKeys = version,date,isSimple.foo,bar,dataKeys,switches
+    tools.data.dataKeys.type = list
+    tools.data.switches = true,false,false,true
+    tools.data.switches.type = list.boolean
+

@@ -1,0 +1,10 @@
+org.apache.velocity.io
+org.apache.velocity.test
+org.apache.velocity.test.eventhandler
+org.apache.velocity.test.issues
+org.apache.velocity.test.misc
+org.apache.velocity.test.provider
+org.apache.velocity.test.sql
+org.apache.velocity.test.util.introspection
+org.apache.velocity.test.view
+org.apache.velocity.util

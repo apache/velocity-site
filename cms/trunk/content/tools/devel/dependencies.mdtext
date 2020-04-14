@@ -1,0 +1,42 @@
+Title: Apache Velocity Tools Dependencies
+
+## Dependencies
+
+VelocityTools requires certain external jar dependencies at different times. These charts should help you determine which jars you need and when.
+
+Since VelocityTools relies on Velocity Engine, please also check [Engine dependencies](/engine/2.0/dependencies.html).
+
+Note: Java version 1.7+ is required for compilation, testing and use of VelocityTools 3.x.
+{.note}
+
+### GenericTools
+
+Jar Name | Version | Compile | Tests | Runtime | Notes
+---------|---------|---------|-------|---------|------
+velocity | 2.0+ | Yes | Yes | Yes | Required for core infrastructure and several tools
+commons-beanutils | 1.9.3 | Yes | Yes | Yes | Required for core infrastructure and several tools
+commons-digester3 | 3.2 | Yes | Yes | Yes | Required for [xml configuration](config-xml.html) (and [UIDependencyTool](apidocs/org/apache/velocity/tools/view/UiDependencyTool.html) view tool)
+com.github.cliftonlabs.json-simple | 1.1.1 | Yes | No | No | Required for [JsonTool](apidocs/org/apache/velocity/tools/generic/JsonTool.html)
+junit | 4.12 | No | Yes | No | Only required for tests.
+
+### VelocityView
+
+Jar Name | Version | Compile | Tests | Runtime | Notes
+---------|---------|---------|-------|---------|------
+velocity-tools-generic | 3.0 | Yes | Yes | Yes |
+servletapi | 3.1.0 | Yes | Yes | No | Required for most view tools (provided by the J2EE container)
+junit | 4.12 | No | Yes | No | Only required for tests
+easymock | 3.6 | No | Yes | No | Only required for tests
+
+## SLF4J Binding
+
+At runtime, Velocity Tools will require an SLF4J binding to be present in the path. Typically, one of:
+
++ [AVSL](http://software.clapper.org/avsl/) - “A Very Simple Logger”
++ [SLF4J JDK14 Adapter](http://www.slf4j.org/api/org/slf4j/impl/JDK14LoggerAdapter.html) - redirect logs towards Java 1.4+ logging framework
++ [SLF4J Log4J Adapter](http://www.slf4j.org/api/org/slf4j/impl/Log4jLoggerAdapter.html) - redirects logs towards Log4J
++ [SLF4J Simple Logger](http://www.slf4j.org/api/org/slf4j/impl/SimpleLogger.html) - minimalistic logger
++ [SLF4J Android](http://www.slf4j.org/android/) - logger for Android platforms
++ [LogBack](http://logback.qos.ch/) - full featured logging framework
++ [WebApp SLF4J Logger](https://github.com/arkanovicz/webapp-slf4j-logger) - redirects logs towards the J2EE container log
+

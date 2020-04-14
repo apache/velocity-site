@@ -1,0 +1,65 @@
+Title: Apache Velocity Tools
+
+## Overview
+
+A Velocity "tool" is just a POJO (plain old java object) that is "useful" in a template and is not meant to be rendered in the output.  In other words, a "tool" (in Velocity-speak) is meant to be used but not seen themselves (e.g. for formatting dates or numbers, url building, etc).
+
+The VelocityTools project is, first of all, a collection of such useful Java classes, as well as infrastructure to easily, automatically and transparently make these tools available to your Velocity templates.  Other aims of the project include providing easy integration of Velocity into the view-layer of your web applications (via the [VelocityViewTag](view-tag.html), [VelocityViewServlet](view-servlet.html)) and the [Maven Plugin](maven-velocity-tools-plugin/index.html).
+
+In recognition of these varying aims, the VelocityTools project is divided into two parts: [GenericTools](generic.html) and [VelocityView](view.html. Each of these parts builds on the previous one and has its own JAR distribution.
+
+### GenericTools
+
+[GenericTools](generic.html) is the set of classes that provide basic infrastructure for using tools in standard Java SE Velocity projects, as well as a set of tools for use in generic Velocity templates.  Perenial favorites here are the DateTool, NumberTool and RenderTool, though there are many others available as well.
+
+### VelocityView
+
+[VelocityView](view.html) includes all of the [GenericTools](generic.html) structure and specialized tools for using Velocity in the view layer of web applications (Java EE projects). This includes the [VelocityViewServlet](view-servlet.html) or [VelocityLayoutServlet](view-layoutservlet.html) for processing Velocity template requests, the [VelocityViewTag](view-tag.html) for embedding Velocity in JSP and a [Maven plugin](maven-velocity-tools-plugin/index.html) to embed JSP tag libraries in Velocity templates. Popular tools here are the LinkTool and the ParameterTool.
+
+## What's new in 3.0
+
+Velocity Tools 3.0 new features:
+
++ Use of Velocity Engine v2.0.
++ New generic [CollectionTool](apidocs/org/apache/velocity/tools/generic/CollectionTool.html) which replaces and enhances the former SortTool.
++ New generic [JsonTool](apidocs/org/apache/velocity/tools/generic/JsonTool.html) and view [JsonTool](apidocs/org/apache/velocity/tools/view/JsonTool.html).
++ New generic [LogTool](apidocs/org/apache/velocity/tools/generic/LogTool.html).
++ A [Maven plugin](maven-velocity-tools-plugin/index.html) to allow embedding of JSP tag libraries inside Velocity templates.
+
+See the [Upgrading section](upgrading.html) for a complete list of changes.
+
+## Subversion Repository
+
+All VelocityTools project code is maintained in the Subversion repository which can be reached in a number of ways. The most direct method of accessing the repository is through a web browser, but to effectively work on the code, a [Subversion client](http://svn.tigris.org/links.html#clients) is required.
+
+Repository: [http://svn.apache.org/viewcvs.cgi/velocity/tools/trunk/](http://svn.apache.org/viewcvs.cgi/velocity/tools/trunk/).
+
+## Helping Out
+
+Feedback about the project, whether positive or gently critical, is always helpful to those working on the project. Such feedback may be sent to either the user@velocity.apache.org or dev@velocity.apache.org [mailing lists](/contact.html).
+
+Another great way to help is to simply participate in conversations on the mailing list.  On the user list, you can help answer questions that other users have. This frees the developers to focus on development more than user support.  On the dev list, you can participate in design discussions and release votes to help maintain the high quality of the releases and direct the future directions of the project.
+
+## Contributions
+
+Those interested in furthering the development of this project have an open invitation to jump in and help out. We welcome your contributions! Patches can be sent to the mailing list or attached to a [JIRA](http://issues.apache.org/jira/browse/VELTOOLS issue.  The [Wiki](http://wiki.apache.org/velocity/VelocityTools) can also be a good place to discuss and develop ideas.
+
+A few good places to get started include:
+
++ Documentation (patches for the site or additions to the Wiki)
++ Improving the example apps
++ Working on unresolved tasks in [JIRA](http://issues.apache.org/jira/browse/VELTOOLS)
++ Contributing to the [VelocimacroLibrary](http://wiki.apache.org/velocity/VelocimacroLibrary)
+
+Other project goals and proposals can be found in the project STATUS[http://svn.apache.org/viewcvs.cgi/velocity/tools/trunk/STATUS?view=markup] file.
+
+### Code
+
+When contributing code, it helps <strong>immensely</strong> if you follow through with the things on this checklist, especially the coding conventions. Keeping our code style consistent, our codebase stays easy to read and easy to patch.  Adding javadoc (and examples therein) simplifies the documentation process and reduces confusion about the purpose of various methods and classes. Tests make sure that things work as expected, especially as development continues down the road.  Of course, contributions that don't follow the checklist will be considered and often accepted, but you can expect the project committers to be slower and less enthusiastic in doing so. :)
+
+**Checklist for Code Contributions**:
+
++ [Velocity coding conventions](http://wiki.apache.org/velocity/CodeStandards)
++ Javadoc included (the more detailed the better)
++ Examples included (in JavaDoc or as stand-alone template example)
++ Tests included (not required but <b>GREATLY</b> appreciated)

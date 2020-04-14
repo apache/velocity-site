@@ -1,0 +1,108 @@
+Title: Apache Velocity Tools - Upgrading
+
+## Upgrading VelocityTools
+
+[TOC]
+
+## Upgrading to 2.0
+
+VelocityTools 2.0 marks the most significant set of upgrades and changes ever done for the VelocityTools library.  In order to provide flexible configurations, lazy-loading for tools, and a host of other improvements, almost all of the tool management and configuration code from Tools 1.x has been deprecated and replaced by completely different APIs.  Thankfully, we were able to continue supporting old toolbox.xml configuration files and old tool design patterns, though these too have been deprecated and are unable to take full advantage of many of the new features.
+
+Still, as such things have only been deprecated and not removed, **the first step in upgrading to 2.0 is simply replacing your old VelocityTools jar with the 2.0 jar**. If this causes any errors for you, please report them to user@velocity.apache.org, so that we can fix it and help you work around it in the meantime.
+
+Once you have your application compiling and running with Tools 2, your next step is to begin updating or replacing deprecations.  Many of these should show up with deprecation warnings during compiling or deprecation notices in your logs.  Read through these carefully to be aware of all that needs updating. Below is a list of instructions for handling many of these:
+
+### Renamings in 2.0
+
+In general, anything in the packages:
+
++ `org.apache.velocity.tools.view.tools`
++ `org.apache.velocity.tools.view.servlet`
++ `org.apache.velocity.tools.view.context`
+
+has been moved to:
+
+`org.apache.velocity.tools.view\`
+
+The extra packages had proved superfluous and problematic. All VelocityView classes are now in the <code>org.apache.velocity.view</code> package. Those that remain in the subpackages are merely deprecated shells that extend the classes in the new location. Also, some classes have had their class names adjusted to be more consistent with existing conventions.
+
+Some specific ones to watch out for are as follows. If you directly referenced:
+
++ VelocityViewServlet, it is now at [org.apache.velocity.tools.view.VelocityViewServlet](apidocs/org/apache/velocity/tools/view/VelocityViewServlet.html)
++ VelocityLayoutServlet, it is now at [org.apache.velocity.tools.view.VelocityLayoutServlet](apidocs/org/apache/velocity/tools/view/VelocityLayoutServlet.html)
++ WebappLoader, it is now at [org.apache.velocity.tools.view.WebappResourceLoader](apidocs/org/apache/velocity/tools/view/WebappResourceLoader.html)
++ ViewContext, it is now at [org.apache.velocity.tools.view.ViewContext](apidocs/org/apache/velocity/tools/view/ViewContext.html)
++ ServletLogger, it has been replaced by [org.apache.velocity.tools.view.ServletLogChute](apidocs/org/apache/velocity/tools/view/ServletLogChute.html)
++ ServletUtils, it is now at [org.apache.velocity.tools.view.ServletUtils](apidocs/org/apache/velocity/tools/view/ServletUtils.html)
++ BrowserSniffer, it is now at [org.apache.velocity.tools.view.BrowserTool](apidocs/org/apache/velocity/tools/view/BrowserTool.html)
++ AbstractPagerTool, it is now at [org.apache.velocity.tools.view.PagerTool](apidocs/org/apache/velocity/tools/view/PagerTool.html)
++ ParameterParser, it is now at [org.apache.velocity.tools.view.ParameterTool](apidocs/org/apache/velocity/tools/view/ParameterTool.html)
++ ContextTool, it is now at [org.apache.velocity.tools.view.ViewContextTool](apidocs/org/apache/velocity/tools/view/ViewContextTool.html)
+
+**NOTE:** If you are still using the old toolbox.xml format do NOT update the tool paths in that file!  First, [update your configuration](#Configuration), otherwise your tools may not work as expected. Also, this is not a complete list.  Please take note of all deprecation warnings and notices when compiling and running your app.
+
+### Deprecations in 2.0
+
+Along with the class renamings above have come many deprecations that have no one-to-one replacement class.  The vast majority of these have to do with tool management, as XMLToolboxManager and all of its subclasses and support classes could not simply be evolved to achieve the key goals for Tools 2.  A few other classes are simply no longer necessary in any form.  Here is an overview of all these deprecations-without-direct-replacements:
+
+**XMLToolboxManager** was the the central tool management class in Tools 1.x.  If you used it or **ServletToolboxManager** you were probably a more advanced user or a framework developer working to integrate VelocityTools support.  If so, you should go read [this document](frameworks.html). If you used XMLToolboxManager directly, you should familiarize yourself with these classes:
+
++ [ToolManager](apidocs/org/apache/velocity/tools/ToolManager.html)
++ [ConfigurationUtils](apidocs/org/apache/velocity/tools/config/ConfigurationUtils.html)
++ [FactoryConfiguration](apidocs/org/apache/velocity/tools/config/FactoryConfiguration.html)
++ [ToolboxFactory](apidocs/org/apache/velocity/tools/ToolboxFactory.html)
++ [ToolContext](apidocs/org/apache/velocity/tools/ToolContext.html)
+                
+If you used ServletToolboxManager directly, you should learn about all of the above classes (except perhaps ToolManager) and the following ones as well:
+
++ [VelocityView](apidocs/org/apache/velocity/tools/view/VelocityView.html)
++ [ViewToolContext](apidocs/org/apache/velocity/tools/view/ViewToolContext.html)
++ [ServletUtils](apidocs/org/apache/velocity/tools/view/ServletUtils.html)
+
+**NOTE:** For the vast majority of users and developers, [ToolManager](apidocs/org/apache/velocity/tools/ToolManager.html) or [VelocityView](apidocs/org/apache/velocity/tools/view/VelocityView.html) should be all they really need to work with directly.  Don't waste time trying to manage <code>Toolbox</code> es yourself until you are sure that ToolManager/VelocityView can't do the job for you.
+
+All of the upgrades to tool management allowed some GenericTool classes to perform functions previously only possible to implement in VelocityView tools.  As such, some VelocityView subclasses of generic tools have become obsolete.  If you used:
+
++ ViewRenderTool, you should now just use [`org.apache.velocity.tools.generic.RenderTool`](apidocs/org/apache/velocity/tools/generic/RenderTool.html)
++ ViewResourceTool, you should now just use [`org.apache.velocity.tools.generic.ResourceTool`](apidocs/org/apache/velocity/tools/generic/ResourceTool.html)
+
+### Configuration in 2.0
+
+Since Tools 2 does lazy-loading of tools, it now makes sense to have almost all tools available by default for most uses, as there is minimal overhead for that at startup and essentially no cost at runtime unless/until the tool is used. So, in Tools 2, unless the user is doing something to trigger the "deprecation support mode" for VelocityView (using the old toolbox.xml format would do this) or explicitly telling [VelocityView](apidocs/org/apache/velocity/tools/view/VelocityView.html) not to load the default tools, then all of the supported, standard VelocityTools will be automatically made available by default.  If you don't custom configure any of the provided tools and don't have any custom tools of your own, then you don't actually need a configuration at all! Tools 2 comes with a default tools.xml file each for GenericTools, VelocityView and VelocityStruts, and the [ToolManager](apidocs/org/apache/velocity/tools/ToolManager.html), [VelocityViewServlet](apidocs/org/apache/velocity/tools/view/VelocityViewServlet.html), [VelocityLayoutServlet](apidocs/org/apache/velocity/tools/view/VelocityLayoutServlet.html) and [VelocityViewTag](apidocs/org/apache/velocity/tools/view/jsp/VelocityViewTag.html) will all automatically look for and load those unless you are using a deprecated toolbox.xml file or explicitly tell them not to by adding the init-param `org.apache.velocity.tools.loadDefaults` with the value of false to the relevant servlet.
+
+If you do need a configuration, you should update your configuration to one of the new formats.  Easiest would be to go from the old xml format to [the new xml format](config-xml.html). Remember, you can just leave out standard tools that you don't do any configuration of, as your configuration will just be added to the default one (again, unless the default behavior is turned off). Also, do note that all VelocityView tools have [changed packages and/or names](#Renamings-in-2.0); please avoid using the deprecated versions as those will eventually be removed.
+
+If you are largely happy with the default tools.xml configuration, but wish to override just a few parts, you can override them with your own file. Tool configurations are key-centric.  If you just want to provide a different default format for the [DateTool](apidocs/org/apache/velocity/tools/generic/DateTool.html) and a second bundle for the ResourceTool, your tools.xml can be just:
+
+    :::xml
+    <tools>
+      <toolbox scope="application">
+        <tool key="date" format="MM/dd/yy"/>
+      </toolbox>
+      <toolbox scope="request">
+        <tool key="text" bundles="resources,otherResources"/>
+      </toolbox>
+    </tools>
+
+This just overrides the format property of the "date" tool and the bundles property of the "text" tool in the configuration. Since "date" and "text" already have classes set in the default tools.xml files that come with the GenericTools and VelocityView packages, you don't need to include those.
+
+You don't even have to use XML to override/extend the defaults. Other available formats are [a properties file](config-properties.html) or [plain java](config-java.html).
+
+### Integration with 2.0
+
+Please see the [framework integration](frameworks.html) page for information on this subject.
+
+### Custom Tools in 2.0
+
+Those of you who write your own custom tools may want to make a few changes to upgrade your custom tools to do things the "Tools 2 way".  Here's a few quick starts for that, though this doesn't cover everything.  More details can be found in the [instructions for creating tools](creating-tools.html).
+
+**Naming:** The recommended practice is to give a tool to be used as `$foo` the name `FooTool` . This is not required but is a convention that keeps things easy follow and learn.  If you have to name a tool FooBarUtility but want it to be `$foo` in templates, the second best thing is to provide a [`@DefaultKey("foo")`](apidocs/org/apache/velocity/tools/config/DefaultKey.html) annotation on the class, though this introduces a dependency on VelocityTools. As a last resort, if you are providing tools for a framework or otherwise can influence or control the configuration, you might consider providing a default configuration -- perhaps even one automatically discoverable by [ConfigurationUtils](apidocs/org/apache/velocity/tools/config/ConfigurationUtils.html) -- to set the tool's key for your users.
+
+**Scoping:** If your tool is only meant to be used in a particular scope, it's recommended that you give the class a [`@ValidScope(Scope.REQUEST)`](apidocs/org/apache/velocity/tools/config/ValidScope.html) annotation as well. If you only want to ban a particular scope and allow all others, you could provide a [`@InvalidScope(Scope.APPLICATION)`](apidocs/org/apache/velocity/tools/config/InvalidScope.html) annotation on the class. The [`Scope`](apidocs/org/apache/velocity/tools/Scope.html) class provides constants for REQUEST, SESSION, and APPLICATION. Other scopes are now theoretically possible, but only a little work and no testing has been done there at this point.
+
+**Configuration:** If you have a configurable tool whose configuration should not changed by the templates which use it, then consider having your tool extend the [SafeConfig](apidocs/org/apache/velocity/tools/generic/SafeConfig.html) class (or [FormatConfig](apidocs/org/apache/velocity/tools/generic/FormatConfig.html) or [LocaleConfig](apidocs/org/apache/velocity/tools/generic/LocaleConfig.html)). These safely standardize configuration of these common configuration properties. Also take note that the `configure(Map)` and `init(Object)` methods have been changed into just the `configure(Map)` and individual setter methods (e.g. `setRequest`, `setSession`, etc).  Basically, when it's time to instantiate a tool, the tool manager will gather all the "configuration properties" for that tool, its toolbox, etc and combine it into a single map with the "init data" (context, request, session, etc).  The manager searches for relevant setter methods that accept that data and also for a `configure(Map)` method. The setters get what they're asking for (if available) and the `configure()` method accepts the whole combined `Map`. The upshot of this approach is that tools no longer need to conform to any interfaces or patterns. In fact, it's possible to write a FooTool that doesn't know anything about any VelocityTools classes whatsoever and yet be fully instantiable and configurable by VelocityTools. Your tools don't need to know about anything except what they need to know about.
+
+## Upgrading to 1.4
+
+This is unfinished. [You can help fix that!](index.html#Contribution)
+

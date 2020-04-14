@@ -1,0 +1,59 @@
+Title: Apache Velocity Tools - VelocityViewTag Library
+
+## Overview
+
+This page is still unfinished. For details on configuring the VelocityViewTag, you can follow most of the instructions for the [VelocityViewServlet](view-servlet.html) and of course on the [configuration pages](configuration.html). [Help finishing this is welcome!](index.html#Contribution)
+{.note}
+
+This is a JSP tag that allows you to use Velocity and VelocityTools from within a JSP page or tag.  There are many ways to use this tag. This simplest is to have it process an external template using the current page context.  Assuming you have a template called "foo.vm" that can be found by your resource loader(s) that looks like this:
+
+    :::velocity
+    Hello $!bodyContent World!
+
+This tag can process that template by doing:
+
+    :::jsp
+    <%@taglib prefix="velocity" uri="http://velocity.apache.org/velocity-view" %>
+    
+    <velocity:view template="foo.vm"/>
+
+VTL in the body of the tag:
+
+    :::jsp
+    <%@taglib prefix="velocity" uri="http://velocity.apache.org/velocity-view" %>
+    
+    <velocity:view>
+    #if( $date.E eq 'Friday' )
+     Happy
+    #else
+     Sad
+    #end
+    </velocity:view>
+
+or combine both by first processing the body of the tag, then inserting the results of that into the context for the separate template as $bodyContent:
+
+    :::jsp
+    <%@taglib prefix="velocity" uri="http://velocity.apache.org/velocity-view" %>
+    
+    <velocity:view template="foo.vm">
+    #if( $date.E eq 'Friday' )
+     Happy
+    #else
+     Sad
+    #end
+    </velocity:view>
+
+You can also store the results of any of the options above into a variable of any name and scope (default scope is "page"):
+
+    :::jsp
+    <%@taglib prefix="velocity" uri="http://velocity.apache.org/velocity-view" %>
+    
+    <velocity:view var="foo" scope="request" template="foo.vm">
+    #if( $date.E eq 'Friday' )
+     Happy
+    #else
+     Sad
+    #end
+    </velocity:view>
+
+For more details, see the [Javadoc](apidocs/org/apache/velocity/tools/view/jsp/VelocityViewTag.html) or the [TLD](http://svn.apache.org/repos/asf/velocity/tools/trunk/src/main/resources/META-INF/velocity-view.tld).

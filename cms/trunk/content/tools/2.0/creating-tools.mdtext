@@ -1,0 +1,155 @@
+Title: Apache Velocity Tools - Creating Tools
+
+## Creating Tools
+
+This page contains advice and instructions for creating your own "tools".  Of course, almost any POJO can be used as a tool, but there are ways to make your tools much more useful, maintainable and secure.  The tips here should help you do that. If you have tips to add, email them to our [development mailing list](http://velocity.apache.org/contact.html).
+
+[TOC]
+
+## Basics
+
+Any class you wish to use as a tool must be declared public and have a public, no-argument constructor.
+
+## Conventions
+
+### Tool Keys/Names
+
+As of VelocityTools 2, the toolbox support can now automatically determine the key name for a tool from its classname.  So, a tool named org.com.FooTool would be assigned the key $foo in your templates, tool named org.com.FooBarTool would be $fooBar, and a tool named org.com.FooBar would be also be $fooBar.
+
+If you would prefer to give your org.com.FooBar tool the key $foob, you can use the `org.apache.velocity.tools.config.DefaultKey` annotation like this:
+
+    :::java
+    package org.com;
+    
+    import org.apache.velocity.tools.config.DefaultKey;
+    
+    @DefaultKey("foob")
+    public class FooBar {
+        ...
+    }
+
+Of course, you or your tool users can always override your intended key by specifying a different one in the configuration.  Configured key values take precedence over @DefaultKey annotations, and the annotations take precedence over the tool's class name.
+
+### Tool Properties
+
+If you want to allow your tool to be configured, you have two options: 
+
++ add a public setter for each property
++ add a `public void configure(Map props)` method
+
+You can, of course, do both, but if you do so keep in mind that the specific setters will be called before the configure() method. The application of configuration properties to specific setters is done using `org.apache.commons.beanutils.PropertyUtils` from the Commons-BeanUtils project, so the rules follow the typical bean property conventions.
+
+One thing to consider here is the scope of your tool and whether or not you want the template authors to be able to alter tool settings from within the template.  Remember, templates can call any public method on any public class, so your specific property setters will be accesible. This is almost always a bad thing for application or session scoped tools as it would make the tool non-threadsafe, and may or may not matter for a request scoped tool depending on how you use it.  If you cannot rely on your template authors to avoid using those setters or just want to make sure nothing can be changed from within the template, you will probably want to use the configure() method and have your tool extend SafeConfig or one of its subclasses. (This is discussed more later.)
+
+## Standard Tool Properties
+
+Apart from custom properties you may define for your custom tool, the following properties are always defined and accessible to it, via the `configure(Map)` method or the appropriate setter.
+
+### Standard Properties in a Standalone Environment
+
++ `key`: the context key this tool was mapped to.
++ `velocityContext`: the current Velocity context (an `org.apache.velocity.tools.ToolContext` object)
+
+### Standard Properties in a Web Environment
+
++ `key`: the context key this tool was mapped to.
++ `velocityEngine`: the Velocity engine (an `org.apache.velocity.app.VelocityEngine` object).
++ `log`: the Velocity log (an `org.apache.velocity.runtime.log.LogChute` object).
++ `locale`: the tool's locale.
++ `scope`: the tool's scope: `request`, `session` or `application`.
++ `servletContext`: the current J2EE servlet context, used to store all application-scoped properties (a `javax.servlet.ServletContext` object).
++ `session`: the current J2EE session, null if it hasn't been created (a `javax.servlet.http.HttpSession` object). Contains the current session at the time of the tool's initialization for application scoped tools, generally relevant only for session and request scoped tools.
++ `request`: the current J2EE request (a `javax.servlet.http.HttpServletRequest` object). Contains the current request at the time of the tool's initialization for session and application scoped tools, so generally relevant only for request scoped tools.
++ `response`: the current J2EE response (a `javax.servlet.http.HttpServletResponse` object). Contains the current response at the time of the tool's initialization for session and application scoped tools, so generally relevant only for request scoped tools.
++ requestPath`: the current request path portion of the URI. Generally relevant only for request scoped tools.
++ `velocityContext`: the current Velocity context (an `org.apache.velocity.tools.view.context.ChainedContext` object). Generally relevant only for request scoped tools.
+
+## Annotations
+
+There are three Annotations provided for tool authors: [DefaultKey](apidocs/org/apache/velocity/tools/config/DefaultKey.html), [InvalidScope](apidocs/org/apache/velocity/tools/config/InvalidScope.html) and [ValidScope](apidocs/org/apache/velocity/tools/config/ValidScope.html).
+
+As described above, the @DefaultKey annotation is used to specify a default key for your tool.  The @InvalidScope and @ValidScope annotations allow you to restrict the [Scope](apidocs/org/apache/velocity/tools/Scope.html)(s) in which the tool can be used in either negative or positive terms. When described positively using the @ValidScope annotation, the tool may **only** be used in a toolbox with the specified scope. If placed in any other toolbox, an `org.apache.velocity.tools.config.InvalidScopeException` will be thrown.  Using @InvalidScope, on the other hand, allows you reject specific scope(s), whilst implicitly allowing any others.
+
+Here's a scope annotation example:
+
+    :::java
+    @InvalidScope({Scope.APPLICATION,Scope.SESSION})
+    public class PagerTool
+    {
+        ...
+    }
+
+## Support Classes
+
+### Base Classes
+
+[SafeConfig](apidocs/org/apache/velocity/tools/generic/SafeConfig.html) - This serves as a base class for tools who need to have their configuration be read-only for thread-safety or other reasons.  By default, tools which extend this can only be configured once.
+
+[LocaleConfig](apidocs/org/apache/velocity/tools/generic/LocaleConfig.html) - Subclass of SafeConfig that has standardized support for configuring a Locale for the tool to use as its default.
+
+[FormatConfig](apidocs/org/apache/velocity/tools/generic/FormatConfig.html) - Subclass of LocaleConfig that has standardized support for providing a format string value for the tool to use as its default.
+
+### Utility Classes
+
+[ClassUtils](apidocs/org/apache/velocity/tools/ClassUtils.html) - Provides utility methods for loading classes, finding methods, accessing static field values, and more.
+
+[ConversionUtils](apidocs/org/apache/velocity/tools/ConversionUtils.html) - Provides utility methods for common type conversions/value parsing.
+
+[ServletUtils](apidocs/org/apache/velocity/tools/view/ServletUtils.html) - Utility methods for the servlet environment, mostly centered on accessing the VelocityView or tool instances handled thereby.
+
+[ValueParser] (apidocs/org/apache/velocity/tools/generic/ValueParser.html) - Used to retrieve and parse (aka convert) String values pulled from a map; this is mostly commonly used directly by other tools rather than within templates.
+
+## Designing Template-Friendly Interfaces
+
+Following a few best-practices can make your tools much more elegant and friendly to template authors.
+
++ [Be robust](#Be-Robust). Catch exceptions and return `null` on errors.
++ [Be flexible](#Be-Flexible). Have methods accept `Object` when possible.
++ [Be cafeful](#Be-Careful). Choose scope carefully and be aware of thread safety issues.
++ [Be fluent](#Be-Fluent). Subtools or `get(key)` methods can make a clear and flexible API.
+
+### Be Robust
+
+Always return null on errors! No Exceptions! Ok, maybe there are some exceptions if you are sure that's what you want your tool to do.  Just be aware that this will likely surprise the user because uncaught exceptions halt template processing at the point the exception is thrown.  If the output of the template is not buffered, this will result in an awkward, partial rendering. So, if you are going to let an exception through, make sure it is worth halting everything for.  Often it is sufficient to return null, thus allowing the failed reference to appear in the output like this:
+
+    :::velocity
+    $mytool.somemethod('bad input')
+
+This, of course, assumes that quiet notation is not being used for that reference.  For this reason, it may be prudent to give your tool access to a logging facility in order to log exceptions and make sure important errors are not silently swallowed. Standard tool management for VelocityTools (even just GenericTools) makes the result of `velocityEngine.getLog()` available to tools as a property under the key "log".  So log access can be added as simply as adding a `public void setLog(org.apache.velocity.runtime.log.Log log)` method and utilizing the provided Log instance.
+
+If you wish to toggle the exception catching or, more importantly, if you prefer to catch exceptions globally with a Velocity Event Handler, then have your tool watch for the "catchExceptions" property.  This is `false` by default, but if the VelocityEngine has a MethodExceptionEventHandler configured, then it will be automatically set to `true`.  Again, just add a `public void setCatchExceptions(boolean catch)` method to your tool or watch for the "catchExceptions" property in your `public void configure(Map props)` method.  See [RenderTool](apidocs/org/apache/velocity/tools/generic/RenderTool.html) for an example of this.
+
+### Be Flexible
+
+Variables in templates are strongly, but dynamically typed.  As the current type (or whole subject of typing) is often not transparently obvious to the person working on the template, it is best to accept `Object` for most method parameters and handle any necessary conversions in your tool (either through overloading or actual conversion). This way template authors and maintainers don't have to worry about the variable being passed to tool methods.
+
+Of course, there may be times when you wish to restrict what a method can accept or when a method is public for use by other classes, not templates. If the method is not meant to be used by the template, ignore this advice and pay careful attention to the <a href="#Be_Careful">advice below</a>. If you have other reasons for restricting the types accepted by a method that you do intend to be used, just be sure to document this plainly so it is easy to discover why the method isn't being called and what parameters it expects to receive.
+
+### Be Careful
+
+The first thing to remember is that all public methods declared in public classes may be called from templates.  If it is imperative that a method not be called from a template, you must either change its permissions, its class's permissions or else put some sort of guard into the implementation of the method that renders it harmless when used by a template.  See the implementation of `configure(Map)` in [SafeConfig](apidocs/org/apache/velocity/tools/generic/SafeConfig.html) for an example of the latter option.
+
+The second thing to think about is thread-safety. If your tool maintains internal state that is in any way changed by the calling of its public methods, then your tool is not thread safe.  The only thread-safe tools are those that maintain no state or are otherwise immutable (e.g. return new, copied instances w/changed state and leave original unchanged). If your tool is not thread-safe, you should seriously consider [using a scope-limiting annotation](#Annotations) to prevent such problems.
+
+Thread-safety is, of course, most important if your tool is meant to be used in "application" or "session" scoped toolboxes for web applications or any other multi-threaded application.  Allowing access to non-thread-safe tools in those scopes can lead to all sorts of unpleasant problems. Please note that sometimes request scope isn't safe either! if you #parse subtemplates or are otherwise composing your page of separate pieces (e.g. Tiles) that may not know what each other are doing at any one time.
+
+[SafeConfig](apidocs/org/apache/velocity/tools/generic/SafeConfig.html) and its subclasses can help you have safely configurable tools in any scope.  They do this by only allowing the public `configure(Map)` method to be called once.  All other configuration methods should then be declared protected and the tool cannot be re-configured by a template.  This technique may, in the future, be changed to allow you to replace the configure(Map) method with a constructor that takes a Map of configuration properties, but for various reasons, this is not currently the case.
+
+As a final note here, if you really have good reason to use a mutable, non-thread-safe application or session scoped tool, tool path restrictions can help you limit possible damage here.  Of course, this is something done purely at the <a href="configuration.html">configuration</a> level and cannot be currently defined by the tool itself.
+
+### Be Fluent
+
+When writing tools, you should take care in how you design its methods to make the resulting syntax in the templates clear, succinct and simple and thus decrease typos and "visual clutter".  Readability is important for maintainability and things can get ugly and unreadable fast if you aren't careful.  Typical Java method naming tends to be fairly verbose, which works fine in Java development environment with auto-complete and Java conventions to respect.  It wouldn't be out of line for a BubbleGum class to have a method `getStickWithName(String name)`, but using that in a template (e.g. `$bubbleGum.getStickWithName('bigred')`) is not ideal. It would be much better to have a simple `get(String name)` method to simplify that down to just `$bubbleGum.bigred`.
+
+One of your best assets when trying to simplify your tools' template-facing interface is the fact that Velocity includes `get('name')` in the method lookup for `$tool.name`.  For some tools, this can greatly simplify the syntax, as shown above.  Also, by encouraging the use of such short syntax, you give yourself greater flexibility in making changes to the tool later, which you would not have if the template references were all explicit method calls like `$tool.getName()`.
+
+Another handy technique available to tool author's like yourself is the use of what we call subtools.  These are examples of the [fluent interface pattern](http://www.martinfowler.com/bliki/FluentInterface.html). Essentially, the idea is that most methods return either the tool itself again, or else another object that has a similar or otherwise naturally subsequent interface. Such "fluent" interfaces tend to be very natural, clear and succinct, both saving keystrokes and keeping templates easy to read and maintain.
+
+In VelocityTools' standard set of tools, this practice is put into place often and in a few different ways. Here's a few examples, out of the many tools which make good use of fluent interfaces and a `get(key)` method.
+
++ [ResourceTool](apidocs/org/apache/velocity/tools/generic/ResourceTool.html) uses subtools to allow you to type `$text.org.com.Foo` instead of `$text.get('org.com.Foo')` or worse, something very java-ish like `$text.getResourceFromBundle('messages.properties', 'org.com.Foo')`. This is achieved by having the get() method return a new instance of its `Key` subclass that carries with it the value to be gotten. The Key, in turn, has a get() method that does the same (and more), returning a new Key instance that carries the concatenated values of both get() calls.  And so on it goes, until the final resulting value is rendered by Velocity calling the last Key's toString() method.
++ [LinkTool](apidocs/org/apache/velocity/tools/view/LinkTool.html) takes a different approach.  Rather than use a subclass as the subtool, it uses itself.  Almost every method in LinkTool returns a copy of the original instance with the addition of the latest value.  Both this approach and that of ResourceTool provide great flexibility to the template author.  They can use the tools however they wish, with no concerns about thread collisions, shared state or lifecycle. And with modern JVMs, the performance cost of this flexibility is minimal--light object creation and reflection have become cheap and fast, and short-lived instances like those created in the process are quickly garbage collected.
++ [ClassTool](apidocs/org/apache/velocity/tools/generic/ClassTool.html) uses subtools to a somewhat different end.  Rather than simply replicating the interface of the parent, the subtools provide a natural interface wrapping around the result of the previous call.  This is done because the reflection API provided by JavaSE is not at all template-friendly.  ClassTool wraps almost all returned methods, contructors and fields with subtools that continue to provide a natural, template-friendly interface.
++ [AlternatorTool](apidocs/org/apache/velocity/tools/generic/AlternatorTool.html) falls into a very simple class of "subtool" uses.  In this case, the AlternatorTool class serves only as a factory for creating instances of the separate Alternator class.  In this case, the so-called "subtool" is really the main thing and the tool exists solely to provide access to it.
++ [LoopTool](apidocs/org/apache/velocity/tools/generic/LoopTool.html) might be the strangest of them all.  It is unlikely that you would find need to create such a tool, but if you are curious, read on. LoopTool exists to add value and convenience to using the #foreach directive.  The methods on the main class are either used when starting a #foreach loop or else for use during said loop. The starting ones return a "subtool" of sorts called [ManagedIterator](apidocs/org/apache/velocity/tools/generic/LoopTool.ManagedIterator.html), which provides a few fluent methods for refinement of the loop control. The final result of those, however, is largely just used by #foreach internally. While the loop is going, however, the original LoopTool itself may be directly used to observe and/or influence the ManagedIterator being used internally by #foreach. This is because the main LoopTool keeps track of all its subtool instances in a Stack.  This is very different from most subtool situations, where the tool and subtool are immediately disassociated.
+

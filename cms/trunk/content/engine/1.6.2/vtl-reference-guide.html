@@ -1,0 +1,777 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>Apache Velocity - VTL Reference</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+    <link rel="alternate" href="http://feeds.feedburner.com/ApacheVelocitySiteNews" type="application/rss+xml" title="Apache Velocity - VTL Reference News" />
+          <meta name="author" content="Velocity Documentation Team" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../../../" id="bannerLeft">
+    
+                                            <img src="images/velocity_project_wide.png" alt="" />
+    
+            </a>
+                          <span id="bannerRight">
+    
+                                            <img src="images/velocity-logo.png" alt="" />
+    
+            </span>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+          
+          <a href="http://www.apache.org/">Apache</a>
+              &gt;
+      
+          <a href="../../../">Velocity</a>
+              &gt;
+      
+          Velocity Engine
+                </div>
+            <div class="xright">      <a href="../../devel/">Engine</a>
+          |
+          <a href="../../../tools/devel/">Tools</a>
+          |
+          <a href="../../../anakia/devel/">Anakia</a>
+          |
+          <a href="../../../texen/devel/">Texen</a>
+          |
+          <a href="../../../docbook/">DocBook</a>
+          |
+          <a href="../../../dvsl/devel/">DVSL</a>
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Velocity</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="index.html">General</a>
+        </li>
+              
+    <li class="none">
+              <a href="overview.html">Overview</a>
+        </li>
+              
+    <li class="none">
+              <a href="getting-started.html">Getting Started</a>
+        </li>
+              
+    <li class="none">
+              <a href="webapps.html">Web Applications</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../download.cgi">Download</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/VelocityFAQ">FAQ (Wiki)</a>
+        </li>
+          </ul>
+          <h5>Docs</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="user-guide.html">User Guide</a>
+        </li>
+              
+    <li class="none">
+              <a href="developer-guide.html">Developer Guide</a>
+        </li>
+              
+    <li class="none">
+              <strong>VTL Reference</strong>
+        </li>
+              
+    <li class="none">
+              <a href="glossary.html">Glossary</a>
+        </li>
+          </ul>
+          <h5>Developers</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="license.html">License</a>
+        </li>
+              
+    <li class="none">
+              <a href="apidocs/index.html">Javadoc</a>
+        </li>
+              
+    <li class="none">
+              <a href="changes-report.html">Changes</a>
+        </li>
+              
+    <li class="none">
+              <a href="jira-report.html">Resolved Issues</a>
+        </li>
+              
+    <li class="none">
+              <a href="upgrading.html">Upgrading</a>
+        </li>
+              
+    <li class="none">
+              <a href="jar-dependencies.html">Dependencies</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://svn.apache.org/viewvc/velocity/engine/trunk/">Source Code Repository</a>
+        </li>
+              
+    <li class="none">
+              <a href="build.html">Building from Source</a>
+        </li>
+          </ul>
+          <h5>Community</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/">Wiki</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../news.html">Recent News</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/PoweredByVelocity">Powered By Velocity</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/VelocityEditors">IDE/Editor Plugins</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/PublishedArticlesAndBooks">Articles and Books</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/GetInvolved">Get Involved</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../contact.html">Mailing Lists</a>
+        </li>
+          </ul>
+          <h5>Velocity Development</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/RoadMap">Road Map</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/CodeStandards">Coding Standards</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/DocumentationGuidelines">Documentation Guidelines</a>
+        </li>
+              
+    <li class="none">
+              <a href="https://issues.apache.org/jira/browse/VELOCITY">Issues</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../who-we-are.html">Who we are</a>
+        </li>
+          </ul>
+          <h5>Translations</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://www.jajakarta.org/velocity/">Site (Japanese)</a>
+        </li>
+              
+    <li class="none">
+              <a href="translations/user-guide_fi.html">User's Guide (Finnish)</a>
+        </li>
+              
+    <li class="none">
+              <a href="translations/user-guide_fr.html">User's Guide (French)</a>
+        </li>
+              
+    <li class="none">
+              <a href="translations/user-guide_es.html">User's Guide (Spanish)</a>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-info.html">Project Information</a>
+              </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-reports.html">Project Reports</a>
+              </li>
+          </ul>
+                                             
+                        
+                        
+                        <a class="poweredBy" href="../../../" title="Apache Velocity" ><img class="poweredBy" alt="Apache Velocity" src="images/pbv90x30.png" /></a>
+                                
+                        
+                        
+                        <a class="poweredBy" href="../../../rss/news.rss" title="Velocity News Feed" ><img class="poweredBy" alt="Velocity News Feed" src="images/feed-icon-24x24.jpg" /></a>
+                    
+       <iframe src="http://www.apache.org/ads/buttonbar.html"
+               style="border-width:0; float: left" frameborder="0" scrolling="no"
+               width="135"
+               height="265" ></iframe>
+
+           
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2><a name="About_this_Guide"></a>
+About this Guide</h2>
+<p>
+    This guide is the reference for the Velocity Template Language
+    (VTL). For more information, please also refer to the <a href="user-guide.html">Velocity User Guide</a>
+.
+</p>
+</div>
+<div class="section"><h2><a name="References"></a>
+References</h2>
+<div class="section"><h3><a name="Variables"></a>
+Variables</h3>
+<p>
+    Notation:
+    </p>
+<p><strong>$</strong> [ <strong>!</strong> ][ <strong>{</strong> ][
+    <strong>a..z</strong>, <strong>A..Z</strong> ][ <strong>a..z</strong>,
+    <strong>A..Z</strong>, <strong>0..9</strong>, <strong>-</strong>,
+    <strong>_</strong> ][ <strong>}</strong> ]
+    </p>
+<p>
+    Examples:
+    </p>
+<ul><li>Shorthand notation: <variable>$mud-Slinger_9</variable></li>
+<li>Silent Shorthand notation: <variable>$!mud-Slinger_9</variable></li>
+<li>Formal notation: <variable>${mud-Slinger_9}</variable></li>
+<li>Silent Formal notation: <variable>$!{mud-Slinger_9}</variable></li>
+</ul>
+</div>
+<div class="section"><h3><a name="Properties"></a>
+Properties</h3>
+<p>
+    Notation:
+    </p>
+<p><strong>$</strong> [ <strong>{</strong> ][ <strong>a..z</strong>,
+      <strong>A..Z</strong> ][ <strong>a..z</strong>, <strong>A..Z</strong>,
+      <strong>0..9</strong>, <strong>-</strong>, <strong>_</strong> ]*
+      <strong>.</strong>[<strong>a..z</strong>, <strong>A..Z</strong> ][
+      <strong>a..z</strong>, <strong>A-Z</strong>, <strong>0..9</strong>,
+      <strong>-</strong>, <strong>_</strong> ]* [ <strong>}</strong> ]
+    </p>
+<p>
+    Examples:
+    </p>
+<ul><li>Regular Notation: $customer.Address</li>
+<li>Formal Notation: ${purchase.Total}</li>
+</ul>
+</div>
+<div class="section"><h3><a name="Methods"></a>
+Methods</h3>
+<p>
+    Notation:
+    </p>
+<p><strong>$</strong> [ <strong>{</strong> ][ <strong>a..z</strong>,
+      <strong>A..Z</strong> ][ <strong>a..z</strong>, <strong>A..Z</strong>,
+      <strong>0..9</strong>, <strong>-</strong>, <strong>_</strong> ]*
+      <strong>.</strong>[ <strong>a..z</strong>, <strong>A..Z</strong> ][
+      <strong>a..z</strong>, <strong>A..Z</strong>, <strong>0..9</strong>,
+      <strong>-</strong>, <strong>_</strong> ]*<strong>(</strong> [
+      <i>optional parameter list...</i>
+ ] <strong>)</strong> [
+      <strong> } </strong>]
+    </p>
+<p>
+    Examples:
+    </p>
+<ul><li>Regular Notation: $customer.getAddress()</li>
+<li>Formal Notation: ${purchase.getTotal()}</li>
+<li>Regular Notation with Parameter List: $page.setTitle( &quot;My Home
+      Page&quot; )</li>
+</ul>
+</div>
+<p>
+  VTL Properties can be used as a shorthand notation for VTL Methods
+  that take <em>get</em> and <em>set</em>. Either
+  <em>$object.getMethod()</em> or <em>$object.setMethod()</em> can be
+  abbreviated as <em>$object.Method</em>. It is generally preferable to
+  use a Property when available. The main difference between Properties
+  and Methods is that you can specify a parameter list to a Method.
+  </p>
+</div>
+<div class="section"><h2><a name="Directives"></a>
+Directives</h2>
+<div class="section"><h3><a name="aset_-_Establishes_the_value_of_a_reference"></a>
+#set - Establishes the value of a reference</h3>
+<p>
+    Format:
+    </p>
+<p><strong>#</strong> [ <strong>{</strong> ] <strong>set</strong> [ <strong>}</strong> ] <strong> ( $</strong>ref <strong>=</strong> [ <strong>&quot;</strong>,
+    <strong>'</strong> ]arg[ <strong>&quot;</strong>, <strong>'</strong> ] )
+    </p>
+<p>
+    Usage:
+    </p>
+<ul><li><em>$ref</em> - The LHS of the assignment must be a variable
+    reference or a property reference.</li>
+<li><em>arg</em> - The RHS of the assignment, <em>arg</em> is parsed
+    if enclosed in double quotes, and not parsed if enclosed in single
+    quotes.  If the RHS evaluates to <em>null</em>, it is <b>not</b>
+
+    assigned to the LHS.</li>
+</ul>
+<p>
+    Examples:
+    </p>
+<ul><li>Variable reference: #set( $monkey = $bill )</li>
+<li>String literal: #set( $monkey.Friend = 'monica' )</li>
+<li>Property reference: #set( $monkey.Blame = $whitehouse.Leak
+      )</li>
+<li>Method reference: #set( $monkey.Plan = $spindoctor.weave($web)
+      )</li>
+<li>Number literal: #set( $monkey.Number = 123 )</li>
+<li>Range operator: #set( $monkey.Numbers = [1..3] )</li>
+<li>Object list: #set( $monkey.Say = [&quot;Not&quot;, $my, &quot;fault&quot;] )</li>
+<li>Object map: #set( $monkey.Map = {&quot;banana&quot; : &quot;good&quot;, &quot;roast beef&quot; : &quot;bad&quot;})</li>
+</ul>
+<p>
+    The RHS can also be a simple arithmetic expression, such as:
+    </p>
+<ul><li>Addition: #set( $value = $foo + 1 )</li>
+<li>Subtraction: #set( $value = $bar - 1 )</li>
+<li>Multiplication: #set( $value = $foo * $bar )</li>
+<li>Division: #set( $value = $foo / $bar )</li>
+<li>Remainder: #set( $value = $foo % $bar )</li>
+</ul>
+</div>
+<div class="section"><h3><a name="aifelseifelse_-_Output_conditional_on_truth_of_statements"></a>
+#if/#elseif/#else - Output conditional on truth of statements</h3>
+<p>
+    Format:
+    </p>
+<p><strong>#</strong> [ <strong>{</strong> ] <strong>if</strong> [ <strong>}</strong> ] <strong>(</strong> [condition] <strong>)</strong> [output] [
+    <strong>#</strong> [ <strong>{</strong> ] <strong>elseif</strong> [ <strong>}</strong> ] <strong>( </strong>[condition] <strong>)</strong> [output] ]* [
+    <strong>#</strong> [ <strong>{</strong> ] <strong>else</strong> [ <strong>}</strong> ]  [output] ]
+    <strong>#</strong> [ <strong>{</strong> ] <strong>end</strong> [ <strong>}</strong> ]
+    </p>
+<p>
+    Usage:
+    </p>
+<ul><li><em>condition</em> - If a boolean, considered true if it has a
+    true false; if not a boolean, considered true if not null.</li>
+<li><em>output</em> - May contain VTL.</li>
+</ul>
+<p>
+    Examples (showing different operators):
+    </p>
+<table class="bodyTable"><tr class="a"><th>Operator Name</th>
+<th>Symbol</th>
+<th>Alternative Symbol</th>
+<th>Example</th>
+</tr>
+<tr class="b"><td>Equals Number</td>
+<td>==</td>
+<td>eq</td>
+<td> #if( $foo == 42 )</td>
+</tr>
+<tr class="a"><td>Equals String</td>
+<td>==</td>
+<td>eq</td>
+<td> #if( $foo == &quot;bar&quot; )</td>
+</tr>
+<tr class="b"><td>Object Equivalence</td>
+<td>==</td>
+<td>eq</td>
+<td> #if( $foo == $bar )</td>
+</tr>
+<tr class="a"><td>Not Equals</td>
+<td>!=</td>
+<td>ne</td>
+<td> #if( $foo != $bar )</td>
+</tr>
+<tr class="b"><td>Greater Than</td>
+<td>&gt;</td>
+<td>gt</td>
+<td> #if( $foo &gt; 42 )</td>
+</tr>
+<tr class="a"><td>Less Than</td>
+<td>&lt;</td>
+<td>lt</td>
+<td> #if( $foo &lt; 42 )</td>
+</tr>
+<tr class="b"><td>Greater Than or Equal To</td>
+<td>&gt;=</td>
+<td>ge</td>
+<td> #if( $foo &gt;= 42 )</td>
+</tr>
+<tr class="a"><td>Less Than or Equal To</td>
+<td>&lt;=</td>
+<td>le</td>
+<td> #if( $foo &lt;= 42 )</td>
+</tr>
+<tr class="b"><td>Boolean NOT</td>
+<td>!</td>
+<td>not</td>
+<td> #if( !$foo )</td>
+</tr>
+</table>
+<p>Notes:</p>
+<ol type="1"><li>
+    The == operator can be used to compare numbers, strings, objects of the same class, or objects
+    of different classes.  In the last case (when objects are of different classes), the toString()
+    method is called on each object and the resulting Strings are compared.
+  </li>
+<li>
+   You can also use brackets to delimit directives.  This is especially
+    useful when text immediately follows an <code>#else</code> directive.
+  </li>
+</ol>
+<div class="source"><pre>
+#if( $foo == $bar)it's true!#{else}it's not!#end&lt;/li&gt;
+</pre>
+</div>
+</div>
+<div class="section"><h3><a name="aforeach_-_Loops_through_a_list_of_objects"></a>
+#foreach - Loops through a list of objects</h3>
+<p>
+    Format:
+    </p>
+<p><strong>#</strong> [ <strong>{</strong> ] <strong>foreach</strong> [ <strong>}</strong> ] <strong>(</strong><em>$ref</em><strong>in</strong><em>arg</em><strong>)</strong><em>statement</em><strong>#</strong> [ <strong>{</strong> ] <strong>end</strong> [ <strong>}</strong> ]
+    </p>
+<p>
+    Usage:
+    </p>
+<ul><li><em>$ref</em> - The first variable reference is the item.</li>
+<li><em>arg</em> - May be one of the following: a reference to a
+        list (i.e. object array, collection, or map), an array list, or
+        the range operator.</li>
+<li><em>statement</em> - What is output each time Velocity finds a
+    valid item in the list denoted above as <i>arg</i>
+.  This output is
+    any valid VTL and is rendered each iteration of the loop.
+    </li>
+</ul>
+<p>
+    Examples of the #foreach(), omitting the statement block :
+    </p>
+<ul><li>Reference: #foreach ( $item in $items )</li>
+<li>Array list: #foreach ( $item in [&quot;Not&quot;, $my, &quot;fault&quot;] )</li>
+<li>Range operator: #foreach ( $item in [1..3] )</li>
+</ul>
+<p>
+    Velocity provides an easy way to get the loop counter so that you
+    can do something like the following:
+    </p>
+<div class="source"><pre>
+&lt;table&gt;
+#foreach( $customer in $customerList )
+    &lt;tr&gt;&lt;td&gt;$velocityCount&lt;/td&gt;&lt;td&gt;$customer.Name&lt;/td&gt;&lt;/tr&gt;
+#end
+&lt;/table&gt;
+</pre>
+</div>
+<p>
+    The default name for the loop counter variable reference, which is
+    specified in the velocity.properties file, is $velocityCount. By
+    default the counter starts at 1, but this can be set to either 0 or
+    1 in the <code>velocity.properties</code> file. Here's what the loop
+    counter properties section of the <code>velocity.properties</code>
+    file appears:
+    </p>
+<div class="source"><pre>
+# Default name of the loop counter
+# variable reference.
+directive.foreach.counter.name = velocityCount
+
+# Default starting value of the loop
+# counter variable reference.
+directive.foreach.counter.initial.value = 1
+</pre>
+</div>
+<p>
+    Additionally, the maximum allowed number of loop iterations can be
+    controlled engine-wide (an ability introduced in Velocity 1.5).
+    By default, there is no limit:
+    </p>
+<div class="source"><pre>
+# The maximum allowed number of loops.
+directive.foreach.maxloops = -1
+</pre>
+</div>
+</div>
+<div class="section"><h3><a name="ainclude_-_Renders_local_files_that_are_not_parsed_by_Velocity"></a>
+#include - Renders local file(s) that are not parsed by Velocity</h3>
+<p>
+    Format:
+    </p>
+<p><strong>#</strong> [ <strong>{</strong> ] <strong>include</strong> [ <strong>}</strong> ] <strong>( </strong>arg[ arg2  ... argn]<strong> )</strong></p>
+<ul><li><em>arg</em> - Refers to a valid file under TEMPLATE_ROOT.</li>
+</ul>
+<p>
+    Examples:
+    </p>
+<ul><li>String: #include( &quot;disclaimer.txt&quot;  &quot;opinion.txt&quot; )</li>
+<li>Variable: #include( $foo  $bar )</li>
+</ul>
+</div>
+<div class="section"><h3><a name="aparse_-_Renders_a_local_template_that_is_parsed_by_Velocity"></a>
+#parse - Renders a local template that is parsed by Velocity</h3>
+<p>
+    Format:
+    </p>
+<p><strong>#</strong> [ <strong>{</strong> ] <strong>parse</strong> [ <strong>}</strong> ] <strong>(</strong> arg <strong>)</strong></p>
+<ul><li><em>arg</em> - Refers to a template under TEMPLATE_ROOT.</li>
+</ul>
+<p>
+    Examples:
+    </p>
+<ul><li>String: #parse( &quot;lecorbusier.vm&quot; )</li>
+<li>Variable: #parse( $foo )</li>
+</ul>
+<p>
+    Recursion permitted. See <em>parse_directive.maxdepth</em> in
+    <code>velocity.properties</code>
+    to change from parse depth. (The default parse depth is 10.)
+    </p>
+</div>
+<div class="section"><h3><a name="astop_-_Stops_the_template_engine"></a>
+#stop - Stops the template engine</h3>
+<p>
+    Format:
+    </p>
+<p><strong>#</strong> [ <strong>{</strong> ] <strong>stop</strong> [ <strong>}</strong> ]
+    </p>
+<p>
+    Usage:
+    </p>
+<p>
+    This will stop execution of the current template. This is good for
+    debugging a template.
+    </p>
+</div>
+<div class="section"><h3><a name="aevaluate_-_Dynamically_evaluates_a_string_or_reference"></a>
+#evaluate - Dynamically evaluates a string or reference</h3>
+<p>
+    Format:
+    </p>
+<p><strong>#</strong> [ <strong>{</strong> ] <strong>evaluate</strong> [ <strong>}</strong> ] <strong>( </strong>arg<strong> )</strong></p>
+<ul><li><em>arg</em> - String literal or reference to be dynamically evaluated.</li>
+</ul>
+<p>
+    Examples:
+    </p>
+<ul><li>String: #evaluate( 'string with VTL #if(true)will be displayed#end' )</li>
+<li>Variable: #include( $foo )</li>
+</ul>
+</div>
+<div class="section"><h3><a name="adefine_-_Assigns_a_block_of_VTL_to_a_reference"></a>
+#define - Assigns a block of VTL to a reference</h3>
+<p>
+    Format:
+    </p>
+<p><strong>#</strong> [ <strong>{</strong> ] <strong>define</strong> [ <strong>}</strong> ] <strong>( </strong><em>$ref</em><strong> )</strong><em>statement</em><strong>#</strong> [ <strong>{</strong> ] <strong>end</strong> [ <strong>}</strong> ]
+
+    </p>
+<ul><li><em>$ref</em> - Reference that is assigned the VTL block as a value.</li>
+<li><em>statement</em> - Statement that is assigned to the reference.</li>
+</ul>
+<p>
+    Example:
+    </p>
+<ul><li>#define( $hello ) Hello $who #end #set( $who = &quot;World!&quot;) $hello ## displays Hello World!</li>
+</ul>
+</div>
+<div class="section"><h3><a name="amacro_-_Allows_users_to_define_a_Velocimacro_VM_a_repeated_segment_of_a_VTL_template_as_required"></a>
+#macro - Allows users to define a Velocimacro (VM), a repeated segment of a VTL template, as required</h3>
+<p>
+    Format:
+    </p>
+<p><strong>#</strong> [ <strong>{</strong> ] <strong>macro</strong> [ <strong>}</strong> ] <strong>(</strong> vmname $arg1 [ $arg2 $arg3 ... $argn ]
+    <strong>)</strong> [ VM VTL code... ] <strong>#</strong> [ <strong>{</strong> ] <strong>#end</strong> [ <strong>}</strong> ]
+    </p>
+<ul><li><em>vmname</em> - Name used to call the VM
+    (<em>#vmname</em>)</li>
+<li><em>$arg1 $arg2 [ ... ]</em> - Arguments to the VM. There can be
+    any number of arguments, but the number used at invocation must
+    match the number specified in the definition.</li>
+<li><em>[ VM VTL code... ]</em> - Any valid VTL code, anything you
+    can put into a template, can be put into a VM.</li>
+</ul>
+<p>
+    Once defined, the VM is used like any other VTL directive in a
+    template.
+    </p>
+<div class="source"><pre>
+#vmname( $arg1 $arg2 )
+</pre>
+</div>
+<p>
+    VMs can be defined in one of two places:
+    </p>
+<ol type="1"><li><i>Template library:</i>
+ can be either VMs pre-packaged with
+    Velocity or custom-made, user-defined, site-specific VMs;
+     available from any template</li>
+<li><i>Inline:</i>
+ found in regular templates, only usable when
+    <em>velocimacro.permissions.allowInline=true</em> in
+    <code>velocity.properties</code>.</li>
+</ol>
+</div>
+</div>
+<div class="section"><h2><a name="Comments"></a>
+Comments</h2>
+<p>
+    Comments are not rendered at runtime.
+    </p>
+<div class="section"><h3><a name="Single_Line"></a>
+Single Line</h3>
+<p>
+    Example:
+    </p>
+<p><strong>## This is a comment.</strong></p>
+</div>
+<div class="section"><h3><a name="Multi_Line"></a>
+Multi Line</h3>
+<p>
+    Example:
+    </p>
+<p><strong>
+    #*<br />
+
+    This is a multiline comment.<br />
+
+    This is the second line<br />
+
+    *#
+    </strong></p>
+</div>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2000-2009
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+    
+             Last Published: 2009-03-19 08:47:45
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

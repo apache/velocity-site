@@ -1,0 +1,90 @@
+Title: Apache Velocity Tools - VelocityView
+
+## Overview
+
+VelocityView includes all of the [GenericTools](generic.html) and adds infrastructure and specialized tools for using Velocity in the view layer of web applications (Java EE projects). This includes the VelocityViewServlet or VelocityLayoutServlet for processing Velocity template requests and the VelocityViewTag for embedding Velocity in JSP.
+
+Key features:
+
++ [**VelocityViewServlet**](view-servlet.html) - standalone servlet that renders Velocity templates. Invoked directly from web clients requests, or via servlet forwarding similar to how JSP files are rendered by JSPServlet.
++ The [HttpServletRequest](http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html), [HttpSession](http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpSession.html), [ServletContext](http://docs.oracle.com/javaee/6/api/javax/servlet/ServletContext.html), and their attributes are automatically available in your templates.
++ Tools can also be made available to your templates, through a **tools** [configuration](configuration.html) file.
++ A number of useful, extendable tools for developing web applications are already provided for your convenience.
++ Logging is made through the SLF4J logging facade. It can be directed to the log infrastructure of the Web application (using the logging facility provided by the Servlet API) by addind the [webapp slf4j logger](https://github.com/arkanovicz/webapp-slf4j-logger) into the classpath. 
+
+## Installation
+
+For inclusion in a Maven project, use the following dependency block:
+
+    :::xml
+    <dependency>
+        <groupId>org.apache.velocity.tools</groupId>
+        <artifactId>velocity-tools-view</artifactId>
+        <version>3.0</version>
+    </dependency>
+
+Otherwise, see the [download page](/download.html#tools) for how to get the Velocity View Tools jar.
+
+## Default Configuration
+
+The default configuration provided for VelocityView is [here](http://svn.apache.org/viewvc/velocity/tools/trunk/velocity-tools-generic/src/main/resources/org/apache/velocity/tools/generic/tools.xml?view=markup") and [here](http://svn.apache.org/viewvc/velocity/tools/trunk/velocity-tools-view/src/main/resources/org/apache/velocity/tools/view/tools.xml?view=markup).
+
+## Dependencies
+
+The dependencies required for VelocityView can be found on our [dependencies chart](dependencies.html#VelocityView).
+
+## VelocityView Object
+
+The [VelocityView](apidocs/org/apache/velocity/tools/view/VelocityView.html) object forms the core of the VelocityView infrastructure.  In particular, it serves as the base class for the following:
+
+### [VelocityViewServlet](view-servlet.html)
+
+The [VelocityViewServlet](apidocs/org/apache/velocity/tools/view/VelocityViewServlet.html) class is a standalone servlet that renders Velocity templates. It can be invoked directly from web client's requests, or via servlet forwarding similar to how JSP files are rendered by JSPServlet.
+
+Detailed documentation is [here](view-servlet.html).
+
+### [VelocityLayoutServler](view-layoutservlet.html)
+
+One derivative of the VelocityViewServlet is the [**VelocityLayoutServlet**](view-layoutservlet.html. This servlet performs a simplified 'two-pass render' in order to apply a shared, common layout to all of the web pages in an application.
+
+The VelocityLayoutServlet also allows you to specify an 'error' template to be displayed when an exception is thrown during the processing of a requested template.  This allows you to provide a customized error screen for a more user-friendly application.
+
+Detailed documentation is [here](view-layoutservlet.html).
+
+### [VelocityViewTag](view-tag.html)
+
+This is a JSP tag that allows you to use Velocity and VelocityTools from within your JSP tags and files. This tag can both process templates in separate files, VTL in the tag body, or combine the two.
+
+Detailed documentation is [here](view-tag.html).
+
+## Tools
+
+These are in addition to those provided by [GenericTools](generic.html#Tools):
+
++ [AbstractSearchTool](apidocs/org/apache/velocity/tools/view/AbstractSearchTool.html) - For doing "searching" and robust pagination of search results. Requires you to create a subclass.
++ [BrowserTool](apidocs/org/apache/velocity/tools/view/BrowserTool.html) - For identifying the browser and features thereof requesting the template.
++ [CookieTool](apidocs/org/apache/velocity/tools/view/CookieTool.html) - For convenient cookie access and creation.
++ [ImportTool](apidocs/org/apache/velocity/tools/view/ImportTool.html) - For pulling down textual content from a URL.
++ [LinkTool](apidocs/org/apache/velocity/tools/view/LinkTool.html) - For easy building of URLs (both relative or absolute).
++ [PagerTool](apidocs/org/apache/velocity/tools/view/PagerTool.html) - For doing request-based pagination of items in an arbitrary list.
++ [ParameterTool](apidocs/org/apache/velocity/tools/view/ParameterTool.html) - For easy retrieval and parsing of ServletRequest parameters.
++ [ViewContextTool](apidocs/org/apache/velocity/tools/view/ViewContextTool.html) - For convenient access to ViewContext data and meta-data.
+
+## Examples
+
+In the VelocityTools sources tree, you will find three examples:
+
++ velocity-tools-simple: a minimalist web application.
++ velocity-tools-showcase: a demonstration of all standard tools.
+
+To run the showcase application locally, run the following command from the velocity-tools-examples/velocity-tools-examples-showcase directory:
+
+    mvn cargo:run
+
+Then point your browser to:
+
+     http://localhost:8080/velocity-tools-examples-showcase/
+
+Logs go to:
+
+    velocity-tools-examples/velocity-tools-examples-showcase/target/cargo/configurations/jetty8x/logs/2016_11_05.stderrout.log

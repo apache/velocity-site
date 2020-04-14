@@ -1,0 +1,1389 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>Apache Velocity - Changes Report</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+    <link rel="alternate" href="http://feeds.feedburner.com/ApacheVelocitySiteNews" type="application/rss+xml" title="Apache Velocity - Changes Report News" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../../../" id="bannerLeft">
+    
+                                            <img src="images/velocity_project_wide.png" alt="" />
+    
+            </a>
+                          <span id="bannerRight">
+    
+                                            <img src="images/velocity-logo.png" alt="" />
+    
+            </span>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+          
+          <a href="http://www.apache.org/">Apache</a>
+              &gt;
+      
+          <a href="../../../">Velocity</a>
+              &gt;
+      
+          Velocity Engine
+                </div>
+            <div class="xright">      <a href="../../devel/">Engine</a>
+          |
+          <a href="../../../tools/devel/">Tools</a>
+          |
+          <a href="../../../anakia/devel/">Anakia</a>
+          |
+          <a href="../../../texen/devel/">Texen</a>
+          |
+          <a href="../../../docbook/">DocBook</a>
+          |
+          <a href="../../../dvsl/devel/">DVSL</a>
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Velocity</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="index.html">General</a>
+        </li>
+              
+    <li class="none">
+              <a href="overview.html">Overview</a>
+        </li>
+              
+    <li class="none">
+              <a href="getting-started.html">Getting Started</a>
+        </li>
+              
+    <li class="none">
+              <a href="webapps.html">Web Applications</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../download.cgi">Download</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/VelocityFAQ">FAQ (Wiki)</a>
+        </li>
+          </ul>
+          <h5>Docs</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="user-guide.html">User Guide</a>
+        </li>
+              
+    <li class="none">
+              <a href="developer-guide.html">Developer Guide</a>
+        </li>
+              
+    <li class="none">
+              <a href="vtl-reference-guide.html">VTL Reference</a>
+        </li>
+              
+    <li class="none">
+              <a href="glossary.html">Glossary</a>
+        </li>
+          </ul>
+          <h5>Developers</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="license.html">License</a>
+        </li>
+              
+    <li class="none">
+              <a href="apidocs/index.html">Javadoc</a>
+        </li>
+              
+    <li class="none">
+              <strong>Changes</strong>
+        </li>
+              
+    <li class="none">
+              <a href="jira-report.html">Resolved Issues</a>
+        </li>
+              
+    <li class="none">
+              <a href="upgrading.html">Upgrading</a>
+        </li>
+              
+    <li class="none">
+              <a href="jar-dependencies.html">Dependencies</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://svn.apache.org/viewvc/velocity/engine/trunk/">Source Code Repository</a>
+        </li>
+              
+    <li class="none">
+              <a href="build.html">Building from Source</a>
+        </li>
+          </ul>
+          <h5>Community</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/">Wiki</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../news.html">Recent News</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/PoweredByVelocity">Powered By Velocity</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/VelocityEditors">IDE/Editor Plugins</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/PublishedArticlesAndBooks">Articles and Books</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/GetInvolved">Get Involved</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../contact.html">Mailing Lists</a>
+        </li>
+          </ul>
+          <h5>Velocity Development</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/RoadMap">Road Map</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/CodeStandards">Coding Standards</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/DocumentationGuidelines">Documentation Guidelines</a>
+        </li>
+              
+    <li class="none">
+              <a href="https://issues.apache.org/jira/browse/VELOCITY">Issues</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../who-we-are.html">Who we are</a>
+        </li>
+          </ul>
+          <h5>Translations</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://www.jajakarta.org/velocity/">Site (Japanese)</a>
+        </li>
+              
+    <li class="none">
+              <a href="translations/user-guide_fi.html">User's Guide (Finnish)</a>
+        </li>
+              
+    <li class="none">
+              <a href="translations/user-guide_fr.html">User's Guide (French)</a>
+        </li>
+              
+    <li class="none">
+              <a href="translations/user-guide_es.html">User's Guide (Spanish)</a>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-info.html">Project Information</a>
+              </li>
+              
+                
+              
+      
+            
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+              <a href="project-reports.html">Project Reports</a>
+                <ul>
+                  
+    <li class="none">
+              <a href="changelog.html">Change Log</a>
+        </li>
+                  
+    <li class="none">
+              <strong>Changes Report</strong>
+        </li>
+                  
+    <li class="none">
+              <a href="dev-activity.html">Developer Activity</a>
+        </li>
+                  
+    <li class="none">
+              <a href="file-activity.html">File Activity</a>
+        </li>
+                  
+    <li class="none">
+              <a href="findbugs.html">FindBugs Report</a>
+        </li>
+                  
+    <li class="none">
+              <a href="apidocs/index.html">JavaDocs</a>
+        </li>
+                  
+    <li class="none">
+              <a href="jira-report.html">JIRA Report</a>
+        </li>
+                  
+    <li class="none">
+              <a href="xref/index.html">Source Xref</a>
+        </li>
+                  
+    <li class="none">
+              <a href="taglist.html">Tag List</a>
+        </li>
+                  
+    <li class="none">
+              <a href="testapidocs/index.html">Test JavaDocs</a>
+        </li>
+                  
+    <li class="none">
+              <a href="xref-test/index.html">Test Source Xref</a>
+        </li>
+              </ul>
+        </li>
+          </ul>
+                                             
+                        
+                        
+                        <a class="poweredBy" href="../../../" title="Apache Velocity" ><img class="poweredBy" alt="Apache Velocity" src="images/pbv90x30.png" /></a>
+                                
+                        
+                        
+                        <a class="poweredBy" href="../../../rss/news.rss" title="Velocity News Feed" ><img class="poweredBy" alt="Velocity News Feed" src="images/feed-icon-24x24.jpg" /></a>
+                    
+       <iframe src="http://www.apache.org/ads/buttonbar.html"
+               style="border-width:0; float: left" frameborder="0" scrolling="no"
+               width="135"
+               height="265" ></iframe>
+
+           
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <h2><a name="Changes_Report"></a>
+Changes Report</h2>
+<h3><a name="Release_History"></a>
+Release History</h3>
+<table class="bodyTable"><tr class="a"><th>Version</th>
+<th>Date</th>
+<th>Description</th>
+</tr>
+<tr class="b"><td><a href="#a1.6.1">1.6.1</a>
+</td>
+<td>2008-12-15</td>
+<td></td>
+</tr>
+<tr class="a"><td><a href="#a1.6">1.6</a>
+</td>
+<td>2008-12-01</td>
+<td></td>
+</tr>
+<tr class="b"><td><a href="#a1.6-beta2">1.6-beta2</a>
+</td>
+<td>2008-10-26</td>
+<td></td>
+</tr>
+<tr class="a"><td><a href="#a1.6-beta1">1.6-beta1</a>
+</td>
+<td>2008-09-22</td>
+<td></td>
+</tr>
+<tr class="b"><td><a href="#a1.5">1.5</a>
+</td>
+<td>2007-01-28</td>
+<td></td>
+</tr>
+<tr class="a"><td><a href="#a1.5-beta2">1.5-beta2</a>
+</td>
+<td>2006-11-24</td>
+<td></td>
+</tr>
+<tr class="b"><td><a href="#a1.5-beta1">1.5-beta1</a>
+</td>
+<td>2006-09-13</td>
+<td></td>
+</tr>
+</table>
+<br />
+<br />
+<h3><a name="a1.6.1"></a>
+Release 1.6.1 - 2008-12-15</h3>
+<table class="bodyTable"><tr class="a"><th>Type</th>
+<th>Changes</th>
+<th>By</th>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Correct/enhance template name reporting for #include and #parse. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-654">VELOCITY-654</a>
+. Thanks to Byron Foster.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Removed redundant error message in ASTReference. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-653">VELOCITY-653</a>
+. Thanks to Byron Foster.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix limitation in new macro implementation that resisted #set calls
+          to change references defined as arguments for the macro. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-615">VELOCITY-615</a>
+. Thanks to Steve O'Hara.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix vararg bugs when calling overloaded methods like get(String,String,Object[])
+          and get(String,List). (e.g. in VelocityStruts' MessageTool) Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-651">VELOCITY-651</a>
+. Thanks to Stephan Schmid.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+</table>
+<h3><a name="a1.6"></a>
+Release 1.6 - 2008-12-01</h3>
+<table class="bodyTable"><tr class="b"><th>Type</th>
+<th>Changes</th>
+<th>By</th>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix NPE when null value is passed to array/vararg method. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-649">VELOCITY-649</a>
+. Thanks to Byron Foster.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Track template name in Node, to get proper template name in the exception
+          message when a reference in a macro causes that exception. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-644">VELOCITY-644</a>
+. Thanks to Byron Foster.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Update Finnish and Spanish User Guide sections on division operation. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-352">VELOCITY-352</a>
+. Thanks to Gonzalo Diethelm, Joni Salonen.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix classpath for XMLApp example. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-641">VELOCITY-641</a>
+. Thanks to Will Glass-Husain.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix references to Oro dependency to make it clear that it is
+          only necessary for certain reference event handlers. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-617">VELOCITY-617</a>
+. Thanks to Adrian Tarau.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Remove old Anakia/Texen docs and examples. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-640">VELOCITY-640</a>
+. Thanks to Will Glass-Husain.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix bug in vararg support where an array passed to a vararg method
+          was being wrapped in another array. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-642">VELOCITY-642</a>
+. Thanks to Ilkka Priha.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Locked down versions for reporting plugins in Maven POM. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-638">VELOCITY-638</a>
+. Thanks to Benjamin Bentmann.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Add Maven-Ant tasks for installing and deploying Maven artifacts, including
+          previously missing source and javadoc jars (VELOCITY-554). Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-466">VELOCITY-466</a>
+. Thanks to Adrian Tarau.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+</table>
+<h3><a name="a1.6-beta2"></a>
+Release 1.6-beta2 - 2008-10-26</h3>
+<table class="bodyTable"><tr class="b"><th>Type</th>
+<th>Changes</th>
+<th>By</th>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix User Guide's Table of Contents anchor links. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-632">VELOCITY-632</a>
+. Thanks to Sebb.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix parser bug that prevented references from immediately preceding #set directives. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-631">VELOCITY-631</a>
+. Thanks to Byron Foster.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Revert change made for VELOCITY-285, as it broke pass-by-name nature
+          of macro arguments. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-630">VELOCITY-630</a>
+. Thanks to Byron Foster.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix line numbers in string literals. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-629">VELOCITY-629</a>
+. Thanks to Byron Foster.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix line number for exceptions with body of #foreach directive. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-627">VELOCITY-627</a>
+. Thanks to Byron Foster.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Log full macro stack when a RuntimeException occurs in a template. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-626">VELOCITY-626</a>
+. Thanks to Byron Foster.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Format template and line/column numbers consistently in error and log messages. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-622">VELOCITY-622</a>
+. Thanks to Byron Foster.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Don't override pre-configured log levels for JdkLogChute or Log4JLogChute. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-624">VELOCITY-624</a>
+. Thanks to Byron Foster.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Add optional 'runtime.references.strict' property that has Velocity throw
+          exceptions when it encounters undefined references or velocimacros in a template. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-618">VELOCITY-618</a>
+. Thanks to Byron Foster.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Inlude Maven Ant tasks jar in downloads and add support for downloading from Maven2 repos. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-554">VELOCITY-554</a>
+. Thanks to Adrian Tarau.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix problem with single backslash in interpolated (double-quoted) strings. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-585">VELOCITY-585</a>
+. Thanks to Jon Seymour.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix escaping of bracketed directives (e.g. \#{if}($foo)$bar\#{end}). Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-616">VELOCITY-616</a>
+. Thanks to Alik.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+</table>
+<h3><a name="a1.6-beta1"></a>
+Release 1.6-beta1 - 2008-09-22</h3>
+<table class="bodyTable"><tr class="a"><th>Type</th>
+<th>Changes</th>
+<th>By</th>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Uberspectors chaining Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-588">VELOCITY-588</a>
+. Thanks to Vincent Massol, Sergiu Dumitriu.</td>
+<td><a href="team-list.html#cbrisson">cbrisson</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Add ability to set a connection timeout for URLResourceLoader. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-585">VELOCITY-585</a>
+. Thanks to Tim White.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Make it easier to override ResourceFactory.getResource(...) in ResourceManagerImpl. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-227">VELOCITY-227</a>
+. Thanks to Charles Morehead.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Fix BooleanPropertyExecutor to recognize "public Boolean isFoo" properties. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-544">VELOCITY-544</a>
+. Thanks to Adam Bishop, Jarkko Viinamaki.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Add a separate resourceExists(String name) method to ResourceLoader(s) to improve performance. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-439">VELOCITY-439</a>
+. Thanks to Tassos Bassoukos, Henning Schmiedehausen.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Fix missing # and $ characters within #literal() directive output. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-355">VELOCITY-355</a>
+. Thanks to Geoffrey Lowney, Dan Ertman.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Add support for static utility classes: context.put("math", Math.class) -> $math.sin(0) Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-102">VELOCITY-102</a>
+. Thanks to Juozas Baliuka, Adrian Tarau, Jim Seach.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Add #define directive set an unrendered block of VTL as a reference.
+          (e.g. #define( $foo )Hello, $bar!#end #set( $bar = 'world') $foo -> Hello, world!) Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-174">VELOCITY-174</a>
+. Thanks to Andrew Tetlaw.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Add #break directive to exit #foreach loops early. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-612">VELOCITY-612</a>
+. Thanks to Jarkko Viinamaki.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Fixed major performance issues with Velocimacros. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-607">VELOCITY-607</a>
+. Thanks to Jarkko Viinamaki.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Removed many, various performance bottlenecks and concurrency issues. (Also see VELOCITY-595) Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-606">VELOCITY-606</a>
+. Thanks to Jarkko Viinamaki.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>New VTL syntax $velocityHasNext within #foreach loops Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-600">VELOCITY-600</a>
+. Thanks to Adrian Tarau.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Multi-line comments in macros were rendering extra *# when evaluated. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-580">VELOCITY-580</a>
+. Thanks to Marnix van Bochove.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Have VelocityCharStream use an exponential buffer expansion rate. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-570">VELOCITY-570</a>
+. Thanks to Ronald Klop.</td>
+<td><a href="team-list.html#cbrisson">cbrisson</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Prevent exception due to simultaneous rendering of macros. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-566">VELOCITY-566</a>
+. Thanks to Etienne Massip.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>New VTL syntax allows arrays to be treated like fixed length lists. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-533">VELOCITY-533</a>
+. Thanks to Christopher Schultz.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Added support for varargs in method calls. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-534">VELOCITY-534</a>
+.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Prevent NPE when template is parsed simultaneously by multiple users.  (may apply only to macros). Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-536">VELOCITY-536</a>
+. Thanks to Lei Gu, Dima Tkach.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Users can now include libraries of macros with #parse in a template. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-362">VELOCITY-362</a>
+. Thanks to Supun Kamburugamuva.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Macro libraries can now be selected programatically when merging templates. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-529">VELOCITY-529</a>
+. Thanks to Supun Kamburugamuva.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Catch IllegalArgumentException when invoking method. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-452">VELOCITY-452</a>
+. Thanks to Alexey Panchenko.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fixed parse error for map definitions ending with a reference. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-538">VELOCITY-538</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Add new property velocimacro.max.depth which limits max macro calling depth. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-297">VELOCITY-297</a>
+. Thanks to Supun Kamburugamuva.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Add ability to add directives programmatically Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-547">VELOCITY-547</a>
+. Thanks to Adam Heath.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Allow user directives to have no content. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-548">VELOCITY-548</a>
+. Thanks to Adam Heath.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>IncludeNotFound event handler was displaying "not found" template. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-551">VELOCITY-551</a>
+. Thanks to Michiel Toneman.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix StringResourceLoader to make it possible to use more than one loader per VM. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-541">VELOCITY-541</a>
+.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Make unicode encoding work in velocity templates. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-520">VELOCITY-520</a>
+. Thanks to Stepan Koltsov.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Add a ServletLogChute that allows logging through the servlet API. Ported from the
+        Velocity Tools project.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Add a CommonsLogLogChute that allows logging through commons-logging.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/update.gif" alt="update" /></td>
+<td>Deprecate integrated texen and anakia, factor it out into separate jars.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Added new directive #evaluate() to dynamically evaluate VTL. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-509">VELOCITY-509</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+</table>
+<h3><a name="a1.5"></a>
+Release 1.5 - 2007-01-28</h3>
+<table class="bodyTable"><tr class="b"><th>Type</th>
+<th>Changes</th>
+<th>By</th>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix to SecureUberspector to work properly with #foreach and iterators. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-516">VELOCITY-516</a>
+. Thanks to Vincent Massol.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Make FileResourceLoader unicode aware to allow skipping over BOM markers
+        like those created by Windows Notepad. This is a workaround for a Java
+        bug, where Java itself does not recognize the UTF-8 BOM as defined by
+        the unicode standard. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-191">VELOCITY-191</a>
+. Thanks to Aki Nieminen.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+</table>
+<h3><a name="a1.5-beta2"></a>
+Release 1.5-beta2 - 2006-11-24</h3>
+<table class="bodyTable"><tr class="a"><th>Type</th>
+<th>Changes</th>
+<th>By</th>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>New StringResourceLoader can retrieve templates from repository of in-memory Strings. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-183">VELOCITY-183</a>
+. Thanks to Eelco Hillenius.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>RuntimeInstance.getProperty now returns value set with RuntimeInstance.setProperty,
+    even before initialization. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-493">VELOCITY-493</a>
+. Thanks to Claude Brisson.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>When macros have incorrect number of arguments, if property
+    "velocimacro.arguments.strict" is set to true a ParseErrorException
+    will be thrown. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-435">VELOCITY-435</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>MethodInvocationException now contains line, column, template name
+    allowing application to produce more useful error messages. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-414">VELOCITY-414</a>
+. Thanks to Matthijs Lambooy.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fixed race condition in template retrieval that caused macros to
+    fail under simultaneous load. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-24">VELOCITY-24</a>
+.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>New event handler InvalidReferenceHandler allows application
+    to catch invalid references.  Sample implementation collects
+    them in list and optionally throws exception. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-423">VELOCITY-423</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>New, optional SecureIntrospector prohibits methods that involve manipulation of classes, classloaders
+      or reflection objects.  Use this introspector to secure Velocity against a risk of
+      template writers using reflection to perform malicious acts. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-179">VELOCITY-179</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Removed Serializable from InternalContextBase, because one of the members is not serializable anyway so this never worked (Found by Findbugs). Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-458">VELOCITY-458</a>
+.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Add an additional pair of Executors that are smart about Map. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-449">VELOCITY-449</a>
+. Thanks to Alexey Panchenko.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Method caching now uses consistent keys. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-453">VELOCITY-453</a>
+. Thanks to Alexey Panchenko.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Change the meaning of localscope for macros to allow access to references from 
+    calling context. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-459">VELOCITY-459</a>
+. Thanks to Stephen Haberman.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Add a test for the DataSourceResource Loader.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Fix a problem in the DataSourceResource Loader, removing a potential security issue with SQL injection.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Build now creates the MD5 and SHA1 checksums for archives and jars.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix a number of issues reported by running FindBugs on the Velocity source.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+</table>
+<h3><a name="a1.5-beta1"></a>
+Release 1.5-beta1 - 2006-09-13</h3>
+<table class="bodyTable"><tr class="a"><th>Type</th>
+<th>Changes</th>
+<th>By</th>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Stop references from calling object.toString() twice. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-438">VELOCITY-438</a>
+. Thanks to Stephen Haberman.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/update.gif" alt="update" /></td>
+<td>Pass through all runtime exceptions.  Among other benefits, this
+    allows plugins to throw a runtime exception to signify an application
+    level problem in the calling application. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-429">VELOCITY-429</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>When #include was followed by #parse with the same file name, a ClassCastException was thrown. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-98">VELOCITY-98</a>
+. Thanks to Michal Chmielewski.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Wrapped exceptions now have Cause property set on JDK 1.4.  (note that Velocity
+        continues to run under JDK 1.3). Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-425">VELOCITY-425</a>
+. Thanks to Llewellyn Falco.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>When Velocity is initialized, default.properties stream was not being closed.  This
+    made it difficult to undeploy webapps on Windows with Velocity unpacked. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-418">VELOCITY-418</a>
+. Thanks to Jason Weinstein.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Upgraded to latest commons collection, fixing problem with non-recognition
+        of configuration file encoding in rare circumstances. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-151">VELOCITY-151</a>
+. Thanks to Kirk Wolf.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>The Introspector could throw a NPE when a parameter to an overloaded method was null. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-370">VELOCITY-370</a>
+. Thanks to Reggie Riser.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>If toString() returned null in a silent reference then "null" was displayed. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-381">VELOCITY-381</a>
+. Thanks to Llwellyn Falco and Dan Powell.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>caused ParseException. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-359">VELOCITY-359</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Added javacc task to build.xml simplifying modification process
+        for editing syntax files. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-222">VELOCITY-222</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Velocity Engine was throwing NPE when used without a call to
+        init().  Now gives a more meaningful exception message. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-374">VELOCITY-374</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/update.gif" alt="update" /></td>
+<td>Fixed problem with Uberspect Info class being created incorrectly.
+        Added template name to Info allowing better error reporting. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-404">VELOCITY-404</a>
+. Thanks to Llewellyn Falco.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/update.gif" alt="update" /></td>
+<td>Numerous improvements to the documentation.  Reorganized table of
+        contents, moved community content to the Wiki, added article on using
+        Velocity in web applications.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/update.gif" alt="update" /></td>
+<td>When testing objects in VTL for equality, if both objects are a number, use
+        number equality.  If both objects are the same class, use the equals method.
+        New behavior: If objects are different classes, compare the String
+        representation of both objects rather than logging an error. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-350">VELOCITY-350</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Velocity would give error when last line of file was a ## comment. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-272">VELOCITY-272</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/update.gif" alt="update" /></td>
+<td>Added method to retrieve application attributes. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-412">VELOCITY-412</a>
+. Thanks to Malcolm Edgar.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/update.gif" alt="update" /></td>
+<td>Velocity now searches in the current thread's context classloader
+        before the system classloader for all templates loaded with the
+        ClasspathResourceLoader and for all user-defined ResourceLoaders,
+        introspectors, event handlers, etc.
+        A typical use for this is to have Velocity in the application
+        container classpath while keeping templates and plugins in the
+        webapp classpath. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-196">VELOCITY-196</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/update.gif" alt="update" /></td>
+<td>to true. Thanks to Thomas Veith.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>New optional event handler that escapes all references.
+        Regular expressions can be used to configure which references
+        have HTML, JavaScript, SQL, or XML escaping.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>New optional event handler implementation that forces #parse / #include to stay
+        in same directory as parent template. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-154">VELOCITY-154</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>New event handler to modify behavior of #parse / #include. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-260">VELOCITY-260</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/update.gif" alt="update" /></td>
+<td>FileResourceLoader now accepts absolute path when configured to accept it. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-144">VELOCITY-144</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>String containing "##" was treated as unterminated String. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-126">VELOCITY-126</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Spruced up Geir's old URLResourceLoader and promoted it from the whiteboard to
+        the main distribution. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELTOOLS-55">VELTOOLS-55</a>
+. Thanks to Charles Harvey.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/update.gif" alt="update" /></td>
+<td>Throw Runtime exceptions from nodes up the chain. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-424">VELOCITY-424</a>
+. Thanks to Malcom Edgar.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/update.gif" alt="update" /></td>
+<td>Revert the split between org.apache.velocity.runtime.parser.node.Node and
+        org.apache.velocity.runtime.parser.Node. The parser now only uses ...parser.node.Node
+        because this change broke custom directives. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-426">VELOCITY-426</a>
+. Thanks to Malcom Edgar.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/update.gif" alt="update" /></td>
+<td>Made a lot of internal logging upgrades including: Deprecated LogSystem interface
+            and replaced it (and all its implementations) with a new LogChute interface and implementations,
+            added getLog() to RuntimeServices (and all its friends) to improve on and replace its now deprecated
+            logging methods, added a JdkLogChute as a 3rd default option for those using JDK 1.4+, and added a
+            StandardOutLogChute as final resort if other LogChute inits fail. See JIRA issues VELOCITY-403, VELOCITY-166,
+            VELOCITY-403,VELOCITY-166,VELOCITY-78, VELOCITY-157, VELOCITY-159, VELOCITY-193. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-403">VELOCITY-403</a>
+.</td>
+<td><a href="team-list.html#nbubna">nbubna</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/remove.gif" alt="remove" /></td>
+<td>Removed all J2EE build tasks.  Now automatically detects availability
+            of javax.sql.Datasource (in JDK 1.4+) and builds DatasourceResourceLoader
+            when allowed. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-401">VELOCITY-401</a>
+.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>ant build now downloads the required dependency jars from ibiblio.org</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/update.gif" alt="update" /></td>
+<td>Unified template name, line and column number reporting for ParserErrorException Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-373">VELOCITY-373</a>
+. Thanks to Malcolm Edgar.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/remove.gif" alt="remove" /></td>
+<td>Dropped the non-functional Velocity compiler.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/update.gif" alt="update" /></td>
+<td>Started separating out the JavaCC generated parts of the Velocity Parser. Not yet complete to avoid user visible changes. Scheduled to be completed for 2.0</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Contributed a maven build for Velocity</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Reworked the ant build to product only two jars: velocity.jar and velocity-dep.jar.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/remove.gif" alt="remove" /></td>
+<td>Removed the Configuration class and all methods that references it. This class was deprecated since Velocity 1.1 and was scheduled to be gone for Velocity 1.3 or 1.4. Now
+        it was finally removed in 1.5.</td>
+<td><a href="team-list.html#henning">henning</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Added support for decimal numbers. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-242">VELOCITY-242</a>
+. Thanks to Peter Romianowski.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>MethodInvocationException now consistently thrown
+        (previously was hidden when in parameter to Velocimacro). Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-284">VELOCITY-284</a>
+. Thanks to Mike Rettig.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fixed problem in which foreach loop would fail to call overloaded method. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-109">VELOCITY-109</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Removed ERROR level log message "Can't find 'VM_global_library.vm'". Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-86">VELOCITY-86</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Anakia now generates consistent line endings based on platform.  Requires upgrade to JDom 1.0. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-348">VELOCITY-348</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>Anakia can now be pre-loaded with custom context values from an optional XML file. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-190">VELOCITY-190</a>
+. Thanks to Peter Ryan.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/add.gif" alt="add" /></td>
+<td>Directives can now be delimited with curly braces, for example #if($condition)something#{else}otherthing#{end}. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-43">VELOCITY-43</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Nulls now handled appropriate within #foreach. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-254">VELOCITY-254</a>
+. Thanks to Christopher Reck.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Upgraded JavaCC to version 3.2, providing JDK 1.5 compatibility.
+        (Older version used keyword 'enum' which is reserved in JDK 1.5). Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-324">VELOCITY-324</a>
+. Thanks to Shinobu Kuwai.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/update.gif" alt="update" /></td>
+<td>DatasourceResourceLoader now allows injection of Datasource, allowing it to be used in Inversion of Control (IOC) frameworks. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-267">VELOCITY-267</a>
+. Thanks to Matt Raible .</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>#stop now works properly. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-218">VELOCITY-218</a>
+.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/update.gif" alt="update" /></td>
+<td>ClasspathResourceLoader now searches ContextClassLoader for template. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-196">VELOCITY-196</a>
+. Thanks to Charles Oliver Nutter.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/remove.gif" alt="remove" /></td>
+<td>deprecated Category and Priority classes in favor of the corresponding
+            and supported Logger and Level.  To update, replace necessary
+            references, and Category.getInstance() with Logger.getLogger(). Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-164">VELOCITY-164</a>
+.</td>
+<td><a href="team-list.html#dlr">dlr</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/add.gif" alt="add" /></td>
+<td>New Map literal syntax. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-152">VELOCITY-152</a>
+. Thanks to James Taylor.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/remove.gif" alt="remove" /></td>
+<td>Removed the long-deprecated Log4JLogSystem.  Never fear,
+            SimpleLog4JLogSystem remains.</td>
+<td><a href="team-list.html#dlr">dlr</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/update.gif" alt="update" /></td>
+<td>for your cache to less than
+            1.</td>
+<td><a href="team-list.html#dlr">dlr</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/update.gif" alt="update" /></td>
+<td>Took dan's modified SimpleLog4jLogSystem, and renamed Log4JLogSystem, and
+            put back old version of SimpleLog4JLogSystem, as deprecated.  That way
+            we can move forward with an up-to-date version that uses Logger, and
+            for one release, be backwards compatile for the Category-using log4j
+            crowd. Thanks to Daniel Rall.</td>
+<td><a href="team-list.html#geirm">geirm</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/remove.gif" alt="remove" /></td>
+<td>Deprecated org.apache.velocity.tools.VelocityFormatter class in favor
+            of the various format classes in the Velocity Tools library.</td>
+<td><a href="team-list.html#wglass">wglass</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/remove.gif" alt="remove" /></td>
+<td>Deprecated the org.apache.velocity.servlet.VelocityServlet class in
+            favor of org.apache.velocity.tools.view.servlet.VelocityViewServlet
+            from the Velocity Tools library.  Servlet interaction is more a core
+            competency of the Velocity Tools package than of Velocity's
+            core.</td>
+<td><a href="team-list.html#dlr">dlr</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix to BaseTestCase as suggested by Will Glass-Husain to handle line endings Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-185">VELOCITY-185</a>
+. Thanks to wglass.</td>
+<td><a href="team-list.html#geirm">geirm</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/update.gif" alt="update" /></td>
+<td>Parameterized cache and mod time control in TexenTask based on patch from
+         Henning. Thanks to henning.</td>
+<td><a href="team-list.html#"></a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fix to DatasourceResourceLoader - stop using the old Runtime singleton as
+            would leak a little memory for each instance of VelocityEngine created.
+            Hunted down by Will Glass-Husain. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-150">VELOCITY-150</a>
+. Thanks to wglass.</td>
+<td><a href="team-list.html#geirm">geirm</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>SimplePool now removes elements from pool on a get(). NOTE : Previously, it left the
+            reference to the object in the pool. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-161">VELOCITY-161</a>
+. Thanks to wglass.</td>
+<td><a href="team-list.html#geirm">geirm</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Fixes problem with single line comment
+            embedded in a multi-line comment. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-61">VELOCITY-61</a>
+. Thanks to wglass.</td>
+<td><a href="team-list.html#geirm">geirm</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Change for VELOCITY-221 and partial for VELOCITY-148, allowing newlines in
+            directives. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-221">VELOCITY-221</a>
+.</td>
+<td><a href="team-list.html#geirm">geirm</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/update.gif" alt="update" /></td>
+<td>Change to finish request VELOCITY-148, allowing '+' as a string concat. We'll have
+            to see how the community likes it. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-148">VELOCITY-148</a>
+.</td>
+<td><a href="team-list.html#geirm">geirm</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Didn't allow formal reference notation as first arg
+            to foreach. Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-239">VELOCITY-239</a>
+.</td>
+<td><a href="team-list.html#geirm">geirm</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/update.gif" alt="update" /></td>
+<td>To make using w/ XML easier allow alternative logical operators 'and', 'or',
+            'lt', 'gt', 'le', 'ge', 'eq', 'ne', 'not'.</td>
+<td><a href="team-list.html#geirm">geirm</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/update.gif" alt="update" /></td>
+<td>Allow newlines in strings.</td>
+<td><a href="team-list.html#geirm">geirm</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Tiny fix to VelocityWriter to prevent a NPE if someone passes it a null Fixes <a class="externalLink" href="https://issues.apache.org/jira/browse/VELOCITY-148">VELOCITY-148</a>
+.</td>
+<td><a href="team-list.html#geirm">geirm</a>
+</td>
+</tr>
+<tr class="a"><td><img src="images/fix.gif" alt="fix" /></td>
+<td>Anakia changes to accomodate finalization of JDOM API.  In AnakiaJDOMFactory,
+            AnakiaTask, and OutputWrapper</td>
+<td><a href="team-list.html#geirm">geirm</a>
+</td>
+</tr>
+<tr class="b"><td><img src="images/update.gif" alt="update" /></td>
+<td>Added template, line and column info to MIEs thrown by ASTMethod</td>
+<td><a href="team-list.html#geirm">geirm</a>
+</td>
+</tr>
+</table>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2000-2008
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+    
+             Last Published: 2008-12-15 08:38:34
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

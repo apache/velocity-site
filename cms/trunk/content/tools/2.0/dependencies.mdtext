@@ -1,0 +1,56 @@
+Title: Apache Velocity Tools Dependencies
+
+## Dependencies
+
+VelocityTools requires certain external jar dependencies at different times. These charts should help you determine which jars you need and when.
+
+Note: Java version 1.5+ is required for compilation, testing and use of VelocityTools 2.x.
+{.note}
+
+### GenericTools
+
+Jar Name | Version | Compile | Runtime | Notes
+---------|---------|---------|---------|------
+commons-beanutils | 1.7.0 | Yes | Yes | Required for core infrastructure, [MathTool](apidocs/org/apache/velocity/tools/generic/MathTool.html) and [SortTool](apidocs/org/apache/velocity/tools/generic/SortTool.html)
+commons-collections | 3.1 | Yes | Yes | Velocity requires this.
+commons-digester | 1.8 | Yes | Yes | Required for [xml configuration](config-xml.html)
+commons-lang | 2.1 | Yes | No | Required for [EscapeTool](apidocs/org/apache/velocity/tools/generic/EscapeTool.html)
+commons-logging | 1.1 | Yes | Yes | Required for Digester and [LogChuteCommonsLog](apidocs/org/apache/velocity/tools/generic/log/LogChuteCommonsLog.html)
+dom4j | 1.1+ | Yes | No |   Required only for [XmlTool](apidocs/org/apache/velocity/tools/generic/XmlTool.html)
+oro | 2.0+ | No | No | A Velocity dependency (only used by certain EventHandlers)
+velocity | 1.5+ | Yes | Yes | Required for core infrastructure, [ClassTool](apidocs/org/apache/velocity/tools/generic/ClassTool.html), [LinkTool](apidocs/org/apache/velocity/tools/generic/LinkTool.html), [LoopTool](apidocs/org/apache/velocity/tools/generic/LoopTool.html), [RenderTool](apidocs/org/apache/velocity/tools/generic/RenderTool.html) and [XmlTool](apidocs/org/apache/velocity/tools/generic/XmlTool.html)
+
+### VelocityView
+
+Jar Name | Version | Compile | Runtime | Notes
+---------|---------|---------|---------|------
+commons-beanutils | 1.7.0 | Yes | Yes | Required for core infrastructure, [MathTool](apidocs/org/apache/velocity/tools/generic/MathTool.html) and [SortTool](apidocs/org/apache/velocity/tools/generic/SortTool.html)
+commons-collections | 3.1 | Yes | Yes | Velocity requires this.
+commons-digester | 1.8 | Yes | Yes | Required for [xml configuration](config-xml.html)
+commons-lang | 2.1 | Yes | No | Required for [EscapeTool](apidocs/org/apache/velocity/tools/generic/EscapeTool.html) and [VelocityViewServlet](apidocs/org/apache/velocity/tools/view/VelocityViewServlet.html)
+commons-logging | 1.1 | Yes | Yes | Required for Digester and [LogChuteCommonsLog](apidocs/org/apache/velocity/tools/generic/log/LogChuteCommonsLog.html)
+dom4j | 1.1+ | Yes | No |   Required only for [XmlTool](apidocs/org/apache/velocity/tools/generic/XmlTool.html)
+oro | 2.0+ | No | No | A Velocity dependency (only used by certain EventHandlers)
+servletapi | 2.3+ | Yes | Yes | Required for all [VelocityView](apidocs/org/apache/velocity/tools/view/package-summary.html) tools except for [RenderTool](apidocs/org/apache/velocity/tools/generic/RenderTool.html)
+velocity | 1.5+ | Yes | Yes | Required for core infrastructure, [ClassTool](apidocs/org/apache/velocity/tools/generic/ClassTool.html), [LoopTool](apidocs/org/apache/velocity/tools/generic/LoopTool.html), [RenderTool](apidocs/org/apache/velocity/tools/generic/RenderTool.html), [XmlTool](apidocs/org/apache/velocity/tools/generic/XmlTool.html), [AbstractSearchTool](apidocs/org/apache/velocity/tools/view/AbstractSearchTool.html), [ViewContextTool](apidocs/org/apache/velocity/tools/view/ViewContextTool.html) and [LinkTool](apidocs/org/apache/velocity/tools/view/LinkTool.html)
+
+### VelocityStruts
+
+Jar Name | Version | Compile | Runtime | Notes
+---------|---------|---------|---------|------
+commons-beanutils | 1.7.0 | Yes | Yes | Required for core infrastructure, [MathTool](apidocs/org/apache/velocity/tools/generic/MathTool.html) and [SortTool](apidocs/org/apache/velocity/tools/generic/SortTool.html)
+commons-chain | 1.1 | No | Yes | Struts 1.3+ requires this.
+commons-collections | 3.1 | Yes | Yes | Velocity requires this.
+commons-digester | 1.8 | Yes | Yes | Required for [xml configuration](config-xml.html)
+commons-lang | 2.1 | Yes | No | Required for [EscapeTool](apidocs/org/apache/velocity/tools/generic/EscapeTool.html) and [VelocityViewServlet](apidocs/org/apache/velocity/tools/view/VelocityViewServlet.html)
+commons-logging | 1.1 | Yes | Yes | Required for Struts, Digester, and LogChuteCommonsLog
+dom4j | 1.1+ | Yes | No |   Required only for [XmlTool](apidocs/org/apache/velocity/tools/generic/XmlTool.html)
+struts-core | 1.3.8 | Yes | Yes | Required for all [VelocityStruts](apidocs/org/apache/velocity/tools/struts/package-summary.html) tools
+struts-taglib | 1.3.8 | Yes | Yes | Required for [FormTool](apidocs/org/apache/velocity/tools/struts/FormTool.html), [SecureLinkTool](apidocs/org/apache/velocity/tools/struts/SecureLinkTool.html) and [StrutsLinkTool](apidocs/org/apache/velocity/tools/struts/StrutsLinkTool.html)
+struts-tiles | 1.3.8 | Yes | Yes | Required for [TilesTool](apidocs/org/apache/velocity/tools/struts/TilesTool.html)
+ssl-ext | 1.2 | Yes | No | Required for [SecureLinkTool](apidocs/org/apache/velocity/tools/struts/SecureLinkTool.html)
+commons-validator | 1.3.1 | Yes | Yes | Required for [ValidatorTool](apidocs/org/apache/velocity/tools/struts/ValidatorTool.html)
+oro | 2.0+ | No | No | A Velocity dependency (only used by certain EventHandlers)
+servletapi | 2.3+ | Yes | Yes | Required for all [VelocityStruts](apidocs/org/apache/velocity/tools/struts/package-summary.html) tools and all [VelocityView](apidocs/org/apache/velocity/tools/view/package-summary.html) tools except for [RenderTool](apidocs/org/apache/velocity/tools/generic/RenderTool.html)
+velocity | 1.5+ | Yes | Yes | Required for core infrastructure, [ClassTool](apidocs/org/apache/velocity/tools/generic/ClassTool.html), [LoopTool](apidocs/org/apache/velocity/tools/view/LoopTool.html), [RenderTool](apidocs/org/apache/velocity/tools/generic/RenderTool.html), [XmlTool](apidocs/org/apache/velocity/tools/generic/XmlTool.html), [AbstractSearchTool](apidocs/org/apache/velocity/tools/view/AbstractSearchTool.html), [ViewContextTool](apidocs/org/apache/velocity/tools/view/ViewContextTool.html), [LinkTool](apidocs/org/apache/velocity/tools/view/LinkTool.html), [SecureLinkTool](apidocs/org/apache/velocity/tools/struts/SecureLinkTool.html), [StrutsLinkTool](apidocs/org/apache/velocity/tools/struts/StrutsLinkTool.html), [TilesTool](apidocs/org/apache/velocity/tools/struts/TilesTool.html) and [MessageTool](apidocs/org/apache/velocity/tools/struts/MessageTool.html)
+

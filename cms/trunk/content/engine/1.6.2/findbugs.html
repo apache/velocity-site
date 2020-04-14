@@ -1,0 +1,548 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>Apache Velocity - FindBugs Bug Detector Report</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+    <link rel="alternate" href="http://feeds.feedburner.com/ApacheVelocitySiteNews" type="application/rss+xml" title="Apache Velocity - FindBugs Bug Detector Report News" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../../../" id="bannerLeft">
+    
+                                            <img src="images/velocity_project_wide.png" alt="" />
+    
+            </a>
+                          <span id="bannerRight">
+    
+                                            <img src="images/velocity-logo.png" alt="" />
+    
+            </span>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+          
+          <a href="http://www.apache.org/">Apache</a>
+              &gt;
+      
+          <a href="../../../">Velocity</a>
+              &gt;
+      
+          Velocity Engine
+                </div>
+            <div class="xright">      <a href="../../devel/">Engine</a>
+          |
+          <a href="../../../tools/devel/">Tools</a>
+          |
+          <a href="../../../anakia/devel/">Anakia</a>
+          |
+          <a href="../../../texen/devel/">Texen</a>
+          |
+          <a href="../../../docbook/">DocBook</a>
+          |
+          <a href="../../../dvsl/devel/">DVSL</a>
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Velocity</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="index.html">General</a>
+        </li>
+              
+    <li class="none">
+              <a href="overview.html">Overview</a>
+        </li>
+              
+    <li class="none">
+              <a href="getting-started.html">Getting Started</a>
+        </li>
+              
+    <li class="none">
+              <a href="webapps.html">Web Applications</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../download.cgi">Download</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/VelocityFAQ">FAQ (Wiki)</a>
+        </li>
+          </ul>
+          <h5>Docs</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="user-guide.html">User Guide</a>
+        </li>
+              
+    <li class="none">
+              <a href="developer-guide.html">Developer Guide</a>
+        </li>
+              
+    <li class="none">
+              <a href="vtl-reference-guide.html">VTL Reference</a>
+        </li>
+              
+    <li class="none">
+              <a href="glossary.html">Glossary</a>
+        </li>
+          </ul>
+          <h5>Developers</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="license.html">License</a>
+        </li>
+              
+    <li class="none">
+              <a href="apidocs/index.html">Javadoc</a>
+        </li>
+              
+    <li class="none">
+              <a href="changes-report.html">Changes</a>
+        </li>
+              
+    <li class="none">
+              <a href="jira-report.html">Resolved Issues</a>
+        </li>
+              
+    <li class="none">
+              <a href="upgrading.html">Upgrading</a>
+        </li>
+              
+    <li class="none">
+              <a href="jar-dependencies.html">Dependencies</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://svn.apache.org/viewvc/velocity/engine/trunk/">Source Code Repository</a>
+        </li>
+              
+    <li class="none">
+              <a href="build.html">Building from Source</a>
+        </li>
+          </ul>
+          <h5>Community</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/">Wiki</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../news.html">Recent News</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/PoweredByVelocity">Powered By Velocity</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/VelocityEditors">IDE/Editor Plugins</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/PublishedArticlesAndBooks">Articles and Books</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/GetInvolved">Get Involved</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../contact.html">Mailing Lists</a>
+        </li>
+          </ul>
+          <h5>Velocity Development</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/RoadMap">Road Map</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/CodeStandards">Coding Standards</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/DocumentationGuidelines">Documentation Guidelines</a>
+        </li>
+              
+    <li class="none">
+              <a href="https://issues.apache.org/jira/browse/VELOCITY">Issues</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../who-we-are.html">Who we are</a>
+        </li>
+          </ul>
+          <h5>Translations</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://www.jajakarta.org/velocity/">Site (Japanese)</a>
+        </li>
+              
+    <li class="none">
+              <a href="translations/user-guide_fi.html">User's Guide (Finnish)</a>
+        </li>
+              
+    <li class="none">
+              <a href="translations/user-guide_fr.html">User's Guide (French)</a>
+        </li>
+              
+    <li class="none">
+              <a href="translations/user-guide_es.html">User's Guide (Spanish)</a>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-info.html">Project Information</a>
+              </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+            
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+            <li class="expanded">
+              <a href="project-reports.html">Project Reports</a>
+                <ul>
+                  
+    <li class="none">
+              <a href="changelog.html">Change Log</a>
+        </li>
+                  
+    <li class="none">
+              <a href="changes-report.html">Changes Report</a>
+        </li>
+                  
+    <li class="none">
+              <a href="dev-activity.html">Developer Activity</a>
+        </li>
+                  
+    <li class="none">
+              <a href="file-activity.html">File Activity</a>
+        </li>
+                  
+    <li class="none">
+              <strong>FindBugs Report</strong>
+        </li>
+                  
+    <li class="none">
+              <a href="apidocs/index.html">JavaDocs</a>
+        </li>
+                  
+    <li class="none">
+              <a href="jira-report.html">JIRA Report</a>
+        </li>
+                  
+    <li class="none">
+              <a href="xref/index.html">Source Xref</a>
+        </li>
+                  
+    <li class="none">
+              <a href="taglist.html">Tag List</a>
+        </li>
+                  
+    <li class="none">
+              <a href="testapidocs/index.html">Test JavaDocs</a>
+        </li>
+                  
+    <li class="none">
+              <a href="xref-test/index.html">Test Source Xref</a>
+        </li>
+              </ul>
+        </li>
+          </ul>
+                                             
+                        
+                        
+                        <a class="poweredBy" href="../../../" title="Apache Velocity" ><img class="poweredBy" alt="Apache Velocity" src="images/pbv90x30.png" /></a>
+                                
+                        
+                        
+                        <a class="poweredBy" href="../../../rss/news.rss" title="Velocity News Feed" ><img class="poweredBy" alt="Velocity News Feed" src="images/feed-icon-24x24.jpg" /></a>
+                    
+       <iframe src="http://www.apache.org/ads/buttonbar.html"
+               style="border-width:0; float: left" frameborder="0" scrolling="no"
+               width="135"
+               height="265" ></iframe>
+
+           
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>FindBugs Bug Detector Report</h2>
+<p>The following document contains the results of <a href="http://findbugs.sourceforge.net" class="externalLink">FindBugs Report</a>
+</p>
+<p>FindBugs Version is <i>1.2.1</i>
+</p>
+<p>Threshold is <i>Low</i>
+</p>
+<p>Effort is <i>Max</i>
+</p>
+</div>
+<div class="section"><h2>Summary</h2>
+<table class="bodyTable"><tr class="a"><th>Classes</th>
+<th>Bugs</th>
+<th>Errors</th>
+<th>Missing Classes</th>
+</tr>
+<tr class="b"><td>768</td>
+<td>8</td>
+<td>0</td>
+<td>0</td>
+</tr>
+</table>
+</div>
+<div class="section"><h2>Files</h2>
+<table class="bodyTable"><tr class="a"><th>Class</th>
+<th>Bugs</th>
+</tr>
+<tr class="b"><td><a href="#org.apache.velocity.context.ProxyVMContext">org.apache.velocity.context.ProxyVMContext</a>
+</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.velocity.runtime.RuntimeInstance">org.apache.velocity.runtime.RuntimeInstance</a>
+</td>
+<td>2</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.velocity.runtime.parser.Parser">org.apache.velocity.runtime.parser.Parser</a>
+</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.velocity.runtime.parser.ParserTokenManager">org.apache.velocity.runtime.parser.ParserTokenManager</a>
+</td>
+<td>1</td>
+</tr>
+<tr class="b"><td><a href="#org.apache.velocity.runtime.resource.loader.ResourceLoaderFactory">org.apache.velocity.runtime.resource.loader.ResourceLoaderFactory</a>
+</td>
+<td>1</td>
+</tr>
+<tr class="a"><td><a href="#org.apache.velocity.util.StringUtils">org.apache.velocity.util.StringUtils</a>
+</td>
+<td>2</td>
+</tr>
+</table>
+</div>
+<a name="org.apache.velocity.context.ProxyVMContext"></a>
+<div class="section"><h3>org.apache.velocity.context.ProxyVMContext</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+</tr>
+<tr class="a"><td>Dead store to arg in org.apache.velocity.context.ProxyVMContext.remove(Object)</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#DLS_DEAD_LOCAL_STORE" class="externalLink">DLS_DEAD_LOCAL_STORE</a>
+</td>
+<td><a href="xref/org/apache/velocity/context/ProxyVMContext.html#304">304</a></td>
+</tr>
+</table>
+</div>
+<a name="org.apache.velocity.runtime.RuntimeInstance"></a>
+<div class="section"><h3>org.apache.velocity.runtime.RuntimeInstance</h3>
+<table class="bodyTable"><tr class="b"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+</tr>
+<tr class="a"><td>Redundant nullcheck of nodeTree, which is known to be non-null in org.apache.velocity.runtime.RuntimeInstance.evaluate(Context, Writer, String, Reader)</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE" class="externalLink">RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE</a>
+</td>
+<td><a href="xref/org/apache/velocity/runtime/RuntimeInstance.html#1210">1210</a></td>
+</tr>
+<tr class="b"><td>Exception is caught when Exception is not thrown in org.apache.velocity.runtime.RuntimeInstance.loadDirective(String)</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#REC_CATCH_EXCEPTION" class="externalLink">REC_CATCH_EXCEPTION</a>
+</td>
+<td><a href="xref/org/apache/velocity/runtime/RuntimeInstance.html#953">953</a></td>
+</tr>
+</table>
+</div>
+<a name="org.apache.velocity.runtime.parser.Parser"></a>
+<div class="section"><h3>org.apache.velocity.runtime.parser.Parser</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>Unused field: org.apache.velocity.runtime.parser.Parser.jj_semLA</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UUF_UNUSED_FIELD" class="externalLink">UUF_UNUSED_FIELD</a>
+</td>
+<td><a href="xref/org/apache/velocity/runtime/parser/Parser.html#-1">Not available</a></td>
+</tr>
+</table>
+</div>
+<a name="org.apache.velocity.runtime.parser.ParserTokenManager"></a>
+<div class="section"><h3>org.apache.velocity.runtime.parser.ParserTokenManager</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>Private method org.apache.velocity.runtime.parser.ParserTokenManager.jjCheckNAddStates(int) is never called</td>
+<td>PERFORMANCE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#UPM_UNCALLED_PRIVATE_METHOD" class="externalLink">UPM_UNCALLED_PRIVATE_METHOD</a>
+</td>
+<td><a href="xref/org/apache/velocity/runtime/parser/ParserTokenManager.html#397">397-399</a></td>
+</tr>
+</table>
+</div>
+<a name="org.apache.velocity.runtime.resource.loader.ResourceLoaderFactory"></a>
+<div class="section"><h3>org.apache.velocity.runtime.resource.loader.ResourceLoaderFactory</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>Exception is caught when Exception is not thrown in org.apache.velocity.runtime.resource.loader.ResourceLoaderFactory.getLoader(RuntimeServices, String)</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#REC_CATCH_EXCEPTION" class="externalLink">REC_CATCH_EXCEPTION</a>
+</td>
+<td><a href="xref/org/apache/velocity/runtime/resource/loader/ResourceLoaderFactory.html#57">57</a></td>
+</tr>
+</table>
+</div>
+<a name="org.apache.velocity.util.StringUtils"></a>
+<div class="section"><h3>org.apache.velocity.util.StringUtils</h3>
+<table class="bodyTable"><tr class="a"><th>Bug</th>
+<th>Category</th>
+<th>Details</th>
+<th>Line</th>
+</tr>
+<tr class="b"><td>Exception is caught when Exception is not thrown in org.apache.velocity.util.StringUtils.fileContentsToString(String)</td>
+<td>STYLE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#REC_CATCH_EXCEPTION" class="externalLink">REC_CATCH_EXCEPTION</a>
+</td>
+<td><a href="xref/org/apache/velocity/util/StringUtils.html#374">374</a></td>
+</tr>
+<tr class="a"><td>org.apache.velocity.util.StringUtils.fileContentsToString(String) ignores result of java.io.Reader.read(char[])</td>
+<td>BAD_PRACTICE</td>
+<td><a href="http://findbugs.sourceforge.net/bugDescriptions.html#RR_NOT_CHECKED" class="externalLink">RR_NOT_CHECKED</a>
+</td>
+<td><a href="xref/org/apache/velocity/util/StringUtils.html#371">371</a></td>
+</tr>
+</table>
+</div>
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2000-2009
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+    
+             Last Published: 2009-03-19 08:49:21
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

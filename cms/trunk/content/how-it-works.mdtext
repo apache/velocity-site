@@ -1,0 +1,31 @@
+Title: Apache Velocity - How It Works
+
+## How the Apache Velocity project works
+
+We have evolved into Top Level state from being a founding and long-time member of the [Apache Jakarta Project](http://jakarta.apache.org/) and owe most of our rules and guidelines to the Jakarta project and are grateful for the guidance that we got from the Jakarta people.
+
+This is an evolving document and we expect it to branch away from the Jakarta rules in the future. For the moment, we will reference the Jakarta project guidelines here and apply these as good as possible to the Apache Velocity Project.
+
+### Project Guidelines
+
+This document defines the guidelines of the Apache Velocity Project. It includes definitions of the various categories of membership, who is able to vote, how conflicts are resolved by voting, and the procedures to follow for proposing and making changes to the codebase of the Project.
+
+[Roles and Responsibilities](http://jakarta.apache.org/site/roles.html)
+: Defines the recognized roles in the project.
+
+[Communication](http://jakarta.apache.org/site/communication.html)
+: Defines how users and developers communicate.
+
+[Decision Making](http://jakarta.apache.org/site/decisions.html)
+: Defines how action items are proposed and voted on.
+
+[Source Repositories](http://jakarta.apache.org/site/source.html)
+: Defines how the Project's source code is organized and developed.
+
+[Project Management](http://jakarta.apache.org/site/management.html)
+: Defines the roles and responsibilities of the Project Management Committee (PMC).
+
+[New Subproject Proposals](http://jakarta.apache.org/site/newproject.html)
+: Defines the methodology for proposing new top level Jakarta Subprojects.
+
+Like its ancestor at [The Jakarta Site](http://jakarta.apache.org/site/guidelines.html), this is a living document. Changes can be made by the Project Management Committee. Suggestions for changes should be discussed on the [Velocity general](/contact.html) mailing list.

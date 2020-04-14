@@ -1,0 +1,37 @@
+Title: Apache Velocity Tools - Configuration Using XML
+
+## Configuration using XML
+
+Providing an xml format configuration file is still the standard, but unlike VelocityTools 1.x, it is no longer necessary at all, thanks to the introduction of default configurations. The default configurations for [GenericTools](generic.html), [VelocityView](view.html) and [VelocityStruts](struts.html) are all defined via XML.
+
+Here's a somewhat thorough example:
+
+    ::xml
+    <?xml version="1.0"?>
+    <tools>
+        <toolbox scope="request" xhtml="true">
+            <tool key="toytool" class="ToyTool" restrictTo="index.vm"/>
+            <tool key="custom" class="org.mine.CustomTool" randomProperty="whatever"/>
+        </toolbox>
+    
+        <toolbox scope="session">
+            <property name="create-session" value="true" type="boolean"/>
+            <tool key="map" class="java.util.HashMap"/>
+        </toolbox>
+    
+        <toolbox scope="application">
+            <tool class="org.apache.velocity.tools.generic.DateTool"/>
+        </toolbox>
+    
+        <data type="number" key="version" value="1.1"/>
+        <data key="startdate" value="Mon Sep 17 10:08:03 PDT 2007" class="java.util.Date" 
+                 converter="org.apache.commons.beanutils.locale.converters.DateLocaleConverter"/>
+        <data type="boolean" key="isSimple" value="true"/>
+        <data key="foo" value="this is foo."/>
+        <data key="bar">this is bar.</data>
+        <data type="list" key="dataKeys" value="version,date,isSimple,foo,bar,dataKeys,switches"/>
+        <data type="list.boolean" key="switches" value="true,false,false,true"/>
+    </tools>
+
+For those upgrading from VelocityTools 1.x, you will notice that the format has changed rather drastically.  Not to worry, the old format is still supported, though it has been deprecated and does not offer as many features as the new one.  We strongly recommend you upgrade to the new format.
+

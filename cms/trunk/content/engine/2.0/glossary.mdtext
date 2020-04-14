@@ -1,0 +1,156 @@
+Title: Apache Velocity Engine - Glossary
+
+## Velocity Terms and Abbreviations
+
+Anakia{#anakia}
+: An XML transformation tool that uses JDOM and Velocity to transform XML documents into the format of your choice.
+
+Block Directive{#block-directive}
+: A [directive](#directive) that spans multiple lines. The block starts with a block directive such as [`#if`](#if), [`#foreach`](#foreach), or [`#macro`](#macro) and ends with the [`#end`](#end) directive.
+
+\#break{#break}
+: A [directive](#directive) that stops the rendering of the current (innermost) [content directive](#content-directive) or a specified content directive if the [scope control](#scope-control) provided for that content directive is passed to #break as an argument: (e.g. #break($foreach.parent)).
+
+Comment{#comment}
+: Allow descriptive text to be included in the template that will not be placed into the output of the template engine. Single line comments begin with `##`. Multi-line comments begin with `#*` and end with `*#`
+
+Content Directive{#content-directive}
+: A <a href="#directive">directive</a> that outputs content when rendering a [template](#template). The default ones automatically have a [scope control](#scope-control) made available in the [context](#context) during their rendering.
+
+Context{#context}
+: A means to import Java objects into a <a href="#velocity">Velocity</a><a href="#template">template</a>.
+
+Directive{#directive}
+: Easy to use &quot;active&quot; elements that manipulate template output. There are both [line](#line-directive) and [block](#block-directive) directives.
+
+DocBook Framework{#docbook-framework}
+: A framework inteded to help create high quality documentation suitable for online viewing and printing.
+
+DVSL{#dvsl}
+: Declarative Velocity Style Language. A tool modeled after XSLT that is used for general XML transformations using the [VTL](#vtl) as the templating language.
+
+\#else{#else}
+: A [directive](#directive) that must be used with an `<a href="#if">#if</a>`. It allows text to be included only if the `#if` was false.
+
+\#elseif{#elseif}
+: A [directive](#directive) that must be used with an [`#if`](#if). It allows text to be included if the `#if` was false and if its own statement is true.
+
+Equivalence Operator{#equivalence-operator}
+: `==` Used to directly compare numbers, strings, or objects. If the objects that are being compared are different classes, `toString()` is called first and then they are compared.
+
+\#end{#end}
+: Ends [block directives](#block-directive) such as [#if](#if), [#foreach](#foreach) and [#macro](#macro).
+
+Escaping{#escaping}
+: Removing the special meaning of a `#` or `$` so that you can use these characters without [Velocity](#velocity) interpretting it as the start of a [reference](#reference) or [directive](#directive). Escaping is done by putting a `\` character before the `#` or `$`.
+
+\#{evaluate{#evaluate}
+: A [directive](#directive) which dynamically evaluates a string literal or reference.
+
+\#foreach{#foreach}
+: A [directive](#directive) that allows you to repeat something on every value in a Collection, Array, Iterable, Map or (as of Velocity 1.6+) object with a `public Iterator iterator()` method.
+
+\#include{#include}
+: A [directive](#directive) that allows the template designer to import a local file, which is then inserted into the location where the `#include` directive is defined. Multiple files may be included by seperating the file names with commas.
+
+Identifier{#identifier}
+: The name of a [variable](#variable). Identifiers must start with an alphabetic character (a .. z, A .. Z). The rest of the characters are limited to alphabetic, numberic (0 .. 9), hyphens (&quot;-&quot;), and underscores (&quot;_&quot;).
+
+\#if{#if}
+: A [directive](#directive) that allows for text to only be included if a statement is true.
+
+Formal Reference Notation{#formal-reference-notation}
+: A notation for [references](#reference) that is more formal than the shorthand. The formal notation consists of a `$` character followed by a `{` character and then the identifiers used in the shorthand notation and then a `}` character. Formal notation is often useful when references are directly adjacent to text in a template.
+
+LHS{#lhs}
+: Left Hand Side of an assignment.
+
+Line Directive{#line-directive}
+: A [directive](#directive) that is done all on one line, such as [`#set`](#set).
+
+Literal{#literal}
+: A string enclosed in double quotes.
+
+\#macro{#macro}
+: See [Velocimacro](#Velocimacro).
+
+Method{#method}
+: A type of [reference](#reference). Methods are defined in the Java code and are capable of doing something useful. The shorthand notation consists of a leading `$` character followed by an [identifier](#identifier), folowed by a [VTL Method Body](#vtl-method-body).
+
+MVC[#mvc}
+: Model-View-Controller design pattern. Allows web page designers to focus on creating a well-designed site and allows programmers to focus on writing good code.
+
+\#parse
+: A [directive](#directive) that includes a local file that contains [VTL](#vtl). [Velocity](#velocity) then parses the VTL and renders the template.
+
+Property{#property}
+: A type of [reference](#reference"). The shorthand notation consists of a leading `$` character followed by an [identifier](#identifier), followed by a `.` character and another identifier.
+
+Quiet Reference Notation{#quiet-reference-notation}
+: Another notation for [references](#reference). A `!` character is inserted between the `$` and the [identifier](#identifier). This overrides [Velocity](#velocity)'s default behavior if the reference is undefined. Normally, if a reference is undefined, the name of the reference that was given is used instead.  With this notation, a blank text field is used.
+
+Reference{#reference}
+: Begins with `$` and are used to get something. There are three types: [variables](#variable), [properties](#property), and [methods](#method).
+
+Resource{#resource}
+: A general text resource that can be loaded from a variety of sources using a [Resource Loader](#resource-loader).
+
+Resource Loader
+: A class used by a [Velocity Engine](#velocity-engine) to load resources from the file system, classpath, URLs or even a database depending on the implementation.
+
+RHS{#rhs}
+: Right Hand Side of an assignment.
+
+Scope Control{#scope-control}
+: The [reference](#reference) automatically provided as a way of scoping/namespacing [references](#reference) (to avoid polluting the global [context](#context)) within the given content directive and also providing a "label" for [#break](#break) to use when breaking out of multiple [content directives](#content-directive) at once.
+
+\#set{#set}
+: The [directive](#directive) that is used for setting the value of a reference.
+
+\#stop{#stop}
+: A [directive](#directive) that stops the execution of the template engine.  `#stop` is useful for debugging templates.
+
+String Interpolation{#string-interpolation}
+: Using a variable inside of a string. For example, `"Hello $name"` would be "Hello" and then whatever value is stored in `$name`.
+
+Template{#template}
+: A file containing code in a [template language](#template-language) such as the [VTL](#vtl) that can be run through a [template engine](#template-engine) like [Velocity](#velocity) to produce dynamic output.
+
+Template Engine{#template-engine}
+: An engine that merges a [context](#context) with a [template](#template) to produce output.
+
+Template Language{#template-language}
+: A language such as the [VTL](#vtl) that can be used to create [templates](#template).
+
+Texen{#texen}
+: Texen is a general purpose text generating utility that is driven by Ant.
+
+Tool{#tool}
+: A plain old Java object that is useful in a template but it is not meant to be rendered in output. Tools are meant to be used but not to be seen.
+
+Turbine{#turbine}
+: A servlet based framework that allows experienced Java developers to quickly build web applications. Turbine allows you to personalize the web sites and to use user logins to restrict access to parts of your application.
+
+Variable{#variable}
+: A type of [reference](#reference). Variables represents values that can change. The shorthand notation consists of a leading `$` character followed by an [identifier](#identifier).
+
+Velicomacro{#velocimacro}
+: The [`#macro`](#macro) [directive](#directive) allows designers to define a repeated segment of template. To create a macro "d", you would use `#macro(d)` followed by the segment of template followed by [`#end`](#end). Macros can have as many arguments as necessary by adding them inside the parentheses such as `#macro(d $arg1 $arg2)`.
+
+Velocity{#velocity}
+: A Java-based [template engine](#template-engine).
+
+Velocity Engine{#velocity-engine}
+: The engine that generates web pages and other output from [templates](#template) containing [VTL](#vtl) code.
+
+Velocity Singleton{#velocity-singleton}
+: A singleton wrapper around a [velocity engine](#velocity-engine) that is shared across the JVM (or ClassLoader) and may thus be referenced directly without needing to pass an instance around. This allows localized configuration and sharing of resources.
+
+VelocityTools{#velocitytools}
+: A collection of [Tools](#tool) and infrastructure to easily, automatically and transparently make tools and static data available to Velocity templates.
+
+VTL{#vtl}
+: Velocity Template Language. The powerful template language that is used with [Velocity](#velocity).
+
+VTL Method Call
+: Consists of an [identifier](#identifier) followed by a `(` character, followed by an optional parameter list, followed by a `)` character. [VTL](#vtl) allows template designers to call any public method declared in a public class on values placed in the [context](#context).

@@ -1,0 +1,375 @@
+Title: Apache Velocity Engine - Configuration
+
+## Velocity Configuration - Contents
+
+[TOC]
+
+## Configuring Velocity
+
+Velocity's runtime configuration is controlled by a set of configuration keys listed below.  Generally, these keys will have values that consist of either a String, or a comma-separated list of Strings, referred to as a CSV for comma-separated values.
+
+There is a set of default values contained in Velocity's jar, found in /src/java/org/apache/velocity/runtime/defaults/velocity.defaults, that Velocity uses as its configuration baseline. This ensures that Velocity will always have a 'correct' value for its configuration keys at startup, although it may not be what you want.
+
+Any values specified before init() time will replace the  default values. Therefore, you only have to configure velocity with the values for the keys that you need to change, and not worry about the rest.  Further, as we add more features and configuration capability, you don't have to change your configuration files to suit - the Velocity engine will always have default values.
+
+Please sees the section [**Using Velocity**](developer-guide.html#using-velocity) for discussion on the configuration API.
+
+Below are listed the configuration keys that control Velocity's behavior, organized by category. Each key is listed with its current default value to the right of the '=' sign.
+
+## Logging
+
+**`runtime.log.instance`** = *Java Object instance*
+
+> Living Java instance, that must implement the interface org.slf4j.Logger. This property can only be set programmatically. By default, Velocity uses the SLF4J static discovery mechanism, see the [Logging](developer-guide.html#logging) section in the dev guide.
+
+**`runtime.log.name = org.apache.velocity`**
+
+> If no living Logger instance has been given using the previous property, Velocity will get a Logger object using the provided name.
+
+**`runtime.log.invalid.references = true`**
+
+> Property to turn off the log output when a reference isn't valid. Good thing to turn off in production, but very valuable for debugging.
+
+## Character Encoding
+
+**`input.encoding = UTF-8`**
+
+> Character encoding for input (templates). UTF-8 if not specified.
+
+## VTL Directives
+
+### #define() Directive
+
+**`define.provide.scope.control = false`**
+
+> Used to turn on the automatic provision of the $define scope control during #define() calls. The default is false. Set it to true if you want a local, managed namespace you can put references in when within a #define block or if you want it for more advanced #break usage.
+
+### #evaluate() Directive
+
+**`evaluate.provide.scope.control = false`**
+
+> Used to turn on the automatic provision of the $evaluate scope during #evaluate() or Velocity[Engine].evaluate(...) calls. The default is false.  Set it to true if you want a local, managed namespace you can put references in during an evaluation or if you want it for more advanced #break usage.
+
+### #foreach() Directive
+
+**`foreach.provide.scope.control = true`**
+
+> Used to control the automatic provision of the $foreach scope during #foreach calls.  This gives access to the foreach status information (e.g. $foreach.index or $foreach.hasNext). The default is true. Set it to false if unused and you want a tiny performance boost.
+
+**`directive.foreach.maxloops = -1`**
+
+> Maximum allowed number of loops for a #foreach() statement.
+
+**`directive.foreach.skip.invalid = true`**
+
+> Tells #foreach to simply skip rendering when the object it is iterating over is not or cannot produce a valid Iterator.
+
+### #if() Directive
+
+**`directive.if.emptycheck = true`**
+
+> When evaluating if a reference resolves to `true` or `false` in a boolean context, the engine first checks if its value is null, if it is a Boolean or if it has a getAsBoolean() method. Then, if none of this applies, the behavior depends upon this configuration flag:
+>
+> - if `directive.if.emptycheck` is `false`, no further check is performed and the object resolves to `true`.
+> - if `directive.if.emptycheck` is `true`, the object is check for emptiness and zero value:
+>     - return whether an array is empty.
+>     - return whether isEmpty() is false (covers String and all Collection classes).
+>     - return whether length() is zero (covers CharSequence classes other than String).
+>     - returns whether size() is zero (covers all Collections classes).
+>     - return whether a Number *strictly* equals zero.
+>     - return whether the result of getAsString() is empty (and false for a null result) if it exists.
+>     - return whether the result of getAsNumber() *strictly* equals zero (and false for a null result) if it exists. 
+
+### #set() Directive
+
+**`directive.set.null.allowed = false`**
+
+> If true, having a right hand side of a #set() statement with an invalid reference or null value will set the left hand side to null. If false, the left hand side will stay the same.
+
+### #include() and #parse() Directives
+
+**`directive.include.output.errormsg.start =  <!-- include error :`**
+**`directive.include.output.errormsg.end =   see error log --> `**
+
+> Defines the beginning and ending tags for an in-stream error message in the case of a problem with the #include() directive. If both the .start and .end tags are defined, an error message will be output to the stream, of the form '.start msg .end' where .start and .end refer to the property values. Output to the render stream will only occur if both the .start and .end (next) tag are defined.
+
+**`directive.parse.max.depth = 10`**
+
+> Defines the allowable parse depth for a template. A template may #parse() another template which itself may have a #parse() directive.  This value prevents runaway #parse() recursion.
+
+**`template.provide.scope.control = false`**
+
+> Used to turn on the automatic provision of the $template scope control during #parse calls and template.merge(...) calls. The default is false. Set it to true if you want a secure namespace for your template variables or more advanced #break control.
+
+## Resource Management
+
+**`resource.manager.instance = null`**
+> Living Java instance, that must implement the interface org.apache.velocity.runtime.resource.ResourceManager. This property can only be set programmatically, and takes precedence over the next property. It is otherwise used by Velocity to store its actual resource manager once instanciated.
+
+**`resource.manager.class = org.apache.velocity.runtime.resource.ResourceManagerImpl`**
+
+> Replace the Velocity default Resource Manager class. A resource manager implementation must implement the (`org.apache.velocity.runtime.resource.ResourceManager`)[apidocs/org/apache/velocity/runtime/resource/ResourceManager.html] interface. A description of the requirements of a resource manager is out of scope for this document. Implementors are encouraged to review the default implementation.
+
+The following resource management configuration keys only apply to the default Resource Manager.
+
+**`resource.manager.logwhenfound = true`**
+
+> Switch to control logging of 'found' messages from resource manager. When a resource is found for the first time, the resource name and classname of the loader that found it will be noted in the runtime log.
+
+**`resource.manager.cache.class = org.apache.velocity.runtime.resource.ResourceCacheImpl`**
+
+> Replace the Velocity default Resource Cache class. A resource cache implementation must implement the (`org.apache.velocity.runtime.resource.ResourceCache`)[apidocs/org/apache/velocity/runtime/resource/ResourceCache.html] interface As with the resource manager. A description of the requirements of a resource manager is out of scope for this document.  Implementors are encouraged to review the default implementation.
+
+**`resource.manager.defaultcache.size = 89`**
+
+> Sets the size of the default implementation of the resource manager cache size (in number of elements). When `resource.manager.defaultcache.size` is set to 0, then the default implementation uses the standard Java `ConcurrentHashMap`. Otherwise, a non-zero cache size uses an LRU Map. The default cache size is 89. Note that the ConcurrentHashMap may be better at thread concurrency.
+
+**`resource.loader = file`**
+
+> *Multi-valued key.  Will accept CSV for value.*  Public name of a resource loader to be used.  This public name will then be used in the specification of the specific properties for that resource loader. Note that as a multi-valued key, it's possible to pass a value like "file, string" (sans quotes), indicating that following will be configuration values for two loaders.
+
+> Please note than [VelocityTools](tools/devel) will override the default value and set it to `webapp`.
+
+** *name*`.loader.description = Velocity File Resource Loader`**
+
+> Description string for the given loader.
+
+** *name*`.resource.loader.class = org.apache.velocity.runtime.resource.loader.FileResourceLoader`**
+
+> Name of implementation class for the loader. The default loader is the [file resource loader](/engine/devel/apidocs/org/apache/velocity/runtime/resource/loader/FileResourceLoader.html) (or the [webapp resource loader](/tools/devel/apidocs/org/apache/velocity/tools/view/WebappResourceLoader.html) for VelocityTools).
+
+** *name*`.resource.loader.path = .`**
+
+> *Multi-valued key. Will accept CSV for value.* Root(s) from which the loader loads templates. Templates may live in  subdirectories of this root. ex. homesite/index.vm   This configuration key applies currently to the FileResourceLoader and JarResourceLoader.
+
+** *name*`.resource.loader.cache = false`**
+
+> Controls caching of the templates in the loader.  Default is false, to make life easy for development and debugging.  This should be set to true for production deployment.  When 'true', the `modificationCheckInterval` property applies.  This allows for the efficiency of caching, with the convenience of controlled reloads - useful in a hosted or ISP environment where templates can be modifed frequently and bouncing the application or servlet engine is not desired or permitted.
+
+** *name*`.resource.loader.modificationCheckInterval = 2`**
+
+> This is the number of seconds between modification checks when caching is turned on.  When this is an integer > 0, this represents the number of seconds between checks to see if the template was modified.  If the template has been modified since last check, then it is reloaded and reparsed.  Otherwise nothing is done.  When <= 0, no modification checks will take place, and assuming that the property `cache` (above) is true, once a template is loaded and parsed the first time it is used, it will not be checked or reloaded after that until the application or servlet engine is restarted.
+
+> To illustrate, here is an example taken right from the default Velocity properties, showing how setting up the FileResourceLoader is managed
+
+    :::properties
+    resource.loader = file
+    
+    file.resource.loader.description = Velocity File Resource Loader
+    file.resource.loader.class = org.apache.velocity.runtime.resource.loader.FileResourceLoader
+    file.resource.loader.path = .
+    file.resource.loader.cache = false
+    file.resource.loader.modificationCheckInterval = 2
+
+## Velocimacros
+
+**`velocimacro.library = VM_global_library.vm `**
+
+
+> *Multi-valued key.  Will accept CSV for value.* Filename(s) of Velocimacro library to be loaded when the Velocity Runtime engine starts.  These Velocimacros are accessable to all templates.  The file is assumed to be relative to the root of the file loader resource path.
+
+**`velocimacro.permissions.allow.inline = true`**
+
+> Determines of the definition of new Velocimacros via the #macro() directive in templates is allowed.   The default value is true, meaning any template can define and use new Velocimacros.  Note that depending on other properties, those #macro() statements can replace global definitions.
+
+**`velocimacro.permissions.allow.inline.to.replace.global = false`**
+
+> Controls if a Velocimacro defind 'inline' in a template can replace a Velocimacro defined in a library loaded at startup.
+
+**`velocimacro.permissions.allow.inline.local.scope = false`**
+
+> Controls 'private' templates namespaces for Velocimacros.  When true, a #macro() directive in a template  creates a Velocimacro that is accessable only from the defining template.  This means that Velocimacros cannot be shared unless they are in the global or local library loaded at startup. (See above.)  It also means that templates cannot interfere with each other.  This property also allows a technique where there is a 'default' Velocimacro definition in the global or local library, and a template can 'override' the implementation for use within that template. This occurrs because when this property is true, the template's namespace is searched for a Velocimacro before the global namespace, therefore allowing the override mechanism.
+
+**`velocimacro.context.localscope = false`**
+
+> Controls whether reference access (set/get) within a Velocimacro will change the context, or be of local scope in that Velocimacro. This feature is deprecated and has been removed in Velocity 2.0.  Instead, please use the $macro namespace for storage of references local to your Velocimacro. (e.g. #set( $macro.foo = 'bar') and $macro.foo)
+
+**`velocimacro.library.autoreload = false`**
+
+> Controls Velocimacro library autoloading.  When set to `true` the source Velocimacro library for an invoked Velocimacro will be checked for changes, and reloaded if necessary.  This allows you to change and test Velocimacro libraries without having to restart your application or servlet container, just like you can with regular templates. This mode only works when caching is *off* in the resource loaders (e.g. `file.resource.loader.cache = false` ). This feature is intended for development, not for production.
+
+**`velocimacro.arguments.strict = false`**
+
+> When set to true, will throw a `ParseErrorException` when parsing a template containing a macro with an invalid number of arguments. Is set to false by default to maintain backwards compatibility with templates written before this feature became available.
+
+**`velocimacro.body.reference = false`**
+
+> Defines name of the reference that can be used to get the body content (an AST block) given for a block macro call (e.g. #@myMacro() has a body #end). The default reference name is "bodyContent" (e.g. $bodyContent).  This block macro feature was introduced in Velocity 1.7.
+
+**`macro.provide.scope.control = false`**
+
+> Used to turn on the automatic provision of the $macro scope control during #macro calls. The default is false. Set it to true if you need a local namespace in macros or more advanced #break controls.
+
+**`<somebodymacro>.provide.scope.control = false`**
+
+> Used to turn on the automatic provision of the $<nameofthemacro> scope control during a call to a macro with a body (e.g. #@foo #set($foo.a=$b) ... $foo.a #end). The default is false. Set it to true if you happen to need a namespace just for your macro's body content or more advanced #break controls.
+
+## Strict Reference Setting
+
+**`runtime.references.strict = false`**
+
+> When set to true Velocity will throw a `MethodInvocationException` for references that are not defined in the context, or have not been defined with a #set directive.  This setting will also throw an exception if an attempt is made to call a non-existing property on an object or if the object is null.  When this property is true then property `directive.set.null.allowed` is also set to true. Also, `directive.foreach.skip.invalid` defaults to true when this property is true, but explicitly setting `directive.foreach.skip.invalid` will override this default. For a complete discussion see [Strict References Setting](user-guide.html#strict-reference-mode).
+
+**`runtime.references.strict.escape = false`**
+
+> Changes escape behavior such that putting a forward slash before a reference or macro always escapes the reference or macro and absorbs the forward slash regardless if the reference or macro is defined. For example "\$foo" always renders as "$foo", or "\#foo()" is always rendered as "#foo()".  This escape behavior is of use in strict mode since unintended strings of characters that look like references or macros will throw an exception.  This provides an easy way to escape these references.  However, even in non-strict mode the developer may find this a more consistent and reliable method for escaping.
+
+## String Interpolation
+
+**`runtime.interpolate.string.literals = true`**
+
+> Controls interpolation mechanism of VTL String Literals.  Note that a VTL StringLiteral is specifically a string using double quotes that is used in a #set() statement, a method call of a reference, a parameter to a VM, or as an argument to a VTL directive in general.  See the VTL reference for further information.
+
+## Math
+
+**`runtime.strict.math = false`**
+
+> Affects all math operations in VTL. If changed to true, this will cause Velocity to throw a MathException whenever one side of a math operation has a null value (e.g. `#set( $foo = $null * 5 )`) or when trying to divide by zero.  If this value is left `false`, then rendering will continue and that math operation will be ignored.
+
+## Parser Configuration
+
+**`parser.pool.class = org.apache.velocity.runtime.ParserPoolImpl`**
+
+> This property selects the implementation for the parser pool.  This class must implement ParserPool. Generally there is no reason to change this though if you are building a high volume web application you might consider including an alternate implementation that automatically adjusts the size of the pool.
+
+**`parser.pool.size = 20`**
+
+> This property is used by the default pooling implementation to set the number of parser instances that Velocity will create at startup and keep in a pool.  The default of 20 parsers should be more than enough for most uses.  In the event that Velocity does run out of parsers, it will indicate so in the log, and dynamically create overflow instances as needed.  Note that these extra parsers will not be added to the pool, and will be discarded after use.  This will result in very slow operation compared to the normal usage of pooled parsers, but this is considered an exceptional condition.  A web application using Velocity as its view engine might exhibit this behavior under extremely high concurrency (such as when getting Slashdotted).  If you see a corresponding message referencing the `parser.pool.size` property in your log files, please increment this property immediately to avoid performance degradation.
+
+## Event Handlers
+
+See the [Event Handlers](developer-guide.html#event-handlers) section of the dev guide.
+
+**`eventhandler.include.class`** = *classname*
+> register an [include event handler](apidocs/org/apache/velocity/app/event/IncludeEventHandler.html).
+
+**`eventhandler.invalidreference.class`** = *classname*
+> register an [invalid reference event handler](apidocs/org/apache/velocity/app/event/InvalidReferenceEventHandler.html).
+
+**`eventhandler.methodexception.class`** = *classname*
+> register a [method exception event handler](apidocs/org/apache/velocity/app/event/MethodExceptionEventHandler.html).
+
+**`eventhandler.referenceinsertion.class`** = *classname*
+> register a [reference insertion event handler](apidocs/org/apache/velocity/app/event/ReferenceInsertionEventHandler.html).
+
+## Introspection
+
+Introspection is the process of mapping properties, methods and iterators of VTL references to Java objects. The object responsible of the introspection strategy in Velocity is called an *uberspector*.
+
+**`runtime.introspector.uberspect = org.apache.velocity.util.introspection.UberspectImpl`**
+
+> This property sets the 'Uberspector', the introspection package that handles all introspection strategies for Velocity. You can specify a comma-separated list of Uberspector classes, in which case all Uberspectors are chained. The default chaining behaviour is to return the first non-null value for each introspection call among all provided uberspectors. You can modify this behaviour (for instance to restrict access to some methods) by subclassing org.apache.velocity.util.introspection.AbstractChainableUberspector (or implementing directly org.apache.velocity.util.introspection.ChainableUberspector).  This allows you to create more interesting rules or patterns for Uberspection, rather than just returning the first non-null value.
+> 
+> Some alternate Uberspectors are provided within the Velocity package. Please refer to the [Customizing Introspection](developer-guide.html#customizing-introspection) section for a detailed list. You would for instance use `runtime.introspector.uberspect = org.apache.velocity.util.introspection.SecureUberspector` to avoid template authors to instanciate new classes or to use reflection, or use `runtime.introspector.uberspect = org.apache.velocity.util.introspection.UberspectImpl, org.apache.velocity.util.introspection.UberspectPublicFields` to expose Java public fields in your templates.
+
+**`runtime.conversion.handler.class = org.apache.velocity.util.introspection.ConversionHandlerImpl`**
+> This configuration option is only taken into account by the default uberspector (UberspectImpl) and its subclasses (like SecureUberspector). It can be set to:
+>
+>- `none`: the only accepted conversions for method arguments will be the ones accepted by Java, typically widening number conversions. This reflects the behavior of Velocity 1.x.
+>- *classname*: the name of a class implementing the interface [org.apache.velocity.util.introspection.ConversionHandler](apidocs/org/apache/velocity/util/introspection/ConversionHandler.html).
+>
+> The default conversion handler will try to convert values between all number, boolean and string types. Failed conversions will throw a MethodInvocationException (or call the registered MethodExceptionEventHandler, if any). Watch out for conversions towards boolean: non-zero numbers and the "true" String are true, everything else is false. This differs slighly from the `#if($reference)` truthness rules, where all non-null numbers and all non-null and non-empty strings are true.
+
+## Context
+
+**`context.autoreference.key = <key name>`**
+
+> This property has no default value. If present, the Context object will become accessible from the templates under the provided name. For instance, with the configuration "`context.autoreference.key = self`", then `$self` will contain the context itself. This feature is meant to be used for debugging purposes.
+
+## String Interning
+
+**`runtime.string.interning = true`**
+> This property specifies whether to use Java (String interning)[https://en.wikipedia.org/wiki/String_interning] on identifiers. This may save some memory when set to true, and run a little bit faster when set to false.
+
+## Space Gobbling
+
+**`space.gobbling = lines`**
+> Space gobbling policy. See the [Space Gobbling section](developer-guide.html#space-gobbling) in the developer guide. Possible values are:
+>- `none` : no space gobbling at all.
+>- `bc` : Velocity 1.x backward compatible space gobbling.
+>- `lines` : gobbles spaces and newline surrounding VTL directives alone in their line.
+>- `structured` : like previous, plus fix inner text blocks indentation.
+
+## Configuration Examples
+
+Configuring the resource loaders for Velocity is straightforward. The properties that control the are listed in the <a href="#Configuring_Resource_Loaders">resource configuration</a> section, for further reference.
+
+The first step in configuring one or more resource loaders is do 'declare' them by name to Velocity.  Use the property `resource.loader` and list one or more loader names. You can use anything you want - these names are used to associate configuration properties with a given loader.
+
+    :::properties
+    resource.loader = file
+
+That entry declares that we will have a resource loader known as 'file'. The next thing to do is to set the important properties.  The most critical is to declare the class to use as the loader:
+
+    :::properties
+    file.resource.loader.class = org.apache.velocity.runtime.resource.loader.FileResourceLoader
+
+In this case, we are telling velocity that we are setting up
+a resource loadercalled 'file', and are using the class `org.apache.velocity.runtime.resource.loader.FileResourceLoader` to be the class to use. The next thing we do is set the properties important to this loader.
+
+    :::properties
+    file.resource.loader.path = /opt/templates
+    file.resource.loader.cache = true
+    file.resource.loader.modificationCheckInterval = 2
+
+Here, we set a few things.  First, we set the path to find the templates to be `/opt/templates`.  Second, we turned caching on, so that after a template or static file is read in, it is cached in memory.  And finally, we set the modification check interval to 2 seconds, allowing Velocity to check for new templates.
+
+Those are the basics.  What follows are a few examples of different configuraitons.
+
+**Do-nothing Default Configuration: ** As the name says, there is nothing you have to do or configure to get the default configuration.  This configuration uses the FileResourceLoader with the current directory as the default resource path, and caching is off.  As a properties set, this is expressed as:
+
+    :::properties
+    resource.loader = file
+    
+    file.resource.loader.description = Velocity File Resource Loader
+    file.resource.loader.class = org.apache.velocity.runtime.resource.loader.FileResourceLoader
+    file.resource.loader.path = .
+    file.resource.loader.cache = false
+    file.resource.loader.modificationCheckInterval = 0
+
+**Multiple Template Path Configuration: ** This configuration uses the FileResourceLoader with several directories as 'nodes' on the template search path. We also want to use caching, and have the templates checked for changes in 10 second intervals.  As a properties set, this is expressed as:
+
+    :::properties
+    resource.loader = file
+    
+    file.resource.loader.description = Velocity File Resource Loader
+    file.resource.loader.class = org.apache.velocity.runtime.resource.loader.FileResourceLoader
+    file.resource.loader.path = /opt/directory1, /opt/directory2
+    file.resource.loader.cache = true
+    file.resource.loader.modificationCheckInterval = 10
+
+**Multiple Loader Configuration :**  This configuration sets up three loaders at the same time, the FileResourceLoader, the ClasspathResourceLoader, and the JarResourceLoader. The loaders are set-up such that the FileResourceLoader is consulted first, then the ClasspathResourceLoader, and finally the JarResourceLoader. This would allow you to qickly drop a template into the file template area to replace on of the templates found in the classpath (usually via a jar) without having to rebuild the jar.
+
+    :::properties
+    #
+    # specify three resource loaders to use
+    #
+    resource.loader = file, class, jar
+    
+    #
+    # for the loader we call 'file', set the FileResourceLoader as the
+    # class to use, turn off caching, and use 3 directories for templates
+    #
+    file.resource.loader.description = Velocity File Resource Loader
+    file.resource.loader.class = org.apache.velocity.runtime.resource.loader.FileResourceLoader
+    file.resource.loader.path = templatedirectory1, anotherdirectory, foo/bar
+    file.resource.loader.cache = false
+    file.resource.loader.modificationCheckInterval = 0
+    
+    #
+    #  for the loader we call 'class', use the ClasspathResourceLoader
+    #
+    class.resource.loader.description = Velocity Classpath Resource Loader
+    class.resource.loader.class = org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+    
+    #
+    # and finally, for the loader we call 'jar', use the JarResourceLoader
+    # and specify two jars to load from
+    #
+    jar.resource.loader.description = Velocity Jar  Resource Loader
+    jar.resource.loader.class = org.apache.velocity.runtime.resource.loader.JarResourceLoader
+    jar.resource.loader.path = jar:file:/myjarplace/myjar.jar, jar:file:/myjarplace/myjar2.jar
+
+Node that the three names 'file', 'class', and 'jar' are merely for your convenience and sanity.  They can be anything you want - they are just used to associate a set of properties together.  However, it is recommended that you use names that give some hint of the function.
+
+Note that while all three require very little configuration information for proper operation, the ClasspathResourceLoader is the simplest.

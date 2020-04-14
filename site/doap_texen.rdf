@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl"?>
+<rdf:RDF xml:lang="en"
+         xmlns="http://usefulinc.com/ns/doap#"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:asfext="http://projects.apache.org/ns/asfext#"
+         xmlns:foaf="http://xmlns.com/foaf/0.1/">
+<!--
+  =======================================================================
+
+   Copyright (c) 2006 The Apache Software Foundation.
+   All rights reserved.
+
+  =======================================================================
+-->
+  <Project rdf:about="http://velocity.apache.org/texen/">
+    <created>2006-11-21</created>
+    <license rdf:resource="http://usefulinc.com/doap/licenses/asl20" />
+    <name>Apache Texen</name>
+    <homepage rdf:resource="http://velocity.apache.org/texen/" />
+    <asfext:pmc rdf:resource="http://velocity.apache.org/texen/"/>
+    <shortdesc>Texen is a general purpose text generating utility based on Apache Velocity and Apache Ant.</shortdesc>
+    <description>Texen is a general purpose text generating utility. It is capable of producing almost any sort of text output. Driven by Ant, essentially an Ant Task, Texen uses a control template, an optional set of worker templates, and control context to govern the generated output. Although TexenTask can be used directly, it is usually subclassed to initialize your control context before generating any output.</description>
+    <bug-database rdf:resource="http://issues.apache.org/jira/browse/TEXEN" />
+    <mailing-list rdf:resource="http://velocity.apache.org/mail-lists.html" />
+    <download-page rdf:resource="http://velocity.apache.org/download.cgi" />
+    <programming-language>Java</programming-language>
+    <category rdf:resource="http://projects.apache.org/category/library"/>
+    <release>
+      <Version>
+        <name>Latest Stable Release</name>
+        <created>2007-04-28</created>
+        <revision>1.0</revision>
+      </Version>
+    </release>
+    <repository>
+      <SVNRepository>
+        <location rdf:resource="http://svn.apache.org/repos/asf/velocity/texen/trunk"/>
+        <browse rdf:resource="http://svn.apache.org/viewvc/velocity/texen/trunk"/>
+      </SVNRepository>
+    </repository>
+  </Project>
+</rdf:RDF>

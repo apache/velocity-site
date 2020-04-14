@@ -1,0 +1,792 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>Apache Velocity - 
+  The Velocity JSP Tag Library</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+    <link rel="alternate" href="http://feeds.feedburner.com/ApacheVelocitySiteNews" type="application/rss+xml" title="Apache Velocity - 
+  The Velocity JSP Tag Library News" />
+          <meta name="author" content="
+  Geir Magnusson Jr." />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../../../" id="bannerLeft">
+    
+                                            <img src="images/velocity_project_wide.png" alt="" />
+    
+            </a>
+                          <span id="bannerRight">
+    
+                                            <img src="images/velocity-logo.png" alt="" />
+    
+            </span>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+          
+          <a href="http://www.apache.org/">Apache</a>
+              &gt;
+      
+          <a href="../../../">Velocity</a>
+              &gt;
+      
+          Velocity Engine
+                </div>
+            <div class="xright">      <a href="../../devel/index.html">Engine</a>
+          |
+          <a href="../../../tools/devel/index.html">Tools</a>
+          |
+          <a href="../../../dvsl/devel/index.html">DVSL</a>
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Velocity</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="index.html">General</a>
+        </li>
+              
+    <li class="none">
+              <a href="overview.html">Overview</a>
+        </li>
+              
+    <li class="none">
+              <a href="getting-started.html">Getting Started</a>
+        </li>
+              
+    <li class="none">
+              <a href="webapps.html">Web Applications</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../download.cgi">Download</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/VelocityFAQ">FAQ (Wiki)</a>
+        </li>
+          </ul>
+          <h5>Docs</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="user-guide.html">User Guide</a>
+        </li>
+              
+    <li class="none">
+              <a href="developer-guide.html">Developer Guide</a>
+        </li>
+              
+    <li class="none">
+              <a href="vtl-reference-guide.html">VTL Reference</a>
+        </li>
+              
+    <li class="none">
+              <a href="anakia.html">Anakia: XML->doc tool</a>
+        </li>
+              
+    <li class="none">
+              <a href="texen.html">Texen: text generation</a>
+        </li>
+              
+    <li class="none">
+              <strong>Veltag: JSP taglib</strong>
+        </li>
+          </ul>
+          <h5>Developers</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="license.html">License</a>
+        </li>
+              
+    <li class="none">
+              <a href="apidocs/index.html">Javadoc</a>
+        </li>
+              
+    <li class="none">
+              <a href="changes-report.html">Changes in 1.5</a>
+        </li>
+              
+    <li class="none">
+              <a href="jira-report.html">Resolved Issues in 1.5</a>
+        </li>
+              
+    <li class="none">
+              <a href="jar-dependencies.html">Dependencies</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../download.cgi">Source Code Repository</a>
+        </li>
+              
+    <li class="none">
+              <a href="build.html">Building from Source</a>
+        </li>
+          </ul>
+          <h5>Community</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/">Wiki</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../news.html">Recent News</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/PoweredByVelocity">Powered By Velocity</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/VelocityEditors">IDE/Editor Plugins</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/PublishedArticlesAndBooks">Articles and Books</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/GetInvolved">Get Involved</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../contact.html">Mailing Lists</a>
+        </li>
+          </ul>
+          <h5>Velocity Development</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/RoadMap">Road Map</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/CodeStandards">Coding Standards</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/DocumentationGuidelines">Documentation Guidelines</a>
+        </li>
+              
+    <li class="none">
+              <a href="https://issues.apache.org/jira/browse/VELOCITY">Issues</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../who-we-are.html">Who we are</a>
+        </li>
+          </ul>
+          <h5>Translations</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://www.jajakarta.org/velocity/">Site (Japanese)</a>
+        </li>
+              
+    <li class="none">
+              <a href="translations/user-guide_fi.html">User's Guide (Finnish)</a>
+        </li>
+              
+    <li class="none">
+              <a href="translations/user-guide_fr.html">User's Guide (French)</a>
+        </li>
+              
+    <li class="none">
+              <a href="translations/user-guide_es.html">User's Guide (Spanish)</a>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-info.html">Project Information</a>
+              </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-reports.html">Project Reports</a>
+              </li>
+          </ul>
+                                             
+                        
+                        
+                        <a class="poweredBy" href="../../../" title="Apache Velocity" ><img class="poweredBy" alt="Apache Velocity" src="images/pbv90x30.png" /></a>
+                                
+                        
+                        
+                        <a class="poweredBy" href="../../../rss/news.rss" title="Velocity News Feed" ><img class="poweredBy" alt="Velocity News Feed" src="images/feed-icon-24x24.jpg" /></a>
+                    
+
+           
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        
+
+ 
+
+
+
+<a name="contents"></a><div class="section"><h2>Contents</h2>
+
+<ol type="1">
+<li>
+<a href="#SoYouHaveToUseJSP...">So You Have To Use JSP...</a>
+<ul>
+  <li>
+    <a href="#WhatAreTheAdvantages">What Are The Advantages?</a>
+  </li>
+</ul>
+</li>
+
+<li>
+ <a href="#UsingTheVelocityTaglib">Using The Velocity Taglib</a>
+ <ul>
+  <li>
+    <a href="#AutomaticScopeAccess">Automatic Scope Access</a>
+  </li>
+  <li>
+    <a href="#StrictScopeAccess">Strict Scope Access</a>
+  </li>
+</ul>
+</li>
+
+<li>
+<a href="#BuildingTheVelocityTaglib">Building The Velocity Taglib</a>
+<ul>
+  <li>
+    <a href="#JJARbuild">Build Using JJAR</a>
+  </li>
+  <li>
+    <a href="#nonJJARbuild">Non-JJAR Traditional Build</a>
+  </li>
+</ul>
+</li>
+
+<li>
+<a href="#Configuration">Configuration</a>
+</li>
+</ol>
+
+</div>
+
+<a name="so_you_have_to_use_jsp..."></a><div class="section"><h2>So You Have To Use JSP...</h2>
+
+<p>
+ Sometimes it appears you don't have a choice - technology decisions are
+ made based on all sorts of factors, ranging from network externalities
+(&quot;They're using it - I should too...&quot;) to legacy considerations
+(&quot;They used it - I have to...&quot;).
+</p>
+
+<p>
+In the event where the usage of JSP is mandatory, we offer a JSP tag library that lets
+you take advantage of the simple control directives and powerful binding to the
+Java object model offered by Velocity.  Using Velocity in your JSPs is as
+simple as :
+</p>
+
+<div class="source"><pre>
+&lt;%@ taglib uri=&quot;/WEB-INF/veltag.tld&quot; prefix=&quot;vel&quot; %&gt;
+
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt; Velocity! &lt;/title&gt;
+&lt;/head&gt;
+
+&lt;jsp:useBean id=&quot;mybean&quot;  class=&quot;GeirBean&quot; /&gt;
+
+&lt;body&gt;
+  &lt;vel:velocity strictaccess=&quot;true&quot;&gt;
+
+    #set($mybean = $scopetool.getPageScope(&quot;mybean&quot;))
+
+    #if(true)
+       this is true!
+    #end
+
+    &lt;br&gt;
+
+    $mybean.string
+
+    &lt;br&gt;
+
+    #foreach($item in $mybean.array)
+        $item &lt;br&gt;
+    #end
+
+  &lt;/vel:velocity&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+
+<p>
+Not hard at all, is it?
+</p>
+
+<a name="whataretheadvantages"><strong>What Are The Advantages?</strong></a>
+
+<p>
+The first question asked when confronted with this subject is something
+along the lines of &quot;What advantage does this have over 'pure' Velocity?&quot;.
+Generally, there are few reasons why one would take a Velocity-only
+system, and convert it to a JSP system with Velocity embedded in the
+JSP pages.  The only reason that you might want to do this is to use
+an existing JSP taglib that you want to use that you don't have the
+source code for, or don't wish to dig out the core functional classes
+of a taglib you do have the source for.  Otherwise, you could just drop
+those core classes in the Context, and access them directly from within
+the Velocity template.
+</p>
+
+<p>
+The advantages, then, are found in a JSP-centric environment, where an
+existing application is already written in JSP and you wish to add or
+maintain functionality.  Some things that Velocity provides :
+</p>
+
+<ul>
+<li>
+     Simple access to Java objects, without any need to create a taglib
+     shell.  If it has public methods on a public interface, you can
+     drop it right into a scope and access directly (or use a tool to
+     create an instances of the class for you.)
+</li>
+<li>
+     Simple access to complicated Java objects.  It's not clear how to
+     access an arbitrary call chain such as $foo.bar( $thing ).getIterator().hasNext()
+     in JSP.
+</li>
+<li>
+     Although this is a matter of personal taste, some people prefer the
+     control directives of Velocity ( #if(), #else(), #elseif(), #foreach() )
+     to the various taglibs that offer the same functionality.
+     <i>De gustibus non est disputandum!</i>.
+</li>
+<li>
+     An easy bridge between complicated Java objects and JSP - for example
+     if you wished to dynamically choose/create an object at runtime, and
+     then poke into a scope for access in other parts of the JSP, you could
+     do that.
+     <pre>
+         &lt;vel:velocity strictaccess=&quot;true&quot;&gt;
+             #set($reqbean = $scopetool.getRequestScope(&quot;beaninrequest&quot;))
+             #set($newthing = $reqbean.getThing().makeBlue(&quot;azure&quot;))
+             $request.getSession().setAttribute(&quot;bluething&quot;, $newthing)
+         &lt;/vel:velocity&gt;
+     </pre>
+     Or something like that :)
+</li>
+<li>
+     If nothing else, there are always the Velocimacros.
+</li>
+</ul>
+
+</div>
+
+<a name="using_the_velocity_taglib"></a><div class="section"><h2>Using The Velocity Taglib</h2>
+
+<p>
+The biggest challenge in bringing together Velocity and JSP is the
+'impedance matching' related to scope and bean access.  'Scope',
+the fundamental storage mechanism in JSP, is a
+concept that comes from the underlying servlet API, where data objects
+are stored for later retrieval within the page, request, session or
+application.  Velocity organizes data in a non-hierachical mechanism
+called the 'context', the expectation being that a controller servlet
+or other non-view code will manage and organize the data accessable
+to the template.
+</p>
+
+<p>
+So to make data access in JSPs easy using the Velocity taglib, two
+separate approaches are offered.  These two approaches, automatic
+access and strict access, allow two distinct ways of managing and
+accessing data.  These two ways can also be used together.
+</p>
+
+<a name="automaticscopeaccess"><strong>Automatic Scope Access</strong></a>
+
+<p>
+The first way, automatic access, is the most convenient.  When an
+object is referenced (via a VTL 'reference'), the scopes are searched
+to find an object with the same id.  The scopes are searched in the
+order of :
+</p>
+
+<ol type="1">
+<li> page scope </li>
+<li> request scope </li>
+<li> session scope </li>
+<li> application scope </li>
+</ol>
+
+<p>
+Automatic scope access is enabled by default.  To use
+automatic scope access, just access the bean by name. For example :
+</p>
+
+<div class="source"><pre>
+&lt;!-- place a bean in page scope --&gt;
+&lt;jsp:useBean id=&quot;mybean&quot;  class=&quot;GeirBean&quot; /&gt;
+
+ &lt;vel:velocity&gt;
+
+    &lt;!-- just access by id - the context --&gt;
+    &lt;!-- will find it automatically      --&gt;
+
+    #foreach($item in $mybean.array)
+       $item &lt;br&gt;
+    #end
+
+&lt;/vel:velocity&gt;
+</pre></div>
+
+<p>
+While automatic scope access is the easier of the two methods,
+integrating with existing applications might require using the
+other access mode, strict scope access, or a combination of the
+two.
+</p>
+
+<a name="strictscopeaccess"><strong>Strict Scope Access</strong></a>
+  <p>
+   The alternative (or addition to) Automatic Scope Access is something called
+   <i>Strict Scope Access</i>.  Strict Scope Acccess means that the Velocity
+   Context won't search the scopes for you - you must retrieve objects directly
+   using ScopeTool that is provided for your use in the template.  This is a
+   closer model to that of regular JSP, where the designer must be aware of
+   the scopes that objects are stored in.
+  </p>
+
+   <p>
+   For example, the following snippet of JSP shows how the scopetool is used to
+   access an object in the request scope, and add it to the Velocity context.
+   Note how the <code>strictaccess</code> property is set to true in the
+   <code>&lt;vel:velocity strictaccess=&quot;true&quot;&gt;</code> tag.  This tells
+   the Veltag taglib to not do any automatic scope searching.  Note that you can
+   mix the two modes, leaving off (or setting to false) <code>strictaccess</code>
+   and also using the scopetool to eliminate any question about the source
+   of an object.
+  </p>
+
+<div class="source"><pre>
+&lt;jsp:useBean id=&quot;beaninrequest&quot; class=&quot;GeirBean&quot; scope=&quot;request&quot; /&gt;
+
+&lt;vel:velocity strictaccess=&quot;true&quot;&gt;
+
+  #set($reqbean = $scopetool.getRequestScope(&quot;beaninrequest&quot;))
+
+  $reqbean.string
+
+  &lt;br&gt;
+
+  #foreach($item in $reqbean.array)
+    $item &lt;br&gt;
+  #end
+
+&lt;/vel:velocity&gt;
+</pre></div>
+
+<p>
+Again, pretty straightforward.
+</p>
+
+</div>
+
+<a name="building_the_velocity_taglib"></a><div class="section"><h2>Building The Velocity Taglib</h2>
+
+<p>
+To use the Velocity taglib, you need to build it, as it is not
+yet included in the main Velocity jar.  In the Jakarta tradition,
+we made it very easy to build.  The code for the project is
+located in the contrib section of the Subversion code repository under
+<code>/contrib/temporary/veltag</code>.  It is under the
+temporary directory as it is hoped this package will
+be accepted by the
+<a href="http://jakarta.apache.org/taglibs/" class="externalLink">Jakarta Taglibs</a>
+project.  See
+<a href="http://www.apache.org/dev/version-control.html" class="externalLink">here</a>
+for more about the Subversion code repository.
+</p>
+
+<a name="jjarbuild"><strong>The Easy, JJAR Way</strong></a>
+
+<p>
+The Veltag taglib can be built using a new, <b>experimental</b>
+jar management tool called <em>JJAR</em>
+(Jakarta Jar Archive &amp; Repository) which makes finding and retrieving the
+dependencies to build the taglib simple.
+</p>
+
+<p>
+ <i>Please note that JJAR is
+currently a work in progress - while every effort will be made to ensure
+that the JJAR-based build works, it may not always be so.  In that case,
+do it the regular way, listed below.</i>
+</p>
+
+<p>
+To build with JJAR :
+</p>
+
+<ol type="1">
+<li>
+  <a href="http://jakarta.apache.org/ant/" class="externalLink">Ant</a>, the fabulous
+  Jakarta build tool, must be installed.
+</li>
+<li>
+   Get the Velocity distribution from Subversion or a nightly snapshot.
+</li>
+<li>
+   Change directory to the <code>/contrib/temporary/veltag</code>
+   directory in the Velocity distribution.
+</li>
+<li>
+   Type :
+    <pre>
+      $ ant getjars
+    </pre>
+    This will fetch JJAR and then use JJAR to fetch the dependencies du
+    jour for Veltag.
+</li>
+<li>
+   Type :
+     <pre>
+      $ant jar
+     </pre>
+    which will build the veltag-XX.jar (XX = current version).
+</li>
+</ol>
+
+<p>
+That's it.  Pretty easy.
+</p>
+
+<a name="nonjjarbuild"><strong>The JJAR-Is-A-Work-In-Progress Way</strong></a>
+
+<p>
+In the event the JJAR-based build is broken, or you just enjoy
+schlepping around finding jars, do the following to build Veltag.
+</p>
+
+<p>
+To build, you need the following :
+</p>
+
+<ul>
+<li>
+  <a href="http://jakarta.apache.org/ant/" class="externalLink">Ant</a>, the fabulous
+  Jakarta build tool, must be installed.
+</li>
+<li>
+  You will need a servlet API jar.  We recommend you get it from
+  <a href="http://jakarta.apache.org/builds/jakarta-tomcat/release/v3.2.3/bin/" class="externalLink">here</a>
+  for servlet 2.2 and
+  <a href="http://jakarta.apache.org/builds/jakarta-servletapi-4/nightly/" class="externalLink">here</a>
+  for the unreleased servlet 2.3 API.  Note - if you are a JSP user, you will have
+  one included with your servlet engine.
+</li>
+<li>
+   A velocity.jar.  This can be found, of course,
+  <a href="http://jakarta.apache.org/velocity/" class="externalLink">here</a>.
+</li>
+<li>
+  The build script expects to find the servlet and velocity jars in the
+  <code>/contrib/temporary/veltag/lib/</code>
+   directory.  Modification
+  of the build script is easy if they are in another location.  Look for
+  'servlet.home' and 'velocity.home' in the
+  <code>/contrib/temporary/veltag/build.xml</code> file.
+</li>
+<li>
+  Once the above is complete, cd into
+  <code>/contrib/temporary/veltag</code> in the Velocity
+  distribution and type 'ant'.  The jar should build
+  for you.
+</li>
+</ul>
+</div>
+
+<a name="configuration"></a><div class="section"><h2>Configuration</h2>
+
+<p>
+Using the taglib is very straightforward.  The following assumes
+that you have setup a servlet container with JSP support, such as
+<a href="http://jakarta.apache.org/tomcat/" class="externalLink">Tomcat</a>, and know
+enough to write and view a simple JSP page.  Also, all directory
+references are relative to the root of the veltag project, not
+the Velocity distribution.
+</p>
+
+<p>
+To test the Velocity Taglib :
+</p>
+
+<blockquote>
+   You need to copy the veltag-XX.jar to the
+   <code>WEB-INF/lib</code> directory of your webapp. (Where XX
+   is the current version number.
+</blockquote>
+<blockquote>
+   Take the example taglib descriptor,
+   <code> /examples/veltag.tld</code> and place in WEB-INF of your
+   webapp.
+</blockquote>
+<blockquote>
+  Finally, add
+  <pre>
+    &lt;taglib&gt;
+      &lt;taglib-uri&gt;http://jakarta.apache.org/taglibs/veltag-1.0&lt;/taglib-uri&gt;
+      &lt;taglib-location&gt;/WEB-INF/veltag.tld&lt;/taglib-location&gt;
+    &lt;/taglib&gt;
+  </pre>
+  to your web.xml file, within the &lt;webapp&gt; section.
+</blockquote>
+
+<p>
+If you wish to use the included example JSP, you will also need to compile
+<code>examples/SimpleBean.java</code> and place the resulting
+<code>SimpleBean.class</code> into the <code>WEB-INF/classes</code>
+directory in your webapp.
+</p>
+
+<p>
+  After that, try the example JSP found in <code>examples/</code>.  Drop it
+  into the root of your webapp and view it with your browser. Enjoy!
+</p>
+
+<p>
+Please direct all comments, questions, fixes and contributions to
+<a href="mailto:geirm@apache.org?SUBJECT=Veltag">Geir Magnusson Jr.</a> or the
+Velocity user list.  To subscribe to the Velocity lists, read
+<a href="http://jakarta.apache.org/site/mail.html" class="externalLink">this</a> and follow the
+instructions at the end.
+</p>
+
+<p>
+  Please note that this code is not an official part of the Velocity
+  distribution.
+</p>
+
+</div>
+
+
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2000-2007
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+    
+             Last Published: 2007-01-28 21:13:35
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

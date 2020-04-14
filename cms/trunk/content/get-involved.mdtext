@@ -1,0 +1,32 @@
+Title: Apache Velocity - Getting Involved
+
+## Getting involved with the Apache Velocity Project
+
+Every volunteer project obtains its strength from the people involved in it. We invite you to participate as much or as little as you choose. The roles and responsibilities that people can assume in the project are based on merit. Everybody's input matters!
+
+There are a variety of ways to participate. Regardless of how you choose to participate, we suggest you join some or all of our mailing lists.
+
+### Use Velocity and Give Us Feedback
+
+Using Velocity, reporting bugs, making feature requests, et cetera, is by far the most important role. Your feedback allows the technology to evolve.
+
++ [Join Mailing Lists](/contact.html)
++ [Download Binary Builds](/download.cgi)
++ [Report bugs/Request additional features](/contact.html#Issue-Tracking)
+
+### Contribute Code or Documentation Patches
+
+In this role, you participate in the actual development of the code. If this is the type of role you'd like to play, here are some steps (in addition to the ones above) to get you started:
+
++ [Read Guidelines](/how-it-works.html)
++ Check Online Oocumentation
++ [Download the Source Code](/download.cgi)
++ Contribute Patches
+
+Here is one developer's advice how to get involved. It specifically talks about Tomcat, but the general idea can applied to any of the projects.
+
++ [Contributing -- Craig R. McClanahan](http://jakarta.apache.org/site/contributing.html)
+
+Here is another comment that was sent to the [Jakarta Turbine](http://jakarta.apache.org/turbine) Mailing List about the opensource process and the contrast between how an opensource product and a proprietary product improve through the user community.
+
++ [Understanding Opensource -- Cameron Riley](http://jakarta.apache.org/site/understandingopensource.html)

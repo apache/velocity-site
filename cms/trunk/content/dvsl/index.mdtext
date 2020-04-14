@@ -1,0 +1,7 @@
+## DVSL
+
+DVSL (Declarative Velocity Style Language) is a tool modeled after XSLT and is intended for general XML transformations using the Velocity Template Language as the templating language for the transformations.
+
+[DVSL 1.0 Documentation](1.0)
+
+

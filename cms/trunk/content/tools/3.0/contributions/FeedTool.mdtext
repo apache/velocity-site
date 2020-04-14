@@ -1,0 +1,45 @@
+Title: Apache Velocity Tools - FeedTool
+
+## FeedTool
+
+[FeedTool](FeedTool.mdtext) is a tool providing the ability to retrieve and manipulate RSS and Atom feeds from within Velocity templates. It is built upon the [Rome API](https://rometools.github.io/rome/).
+
+The tool works by retrieving a feed from a specified URI and returning it in a ContextFeedWrapper class. The idea with the wrapper class is to have a convenient location for the provision of convenience methods for feed and feed entry manipulation ... although it could easily be incorporated into a single class.
+
+[TOC]
+
+### Dependencies
+
+* [Rome API](https://rometools.github.io/rome/)
+
+        :::xml
+        <dependency>
+            <groupId>com.rometools</groupId>
+            <artifactId>rome</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+
+* [Rome Fetcher](https://rometools.github.io/rome/Fetcher/index.html)
+
+        :::xml
+        <dependency>
+            <groupId>com.rometools</groupId>
+            <artifactId>rome-fetcher</artifactId>
+            <version>1.10.0</version>
+        </dependency>
+
+* [JDom2](http://www.jdom.org/)
+
+        ::xml
+        <dependency>
+            <groupId>org.jdom</groupId>
+            <artifactId>jdom2</artifactId>
+            <version>2.0.6</version>
+        </dependency>
+
+### Code
+
+{{source_file(contribs/tools/FeedTool/FeedTool.java)}}
+
+{{source_file(contribs/tools/FeedTool/ContextFeedWrapper.java)}}
+
