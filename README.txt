@@ -1,3 +1,5 @@
+Note: the branch trnk is obsolete. Please use the master branch.
+
  ----
  The Apache Velocity Project
  ----
