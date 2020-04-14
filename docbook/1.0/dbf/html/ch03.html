@@ -1,0 +1,29 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>3.&nbsp;Using the Framework</title><link rel="stylesheet" href="css/stylesheet.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.0"><link rel="start" href="index.html" title="DocBook Framework (DBF)"><link rel="up" href="index.html" title="DocBook Framework (DBF)"><link rel="prev" href="ch02s03.html" title="2.3&nbsp;Caveat Emptor!"><link rel="next" href="ch03s02.html" title="3.2&nbsp;Customizing your documentation file layout"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.&nbsp;Using the Framework</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch02s03.html">Prev</a>&nbsp;</td><th width="60%" align="center">&nbsp;</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch03s02.html">Next</a></td></tr></table><hr></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="chapter-using-the-framework"></a>3.&nbsp;Using the Framework</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="section-how-to-set-up"></a>3.1&nbsp;How to set up your documentation files</h2></div></div></div><p>Writing documentation is not just writing text. Often, an author
+      wants to add images, customize the layout of the pages or use specific
+      style information to format documentation in e.g. HTML format. All the
+      required files must be found by the DocBook Framework for creating
+      output files.</p><div class="figure"><a name="figure-recommended-layout"></a><p class="title"><b>Figure&nbsp;3.1.&nbsp;Recommended layout for a documentation project</b></p><div class="figure-contents"><pre class="programlisting">&lt;root&gt;
+  |
+  +---- build.xml <a name="co-build-xml" href="ch03.html#ca-build-xml"><img src="images/callouts/1.gif" alt="1" border="0"></a>
+  +---- project.properties <a name="co-project-properties" href="ch03.html#ca-project-properties"><img src="images/callouts/2.gif" alt="2" border="0"></a>
+  |
+  +-- src
+       |
+       +-- docbook <a name="co-docbook-sources" href="ch03.html#ca-docbook-sources"><img src="images/callouts/3.gif" alt="3" border="0"></a>
+       |
+       +-- styles
+       |     |
+       |     +-- pdf <a name="co-styles-pdf" href="ch03.html#ca-styles-pdf"><img src="images/callouts/4.gif" alt="4" border="0"></a>
+       |     |
+       |     +-- html <a name="co-styles-html" href="ch03.html#ca-styles-html"><img src="images/callouts/5.gif" alt="5" border="0"></a>
+       |
+       +-- css
+       |    |
+       |    +-- html <a name="co-css-html" href="ch03.html#ca-css-html"><img src="images/callouts/6.gif" alt="6" border="0"></a>
+       |
+       +-- images <a name="co-src-images" href="ch03.html#ca-src-images"><img src="images/callouts/7.gif" alt="7" border="0"></a></pre><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><a name="ca-build-xml"></a><a href="#co-build-xml"><img src="images/callouts/1.gif" alt="1" border="0"></a> </td><td valign="top" align="left"><p>ant build file</p></td></tr><tr><td width="5%" valign="top" align="left"><a name="ca-project-properties"></a><a href="#co-project-properties"><img src="images/callouts/2.gif" alt="2" border="0"></a> </td><td valign="top" align="left"><p>custom settings for your build</p></td></tr><tr><td width="5%" valign="top" align="left"><a name="ca-docbook-sources"></a><a href="#co-docbook-sources"><img src="images/callouts/3.gif" alt="3" border="0"></a> </td><td valign="top" align="left"><p>Docbook sources</p></td></tr><tr><td width="5%" valign="top" align="left"><a name="ca-styles-pdf"></a><a href="#co-styles-pdf"><img src="images/callouts/4.gif" alt="4" border="0"></a> </td><td valign="top" align="left"><p>Custom styles for PDF</p></td></tr><tr><td width="5%" valign="top" align="left"><a name="ca-styles-html"></a><a href="#co-styles-html"><img src="images/callouts/5.gif" alt="5" border="0"></a> </td><td valign="top" align="left"><p>Custom styles for HTML</p></td></tr><tr><td width="5%" valign="top" align="left"><a name="ca-css-html"></a><a href="#co-css-html"><img src="images/callouts/6.gif" alt="6" border="0"></a> </td><td valign="top" align="left"><p>CSS files for HTML</p></td></tr><tr><td width="5%" valign="top" align="left"><a name="ca-src-images"></a><a href="#co-src-images"><img src="images/callouts/7.gif" alt="7" border="0"></a> </td><td valign="top" align="left"><p>Image files for PDF/HTML</p></td></tr></table></div></div></div><br class="figure-break"><p>It is possible to customize this file layout further to adjust it
+      to existing documentation. If you start a new documentation project,
+      then we recommend that you start with this layout until you are familiar
+      on how the DocBook Framework behaves.</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02s03.html">Prev</a>&nbsp;</td><td width="20%" align="center">&nbsp;</td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch03s02.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">2.3&nbsp;Caveat Emptor!&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;3.2&nbsp;Customizing your documentation file layout</td></tr></table></div></body></html>

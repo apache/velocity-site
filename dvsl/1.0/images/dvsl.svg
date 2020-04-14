@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://web.resource.org/cc/"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.44.1"
+   sodipodi:docbase="/home/claude"
+   sodipodi:docname="dvsl.svg">
+  <defs
+     id="defs4" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1"
+     inkscape:cx="375"
+     inkscape:cy="769.47236"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="1440"
+     inkscape:window-height="825"
+     inkscape:window-x="0"
+     inkscape:window-y="25" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Calque 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:#024972;stroke-width:2.43209434;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 144.84047,90.923221 L 144.84047,160.47559"
+       id="path1914"
+       inkscape:export-filename="/home/claude/dvsl.png"
+       inkscape:export-xdpi="77.720001"
+       inkscape:export-ydpi="77.720001" />
+    <path
+       id="path2848"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:2.43209434;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 330.64492,91.267595 L 330.93182,160.90415 C 359.3552,164.28228 385.53883,165.19892 404.7795,165.62969"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/claude/dvsl.png"
+       inkscape:export-xdpi="77.720001"
+       inkscape:export-ydpi="77.720001" />
+    <path
+       id="path2846"
+       style="fill:none;fill-opacity:0.75;fill-rule:evenodd;stroke:black;stroke-width:2.43209434;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="M 282.56614,85.362205 C 282.56614,85.362205 248.76075,137.03437 236.74105,154.08623 L 190.91597,85.01783"
+       sodipodi:nodetypes="ccc"
+       inkscape:export-filename="/home/claude/dvsl.png"
+       inkscape:export-xdpi="77.720001"
+       inkscape:export-ydpi="77.720001" />
+    <path
+       id="path2819"
+       style="fill:none;fill-opacity:1;stroke:#024972;stroke-width:2.43209434;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+       d="M 83.717387,169.59762 C 114.8531,168.90055 199.93074,177.77255 199.93074,125.70782 C 199.93074,105.14258 175.9763,88.36837 141.80221,85.338524 C 107.75869,83.90987 123.85793,85.004255 91.784067,83.436894"
+       sodipodi:nodetypes="cscc"
+       inkscape:export-filename="/home/claude/dvsl.png"
+       inkscape:export-xdpi="77.720001"
+       inkscape:export-ydpi="77.720001" />
+    <path
+       id="path2850"
+       style="fill:none;fill-opacity:1;stroke:#024972;stroke-width:2.37521887;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1"
+       d="M 167.81687,166.42118 L 313.94393,166.42118 C 317.42542,165.99147 333.33713,162.62777 318.27886,154.20669 C 297.83293,149.16423 276.21833,139.81028 276.21833,121.94278 C 276.21833,103.4694 306.02415,87.289346 331.20882,85.490616 C 376.74148,80.629097 357.65044,81.723482 384.7161,80.15612"
+       sodipodi:nodetypes="cccscc"
+       inkscape:export-filename="/home/claude/dvsl.png"
+       inkscape:export-xdpi="77.720001"
+       inkscape:export-ydpi="77.720001" />
+    <path
+       sodipodi:type="arc"
+       style="fill:none;fill-opacity:1;stroke:#024972;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path3807"
+       sodipodi:cx="242"
+       sodipodi:cy="127.86218"
+       sodipodi:rx="198"
+       sodipodi:ry="69.5"
+       d="M 440 127.86218 A 198 69.5 0 1 1  44,127.86218 A 198 69.5 0 1 1  440 127.86218 z"
+       inkscape:export-filename="/home/claude/dvsl.png"
+       inkscape:export-xdpi="77"
+       inkscape:export-ydpi="77" />
+  </g>
+</svg>

@@ -1,0 +1,38 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>3.4&nbsp;Notes</title><link rel="stylesheet" href="css/stylesheet.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.70.0"><link rel="start" href="index.html" title="DocBook Framework (DBF)"><link rel="up" href="ch03.html" title="3.&nbsp;Using the Framework"><link rel="prev" href="ch03s03.html" title="3.3&nbsp;Writing your documentation"><link rel="next" href="ch04.html" title="4.&nbsp;Developer information"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div class="navheader"><table width="100%" summary="Navigation header"><tr><th colspan="3" align="center">3.4&nbsp;Notes</th></tr><tr><td width="20%" align="left"><a accesskey="p" href="ch03s03.html">Prev</a>&nbsp;</td><th width="60%" align="center">3.&nbsp;Using the Framework</th><td width="20%" align="right">&nbsp;<a accesskey="n" href="ch04.html">Next</a></td></tr></table><hr></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="section-notes"></a>3.4&nbsp;Notes</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="section-changing-the-paper-size"></a>Changing the paper size</h3></div></div></div><p>The DocBook Framework renders the pages of the PDF output by
+        default in <span class="emphasis"><em>US Letter</em></span> format (8.5 x 11 inches).
+        This allows printing the resulting PDF in both Letter and A4
+        format.</p><p>If you want to reformat the PDF documentation in A4, you can use
+        the <code class="literal">paper.type</code> property when invoking ant or by
+        setting it permanently in the <code class="literal">project.properties</code>
+        file.</p><div class="figure"><a name="figure-rendering-in-a4"></a><p class="title"><b>Figure&nbsp;3.4.&nbsp;Rendering documentation in A4 format</b></p><div class="figure-contents"><pre class="programlisting">ant -Dpaper.type=A4 will render the documentation in A4.</pre></div></div><br class="figure-break"></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="section-referencing-images"></a>Referencing images</h3></div></div></div><p>While the docbook files are located in their respective
+        subdirectories below src/docbook, your image files should be put into
+        the <code class="literal">src/images</code> directory.</p><p>When writing documentation, images are referenced as
+        <code class="literal">images/&lt;your image file name here&gt;</code> because
+        this is where they will end up when rendering your
+        documentation.</p><div class="warning" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Warning"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Warning]" src="images/warning.gif"></td><th align="left">Warning</th></tr><tr><td align="left" valign="top"><p>If your DocBook writing tool does not allow you to specify
+          image locations, it might not be able to locate the images from
+          <code class="literal">src/images</code> and just display a broken image
+          symbol. If this concerns you, you can create a symbolic link inside
+          the source directory where your DocBook files reside to the
+          <code class="literal">src/images</code> directory.</p></td></tr></table></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="section-adding-a-new-docbook-file"></a>Adding a new DocBook file to your documentation build</h3></div></div></div><p>Create a new subdirectory inside <code class="literal">src/docbook</code>.
+        This is where your new DocBook document will reside.</p><p>In your documentation ant build file, you must then add a
+        reference to render your new document. To add a DocBook document
+        called <span class="emphasis"><em>NewGuide.xml</em></span> which has been located in the
+        <code class="literal">guide</code> subdirectory, see the following
+        example:</p><div class="figure"><a name="figure-adding-new-document"></a><p class="title"><b>Figure&nbsp;3.5.&nbsp;Adding a new DocBook document</b></p><div class="figure-contents"><pre class="programlisting">&lt;ant antfile="build-docbook.xml" target="all"&gt;
+  &lt;property name="docbook.dir" value="guide"/&gt; <a name="co-docbook-dir" href="ch03s04.html#ca-docbook-dir"><img src="images/callouts/1.gif" alt="1" border="0"></a>
+  &lt;property name="docbook.file" value="NewGuide"/&gt; <a name="co-docbook-file" href="ch03s04.html#ca-docbook-file"><img src="images/callouts/2.gif" alt="2" border="0"></a>
+&lt;/ant&gt;</pre><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><a name="ca-docbook-dir"></a><a href="#co-docbook-dir"><img src="images/callouts/1.gif" alt="1" border="0"></a> </td><td valign="top" align="left"><p>The new DocBook file is located in
+              <code class="literal">src/docbook/guide</code>.</p></td></tr><tr><td width="5%" valign="top" align="left"><a name="ca-docbook-file"></a><a href="#co-docbook-file"><img src="images/callouts/2.gif" alt="2" border="0"></a> </td><td valign="top" align="left"><p>This is the name of the main docbook file
+              <span class="emphasis"><em>WITHOUT</em></span> the ending. The framework will add
+              <code class="literal">.xml</code> when opening the DocBook file
+              automatically.</p></td></tr></table></div></div></div><br class="figure-break"><p>When you add a new document to the framework, you should make
+        sure that it references DocBook DTD files which can be resolved
+        locally. Included are the DTD files for DocBook 4.4, so your document
+        declaration should be</p><div class="figure"><a name="figure-recommended-dtd"></a><p class="title"><b>Figure&nbsp;3.6.&nbsp;Recommended DTD for DocBook documents.</b></p><div class="figure-contents"><pre class="programlisting">&lt;!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+                "http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd"&gt;</pre></div></div><br class="figure-break"><p>If you use a different doctype definition, the DocBook Framework
+        will still render your documents, but it will have to connect to the
+        Internet to retrieve the definition files every time you run the build
+        process.</p></div></div><div class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03s03.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="u" href="ch03.html">Up</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">3.3&nbsp;Writing your documentation&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="index.html">Home</a></td><td width="40%" align="right" valign="top">&nbsp;4.&nbsp;Developer information</td></tr></table></div></body></html>

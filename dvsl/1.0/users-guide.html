@@ -1,0 +1,863 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>Apache DVSL - 
+  DVSL User Guide</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+    <link rel="alternate" href="http://feeds.feedburner.com/ApacheVelocitySiteNews" type="application/rss+xml" title="Apache DVSL - 
+  DVSL User Guide News" />
+          <meta name="author" content="
+  Geir Magnusson Jr." />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../../../" id="bannerLeft">
+    
+                                            <img src="images/velocity_project_wide.png" alt="" />
+    
+            </a>
+                          <span id="bannerRight">
+    
+                                            <img src="images/dvsl.png" alt="" />
+    
+            </span>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+          
+          <a href="http://www.apache.org/">Apache</a>
+              &gt;
+      
+          <a href="../../../">Velocity</a>
+              &gt;
+      
+          DVSL
+                </div>
+            <div class="xright">      <a href="../../../engine/devel/">Engine</a>
+          |
+          <a href="../../../tools/devel/">Tools</a>
+          |
+          <a href="../../../anakia/devel/">Anakia</a>
+          |
+          <a href="../../../texen/devel/">Texen</a>
+          |
+          <a href="../../../docbook/">DocBook</a>
+          |
+          <a href="../../devel/">DVSL</a>
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>DVSL</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="index.html">General</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../download.cgi">Download</a>
+        </li>
+          </ul>
+          <h5>Documentation</h5>
+        <ul>
+              
+    <li class="none">
+              <strong>User Guide</strong>
+        </li>
+              
+    <li class="none">
+              <a href="ant_task_reference.html">Ant Task Reference</a>
+        </li>
+              
+    <li class="none">
+              <a href="more-resources.html">More Resources</a>
+        </li>
+          </ul>
+          <h5>Community</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/">Wiki</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/GetInvolved">Get Involved</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../contact.html">Mailing Lists</a>
+        </li>
+          </ul>
+          <h5>Velocity Development</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/CodeStandards">Coding Standards</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/DocumentationGuidelines">Documentation Guidelines</a>
+        </li>
+              
+    <li class="none">
+              <a href="https://issues.apache.org/jira/browse/DVSL">Issues</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../who-we-are.html">Who we are</a>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-info.html">Project Information</a>
+              </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-reports.html">Project Reports</a>
+              </li>
+          </ul>
+                                             
+                        
+                        
+                        <a class="poweredBy" href="../../../" title="Apache Velocity" ><img class="poweredBy" alt="Apache Velocity" src="images/pbv90x30.png" /></a>
+                                
+                        
+                        
+                        <a class="poweredBy" href="../../../rss/news.rss" title="Velocity News Feed" ><img class="poweredBy" alt="Velocity News Feed" src="images/feed-icon-24x24.jpg" /></a>
+                    
+
+           
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        
+
+ 
+
+ 
+
+ <a name="dvsl_user_guide"></a><div class="section"><h2>DVSL User Guide</h2>
+
+    <p>
+    DVSL (Declarative Velocity Style Language) is a tool modeled after
+    XSLT and is intended for general XML transformations.
+    DVSL steals two of the best features of XSLT:
+     </p>
+
+    <ul>
+      <li>
+      It uses a declarative syntax like XSLT.
+      </li>
+      <li>
+      Document control and selection is based on XPath.
+      </li>
+    </ul>
+
+    <p>
+    DVSL's template language is <a href="http://velocity.apache.org/engine/devel/vtl-reference-guide.html" class="externalLink">
+    Velocity</a>, so conventional Velocity syntax is
+    used to get and set data, to perform looping and flow control, etc.
+    Anything that you can normally do in a Velocity template can be done
+    in DVSL templates.
+    </p>
+
+    </div>
+
+
+    <a name="getting_started_:_building_and_using"></a><div class="section"><h2>Getting Started : Building and Using</h2>
+
+    <strong>Where to Get DVSL</strong>
+    <p>
+    Before you use DVSL, you must get the source and build the tool.
+    Currently, there is no release, so you must either get a
+    nightly snapshot, or download directly from Subversion.
+    </p>
+
+    <strong>How to Build</strong>
+
+    <p>
+    Building DVSL is very simple.  All dependency jars that are required
+    are included in the distribution.  However, we do require that
+    <a href="http://ant.apache.org" class="externalLink">Apache Ant</a> is installed.
+    </p>
+
+    <p>
+    Once ant is installed, you simply need to change to the project
+    root directory and invoke ant with the 'jar' target :
+    </p>
+
+<div class="source"><pre>
+$ cd dvsl
+$ ant jar
+</pre></div>
+
+    <p>
+    This will build the dvsl jar in the project root directory.
+    </p>
+
+    <strong>Using DVSL</strong>
+
+    <p>
+    While DVSL is also a tool that can be integrated into your applications,
+    DVSL is able to be used without any programming.
+    </p>
+
+    <p>
+    The first way is via command line, where you can use it to transform a single file, or as a filter.
+    The usage is :
+    </p>
+
+    <code>
+    java org.apache.dvsl.DVSL -STYLE <i>stylesheet</i> [-IN <i>infile</i>] [-OUT <i>outfile</i> ]
+    </code>
+
+    <p>
+    Note that the stylesheet is the only required element, and the input and output then default to
+    <code>stdin</code> and <code>stdout</code>.
+    By adding the appropriate stuff in your classpath (that would be all the jars in the project
+    <code>lib</code> directory ), you can use it :
+    </p>
+
+<div class="source"><pre>
+java org.apache.dvsl.DVSL -STYLE src/stylesheets/site.dvsl -IN xdocs/index.xml &gt; out.stuff
+java org.apache.dvsl.DVSL -STYLE src/stylesheets/site.dvsl -OUT out.html &lt; xdocs/index.html
+java org.apache.dvsl.DVSL -STYLE src/stylesheets/site.dvsl &lt; xdocs/index.xml
+</pre></div>
+
+    <p>
+    You can also use DVSL right from ant using the included Ant task. The Ant task supports the toolbox.
+    </p>
+
+<div class="source"><pre>
+&lt;target name=&quot;docs&quot;&gt;
+
+   &lt;taskdef name=&quot;dvsl&quot; classname=&quot;org.apache.dvsl.DVSLTask&quot;&gt;
+     &lt;classpath&gt;
+       &lt;pathelement location=&quot;${project.name}-${project.version}.jar&quot;/&gt;
+       &lt;path refid=&quot;classpath&quot;/&gt;
+     &lt;/classpath&gt;
+   &lt;/taskdef&gt;
+
+ &lt;dvsl
+   basedir=&quot;${docs.src}&quot;
+   destdir=&quot;${docs.dest}/&quot;
+   toolboxfile=&quot;${docs.src}/toolbox.props&quot;
+   extension=&quot;.html&quot;
+   style=&quot;${source.home}/stylesheets/site.dvsl&quot;
+   excludes=&quot;**/project.xml&quot;
+   includes=&quot;**/*.xml&quot;
+ /&gt;
+&lt;/target&gt;
+</pre></div>
+
+
+
+    <p>
+    For more information on using DVSL from Ant, please see the
+    <a href="ant_task_reference.html">Ant Task Reference</a>.
+    </p>
+
+
+  </div>
+
+    <a name="starting_with_examples"></a><div class="section"><h2>Starting with Examples</h2>
+
+    <p>
+    A few examples are provided with the current distribution, in the <code>examples</code>
+    directory in the distribution, and the examples that follow were originally taken
+    from there.
+    </p>
+
+    <strong>Simple Example</strong>
+
+    <p>
+    To begin, we will start with a simple example.  Here is a basic XML document:
+    </p>
+
+<div class="source"><pre>
+
+&lt;?xml version=&quot;1.0&quot;?&gt;
+
+&lt;document&gt;
+    &lt;section name=&quot;foo&quot;&gt;
+        &lt;p&gt;
+           Hello from section foo
+        &lt;/p&gt;
+    &lt;/section&gt;
+    &lt;section name=&quot;bar&quot;&gt;
+        &lt;p&gt;
+           Hello from section bar
+        &lt;/p&gt;
+    &lt;/section&gt;
+&lt;/document&gt;
+</pre></div>
+
+    <p>
+    A simple DVSL stylesheet to transform this into HTML might look like :
+    </p>
+
+<div class="source"><pre>
+#match(&quot;document&quot;)
+&lt;html&gt;
+  &lt;body&gt;
+$context.applyTemplates()
+  &lt;/body&gt;
+&lt;/html&gt;
+#end
+
+#match(&quot;section&quot;)
+  &lt;hr&gt;
+  &lt;b&gt;Section:&lt;/b&gt; $attrib.name
+  $context.applyTemplates(&quot;p&quot;)
+#end
+
+#match(&quot;p&quot;)
+  &lt;blockquote&gt;
+  $node.copy($node.children())
+  &lt;/blockquote&gt;
+#end
+</pre></div>
+
+    <p>
+    With the resulting output of
+    </p>
+
+<div class="source"><pre>
+&lt;html&gt;
+  &lt;body&gt;
+    &lt;hr&gt;
+    &lt;b&gt;Section:&lt;/b&gt; foo
+    &lt;blockquote&gt;
+
+    Hello from section foo
+
+    &lt;/blockquote&gt;
+
+    &lt;hr&gt;
+    &lt;b&gt;Section:&lt;/b&gt; bar
+    &lt;blockquote&gt;
+
+    Hello from section bar
+
+    &lt;/blockquote&gt;
+
+  &lt;/body&gt;
+&lt;/html&gt;
+</pre></div>
+
+    <p>
+    This can be found in examples/simple and is example1.xml and example1.dvsl.
+    </p>
+
+    <strong>Now Add Some External Tools</strong>
+
+    <p>
+    A  more interesting example involves specifying and using tools.  We'll give an
+    example and explain the toolbox later on.
+    </p>
+
+    <p>
+    A simple toolbox example is included, in examples/toolbox.  First, you must
+    define the tools and values in a properties file
+    </p>
+
+<div class="source"><pre>
+toolbox.contextname = toolbox
+toolbox.tool.footool = Footool
+toolbox.string.mystring = Hello there!
+toolbox.integer.myint = 7
+</pre></div>
+
+    <p>
+    Here we do a couple of things :
+    </p>
+
+    <ol type="1">
+    <li>
+    <code>toolbox.contextname = toolbox</code> :
+    defines 'toolbox' as the name we will use in the template
+    to access the tools.
+    </li>
+    <li>
+    <code>toolbox.tool.footool = Footool</code> :  defines that an instance
+    of the class 'Footool' will be placed in the context under the key 'footool'.
+    </li>
+    <li>
+    <code>toolbox.string.mystring = Hello there!</code> : defines that a
+    <code>java.lang.String</code>
+    &quot;Hello there!&quot; will be placed in the context under the key 'mystring'
+    </li>
+    <li>
+    <code>toolbox.integer.myint = 7</code> : defines that a
+    <code>java.lang.Integer</code> will be placed in the context under the
+    key 'myint'.
+    </li>
+    </ol>
+
+    <p>
+    You specify the toolbox in the &lt;dvsl&gt; task in the ant script as
+    such :
+    </p>
+
+<div class="source"><pre>
+&lt;dvsl
+    basedir=&quot;${docs.src}&quot;
+    destdir=&quot;${docs.dest}/&quot;
+    extension=&quot;.html&quot;
+    style=&quot;${docs.src}/site.dvsl&quot;
+    excludes=&quot;**/project.xml&quot;
+    toolboxfile=&quot;toolbox.props&quot;
+    includes=&quot;**/*.xml
+/&gt;
+</pre></div>
+
+    <p>
+    To use the tools, this is the stylesheet that has an example :
+    </p>
+
+<div class="source"><pre>
+#match(&quot;document&quot;)
+
+    Hello from the document node.
+
+    From the toolbox :
+
+    Method : $context.toolbox.footool.getFoo()
+    String : $context.toolbox.mystring
+    Int : $context.toolbox.myint
+
+    #foreach( $data in $context.toolbox.footool.getList() )
+        Item $velocityCount : $data
+    #end
+#end
+</pre></div>
+
+    <p>
+    With an input of :
+    </p>
+
+<div class="source"><pre>
+&lt;?xml version=&quot;1.0&quot;?&gt;
+
+&lt;document value=&quot;5&quot;&gt;
+
+   Data in &amp;lt;document&amp;gt; node
+
+&lt;/document&gt;
+</pre></div>
+
+    <p>
+    And with the class Footool
+    </p>
+
+<div class="source"><pre>
+import java.util.List;
+
+public class Footool
+{
+    public String getFoo()
+    {
+        return &quot;Hello from Foo!&quot;;
+    }
+
+    public List getList()
+    {
+        List list = new java.util.ArrayList();
+
+        list.add(&quot;red&quot;);
+        list.add(&quot;blue&quot;);
+        list.add(&quot;green&quot;);
+
+        return list;
+    }
+}
+</pre></div>
+
+    <p>
+    You get the output
+    </p>
+
+<div class="source"><pre>
+Hello from the document node.
+
+From the toolbox :
+
+Method : Hello from Foo!
+String : Hello there!
+Int : 7
+
+    Item 1 : red
+    Item 2 : blue
+    Item 3 : green
+</pre></div>
+
+    <p>
+    This can be found in <code>examples/toolbox</code>.
+    </p>
+
+    <p>
+    Also, the <code>examples/velocitydocs</code> example shows how to grab
+    and use the HTMLEscape class from the Velocity jar as a tool to do
+    escaping.
+    </p>
+
+  </div>
+
+  <a name="the_template_api"></a><div class="section"><h2>The 'Template API'</h2>
+
+  <p>
+  Writing templates is very simple.  The basic template definition uses the directive
+  </p>
+
+<div class="source"><pre>
+#match(&lt;XPath Expression &gt;)
+    &lt; template content &gt;
+#end
+</pre></div>
+
+  <p>
+  This directive declares that when a node matches the <code>&lt;XPath Expression &gt;</code>
+  then the body of the directive is to be rendered to the ouput.
+  In the body, you would place any static content you wish to go to
+  the output, and also get data from the XML document you are working in.
+  </p>
+
+  <p>
+  <i>Future plans include a #name() directive, and optional arguments to the #match()
+  and #name() directives to support modes and namsepaces.</i>
+  </p>
+
+  <strong>The Node API</strong>
+
+  <p>
+  During processing, when a match occurs and a template is invoked, a few objects are placed in the
+  Context for you to access.  These elements are read-only and cannot be modified via #set().
+  </p>
+
+  <p>
+  The most important is the current Node, which is accessible via the reference
+  <code>$node</code>.   The <code>$node</code> is the current node that matched
+  the template XPath expression (or name).
+  </p>
+
+  <p>
+  You can use the $node object two ways.  First, you can use the Velocity property formalism to access
+  child nodes in the document tree rooted at the current node.  So with a document such as :
+  </p>
+
+<div class="source"><pre>
+&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;document&gt;
+  &lt;section name=&quot;first&quot;&gt;
+   &lt;p&gt;
+      &lt;code&gt;foo&lt;/code&gt;
+   &lt;/p&gt;
+   &lt;p&gt;
+      &lt;code&gt;bar&lt;/code&gt;
+   &lt;/p&gt;
+  &lt;/section&gt;
+&lt;/document&gt;
+</pre></div>
+
+  <p>
+  you could use references like
+  </p>
+
+  <pre>
+     $node.section.p.code
+  </pre>
+
+  <p>
+  to access elements and atributes in the subtree,
+  assuming that $node was the 'document' element.
+  Further, you can of course call methods on the
+  sub-elements :
+  </p>
+
+<div class="source"><pre>
+$node.section.children()
+</pre></div>
+
+  <p>As for methods, <code>$node</code> has the following API
+  for you to use :
+  </p>
+
+  <table class="bodyTable">
+  <tr class="a">
+   <th >Reference</th><th >Methods</th><th >Description</th>
+  </tr>
+  <tr class="b">
+    <td >$node</td><td ></td><td >Current node for this template match.</td>
+  </tr>
+  <tr class="a">
+    <td ></td><td >$node.name()</td><td >Element name of node - ex 'table' </td>
+  </tr>
+  <tr class="b">
+    <td ></td><td >$node.value()</td><td >Text content of node </td>
+  </tr>
+  <tr class="a">
+    <td ></td><td >$node.attrib(&quot;name&quot;)</td><td >Returns attribute of node if appropriate. </td>
+  </tr>
+  <tr class="b">
+    <td ></td><td >$node.selectNodes(xpathexpr)</td><td >Returns an iteratable list of nodes that satisfy the XPath expression</td>
+  </tr>
+  <tr class="a">
+    <td ></td><td >$node.selectSingleNode(xpathexpr)</td><td >Returns the first node that satisfies the XPath expression</td>
+  </tr>
+  <tr class="b">
+    <td ></td><td >$node.get(xpathexpr)</td><td >Returns the first node that satisfies the XPath expression</td>
+  </tr>
+  <tr class="a">
+    <td ></td><td >$node.children()</td><td >Returns a List of all children of this node</td>
+  </tr>
+  <tr class="b">
+    <td ></td>
+    <td >$node.copy()</td>
+    <td >Does a 'deep copy' of this node's subtree to the output</td>
+  </tr>
+  <tr class="a">
+    <td ></td>
+    <td >$node.copy(List)</td>
+    <td >Does a 'deep copy' of the specified nodelist to the output.</td>
+  </tr>
+  <tr class="b">
+    <td ></td>
+    <td >$node.valueOf(xpathexpr)</td>
+    <td >Returns the result of the specified XPath as a Object</td>
+  </tr>
+
+  </table>
+
+  <p>
+  The next node-specific reference is <code>$attrib</code>.  This
+  corresponds to a collection of the current nodes attributes (if appropriate - for
+  example, an attribute doesn't itself have attributes) which you can use
+  to quickly get the values using Velocity's property reference formalism.
+  So with the example above, if you matched the 'section' node
+  you could find the value of the 'name' attribute via
+  </p>
+
+<div class="source"><pre>
+$attrib.name
+</pre></div>
+
+  <p>
+  Which would return 'first'.
+  </p>
+
+  <p>
+  The final reference available is <code>$context</code>.  This object offers the
+  following API :
+  </p>
+
+  <table class="bodyTable">
+  <tr class="a">
+   <th >Reference</th><th >Methods</th><th >Description</th>
+  </tr>
+  <tr class="b">
+    <td >$context</td><td ></td><td >Utility context.</td>
+  </tr>
+  <tr class="a">
+    <td ></td><td >$context.applyTemplates()</td><td >Applies all templates in the subtree against the ruleset.</td>
+  </tr>
+  <tr class="b">
+    <td ></td><td >$context.applyTemplates(xpathexpr)</td>
+    <td >Applies templates to all nodes in the subtree
+    that match the given XPath expression.  Ex. <code> $context.applyTemplates(&quot;*|@*&quot;) </code></td>
+  </tr>
+  <tr class="a">
+    <td ></td><td >$context.applyTemplates(Node)</td>
+    <td >Applies templates to the specified node.  First match is applied.</td>
+  </tr>
+  <tr class="b">
+    <td ></td><td >$context.applyTemplates(Node, xpathexpr)</td>
+    <td >Applies the XPath expression to the specified node, and applies
+    templates to the resulting nodeset.</td>
+  </tr>
+   <tr class="a">
+    <td ></td><td >$context.applyTemplates(Node, xpathexpr)</td>
+    <td >Applies the XPath expression to the specified node, and applies
+    templates to the resulting nodeset.</td>
+  </tr>
+   <tr class="b">
+    <td ></td><td >$context.getAppValue(Object key)</td>
+    <td >Returns the application value for this key.  For example, Ant will
+    place the current input file name under the key &quot;infilename&quot;.</td>
+  </tr>
+
+  </table>
+
+  </div>
+
+
+
+  <a name="default_template_rules"></a><div class="section"><h2>Default Template Rules</h2>
+
+  <p>
+  DVSL has default patterns to drive the transformation engine just like
+  XSLT does.  These patterns currently are modeled after the XSLT default
+  behavior.  DVLS differs in that it will offer you the abillity to
+  override the default patterns w/o having to change your stylesheet.
+  The patterns are :
+  </p>
+
+<div class="source"><pre>
+#match(&quot;/&quot;)$context.applyTemplates()#end
+
+#match(&quot;*&quot;)$context.applyTemplates()#end
+</pre></div>
+
+  <p>
+  These patterns are registered in the matching engine first, so any
+  patterns specified in the stylesheet will override these definitions.
+  </p>
+
+  <p>
+  What this means for the user is that DVSL will automatically start with
+  the root of the document (in the XSL sense, the the 'properly formed
+  document sense') and try to match each element that it finds.
+  Because it has a default rule for elements (&quot;*&quot;) it will appply templates
+  to all nodes in each element that it finds.  Further it will print out the
+  value of each text ndoes, and each attribute node.
+  </p>
+
+  <p>
+  These rules are copied from the XSLT spec. There are two more rules
+  that have been commented out :
+  </p>
+
+<div class="source"><pre>
+#match(&quot;text()&quot;)$node.value()#end
+
+#match(&quot;@*&quot;)$node.value()#end
+</pre></div>
+
+  <p>
+  which should be there for XSLT spec compliance.  If you want them, just
+  uncomment in <code>org.apache.dvsl.resource.defaultroot.dvsl</code>
+  and rebuild the jar.
+  </p>
+
+  <p>
+  They are currently left out as they don't seem to be desireable, and it
+  doesn't appear that xalan respects the rules either.
+  </p>
+
+  </div>
+
+ 
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2002-2007
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+    
+             Last Published: 2007-08-13 16:24:20
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

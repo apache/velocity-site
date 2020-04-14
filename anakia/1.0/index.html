@@ -1,0 +1,689 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>Apache Anakia - 
+  Anakia</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+    <link rel="alternate" href="http://feeds.feedburner.com/ApacheVelocitySiteNews" type="application/rss+xml" title="Apache Anakia - 
+  Anakia News" />
+          <meta name="author" content="
+  Velocity Documentation Team" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../../../" id="bannerLeft">
+    
+                                            <img src="images/velocity_project_wide.png" alt="" />
+    
+            </a>
+                          <span id="bannerRight">
+    
+            <p>Apache Anakia</p>
+    
+            </span>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+          
+          <a href="http://www.apache.org/">Apache</a>
+              &gt;
+      
+          <a href="../../../">Velocity</a>
+              &gt;
+      
+          Anakia
+                </div>
+            <div class="xright">      <a href="../../../engine/devel/">Engine</a>
+          |
+          <a href="../../../tools/devel/">Tools</a>
+          |
+          <a href="../../devel/">Anakia</a>
+          |
+          <a href="../../../texen/devel/">Texen</a>
+          |
+          <a href="../../../docbook/">DocBook</a>
+          |
+          <a href="../../../dvsl/devel/">DVSL</a>
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>Anakia</h5>
+        <ul>
+              
+    <li class="none">
+              <strong>General</strong>
+        </li>
+              
+    <li class="none">
+              <a href="../../../download.cgi">Download</a>
+        </li>
+          </ul>
+          <h5>Developers</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="license.html">License</a>
+        </li>
+              
+    <li class="none">
+              <a href="apidocs/index.html">Javadoc</a>
+        </li>
+              
+    <li class="none">
+              <a href="changes-report.html">Changes</a>
+        </li>
+              
+    <li class="none">
+              <a href="jira-report.html">Resolved Issues</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://svn.apache.org/viewvc/velocity/anakia/trunk/">Source Code Repository</a>
+        </li>
+          </ul>
+          <h5>Community</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/">Wiki</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/GetInvolved">Get Involved</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../contact.html">Mailing Lists</a>
+        </li>
+          </ul>
+          <h5>Velocity Development</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/CodeStandards">Coding Standards</a>
+        </li>
+              
+    <li class="none">
+              <a href="http://wiki.apache.org/velocity/DocumentationGuidelines">Documentation Guidelines</a>
+        </li>
+              
+    <li class="none">
+              <a href="https://issues.apache.org/jira/browse/ANAKIA">Issues</a>
+        </li>
+              
+    <li class="none">
+              <a href="../../../who-we-are.html">Who we are</a>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-info.html">Project Information</a>
+              </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-reports.html">Project Reports</a>
+              </li>
+          </ul>
+                                             
+                        
+                        
+                        <a class="poweredBy" href="../../../" title="Apache Velocity" ><img class="poweredBy" alt="Apache Velocity" src="images/pbv90x30.png" /></a>
+                                
+                        
+                        
+                        <a class="poweredBy" href="../../../rss/news.rss" title="Velocity News Feed" ><img class="poweredBy" alt="Velocity News Feed" src="images/feed-icon-24x24.jpg" /></a>
+                    
+
+           
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        
+
+ 
+
+
+
+<a name="what_is_anakia"></a><div class="section"><h2>What Is Anakia?</h2>
+<p>
+    Essentially an XML transformation tool, Anakia uses <a href="http://www.jdom.org" class="externalLink">JDOM</a> and <a href="http://velocity.apache.org/" class="externalLink">Velocity</a> to transform
+    XML documents into the format of your choice. It provides an alternative to
+    using Ant's &lt;style&gt; task and
+    <a href="http://xml.apache.org/xalan/" class="externalLink">XSL</a> to process XML
+    files.
+</p>
+<p>
+   The basic model that AnakiaTask uses is pretty straightforward :
+</p>
+   <ol type="1">
+   <li>Parse your XML into a JDOM Document:
+<div class="source"><pre>
+SAXBuilder builder;
+Document root = null;
+
+try
+{
+    builder = new SAXBuilder(
+        &quot;org.apache.xerces.parsers.SAXParser&quot; );
+    root = builder.build( file );
+}
+catch( Exception E )
+{
+    System.out.println( ...  );
+}
+</pre></div>
+
+</li>
+
+    <li>Stuff the Document (or root Element) into the context:<br></br>
+<div class="source"><pre>
+context.put(&quot;root&quot;, root );
+</pre></div>
+</li>
+
+    <li>Render a template using Velocity. Within the template, one
+        can use JDOM's methods to access the data contained in the
+        XML document.</li>
+</ol>
+<p>
+    Anakia is potentially easier to learn than XSL, but it maintains a
+    similar level of functionality. Learning cryptic &lt;xsl:&gt; tags
+    is unnecessary; you only need to know how to use the provided
+    Context objects, JDOM, and Velocity's simple directives. Anakia
+    seems to perform much faster than Xalan's XSL processor at creating
+    pages. (23 pages are generated in 7-8 seconds on a PIII 500mhz
+    running Win98 and JDK 1.3 with client Hotspot. A similar system
+    using Ant's &lt;style&gt; task took 14-15 seconds -- nearly a 2x
+    speed improvement.)
+</p>
+<p>
+    Anakia -- intended to replace Stylebook, which was originally used
+    to generate simple, static web sites in which all pages had the same
+    look and feel -- is great for documentation/project web sites, such
+    as the sites on <a href="http://www.apache.org/" class="externalLink">www.apache.org</a>
+    and <a href="http://jakarta.apache.org" class="externalLink">jakarta.apache.org</a>. As it
+    is more targeted to a specific purpose, it does not provide some of
+    XSL's &quot;extra&quot; functionality.
+</p>
+<p>
+    The example in the <code>examples/anakia</code> directory
+    provides a good introduction to Anakia. You should find it quite
+    simple to use.
+</p>
+<p>
+    Anakia creates a Context, which contains a JDOM Document object of
+    the .xml page, as well as an (optional) JDOM Document object of your
+    project.xml page. In addition to the project.xml based context, additional
+    xml contexts can be added through context nested elements. The
+    .vsl page is executed (using Velocity) with the Context. You can then
+    navigate your .xml file and pull information out of it by simply executing
+    methods on the JDOM Document object.
+</p>
+<p>
+    Anakia is being used to create the documentation for this
+    website.  You can view the source for this website in the &quot;xdocs&quot; folder
+    in the Velocity source distribution.
+</p>
+
+</div>
+
+<a name="installationexample"></a><div class="section"><h2>Installation/Example</h2>
+<p>
+    Before reviewing the <code>examples/anakia</code> directory,
+    you must <a href="/engine/devel/build.html">build Velocity</a>.
+</p>
+<p>
+    After building Velocity, <code>cd</code> into the
+    <code>examples/anakia/build</code> directory and run 'ant'.
+</p>
+<p>
+    Output from running ant, in this case HTML files, is placed
+    into the <code>examples/anakia/docs/</code> directory.
+</p>
+<p>
+    The <code>examples/anakia/xdocs/</code> directory has all of the
+    .xml source code. The xdocs/stylesheets directory contains the .vsl
+    file, in which most of the magic happens. Understanding <a href="/engine/devel/user-guide.html">Velocity Template Language</a> and
+    <a href="http://www.jdom.org/" class="externalLink">JDOM</a> is
+    necessary to understand how the .vsl file works.
+</p>
+</div>
+
+<a name="how_does_it_work"></a><div class="section"><h2>How Does It Work?</h2>
+
+<p>
+    Anakia is an Ant task that executes from an Ant build file. The
+    build file looks something like this:
+</p>
+
+<div class="source"><pre>
+    &lt;project name=&quot;build-site&quot; default=&quot;docs&quot; basedir=&quot;.&quot;&gt;
+    &lt;property name=&quot;docs.src&quot; value=&quot;../xdocs&quot;/&gt;
+    &lt;property name=&quot;docs.dest&quot; value=&quot;../docs&quot;/&gt;
+
+    &lt;target name=&quot;prepare&quot;&gt;
+        &lt;available classname=&quot;org.apache.anakia.AnakiaTask&quot;
+        property=&quot;AnakiaTask.present&quot;/&gt;
+    &lt;/target&gt;
+
+    &lt;target depends=&quot;prepare&quot; name=&quot;prepare-error&quot;
+                            unless=&quot;AnakiaTask.present&quot;&gt;
+        &lt;echo&gt;
+            AnakiaTask is not present! Please check to make sure that
+            velocity.jar is in your classpath.
+        &lt;/echo&gt;
+    &lt;/target&gt;
+
+    &lt;target name=&quot;docs&quot; depends=&quot;prepare-error&quot;
+                        if=&quot;AnakiaTask.present&quot;&gt;
+        &lt;taskdef name=&quot;anakia&quot;
+                 classname=&quot;org.apache.anakia.AnakiaTask&quot;/&gt;
+        &lt;anakia basedir=&quot;${docs.src}&quot; destdir=&quot;${docs.dest}/&quot;
+             extension=&quot;.html&quot; style=&quot;./site.vsl&quot;
+             projectFile=&quot;./stylesheets/project.xml&quot;
+             excludes=&quot;**/stylesheets/**&quot;
+             includes=&quot;**/*.xml&quot;
+             lastModifiedCheck=&quot;false&quot;
+             velocityPropertiesFile=&quot;velocity.properties&quot;&gt;
+        &lt;/anakia&gt;
+
+        &lt;copy todir=&quot;${docs.dest}/images&quot; filtering=&quot;no&quot;&gt;
+            &lt;fileset dir=&quot;${docs.src}/images&quot;&gt;
+                &lt;include name=&quot;**/*.gif&quot;/&gt;
+                &lt;include name=&quot;**/*.jpeg&quot;/&gt;
+                &lt;include name=&quot;**/*.jpg&quot;/&gt;
+            &lt;/fileset&gt;
+        &lt;/copy&gt;
+    &lt;/target&gt;
+&lt;/project&gt;
+</pre></div>
+
+    <table class="bodyTable">
+        <tr class="a">
+            <th >Name</th>
+            <th >Description</th>
+        </tr>
+        <tr class="b">
+            <td >basedir</td>
+            <td >Specifies the path to the directory location of your
+            .xml files.</td>
+        </tr>
+        <tr class="a">
+            <td >destdir</td>
+            <td >Specifies the path to the directory where the output
+            files should go.</td>
+        </tr>
+        <tr class="b">
+            <td >extension</td>
+            <td >
+            This is the extension that is appended to the end of your
+            .xml file. For example, with an extension of &quot;.html&quot;,
+            index.xml would be converted into index.html. By default,
+            the extension is .html.
+            </td>
+        </tr>
+        <tr class="a">
+            <td >style</td>
+            <td >This is the path (relative to Velocity's
+            template.loader.1.template.path) to the
+            VelocityStyleTemplate to process. This file is the
+            equivalent to the .xsl file in Ant's style task. </td>
+        </tr>
+        <tr class="b">
+            <td >projectFile</td>
+            <td >This is the path to a &quot;project&quot; file. This file is an
+            XML file that can be used as a &quot;navigation&quot; file. If you
+            have used Stylebook or Struts system for generation of the
+            web site documentation, you will understand the purpose of
+            this file. <strong>It is an optional task argument.</strong>
+            If you look at the Anakia example in the
+            <code>examples/anakia</code> directory, you can see the
+            project.xml file being used in the .vsl file. </td>
+        </tr>
+        <tr class="a">
+            <td >excludes</td>
+            <td >This is the standard Ant excludes attribute. Specify any
+            files or directories that you do not want Anakia to try to
+            process.</td>
+        </tr>
+        <tr class="b">
+            <td >includes</td>
+            <td >This is the standard Ant includes attribute. Specify any
+            files or directories that you do want Anakia to try to
+            process.</td>
+        </tr>
+        <tr class="a">
+            <td >lastModifiedCheck</td>
+            <td >This turns on or off the ability to check the last
+            modified date on files in order to determine whether or not
+            they need to be re-rendered or not. The value of this
+            attribute can be &quot;true, false, yes, no&quot;. By default, it is
+            true, meaning that the last modified date should be checked
+            and if the original .xml file, project file, or .vsl file
+            have not changed, then don't process the page. This
+            accelerates processing because pages that have not changed
+            will not get reprocessed.</td>
+        </tr>
+        <tr class="b">
+            <td >templatePath</td>
+            <td >This is the path to the templateRoot which is the
+            directory where your site.vsl file is located. This can be
+            defined in the Velocity.properties or it can be defined
+            here. It it an optional argument if it is defined in the
+            Velocity properties file already. However, if defined, this
+            value will override the path defined in the
+            Velocity.properties file.</td>
+        </tr>
+        <tr class="a">
+            <td >velocityPropertiesFile</td>
+            <td >This is the path to the velocity.properties file. It is
+            an optional argument and by default is set to find the
+            properties file in the same directory that the JVM was
+            started in.</td>
+        </tr>
+    </table>
+</div>
+
+<a name="predefined_context_objects"></a><div class="section"><h2>Predefined Context Objects</h2>
+<p>
+    The Anakia Ant task places several objects into the Context for you.
+</p>
+    <table class="bodyTable">
+        <tr class="b">
+        <th >Name</th>
+        <th >Value</th>
+        </tr>
+        <tr class="a">
+            <td >$root</td>
+            <td >This contains the JDOM root Element to your .xml document. When
+            this (or any other variable containing an element) are simply
+            placed into template output, their XML form is rendered.</td>
+        </tr>
+        <tr class="b">
+            <td >$project</td>
+            <td >This contains the JDOM root Element to your project.xml
+            document. If you have not specified a project.xml document,
+            then this variable will not be in the context. </td>
+        </tr>
+        <tr class="a">
+            <td >$escape.getText($string)</td>
+            <td >This context object will convert HTML Entities in the
+            $string that is passed into it and it will return the
+            converted String. This is good for dealing with CDATA. The
+            entities that are converted are: &quot; -&gt; &amp;quot; | &lt;
+            -&gt; &amp;lt; | &gt; -&gt; &amp;gt; | &amp; - &gt; &amp;amp; </td>
+        </tr>
+        <tr class="b">
+            <td >.</td>
+            <td >This contains a String which is the relative path to
+            your .xml document from the baseDir that was specified in
+            your Ant task attributes. Please see the examples/anakia
+            .vsl document for example usage of this String.</td>
+        </tr>
+        <tr class="a">
+            <td >$xmlout</td>
+            <td >This contains an class which extends the instance of the
+            JDOM XMLOutputter() object. This allows you to easily create
+            String output out of your JDOM element objects.
+            $xmlout.outputString(Element). Again, please look at the
+            examples for more information on how to use this
+            object. NOTE: this object is obsoleted as simply specifying
+            $element will output the XML serialized form of the element.</td>
+        </tr>
+        <tr class="b">
+            <td >$xmlout.outputString(Element, true)</td>
+            <td >This contains an class which extends the instance of the
+            JDOM XMLOutputter() object. The difference between this
+            .outputString() and the one in XMLOutputter is that it will
+            output all of the Elements <strong>within</strong> the
+            passed in Element. So, if you pass in a &lt;td&gt; Element,
+            you will get everything inside the &lt;td&gt; &lt;/td&gt;, but
+            not the actual &lt;td&gt; &lt;/td&gt;. NOTE: this object is
+            obsoleted as simply specifying $element.content will produce the
+            desired output.
+            </td>
+        </tr>
+        <tr class="a">
+            <td >$treeWalk.allElements($element)</td>
+            <td >This will allow you to walk a tree of JDOM Element
+            objects starting at $element. The point of this context
+            object is to allow you to build an XSLT type system where
+            you can look at each Element node conditionally and set its
+            content and attribute values. This is probably one of the
+            more &quot;ugly&quot; aspects of Anakia, but it does do the
+            job and suggestions for improvement are appreciated. This
+            context object is still under development and more
+            documentation will follow soon. NOTE: this object is obsolete and
+            is kept for backward compatibility only. You can use
+            $element.selectNodes(&quot;//*&quot;) to achieve the same effect.</td>
+        </tr>
+        <tr class="b">
+            <td >$xpath.applyTo(&quot;document/properties/@title&quot;, $root)</td>
+            <td >
+               The W3C XPath Specification <a href="http://www.w3.org/TR/xpath/" class="externalLink">http://www.w3.org/TR/xpath/
+               </a> refers to NodeSets repeatedly, but this implementation
+               simply uses java.util.List to hold all Nodes. A 'Node' is any
+               object in a JDOM object tree, such as an org.jdom.Element,
+               org.jdom.Document, or org.jdom.Attribute. Please see the .vsl
+               example file and the org.apache.anakia.XPathTool javadoc
+               for more information. NOTE: this object is obsolete and is kept
+               for backward compatibility only. You can use
+               $element.selectNodes(&quot;document/properties/@title&quot;) to achieve
+               the same effect with a more intuitive syntax.
+            </td>
+        </tr>
+        <tr class="a">
+            <td >$date</td>
+            <td >
+                This is a new java.util.Date object. Useful for putting
+                the current date/time into a page.
+            </td>
+        </tr>
+    </table>
+<p>
+    All node lists returned from Anakia objects through $element.selectNodes,
+    $element.content, and $element.children, as well as through obsoleted
+    $treeWalk.allElements and $xpath.applyTo have two special features:
+    <ul>
+        <li>they support the selectNodes method just as a single element does
+        that applies an XPath expression to all nodes in the list, and</li>
+        <li>when inserted into template output by simply specifying $list, they
+        produce the XML fragment consisting of all nodes they contain. This
+        eliminates much of the #foreach code in templates.</li>
+    </ul>
+</p>
+
+</div>
+
+<a name="customizing_the_anakia_context"></a><div class="section"><h2>Customizing the Anakia Context</h2>
+<p>
+    The Anakia context can be customized by using one or more context nested
+    elements.
+</p>
+<div class="source"><pre>
+&lt;anakia ...&gt;
+    &lt;context name=&quot;customContext&quot; file=&quot;./customContext.xml&quot;/&gt;
+&lt;/anakia&gt;
+</pre></div>
+<p>
+    The context file must be an xml file and is an instance of a JDOM
+    root element similar to $project. There are two attributes for the context:
+</p>
+<table class="bodyTable">
+    <tr class="b">
+        <th >Name</th>
+        <th >Description</th>
+    </tr>
+    <tr class="a">
+        <td >name</td>
+        <td >
+            This sets the name of the context within the velocity context.
+            It cannot be one of the predefined context objects.
+        </td>
+    </tr>
+    <tr class="b">
+        <td >file</td>
+        <td >
+            The location of the custom file relative to the anakia basedir.
+            This must be an XML file.
+        </td>
+    </tr>
+</table>
+<p>
+    Within the velocity template the context can be accessed using the standard
+    velocity template language.
+</p>
+<div class="source"><pre>
+#set ($customMenus = $xpath.applyTo(&quot;body/menu&quot;,$customContext))
+#foreach($customMenu in $customMenus)
+  &lt;strong&gt;$customMenu.getAttributeValue(&quot;name&quot;)&lt;/strong&gt;
+  &lt;ul&gt;
+  #foreach ($customItem in $customMenu.getChildren() )
+    #set ($name = $customItem.getAttributeValue(&quot;name&quot;))
+    &lt;li&gt;#projectanchor($name $customItem.getAttributeValue(&quot;href&quot;))&lt;/li&gt;
+  #end
+  &lt;/ul&gt;
+#end</pre></div>
+</div>
+
+<a name="credits"></a><div class="section"><h2>Credits</h2>
+<p>
+    Anakia was originally conceptualized and implemented by
+        <a href="mailto:jon@latchkey.com">Jon S. Stevens</a>.
+</p>
+<p>
+    The name <a href="http://www.kabalarians.com/female/anakia.htm" class="externalLink">Anakia</a> is a
+    cool name that I think fits this project quite nicely. &quot;The name of
+    Anakia has given you the desire for creative, artistic or musical
+    expression in an original way. You strive to be different and have
+    the self-confidence to implement your ideas because you have the
+    perseverance necessary to see something through, despite obstacles.&quot;
+</p>
+<p>
+    Further help and assistance was provided by Jason van Zyl and Geir
+    Magnusson Jr. XPath support was added by Bob McWhirter. The more
+    intuitive syntax achieved through selectNodes() and self-rendering
+    elements and node lists was added by Attila Szegedi. The custom context
+    nested element was added by Peter Ryan.
+</p>
+
+</div>
+
+
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2007
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+    
+             Last Published: 2007-05-01 13:24:23
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>
