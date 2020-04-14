@@ -1,3 +1,0 @@
-<FilesMatch "\.rss$">
-  ForceType application/rss+xml
-</FilesMatch>
