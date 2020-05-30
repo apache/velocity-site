@@ -17,57 +17,60 @@ In short: This svn repository is only interesting for you if you
 
 Apache Velocity uses the [Apache Content Management System](http://www.apache.org/dev/cms.html) to manage its site.
 
-For the time being, the site is not yet *hosted* by the CMS (which is not yet accepting new sites before undergoing a machine transition), so the site still has to be build locally. Please refer to the next section. The rest of this section is *not yet applicable*.
-
-To just edit one page, all you need is the bookmarklet found [here](https://cms.apache.org/#bookmark)
-{.grayed}
-
-If you're a commiter, you'll be able to push your edits by yourself on the production site. Otherwise, the CMS will let you generate a diff file that you can [send to the devs](/contact.html).
-{.grayed}
-
-Commiters can also commit changes to [the site under svn](http://svn.apache.org/repos/asf/velocity/site/cms/trunk/) and trigger a publication in production from the CMS.
-{.grayed}
+The site is not *hosted* by the CMS (it's planned to move it to pelican), so it still has to be build locally.
 
 ### Building the Site
 
 To build the site locally, you'll need a local checkout of the [Apache CMS](https://svn.apache.org/repos/infra/websites/cms), then refer to the [STATUS](https://svn.apache.org/repos/infra/websites/cms/STATUS) file.
-You'll of course also need a local checkout of [the site sources](https://svn.apache.org/repos/asf/velocity/site) (the sources for the cms are in /cms/, but the process needs the whole site).
+You'll of course also need a local checkout of [the site sources](https://gitbox.apache.org/repos/asf/velocity-site.git).
 
-While Velocity isn't yet hosted on the CMS, you'll have to generate the site in velocity/site/production, then check added/modified/deleted files with `svn status`, and commit the result.
+You'll have to generate the site in some `target` temporary directory, then check added/modified/deleted files in the `asf-site` branch of the `velocity-site` repository.
 
 Typically, you'll have to:
 
 1. define the environment variable MARKDOWN_SOCKET to something like /tmp/markdown
 2. launch the CMS markdown daemon `apache-cms/build/markdownd.py`
-3. run `apache-cms/build/build_site.pl --source-base velocity/site/cms/trunk --target-base velocity/site/target` (adapt the paths)
-4. copy the generated files from site/target/content to site/production (including the hidden file site/target/.htaccess)
-5. check the result then commit
+3. run `apache-cms/build/build_site.pl --source-base velocity-site/src --target-base /tmp/target` (adapt the paths)
+4. copy the generated files from `target` to velocity-site's asf-site branch (including the hidden file .htaccess)
+5. check the result then commit and push
 
-Here's a bash script that you can reuse:
+Here's a bash script that you can adapt and reuse:
 
     #!/bin/bash
     
     export MARKDOWN_SOCKET=/tmp/markdown
     CMS=~/projects/velocity/apache_cms
-    VELOCITY=~/projects/velocity
+    VELOCITY=~/projects/velocity/git
     
     if [[ `pidof markdownd.py` == "" ]]; then
        $CMS/build/markdownd.py
     fi
     
-    find $VELOCITY/site/cms/trunk/ -name "*~" | xargs rm -v
-    rm -rf $VELOCITY/site/target
-    
-    $CMS/build/build_site.pl --source-base $VELOCITY/site/cms/trunk --target-base $VELOCITY/site/target
-    cp -r $VELOCITY/site/target/content/* $VELOCITY/site/production/
-    cp $VELOCITY/site/target/content/.htaccess $VELOCITY/site/production/
-    
-    svn status $VELOCITY/site/production/
+    find $VELOCITY/velocity-site/src/content -name "*~" | xargs rm -v
+    rm -rf $VELOCITY/velocity-site-target/* rm -rf $VELOCITY/velocity-site-target/.htaccess
+
+    echo Generating site...
+
+    $CMS/build/build_site.pl --source-base $VELOCITY/velocity-site/src --target-base $VELOCITY/velocity-site-target
+
+    echo Copying to production directory...
+
+    rm -rf $VELOCITY/velocity-site-prod/* $VELOCITY/velocity-site-prod/.htaccess
+    cp -r $VELOCITY/velocity-site-target/content/* $VELOCITY/velocity-site-prod/
+    cp -r $VELOCITY/velocity-site-target/content/.htaccess $VELOCITY/velocity-site-prod/
+
+    echo Post processing...
+
+    find $VELOCITY/velocity-site-prod/ -name "*.html" | xargs sed -ri -e "s'<span></span>''g"
+
+    cd $VELOCITY/velocity-site-prod
+    echo cd $VELOCITY/velocity-site-prod
+    pwd
+    git status
 
 Notes:
 
-* the markdown tables extension, in the python-markdown package (python 2.7), seems broken at version 2.6.9 ; I had to revert the markdown package to 2.6.7.
-* the python pygments lexer (used by markdown/codehilite for code syntax highlighting) knows about the Velocity syntax, but not about silent references like `$!foo` or `$!{bar}`. I patched it and sent the [patch](https://bitbucket.org/birkenfeld/pygments-main/pull-requests/771/add-velocity-silent-references-syntax/diff) upstream.
+* the python pygments lexer (used by markdown/codehilite for code syntax highlighting) knows about the Velocity syntax, but not about silent references like `$!foo` or `$!{bar}`. I patched it and sent the [patch](https://bitbucket.org/birkenfeld/pygments-main/pull-requests/771/add-velocity-silent-references-syntax/diff) upstream, which has been accepted but not yet released at the time of writing.
 
 ### Additional Notes
 
@@ -126,4 +129,4 @@ The perl subroutine will be called *after* the markdown has been processed into 
 
 ## TODO
 
-Integration of several Maven reports: dependency-convergence - subversion changelog - dev-activity - file-activity...
+Integration of several Maven reports, like dependency-convergence
