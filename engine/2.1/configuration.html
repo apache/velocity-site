@@ -483,8 +483,9 @@ Defines the beginning and ending tags for an in-stream error message in the case
 <p><strong><code>velocimacro.arguments.preserve_literals = false</code></strong></p>
 <blockquote>
 <p>Since 2.0, inside a macro, the rendering of null arguments uses the local reference literal. For instance, the following VTL code</p>
-<div class="codehilite"><pre><span class="cp">#</span><span class="nf">macro</span><span class="p">(</span> <span class="nf">display</span> <span class="p">$</span><span class="nv">foo</span> <span class="p">)</span><span class="x"> </span><span class="p">$</span><span class="nv">foo</span><span class="x"> </span><span class="cp">#</span><span class="nf">end</span><span class="x"></span>
-<span class="cp">#</span><span class="nf">display</span><span class="p">(</span> <span class="p">$</span><span class="nv">null</span> <span class="p">)</span><span class="x"></span>
+<div class="codehilite"><pre><span class="x">    :::velocity</span>
+<span class="x">    </span><span class="cp">#</span><span class="nf">macro</span><span class="p">(</span> <span class="nf">display</span> <span class="p">$</span><span class="nv">foo</span> <span class="p">)</span><span class="x"> </span><span class="p">$</span><span class="nv">foo</span><span class="x"> </span><span class="cp">#</span><span class="nf">end</span><span class="x"></span>
+<span class="x">    </span><span class="cp">#</span><span class="nf">display</span><span class="p">(</span> <span class="p">$</span><span class="nv">null</span> <span class="p">)</span><span class="x"></span>
 </pre></div>
 
 

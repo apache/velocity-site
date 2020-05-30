@@ -240,11 +240,6 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </li>
 <li><a href="#resource-management">Resource Management</a></li>
 <li><a href="#velocimacros">Velocimacros</a></li>
-<li><a href="#macro-display-foo-foo-end">macro( display $foo ) $foo #end</a></li>
-<li><a href="#display-bar-where-bar-is-null">display( $bar ) ## where $bar is null</a></li>
-<li><a href="#macro-display-foo-foo-end_1">macro( display $foo ) $foo #end</a></li>
-<li><a href="#set-foo-hello">set( $foo = 'hello' )</a></li>
-<li><a href="#display">display()</a><ul>
 <li><a href="#strict-reference-setting">Strict Reference Setting</a></li>
 <li><a href="#string-interpolation">String Interpolation</a></li>
 <li><a href="#math">Math</a></li>
@@ -257,8 +252,6 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li><a href="#configuration-examples">Configuration Examples</a><ul>
 <li><a href="#resource-loading">Resource loading</a></li>
 <li><a href="#backward-compatibility">Backward compatibility</a></li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -513,22 +506,24 @@ Defines the beginning and ending tags for an in-stream error message in the case
 <ol>
 <li>
 <p>Since 2.0, inside a macro, the rendering of null arguments uses the local reference literal. For instance, the following VTL code</p>
-<p>:::velocity</p>
-<h1 id="macro-display-foo-foo-end">macro( display $foo ) $foo #end<a class="headerlink" href="#macro-display-foo-foo-end" title="Permanent link">&para;</a></h1>
-<h1 id="display-bar-where-bar-is-null">display( $bar ) ## where $bar is null<a class="headerlink" href="#display-bar-where-bar-is-null" title="Permanent link">&para;</a></h1>
-</li>
-</ol>
+<div class="codehilite"><pre><span class="cp">#</span><span class="nf">macro</span><span class="p">(</span> <span class="nf">display</span> <span class="p">$</span><span class="nv">foo</span> <span class="p">)</span><span class="x"> </span><span class="p">$</span><span class="nv">foo</span><span class="x"> </span><span class="cp">#</span><span class="nf">end</span><span class="x"></span>
+<span class="cp">#</span><span class="nf">display</span><span class="p">(</span> <span class="p">$</span><span class="nv">bar</span> <span class="p">)</span><span class="x"> </span><span class="cp">##</span><span class="c"> where $bar is null</span><span class="x"></span>
+</pre></div>
+
+
 <p>will display <code>$foo</code>. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to render <code>$bar</code>.</p>
-<ol>
+</li>
 <li>
 <p>Since 2.0, missing arguments which don't have an explicit default value are considered null inside the macro. The following code</p>
-<p>:::velocity</p>
-<h1 id="macro-display-foo-foo-end_1">macro( display $foo ) $foo #end<a class="headerlink" href="#macro-display-foo-foo-end_1" title="Permanent link">&para;</a></h1>
-<h1 id="set-foo-hello">set( $foo = 'hello' )<a class="headerlink" href="#set-foo-hello" title="Permanent link">&para;</a></h1>
-<h1 id="display">display()<a class="headerlink" href="#display" title="Permanent link">&para;</a></h1>
+<div class="codehilite"><pre><span class="cp">#</span><span class="nf">macro</span><span class="p">(</span> <span class="nf">display</span> <span class="p">$</span><span class="nv">foo</span> <span class="p">)</span><span class="x"> </span><span class="p">$</span><span class="nv">foo</span><span class="x"> </span><span class="cp">#</span><span class="nf">end</span><span class="x"></span>
+<span class="cp">#</span><span class="nf">set</span><span class="p">(</span> <span class="p">$</span><span class="nv">foo</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span> <span class="p">)</span><span class="x"></span>
+<span class="cp">#</span><span class="nf">display</span><span class="p">()</span><span class="x"></span>
+</pre></div>
+
+
+<p>will display <code>$foo</code>. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to use the global context value, that is render <code>hello</code>.</p>
 </li>
 </ol>
-<p>will display <code>$foo</code>. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to use the global context value, that is render <code>hello</code>.</p>
 </blockquote>
 <p><strong><code>velocimacro.body_reference = false</code></strong></p>
 <blockquote>
