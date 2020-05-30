@@ -13,7 +13,6 @@ use Date::Format;
 use Date::Parse;
 use LWP::Simple;
 use File::Temp qw/tempfile/;
-use utf8;
 use HTML::Entities;
     
 # set to 1 for some debug output
@@ -36,9 +35,6 @@ sub changes_report
     # hack to fix an error in the XML up to 1.7
     $xml =~ s/<scope>/&lt;scope&gt;/;
 
-    # hack to fix non-utf8 chars
-    utf8::encode($xml);
-
     my ($fh, $filename) = tempfile("XXXXXX");
     print $fh $xml;
     close $fh;
@@ -55,9 +51,6 @@ sub source_file
     my $content = get $url;
 
     $content = "" if not $content;
-
-    # hack to fix non-utf8 chars
-    utf8::encode($content);
 
     # extension gives lexer used for code highlighting
     if ($url =~ /\.([a-z]+)$/i)
@@ -87,9 +80,6 @@ sub team()
 {
     my $xml = get 'https://gitbox.apache.org/repos/asf?p=velocity-master.git;a=blob_plain;f=pom/pom.xml;hb=HEAD';
     my ($fh, $filename) = tempfile("XXXXXX");
-
-    # hack to fix non-utf8 chars
-    utf8::encode($xml);
 
     print $fh $xml;
     close $fh;
