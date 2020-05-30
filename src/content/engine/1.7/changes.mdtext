@@ -4,5 +4,5 @@ Title: Apache Velocity Engine - Changes Report
 
 ### Release History
 
-{{changes_report(engine/tags/1.7)}}
+{{changes_report(engine/1.7)}}
 

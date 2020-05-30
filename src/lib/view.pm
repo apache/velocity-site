@@ -29,7 +29,8 @@ sub format_date { return time2str("%A, %e %B %Y", str2time(shift)); } ## xsltpro
 sub format_date_short { return time2str("%a, %e %b %Y", str2time(shift)); } ## xsltproc doesn't know XSLT 2.0 format-date function
 sub changes_report
 {
-    my $url = "http://svn.apache.org/repos/asf/velocity/" . shift . "/src/changes/changes.xml";
+    my ($project, $tag) = split '/', shift;
+    my $url = "https://gitbox.apache.org/repos/asf?p=velocity-$project.git;a=blob_plain;f=src/changes/changes.xml;hb=$tag";
     my $xml = get $url;
 
     # hack to fix an error in the XML up to 1.7
@@ -48,6 +49,8 @@ sub changes_report
 }
 sub source_file
 {
+    # Note: those contributions didn't make their way from svn to git
+    # TODO - do something...
     my $url = "http://svn.apache.org/repos/asf/velocity/" . shift;
     my $content = get $url;
 
@@ -82,7 +85,7 @@ sub source_file
 }
 sub team()
 {
-    my $xml = get "http://svn.apache.org/repos/asf/velocity/maven/trunk/pom/pom.xml";
+    my $xml = get 'https://gitbox.apache.org/repos/asf?p=velocity-master.git;a=blob_plain;f=pom/pom.xml;hb=HEAD';
     my ($fh, $filename) = tempfile("XXXXXX");
 
     # hack to fix non-utf8 chars

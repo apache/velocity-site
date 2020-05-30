@@ -4,5 +4,5 @@ Title: Apache Velocity Tools - Changes Report
 
 ### Release History
 
-{{changes_report(tools/tags/2.0)}}
+{{changes_report(tools/2.0)}}
 
