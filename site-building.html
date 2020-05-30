@@ -255,26 +255,20 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </ul>
 <h3 id="editing-the-site">Editing the Site<a class="headerlink" href="#editing-the-site" title="Permanent link">&para;</a></h3>
 <p>Apache Velocity uses the <a href="http://www.apache.org/dev/cms.html">Apache Content Management System</a> to manage its site.</p>
-<p>For the time being, the site is not yet <em>hosted</em> by the CMS (which is not yet accepting new sites before undergoing a machine transition), so the site still has to be build locally. Please refer to the next section. The rest of this section is <em>not yet applicable</em>.</p>
-<p class="grayed">To just edit one page, all you need is the bookmarklet found <a href="https://cms.apache.org/#bookmark">here</a>
-</p>
-<p class="grayed">If you're a commiter, you'll be able to push your edits by yourself on the production site. Otherwise, the CMS will let you generate a diff file that you can <a href="/contact.html">send to the devs</a>.
-</p>
-<p class="grayed">Commiters can also commit changes to <a href="http://svn.apache.org/repos/asf/velocity/site/cms/trunk/">the site under svn</a> and trigger a publication in production from the CMS.
-</p>
+<p>The site is not <em>hosted</em> by the CMS (it's planned to move it to pelican), so it still has to be build locally.</p>
 <h3 id="building-the-site">Building the Site<a class="headerlink" href="#building-the-site" title="Permanent link">&para;</a></h3>
 <p>To build the site locally, you'll need a local checkout of the <a href="https://svn.apache.org/repos/infra/websites/cms">Apache CMS</a>, then refer to the <a href="https://svn.apache.org/repos/infra/websites/cms/STATUS">STATUS</a> file.
-You'll of course also need a local checkout of <a href="https://svn.apache.org/repos/asf/velocity/site">the site sources</a> (the sources for the cms are in /cms/, but the process needs the whole site).</p>
-<p>While Velocity isn't yet hosted on the CMS, you'll have to generate the site in velocity/site/production, then check added/modified/deleted files with <code>svn status</code>, and commit the result.</p>
+You'll of course also need a local checkout of <a href="https://gitbox.apache.org/repos/asf/velocity-site.git">the site sources</a>.</p>
+<p>You'll have to generate the site in some <code>target</code> temporary directory, then check added/modified/deleted files in the <code>asf-site</code> branch of the <code>velocity-site</code> repository.</p>
 <p>Typically, you'll have to:</p>
 <ol>
 <li>define the environment variable MARKDOWN_SOCKET to something like /tmp/markdown</li>
 <li>launch the CMS markdown daemon <code>apache-cms/build/markdownd.py</code></li>
-<li>run <code>apache-cms/build/build_site.pl --source-base velocity/site/cms/trunk --target-base velocity/site/target</code> (adapt the paths)</li>
-<li>copy the generated files from site/target/content to site/production (including the hidden file site/target/.htaccess)</li>
-<li>check the result then commit</li>
+<li>run <code>apache-cms/build/build_site.pl --source-base velocity-site/src --target-base /tmp/target</code> (adapt the paths)</li>
+<li>copy the generated files from <code>target</code> to velocity-site's asf-site branch (including the hidden file .htaccess)</li>
+<li>check the result then commit and push</li>
 </ol>
-<p>Here's a bash script that you can reuse:</p>
+<p>Here's a bash script that you can adapt and reuse:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
@@ -292,31 +286,56 @@ You'll of course also need a local checkout of <a href="https://svn.apache.org/r
 15
 16
 17
-18</pre></div></td><td class="code"><div class="codehilite"><pre><span class="ch">#!/bin/bash</span>
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="codehilite"><pre><span class="ch">#!/bin/bash</span>
 
 <span class="nb">export</span> <span class="nv">MARKDOWN_SOCKET</span><span class="o">=</span>/tmp/markdown
 <span class="nv">CMS</span><span class="o">=</span>~/projects/velocity/apache_cms
-<span class="nv">VELOCITY</span><span class="o">=</span>~/projects/velocity
+<span class="nv">VELOCITY</span><span class="o">=</span>~/projects/velocity/git
 
 <span class="k">if</span> <span class="o">[[</span> <span class="sb">`</span>pidof markdownd.py<span class="sb">`</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
    <span class="nv">$CMS</span>/build/markdownd.py
 <span class="k">fi</span>
 
-find <span class="nv">$VELOCITY</span>/site/cms/trunk/ -name <span class="s2">&quot;*~&quot;</span> <span class="p">|</span> xargs rm -v
-rm -rf <span class="nv">$VELOCITY</span>/site/target
+find <span class="nv">$VELOCITY</span>/velocity-site/src/content -name <span class="s2">&quot;*~&quot;</span> <span class="p">|</span> xargs rm -v
+rm -rf <span class="nv">$VELOCITY</span>/velocity-site-target/* rm -rf <span class="nv">$VELOCITY</span>/velocity-site-target/.htaccess
 
-<span class="nv">$CMS</span>/build/build_site.pl --source-base <span class="nv">$VELOCITY</span>/site/cms/trunk --target-base <span class="nv">$VELOCITY</span>/site/target
-cp -r <span class="nv">$VELOCITY</span>/site/target/content/* <span class="nv">$VELOCITY</span>/site/production/
-cp <span class="nv">$VELOCITY</span>/site/target/content/.htaccess <span class="nv">$VELOCITY</span>/site/production/
+<span class="nb">echo</span> Generating site...
 
-svn status <span class="nv">$VELOCITY</span>/site/production/
+<span class="nv">$CMS</span>/build/build_site.pl --source-base <span class="nv">$VELOCITY</span>/velocity-site/src --target-base <span class="nv">$VELOCITY</span>/velocity-site-target
+
+<span class="nb">echo</span> Copying to production directory...
+
+rm -rf <span class="nv">$VELOCITY</span>/velocity-site-prod/* <span class="nv">$VELOCITY</span>/velocity-site-prod/.htaccess
+cp -r <span class="nv">$VELOCITY</span>/velocity-site-target/content/* <span class="nv">$VELOCITY</span>/velocity-site-prod/
+cp -r <span class="nv">$VELOCITY</span>/velocity-site-target/content/.htaccess <span class="nv">$VELOCITY</span>/velocity-site-prod/
+
+<span class="nb">echo</span> Post processing...
+
+find <span class="nv">$VELOCITY</span>/velocity-site-prod/ -name <span class="s2">&quot;*.html&quot;</span> <span class="p">|</span> xargs sed -ri -e <span class="s2">&quot;s&#39;&lt;span&gt;&lt;/span&gt;&#39;&#39;g&quot;</span>
+
+<span class="nb">cd</span> <span class="nv">$VELOCITY</span>/velocity-site-prod
+<span class="nb">echo</span> <span class="nb">cd</span> <span class="nv">$VELOCITY</span>/velocity-site-prod
+<span class="nb">pwd</span>
+git status
 </pre></div>
 </td></tr></table>
 
 <p>Notes:</p>
 <ul>
-<li>the markdown tables extension, in the python-markdown package (python 2.7), seems broken at version 2.6.9 ; I had to revert the markdown package to 2.6.7.</li>
-<li>the python pygments lexer (used by markdown/codehilite for code syntax highlighting) knows about the Velocity syntax, but not about silent references like <code>$!foo</code> or <code>$!{bar}</code>. I patched it and sent the <a href="https://bitbucket.org/birkenfeld/pygments-main/pull-requests/771/add-velocity-silent-references-syntax/diff">patch</a> upstream.</li>
+<li>the python pygments lexer (used by markdown/codehilite for code syntax highlighting) knows about the Velocity syntax, but not about silent references like <code>$!foo</code> or <code>$!{bar}</code>. I patched it and sent the <a href="https://bitbucket.org/birkenfeld/pygments-main/pull-requests/771/add-velocity-silent-references-syntax/diff">patch</a> upstream, which has been accepted but not yet released at the time of writing.</li>
 </ul>
 <h3 id="additional-notes">Additional Notes<a class="headerlink" href="#additional-notes" title="Permanent link">&para;</a></h3>
 <h3 id="javadocs">Javadocs<a class="headerlink" href="#javadocs" title="Permanent link">&para;</a></h3>
@@ -360,7 +379,7 @@ svn status <span class="nv">$VELOCITY</span>/site/production/
 </ol>
 <p>The perl subroutine will be called <em>after</em> the markdown has been processed into html. The process is recursive: the result of a post-processing tag can contains other tags.</p>
 <h2 id="todo">TODO<a class="headerlink" href="#todo" title="Permanent link">&para;</a></h2>
-<p>Integration of several Maven reports: dependency-convergence - subversion changelog - dev-activity - file-activity...</p></div></div>
+<p>Integration of several Maven reports, like dependency-convergence</p></div></div>
         <hr/>
         <div id="copyright">
           Copyright &#169; 2020 The Apache Software Foundation, Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
