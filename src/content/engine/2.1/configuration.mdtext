@@ -245,9 +245,9 @@ The following resource management configuration keys only apply to the default R
 
 > Since 2.0, inside a macro, the rendering of null arguments uses the local reference literal. For instance, the following VTL code
 > 
->     :::velocity
->     #macro( display $foo ) $foo #end
->     #display( $null )
+>         :::velocity
+>         #macro( display $foo ) $foo #end
+>         #display( $null )
 > 
 > will display `$foo`. To revert to the 1.x behavior, since 2.1, you can set this property to true. The previous code will then display `$null`.
 

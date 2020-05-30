@@ -267,19 +267,17 @@ The following resource management configuration keys only apply to the default R
 > 
 > 1. Since 2.0, inside a macro, the rendering of null arguments uses the local reference literal. For instance, the following VTL code
 > 
->     :::velocity
->     #macro( display $foo ) $foo #end
->     #display( $bar ) ## where $bar is null
-> 
+>         :::velocity
+>         #macro( display $foo ) $foo #end
+>         #display( $bar ) ## where $bar is null
 > will display `$foo`. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to render `$bar`.
 >
 > 2. Since 2.0, missing arguments which don't have an explicit default value are considered null inside the macro. The following code
->
->     :::velocity
->     #macro( display $foo ) $foo #end
->     #set( $foo = 'hello' )
->     #display()
->
+> 
+>         :::velocity
+>         #macro( display $foo ) $foo #end
+>         #set( $foo = 'hello' )
+>         #display()
 > will display `$foo`. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to use the global context value, that is render `hello`.
 
 **`velocimacro.body_reference = false`**
