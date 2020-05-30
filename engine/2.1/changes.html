@@ -236,11 +236,6 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     </thead>
     <tbody>
       <tr>
-        <td>2.2</td>
-        <td>2020-02-02</td>
-        <td/>
-      </tr>
-      <tr>
         <td>2.1</td>
         <td>2019-03-15</td>
         <td/>
@@ -313,101 +308,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     </tbody>
   </table>
 </p>
-<h3>Release 2.2 - 2020-02-02</h3><p>
-  <table class="standard">
-    <thead>
-      <tr>
-        <th>Type</th>
-        <th>Changes</th>
-        <th>Bye</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td/>
-        <td> Deprecated 2.1 flag <code> velocimacro.arguments.preserve_literals </code> in favor of the new <code> valocimacro_enable_bc_mode </code> flag, which will also, like 1.7 does, use global context values as defaults for missing macro arguments which do not have an explicit default value. . </td>
-        <td>cbrisson</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/fix.png"/>
-        </td>
-        <td> Fixed regression: Macro arguments names cannot collide with external references names . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-926">VELOCITY-926</a>. </td>
-        <td>cbrisson</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/fix.png"/>
-        </td>
-        <td> Fixed macro calls without parenthesis eating the following newline in BC mode . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-925">VELOCITY-925</a>. </td>
-        <td>cbrisson</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/fix.png"/>
-        </td>
-        <td> Fixed bad cache handling for java.lang.Class methods . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-924">VELOCITY-924</a>. </td>
-        <td>cbrisson</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/fix.png"/>
-        </td>
-        <td> Fixed parser regression when || follow a Velocity expression . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-923">VELOCITY-923</a>. </td>
-        <td>cbrisson</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Added BigInteger and BigDecimal implicit conversions . </td>
-        <td>cbrisson</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/fix.png"/>
-        </td>
-        <td> Fixed abnormal suppression of zero-width whitespaces . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-919">VELOCITY-919</a>. </td>
-        <td>cbrisson</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Added an example of how to build a customized parser where the '#', '$', '*' and '@' can be replaced by any character . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-917">VELOCITY-917</a>. </td>
-        <td>cbrisson</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Added the <code> runtime.log.track_locations </code> debugging flag (disabled by default), which: <ul>  <li> display a VTL stack trace on any error </li>  <li> Implement template location tracking with slf4j MDC tags: Once activated, an MDC-aware logger will be able to display the <code> file </code> , <code> line </code> and <code> column </code> MDC tags </li>  </ul>  . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-916">VELOCITY-916</a>. </td>
-        <td>cbrisson</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Added the following 1.7.x backward compatibility flags: <ul>  <li><code> event_handler.invalid_references.quiet </code> - warn on invalid quiet references </li>  <li><code> event_handler.invalid_references.null </code> - warn on null references </li>  <li><code> event_handler.invalid_references.tested </code> - warn on invalid references tested with <code> #if() </code></li>  </ul> Those three flags are false by default, but can be set to true to mimic 1.7.x behavior . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-915">VELOCITY-915</a>. </td>
-        <td>cbrisson</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/fix.png"/>
-        </td>
-        <td> Introspection: favor non-vararg methods on ambiguities as does the Java compiler . </td>
-        <td>cbrisson</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/fix.png"/>
-        </td>
-        <td> Also allow hyphen in subproperties when the corresponding backward compatibility flag is on . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-912">VELOCITY-912</a>. </td>
-        <td>cbrisson</td>
-      </tr>
-    </tbody>
-  </table>
-</p><h3>Release 2.1 - 2019-03-15</h3><p>
+<h3>Release 2.1 - 2019-03-15</h3><p>
   <table class="standard">
     <thead>
       <tr>
@@ -421,7 +322,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Reorganization of configuration properties key names, for clarity and consistency, see the <a href="configuration-property-changes-in-2.1.html"> table of correspondance </a>  . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-909">VELOCITY-909</a>. </td>
+        <td> Reorganization of configuration properties key names, for clarity and consistency, see the <a href="configuration-property-changes-in-2.1.html"> table of correspondance </a> . . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-909">VELOCITY-909</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
