@@ -35,6 +35,6 @@ Nightly snapshots aren't currently activated, but you can build the latest versi
 The Velocity project appreciates any contributions, including documentation help, source code and feedback. Suggested changes should come in the form of source code and/or feedback.
 
 + Report bugs, ask questions, and help new users on the [Velocity mailing lists](http://velocity.apache.org/contact.html).
-+ There's a list of issues waiting to be addressed in [our bug tracker](https://issues.apache.org/jira/browse/VELOCITY").
++ There's a list of issues waiting to be addressed in [our bug tracker](https://issues.apache.org/jira/browse/VELOCITY).
 + [Our wiki](http://wiki.apache.org/velocity/FrontPage) has a large collection of community written content. Add your own article or contribute to the FAQ!
 + Read-only access to the Subversion repository is available both [online](http://svn.apache.org/repos/asf/velocity/engine/trunk/) and with a [Subversion client](http://www.apache.org/dev/version-control.html).
