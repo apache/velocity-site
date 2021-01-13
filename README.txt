@@ -1,4 +1,4 @@
-Note: the branch trnk is obsolete. Please use the master branch.
+Note: the branch trunk is obsolete. Please use the master branch.
 
  ----
  The Apache Velocity Project
@@ -62,7 +62,7 @@ Create the Apache Velocity Site
 -------------------------------
 
  To build the site, enter the "site" directory and run "mvn" (the
- default goal here is "site-post" which generates the site and also
+ default goal here is "post-site" which generates the site and also
  installs a few extra files (e.g. the download.cgi script for
  automatic mirror selection).
 
