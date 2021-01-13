@@ -19,9 +19,9 @@ Using Velocity, reporting bugs, making feature requests, et cetera, is by far th
 In this role, you participate in the actual development of the code. If this is the type of role you'd like to play, here are some steps (in addition to the ones above) to get you started:
 
 + [Read Guidelines](/how-it-works.html)
-+ Check Online Oocumentation
++ [Check Online Documentation](/engine/devel/getting-started.html)
 + [Download the Source Code](/download.cgi)
-+ Contribute Patches
++ Contribute Patches - the easiest way is to create a Pull Request (PR) at GitHub: [Engine](https://github.com/apache/velocity-engine/pulls) and [Tools](https://github.com/apache/velocity-tools/pulls). All PRs are automatically tested at TravisCI on both AMD64 and ARM64 CPU architectures.
 
 Here is one developer's advice how to get involved. It specifically talks about Tomcat, but the general idea can applied to any of the projects.
 
