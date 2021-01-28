@@ -50,7 +50,7 @@ then
     echo
     if [[ "$answer" =~ ^[Yy]$ ]]
     then
-        git clone --single-branch --branch asf-site https://gitbox.apache.org/repos/asf/velocity-site.git velocity-site-prod
+        git clone --single-branch --branch asf-site https://github.com/apache/velocity-site.git velocity-site-prod
     fi
 fi
 if test ! -d velocity-site-prod
