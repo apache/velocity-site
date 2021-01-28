@@ -1,8 +1,0 @@
-Title: Apache Velocity Engine - Changes Report
-
-## Changes Report
-
-### Release History
-
-{{changes_report(engine/trunk)}}
-

@@ -1,0 +1,26 @@
+Options +FollowSymLinks
+RewriteEngine on
+
+Redirect 301 /anakia/devel/ /anakia/
+Redirect 301 /devel/ /
+Redirect 301 /dvsl/devel/ /dvsl/
+Redirect 301 /engine/1.7/changes-report.html /engine/1.7/changes.html
+Redirect 301 /engine/1.7/jar-dependencies.html /engine/1.7/dependencies.html
+Redirect 301 /engine/1.7/javadoc /engine/1.7/apidocs
+Redirect 301 /engine/1.7/vtl-reference-guide.html /engine/1.7/vtl-reference.html
+Redirect 301 /engine/devel/changes-report.html /engine/devel/changes.html
+Redirect 301 /engine/devel/jar-dependencies.html /engine/devel/dependencies.html
+Redirect 301 /engine/devel/javadoc /engine/devel/apidocs
+Redirect 301 /engine/devel/vtl-reference-guide.html /engine/devel/vtl-reference.html
+Redirect 301 /engine/releases/velocity-1.7/ /engine/1.7/
+Redirect 301 /team-list.html /who-we-are.html
+Redirect 301 /texen/devel/ /texen/
+Redirect 301 /tools/releases/2.0/ /tools/2.0/
+Redirect 301 /tools/2.0/javadoc /tools/2.0/apidocs
+Redirect 301 /tools/2.0/view.servlet.html /tools/2.0/view-servlet.html
+Redirect 301 /tools/devel/javadoc /tools/devel/apidocs
+Redirect 301 /tools/devel/view.servlet.html /tools/devel/view-servlet.html
+
+<FilesMatch "\.rss$">
+  ForceType application/rss+xml
+</FilesMatch>

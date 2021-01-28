@@ -1,8 +1,0 @@
-Title: Apache Velocity Tools - Changes Report
-
-## Changes Report
-
-### Release History
-
-{{changes_report(tools/trunk)}}
-
