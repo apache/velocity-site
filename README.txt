@@ -15,59 +15,64 @@ Introduction
  http://velocity.apache.org/ (our homepage). It is the envelope site for all Apache
  Velocity sub projects.
 
- In short: This svn repository is only interesting for you if you
+ In short: This Git repository is only interesting for you if you
 
  a) want to re-create the Apache Velocity site on your local computer or intranet.
 
- b) are an Apache Velocity committer and want to update the site. 
+ b) are an Apache Velocity committer/contributor and want to update the site. 
 
 
 Building the Site
 -----------------
 
- Apache Velocity uses Apache Maven 2 to build the site.
+ Apache Velocity uses [Apache Content Management System](http://www.apache.org/dev/cms.html) to build the site.
+ The whole process of buiding the site is automated with a Docker based build [script](./builder/bin/builder.sh).
 
- It requires at least Maven 2.0.5 to build, Maven 2.0.6 is recommended.
+ Steps:
 
- The site consists of multiple modules: The Site itself and some
- helpers that must be installed in your local Maven repository. These
- extensions are currently not present in the remote Maven
- repositories, so if you do not install them, the site build itself
- will fail.
+ 1) Create a parent folder for the local Git clones
 
+   export VELOCITY_PARENT_FOLDER="/path/to/velocity"
+   mkdir -p $VELOCITY_PARENT_FOLDER
+   cd $VELOCITY_PARENT_FOLDER
+  
+ 2) Clone the GitHub repository for editing the Markdown files
 
-Checking the Site module out of the Velocity Source Code Repository
-===================================================================
+   git clone --single-branch --branch master git@github.com:[YOUR_GITHUB_ID]/velocity-site.git
 
- The site is available from
- http://svn.apache.org/repos/asf/velocity/site/ (The Apache Velocity
- Site repository). You need a Subversion client installed to download
- the site source code onto your computer.
+ 3) Clone the GitHub repository for the generated HTML files
 
+   git clone --single-branch --branch asf-site git@github.com:[YOUR_GITHUB_ID]/velocity-site.git velocity-site-prod
 
+ 4) Edit the Markdown files
+  
+   cd $VELOCITY_PARENT_FOLDER/velocity-site
+   edit src/content/[FILE].mdtext
 
-Create the Apache Velocity Site Helper modules
-----------------------------------------------
+ 5) Build the HTML files
 
- To build the site, you need the helper modules installed locally. 
+   ./builder/bin/builder.sh
 
- The helper modules have been organized as a Maven reactor build. You
- can install them by running "mvn" from the "tools" sub-directory.
+ 6) Check the generated HTML locally
 
- You need to install these only once unless the dependencies of the
- site have changed which should only happen very rarely.
+   open $VELOCITY_PARENT_FOLDER/velocity-site-prod/index.html in your favorite browser and navigate around 
+   to see your changes
 
+ 7) Commit your changes
 
-Create the Apache Velocity Site
--------------------------------
+ 7.1) Markdown files
+ 
+   cd $VELOCITY_PARENT_FOLDER/velocity-site
+   git commit -a -m "Some good message"
+   git push
 
- To build the site, enter the "site" directory and run "mvn" (the
- default goal here is "post-site" which generates the site and also
- installs a few extra files (e.g. the download.cgi script for
- automatic mirror selection).
+ 7.2) HTML files
 
- If you want to re-create the site locally, you can now enter "mvn
- site:run" and point a web browser at "localhost:8080".
+   cd $VELOCITY_PARENT_FOLDER/velocity-site-prod
+   git commit -a -m "Same good message"
+   git push
+
+ 8) Create Pull Requests in GitHub UI for both branches (`master` and `asf-site`)
 
 
 Deploy the Apache Velocity Site
