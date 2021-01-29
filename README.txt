@@ -28,6 +28,14 @@ Building the Site
  Apache Velocity uses [Apache Content Management System](http://www.apache.org/dev/cms.html) to build the site.
  The whole process of buiding the site is automated with a Docker based build [script](./builder/bin/builder.sh).
 
+ The required software you need is:
+
+ *) [Git](https://git-scm.com/) - to checkout and commit
+ *) [Docker](https://www.docker.com/) - builder.sh uses it to run Apache CMS that generates HTML out 
+ of the Markdown files
+ *) A text editor - to edit the [Markdown](https://www.markdownguide.org/) files
+ *) A web browser - to review the changes in the generated HTML files
+
  Steps:
 
  1) Create a parent folder for the local Git clones
@@ -40,13 +48,9 @@ Building the Site
 
    git clone --single-branch --branch master git@github.com:[YOUR_GITHUB_ID]/velocity-site.git
 
- 3) Clone the GitHub repository for the generated HTML files
-
-   git clone --single-branch --branch asf-site git@github.com:[YOUR_GITHUB_ID]/velocity-site.git velocity-site-prod
-
  4) Edit the Markdown files
   
-   cd $VELOCITY_PARENT_FOLDER/velocity-site
+   $VELOCITY_PARENT_FOLDER/velocity-site
    edit src/content/[FILE].mdtext
 
  5) Build the HTML files
@@ -55,24 +59,16 @@ Building the Site
 
  6) Check the generated HTML locally
 
-   open $VELOCITY_PARENT_FOLDER/velocity-site-prod/index.html in your favorite browser and navigate around 
-   to see your changes
+   open $VELOCITY_PARENT_FOLDER/velocity-site-prod/index.html in your favorite web browser 
+   and navigate around to review your changes
 
  7) Commit your changes
-
- 7.1) Markdown files
  
    cd $VELOCITY_PARENT_FOLDER/velocity-site
-   git commit -a -m "Some good message"
+   git commit -a -m "Some message explaining your changes"
    git push
 
- 7.2) HTML files
-
-   cd $VELOCITY_PARENT_FOLDER/velocity-site-prod
-   git commit -a -m "Same good message"
-   git push
-
- 8) Create Pull Requests in GitHub UI for both branches (`master` and `asf-site`)
+ 8) Create a Pull Request in GitHub UI
 
 
 Deploy the Apache Velocity Site
