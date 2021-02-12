@@ -59,6 +59,11 @@ then
    exit 1
 fi
 cd velocity-site-prod
+BRANCH="$(git status -bs | head -1 | sed -r -e 's,^.*origin/,,')"
+if test "$BRANCH" != "asf-site"
+then
+    echo velocity-site-prod repository not on the asf-site branch, exiting
+fi
 
 # The philosophy here is to cache the image but not the container.
 
