@@ -4,13 +4,13 @@ Title: The Apache Velocity Project
 
 Velocity is a Java-based template engine. It permits anyone to use a simple yet powerful template language to reference objects defined in Java code.
 
-When Velocity is used for web development, Web designers can work in parallel with Java programmers to develop web sites according to the Model-View-Controller (MVC) model, meaning that web page designers can focus solely on creating a site that looks good, and programmers can focus solely on writing top-notch code. Velocity separates Java code from the web pages, making the web site more maintainable over its lifespan and providing a viable alternative to [Java Server Pages](http://java.sun.com/products/jsp/) (JSPs) or [PHP](http://www.php.net/).
+When Velocity is used for web development, Web designers can work in parallel with Java programmers to develop web sites according to the Model-View-Controller (MVC) model, meaning that web page designers can focus solely on creating a site that looks good, and programmers can focus solely on writing top-notch code. Velocity separates Java code from the web pages, making the web site more maintainable over its lifespan and providing a viable alternative to [Java Server Pages](https://java.sun.com/products/jsp/) (JSPs) or [PHP](https://www.php.net/).
 
-Velocity's capabilities reach well beyond the realm of the web; for example, it can be used to generate SQL, PostScript and XML from templates. It can be used either as a standalone utility for generating source code and reports, or as an integrated component of other systems. For instance, Velocity provides template services for [various web frameworks](http://wiki.apache.org/velocity/PoweredByVelocity), enabling them with a view engine facilitating development of web applications according to a true MVC model.
+Velocity's capabilities reach well beyond the realm of the web; for example, it can be used to generate SQL, PostScript and XML from templates. It can be used either as a standalone utility for generating source code and reports, or as an integrated component of other systems. For instance, Velocity provides template services for [various web frameworks](https://wiki.apache.org/velocity/PoweredByVelocity), enabling them with a view engine facilitating development of web applications according to a true MVC model.
 
 ## The Apache Velocity Project
 
-Velocity is a project of the [Apache Software Foundation](http://www.apache.org/), charged with the creation and maintenance of open-source software related to the [Apache Velocity Engine](http://velocity.apache.org/engine/index.html). All software created at the Velocity project is available under the [Apache Software License](http://www.apache.org/licenses/LICENSE-2.0.txt) and free of charge for the public.
+Velocity is a project of the [Apache Software Foundation](https://www.apache.org/), charged with the creation and maintenance of open-source software related to the [Apache Velocity Engine](https://velocity.apache.org/engine/index.html). All software created at the Velocity project is available under the [Apache Software License](https://www.apache.org/licenses/LICENSE-2.0.txt) and free of charge for the public.
 
 ## Recent News
 
@@ -21,7 +21,7 @@ Velocity is a project of the [Apache Software Foundation](http://www.apache.org/
 
 ## Apache Software Foundation
 
-The Apache Software Foundation provides support for the Apache community of open-source software projects. The [Apache projects](http://projects.apache.org) are characterized by a collaborative, consensus based development process, an open and pragmatic software license, and a desire to create high quality software that leads the way in its field.
+The Apache Software Foundation provides support for the Apache community of open-source software projects. The [Apache projects](https://projects.apache.org) are characterized by a collaborative, consensus based development process, an open and pragmatic software license, and a desire to create high quality software that leads the way in its field.
 
 ## Apache Velocity Projects
 
@@ -30,7 +30,7 @@ Apache Velocity offers the following projects:
 [Velocity Engine](/engine/index.html) &dash; This is the actual templating engine which does all the work. If you came here because you heard about Velocity somewhere on the web, this is probably the right place to start.
 {.frame}
 
-[Velocity Tools](/tools/index.html) &dash; This project contains tools and other useful infrastructure to build web and non-web application using the Velocity engine. You will find e.g. code for [Struts](http://struts.apache.org) integration or the standalone VelocityViewServlet here.
+[Velocity Tools](/tools/index.html) &dash; This project contains tools and other useful infrastructure to build web and non-web application using the Velocity engine. You will find e.g. code for [Struts](https://struts.apache.org) integration or the standalone VelocityViewServlet here.
 {.frame}
 
 ## Release Status
@@ -53,5 +53,5 @@ For more information about the Apache Velocity Project, see
 
 For more information about the Apache Software Foundation, see
 
-+ [Foundation Home Page](http://www.apache.org/)
-+ [Apache License and Distribution FAQ](http://www.apache.org/foundation/licence-FAQ.html)
++ [Foundation Home Page](https://www.apache.org/)
++ [Apache License and Distribution FAQ](https://www.apache.org/foundation/licence-FAQ.html)

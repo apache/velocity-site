@@ -33,13 +33,13 @@ The currently selected mirror is <b>[preferred]</b>. If you encounter a problem 
     </p>
 </form>
 
-You may also consult the [complete list of mirrors](http://www.apache.org/mirrors/).
+You may also consult the [complete list of mirrors](https://www.apache.org/mirrors/).
 
 The <tt>KEYS</tt> link links to the code signing keys used to sign the product.
 The <tt>PGP</tt> links download the OpenPGP compatible signature from our main site. 
 The <tt>SHA</tt> links download the checksum from the main site. None of these should be downloaded from the mirrors.
 
-[KEYS](http://www.apache.org/dist/velocity/KEYS)
+[KEYS](https://www.apache.org/dist/velocity/KEYS)
 
 ## Production releases
 
@@ -47,7 +47,7 @@ These releases are considered stable and suitable for production.
 
 ### Engine
 
-Be sure to check the [release notes](http://www.apache.org/dist/velocity/engine/2.2/release-notes.html) and the [dependencies](http://velocity.apache.org/engine/2.2/dependencies.html).
+Be sure to check the [release notes](https://www.apache.org/dist/velocity/engine/2.2/release-notes.html) and the [dependencies](https://velocity.apache.org/engine/2.2/dependencies.html).
 
 #### Inclusion as a maven dependency
 
@@ -320,31 +320,31 @@ Snapshot releases published from times to times on [Apache's repository](https:/
 
 Binaries and sources:
 
-+ [anakia-1.0.zip]([preferred]/velocity/anakia/1.0/anakia-1.0.zip) [[PGP](http://www.apache.org/dist/velocity/anakia/1.0/anakia-1.0.zip.asc)] [[SHA1](http://www.apache.org/dist/velocity/anakia/1.0/anakia-1.0.zip.sha1)]
-+ [anakia-1.0.tar.gz]([preferred]/velocity/anakia/1.0/anakia-1.0.tar.gz) [[PGP](http://www.apache.org/dist/velocity/anakia/1.0/anakia-1.0.tar.gz.asc)] [[SHA1](http://www.apache.org/dist/velocity/anakia/1.0/anakia-1.0.tar.gz.sha1)]
++ [anakia-1.0.zip]([preferred]/velocity/anakia/1.0/anakia-1.0.zip) [[PGP](https://www.apache.org/dist/velocity/anakia/1.0/anakia-1.0.zip.asc)] [[SHA1](https://www.apache.org/dist/velocity/anakia/1.0/anakia-1.0.zip.sha1)]
++ [anakia-1.0.tar.gz]([preferred]/velocity/anakia/1.0/anakia-1.0.tar.gz) [[PGP](https://www.apache.org/dist/velocity/anakia/1.0/anakia-1.0.tar.gz.asc)] [[SHA1](https://www.apache.org/dist/velocity/anakia/1.0/anakia-1.0.tar.gz.sha1)]
 
 ### Texen
 
 Binaries and sources:
 
-+ [texen-1.0.zip]([preferred]/velocity/texen/1.0/texen-1.0.zip) [[PGP](http://www.apache.org/dist/velocity/texen/1.0/texen-1.0.zip.asc)] [[SHA1](http://www.apache.org/dist/velocity/texen/1.0/texen-1.0.zip.sha1)]
-+ [texen-1.0.tar.gz]([preferred]/velocity/texen/1.0/texen-1.0.tar.gz) [[PGP](http://www.apache.org/dist/velocity/texen/1.0/texen-1.0.tar.gz.asc)] [[SHA1](http://www.apache.org/dist/velocity/texen/1.0/texen-1.0.tar.gz.sha1)]
++ [texen-1.0.zip]([preferred]/velocity/texen/1.0/texen-1.0.zip) [[PGP](https://www.apache.org/dist/velocity/texen/1.0/texen-1.0.zip.asc)] [[SHA1](https://www.apache.org/dist/velocity/texen/1.0/texen-1.0.zip.sha1)]
++ [texen-1.0.tar.gz]([preferred]/velocity/texen/1.0/texen-1.0.tar.gz) [[PGP](https://www.apache.org/dist/velocity/texen/1.0/texen-1.0.tar.gz.asc)] [[SHA1](https://www.apache.org/dist/velocity/texen/1.0/texen-1.0.tar.gz.sha1)]
 
 ### DVSL
 
 Binaries:
 
-+ [velocity-dvsl-1.0.zip]([preferred]/velocity/dvsl/1.0/velocity-dvsl-1.0.zip) [[PGP](http://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.zip.asc)] [[SHA1](http://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.zip.sha1)]
-+ [velocity-dvsl-1.0.tar.gz]([preferred]/velocity/dvsl/1.0/velocity-dvsl-1.0.tar.gz) [[PGP](http://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.tar.gz.asc)] [[SHA1](http://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.tar.gz.sha1)]
++ [velocity-dvsl-1.0.zip]([preferred]/velocity/dvsl/1.0/velocity-dvsl-1.0.zip) [[PGP](https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.zip.asc)] [[SHA1](https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.zip.sha1)]
++ [velocity-dvsl-1.0.tar.gz]([preferred]/velocity/dvsl/1.0/velocity-dvsl-1.0.tar.gz) [[PGP](https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.tar.gz.asc)] [[SHA1](https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.tar.gz.sha1)]
 
 Sources:
 
-+ [velocity-dvsl-1.0-src.zip]([preferred]/velocity/dvsl/1.0/velocity-dvsl-1.0-src.zip) [[PGP](http://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.zip.asc)] [[SHA1](http://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.zip.sha1)]
-+ [velocity-dvsl-1.0-src.tar.gz]([preferred]/velocity/dvsl/1.0/velocity-dvsl-1.0-src.tar.gz) [[PGP](http://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.tar.gz.asc)] [[SHA1](http://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.tar.gz.sha1)]
++ [velocity-dvsl-1.0-src.zip]([preferred]/velocity/dvsl/1.0/velocity-dvsl-1.0-src.zip) [[PGP](https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.zip.asc)] [[SHA1](https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.zip.sha1)]
++ [velocity-dvsl-1.0-src.tar.gz]([preferred]/velocity/dvsl/1.0/velocity-dvsl-1.0-src.tar.gz) [[PGP](https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.tar.gz.asc)] [[SHA1](https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.tar.gz.sha1)]
 
 ## Older Releases
 
-Older versions of the Apache Velocity projects are available from [our archive site](http://archive.apache.org/dist/velocity/), and documented here:
+Older versions of the Apache Velocity projects are available from [our archive site](https://archive.apache.org/dist/velocity/), and documented here:
 
 * [Engine old versions documentation](/engine/#older-releases)
 * [Tools old versions documentation](/tools/#older-releases)
@@ -356,10 +356,10 @@ Unless otherwise stated, the most current release of the Apache Velocity project
 
 ## Source Code Repository
 
-You can download the source code to each Apache Velocity project directly from our public subversion repository. Here you get logs, change histories and all the information necessary to follow the development process. If you are interested in the project development, please join the Apache Velocity development list.
+You can download the source code to each Apache Velocity project directly from our apache gitbox repositories or from our github mirrors (which are preferable to open a pull request). Here you get logs, change histories and all the information necessary to follow the development process. If you are interested in the project development, please join the Apache Velocity development list.
 
-
-Project | Repository URL | ViewVC Subversion browser
+Project | Apache Gitbox Repository | Github Repository
 --------|----------------|--------------------------
-Engine | [http://svn.apache.org/repos/asf/velocity/engine/trunk/](http://svn.apache.org/repos/asf/velocity/engine/trunk/) | [http://svn.apache.org/viewvc/velocity/engine/trunk](http://svn.apache.org/viewvc/velocity/engine/trunk)
-Tools| [http://svn.apache.org/repos/asf/velocity/tools/trunk/](http://svn.apache.org/repos/asf/velocity/tools/trunk/) | [http://svn.apache.org/viewvc/velocity/tools/trunk](http://svn.apache.org/viewvc/velocity/tools/trunk)
+Engine | [https://gitbox.apache.org/repos/asf/velocity-engine.git](https://gitbox.apache.org/repos/asf/velocity-engine.git) | [https://github.com/apache/velocity-engine.git](https://github.com/apache/velocity-engine.git)
+Tools| [https://gitbox.apache.org/repos/asf/velocity-tools.git](https://gitbox.apache.org/repos/asf/velocity-tools.git) | [https://github.com/apache/velocity-engine.git](https://github.com/apache/velocity-engine.git)
+Site| [https://gitbox.apache.org/repos/asf/velocity-site.git](https://gitbox.apache.org/repos/asf/velocity-site.git) | [https://github.com/apache/velocity-site.git](https://github.com/apache/velocity-site.git)

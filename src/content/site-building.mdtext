@@ -8,7 +8,7 @@ Title: Apache Velocity - Site Building
 
 The Apache Velocity Site is what you get when you visit [our homepage](/). It is the envelope site for all Apache Velocity sub projects.
 
-In short: This svn repository is only interesting for you if you
+In short: This repository is only interesting for you if you
 
 + want to re-create the Apache Velocity site on your local computer or intranet.
 + are an [Apache Velocity committer](/who-we-are.html) and want to update the site.
@@ -22,7 +22,7 @@ The site is not *hosted* by the CMS (it's planned to move it to pelican), so it 
 ### Building the Site
 
 To build the site locally, you'll need a local checkout of the [Apache CMS](https://svn.apache.org/repos/infra/websites/cms), then refer to the [STATUS](https://svn.apache.org/repos/infra/websites/cms/STATUS) file.
-You'll of course also need a local checkout of [the site sources](https://gitbox.apache.org/repos/asf/velocity-site.git).
+You'll of course also need a local clone of [the site sources](https://gitbox.apache.org/repos/asf/velocity-site.git), or even preferably a local clone of [github's mirror](https://github.com/apache/velocity-site.git), where you can submit pull requests.
 
 You'll have to generate the site in some `target` temporary directory, then check added/modified/deleted files in the `asf-site` branch of the `velocity-site` repository.
 

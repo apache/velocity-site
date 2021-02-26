@@ -6,6 +6,8 @@ Here you will find the steps to create releases for Velocity Engine or Velocity 
 
 Instructions make explicit references to the *engine* subproject, but you can easily adapt them for the *tools* subproject.
 
+*Note - since Velocity repositories switched from svn to git, part of the following information has to be updated accordingly.*
+
 ### Prerequisites
 
 To create a release you have to install:
