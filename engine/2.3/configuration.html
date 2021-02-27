@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+  -->
+<html lang="en">
+  <head>
+    <title>Apache Velocity Engine - Configuration</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta property="og:image" content="https://www.apache.org/images/asf_logo.gif" />
+
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+
+    
+
+    
+    
+  </head>
+
+  <body>
+    <div id="page">
+      <div id="header">
+        
+        <div id="logo2"><img src="/engine/devel/images/velocity-logo.png"/></div>
+        
+        <a href="/">
+<svg height="60" width="50%" viewBox="20 20 800 110" preserveAspectRatio="xMinYMin">
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="1395.619" x2="-4570.1162" y1="697.55487" x1="-5167.0962" gradientUnits="userSpaceOnUse" id="SVGID_1_">
+    <stop id="stop3521" style="stop-color:#F69923" offset="0" />
+    <stop id="stop3523" style="stop-color:#F79A23" offset="0.3123" />
+    <stop id="stop3525" style="stop-color:#E97826" offset="0.8383" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="620.50482" x2="-5326.209" y1="620.50482" x1="-9585.3418" gradientUnits="userSpaceOnUse" id="SVGID_2_">
+    <stop id="stop3546" style="stop-color:#9E2064" offset="0.3233" />
+    <stop id="stop3548" style="stop-color:#C92037" offset="0.6302" />
+    <stop id="stop3550" style="stop-color:#CD2335" offset="0.7514" />
+    <stop id="stop3552" style="stop-color:#E97826" offset="1" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="1047.6898" x2="-6533.1782" y1="1047.6898" x1="-9071.207" gradientUnits="userSpaceOnUse" id="SVGID_3_">
+    <stop id="stop3557" style="stop-color:#282662" offset="0" />
+    <stop id="stop3559" style="stop-color:#662E8D" offset="9.548390e-02" />
+    <stop id="stop3561" style="stop-color:#9F2064" 1  offset="0.7882" />
+    <stop id="stop3563" style="stop-color:#CD2032" offset="0.9487" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="580.81702" x2="-5086.9941" y1="580.81702" x1="-9346.126" gradientUnits="userSpaceOnUse" id="SVGID_4_">
+    <stop id="stop3568" style="stop-color:#9E2064" offset="0.3233" />
+    <stop id="stop3570" style="stop-color:#C92037" offset="0.6302" />
+    <stop id="stop3572" style="stop-color:#CD2335" offset="0.7514" />
+    <stop id="stop3574" style="stop-color:#E97826" offset="1" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="638.4408" x2="-6797.2012" y1="638.4408" x1="-9035.5029" gradientUnits="userSpaceOnUse" id="SVGID_5_">
+    <stop id="stop3579" style="stop-color:#282662" offset="0" />
+    <stop id="stop3581" style="stop-color:#662E8D" offset="9.548390e-02" />
+    <stop id="stop3583" style="stop-color:#9F2064" offset="0.7882" />
+    <stop id="stop3585" style="stop-color:#CD2032" offset="0.9487" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="1021.6218" x2="-5086.9941" y1="1021.6218" x1="-9346.126" gradientUnits="userSpaceOnUse" id="SVGID_6_">
+    <stop id="stop3590" style="stop-color:#9E2064" offset="0.3233" />
+    <stop id="stop3592" style="stop-color:#C92037" offset="0.6302" />
+    <stop id="stop3594" style="stop-color:#CD2335" offset="0.7514" />
+    <stop id="stop3596" style="stop-color:#E97826" offset="1" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="999.73297" x2="-5351.2017" y1="999.73297" x1="-9610.334" gradientUnits="userSpaceOnUse" id="SVGID_7_">
+    <stop id="stop3601" style="stop-color:#9E2064" offset="0.3233" />
+    <stop id="stop3603" style="stop-color:#C92037" offset="0.6302" />
+    <stop id="stop3605" style="stop-color:#CD2335" offset="0.7514" />
+    <stop id="stop3607" style="stop-color:#E97826" offset="1" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="1152.7261" x2="-5086.9941" y1="1152.7261" x1="-9346.126" gradientUnits="userSpaceOnUse" id="SVGID_8_">
+    <stop id="stop3616" style="stop-color:#9E2064" offset="0.3233" />
+    <stop id="stop3618" style="stop-color:#C92037" offset="0.6302" />
+    <stop id="stop3620" style="stop-color:#CD2335" offset="0.7514" />
+    <stop id="stop3622" style="stop-color:#E97826" offset="1" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="1137.7247" x2="-5086.9941" y1="1137.7247" x1="-9346.126" gradientUnits="userSpaceOnUse" id="SVGID_9_">
+    <stop id="stop3631" style="stop-color:#9E2064" offset="0.3233" />
+    <stop id="stop3633" style="stop-color:#C92037" offset="0.6302" />
+    <stop id="stop3635" style="stop-color:#CD2335" offset="0.7514" />
+    <stop id="stop3637" style="stop-color:#E97826" offset="1" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="1134.7161" x2="-6011.9995" y1="1134.7161" x1="-6953.4072" gradientUnits="userSpaceOnUse" id="SVGID_10_">
+    <stop id="stop3646" style="stop-color:#9E2064" offset="0.3233" />
+    <stop id="stop3648" style="stop-color:#C92037" offset="0.6302" />
+    <stop id="stop3650" style="stop-color:#CD2335" offset="0.7514" />
+    <stop id="stop3652" style="stop-color:#E97826" offset="1" />
+  </linearGradient>
+  <g transform="translate(275,-230)" id="g3735">
+    <path d="m 95.030525,353.34688 c -5.868388,1.89866 -18.455097,2.86966 -35.232972,2.68962 l -7.844759,-17.69411 c 11.922072,0.96277 23.155947,1.27149 33.446456,0.7785 0.806681,-0.0278 1.205437,-0.0597 1.205437,-0.0597 -0.39975,0.0215 -0.805689,0.0382 -1.205437,0.0597 -3.380984,0.11837 -13.97859,0.22097 -32.909158,-1.88263 6.824373,-6.72909 18.288583,-16.31958 28.008861,-23.85834 18.433387,9.69185 21.017957,20.51606 21.017957,20.51606 0,0 5.61321,15.54576 -6.486385,19.4509 z" id="path3527" style="fill:url(#SVGID_1_)" />
+    <path d="m 3.8322454,303.07135 c 0.059217,-0.0415 0.1120778,-0.0878 0.1712971,-0.12929 l -1.0221478,0.89604 c -0.088131,0.0386 -0.1658908,0.0658 -0.2478563,0.10915 0.3676459,-0.29732 0.7362578,-0.58424 1.098707,-0.8759 z" id="path3529" style="fill:none" />
+    <path d="m -27.876072,290.63399 c -0.650899,0.45658 -1.281214,0.94828 -1.904317,1.45519 0.623103,-0.50691 1.259608,-0.99386 1.904317,-1.45519 z" id="path3531" style="fill:none" />
+    <path d="m -128.18492,294.56272 c 0.27819,0.088 0.55639,0.17608 0.82938,0.26978 5.73136,1.8314 11.32321,3.58465 16.79937,5.26839 6.14427,1.88764 12.119072,3.68379 17.941982,5.39228 6.136306,1.80423 12.096924,3.5122 17.888098,5.1287 6.074555,1.69886 11.961044,3.29193 17.65531,4.79537 4.634037,1.22062 9.141965,2.38304 13.528979,3.48159 1.458542,0.36649 2.910894,0.72823 4.350865,1.08046 2.85092,0.70149 5.659501,1.38013 8.402938,2.03773 2.537553,0.60576 5.026574,1.18393 7.479394,1.74394 0.816212,0.19205 1.625242,0.36892 2.435266,0.55621 0.129295,0.0317 0.263817,0.0577 0.393113,0.0893 l -0.868431,0.76291 0.823816,1.77257 c -0.199639,-0.047 -0.398312,-0.0837 -0.603148,-0.12504 -3.709945,-0.80082 -7.434286,-1.63202 -11.17299,-2.49357 -2.160061,-0.49944 -4.326285,-1.00361 -6.493528,-1.51823 -6.008289,-1.42577 -12.02773,-2.90842 -18.046963,-4.44886 -6.083384,-1.55106 -12.155172,-3.16085 -18.201961,-4.8094 -5.94027,-1.61506 -11.850346,-3.27456 -17.722022,-4.95287 -5.860317,-1.67925 -11.671838,-3.38866 -17.421218,-5.10831 -6.00377,-1.79907 -11.9226,-3.61019 -17.74509,-5.43429 -1.31344,-0.40964 -2.62686,-0.81925 -3.9351,-1.23456 -4.69313,-1.47853 -9.30551,-2.95301 -13.84851,-4.42253 l -1.30665,-2.80027 0.97437,-0.85544 c 0.1365,0.0469 0.27298,0.0937 0.4033,0.1358 5.95137,1.97137 11.76945,3.86936 17.45943,5.68831 z" id="path3533" style="fill:none" />
+    <path d="m -30.254972,292.46861 0,0 c 0.0052,-0.006 0.01127,-0.001 0.01647,-0.007 0,0 -0.0052,0.006 -0.01647,0.007 z" id="path3535" style="fill:none" />
+    <path d="m -44.667842,285.26517 c -0.973928,0.73986 -1.967656,1.51281 -2.988395,2.30367 -0.0052,0.006 -0.01647,0.007 -0.02166,0.0123 0.500572,-0.40778 0.995948,-0.80989 1.498505,-1.19683 0.50256,-0.38694 1.00094,-0.75776 1.511673,-1.1191 z" id="path3537" style="fill:#be202e" />
+    <path d="m -44.667842,285.26517 c -0.973928,0.73986 -1.967656,1.51281 -2.988395,2.30367 -0.0052,0.006 -0.01647,0.007 -0.02166,0.0123 0.500572,-0.40778 0.995948,-0.80989 1.498505,-1.19683 0.50256,-0.38694 1.00094,-0.75776 1.511673,-1.1191 z" id="path3539" style="opacity:0.35;fill:#be202e" />
+    <path d="m -30.2218,292.45544 c 0,0 -0.0052,0.006 -0.01127,10e-4 -0.0052,0.006 -0.01127,9.9e-4 -0.01647,0.007 0.153662,-0.13318 0.314646,-0.25108 0.463195,-0.37852 0.628302,-0.51257 1.264807,-0.99953 1.904289,-1.45521 -0.763241,0.60216 -1.549259,1.20616 -2.339509,1.82623 l 0,0 0,0 z" id="path3541" style="fill:#be202e" />
+    <path d="m -30.2218,292.45544 c 0,0 -0.0052,0.006 -0.01127,10e-4 -0.0052,0.006 -0.01127,9.9e-4 -0.01647,0.007 0.153662,-0.13318 0.314646,-0.25108 0.463195,-0.37852 0.628302,-0.51257 1.264807,-0.99953 1.904289,-1.45521 -0.763241,0.60216 -1.549259,1.20616 -2.339509,1.82623 l 0,0 0,0 z" id="path3543" style="opacity:0.35;fill:#be202e" />
+    <path d="m -3.0502818,330.5069 c 6.1572269,1.1827 12.247534,2.26571 18.2471238,3.24041 6.227231,1.01426 12.356561,1.90504 18.357978,2.65895 0.348762,0.0456 0.708911,0.0903 1.063863,0.1407 5.913525,0.73472 11.699134,1.33257 17.339307,1.78976 l 7.844762,17.69411 c -1.160612,-0.0121 -2.333632,-0.0338 -3.529455,-0.0536 -4.497401,-0.0917 -9.271992,-0.26093 -14.266831,-0.51239 -5.629411,-0.28469 -11.556567,-0.6821 -17.699796,-1.1778 -5.67533,-0.46487 -11.549098,-1.02415 -17.5529729,-1.68334 -5.1106845,-0.5626 -10.3308648,-1.18997 -15.622198,-1.90096 -0.197654,-0.0262 -0.3953057,-0.0524 -0.5929873,-0.0786 L -20.52484,326.94198 c 5.866009,1.25856 11.69707,2.45163 17.4745582,3.56492 z" id="path3554" style="fill:url(#SVGID_2_)" />
+    <path d="m -148.64432,287.87492 c -4.62455,-1.5418 -9.31626,-3.12551 -14.09367,-4.76537 -0.0714,-0.0258 -0.13651,-0.0469 -0.20787,-0.0727 -0.67629,-0.2295 -1.34737,-0.46467 -2.02369,-0.69419 -3.21697,-1.10818 -6.09263,-2.12815 -12.63913,-4.44059 1.0996,-3.6285 -0.41103,-8.38228 -2.49019,-13.37944 3.85283,3.31605 6.24773,7.77315 6.52364,12.94094 11.22895,-13.43253 25.02773,-21.83891 40.65304,-19.66506 1.39603,0.1929 2.79384,0.46445 4.21819,0.83367 -6.03156,-0.16844 -10.5525,1.89547 -15.78323,8.30262 -0.0165,0.007 -0.0384,0.0188 -0.0549,0.0255 0.0165,-0.007 0.0384,-0.0188 0.0549,-0.0255 12.65883,-5.62036 21.02643,-6.89439 31.69203,-5.50534 2.52825,0.32813 5.18536,0.80351 8.06151,1.40845 -16.05366,1.09099 -26.93227,8.28126 -33.83488,19.35554 l -7.46769,6.54422 c -0.87076,-0.28223 -1.73631,-0.57012 -2.60806,-0.86277 z" id="path3565" style="fill:url(#SVGID_3_)" />
+    <path d="m -127.92557,298.05617 c 5.82769,1.81842 11.74652,3.62955 17.74512,5.43431 5.74415,1.7253 11.554681,3.42428 17.421188,5.10828 5.866507,1.68401 11.775562,3.33306 17.722022,4.95287 6.046789,1.64856 12.123776,3.25267 18.201961,4.8094 6.013043,1.53569 12.038702,3.02311 18.046963,4.44886 2.167243,0.51462 4.333467,1.0188 6.493528,1.51824 3.738705,0.86155 7.463045,1.69274 11.172991,2.49357 0.199636,0.047 0.398312,0.0837 0.603147,0.12503 l 11.0633797,23.68219 c -0.3953333,-0.0524 -0.7854697,-0.11047 -1.1807777,-0.16285 -5.606921,-0.76978 -11.295338,-1.6118 -17.027898,-2.55534 -5.790549,-0.94943 -11.619023,-1.99561 -17.461681,-3.12996 -4.930086,-0.95526 -9.854792,-1.97402 -14.768868,-3.06189 -0.99728,-0.22482 -1.97698,-0.44581 -2.962873,-0.67154 -6.150175,-1.40914 -11.974938,-2.89686 -17.487932,-4.42532 -6.244233,-1.73255 -12.086525,-3.52355 -17.517683,-5.33696 -3.574927,-1.18983 -6.978977,-2.39336 -10.215327,-3.58405 -2.73994,-1.04133 -5.46008,-2.11577 -8.13662,-3.21469 -6.31977,-2.58273 -12.45563,-5.34303 -18.38577,-8.29314 l -11.10848,-23.79411 c 4.54303,1.46954 9.15538,2.94401 13.84853,4.42255 1.30203,0.41054 2.62167,0.82493 3.93508,1.23455 z" id="path3576" style="fill:url(#SVGID_4_)" />
+    <path d="m -135.39748,315.78421 c -7.2115,-3.62494 -14.10198,-7.55402 -20.5914,-11.85137 -0.2272,-0.15514 -0.45863,-0.29422 -0.68582,-0.44936 2.3312,6.55285 0.24599,17.70369 0.21823,17.65338 -3.57467,-11.87432 -8.27251,-22.40852 -15.98628,-29.36565 -3.27442,2.37386 -5.94744,7.01608 -8.28358,12.96033 -0.41103,-8.38228 1.53485,-12.94527 2.45003,-14.5997 -4.28418,4.11989 -11.70198,6.14259 -19.64656,7.81875 9.09151,-4.3892 15.21177,-8.8767 17.7976,-13.46995 -24.55723,-8.42409 -51.09999,-18.3439 -78.93127,-29.25317 2.33282,-1.41596 4.74343,-1.47765 7.19121,-0.67033 5.0236,1.99314 38.05928,14.98608 83.16344,30.23283 1.28124,0.43321 2.57389,0.86552 3.8727,1.30257 0.36193,0.12335 0.72908,0.24106 1.08481,0.35966 4.73826,1.59047 9.59244,3.19267 14.55737,4.81229 1.13136,0.36642 2.26272,0.73284 3.40026,1.10401 0.0237,0.009 0.0476,0.0172 0.0652,0.021 l 11.11272,23.77804 c -0.25321,-0.12682 -0.52301,-0.24705 -0.7886,-0.38338 z" id="path3587" style="fill:url(#SVGID_5_)" />
+    <path d="m -20.879529,324.31241 c -0.803833,-0.18253 -1.613855,-0.36983 -2.435266,-0.5562 -2.447621,-0.56569 -4.936644,-1.14385 -7.479421,-1.74397 -2.748608,-0.6519 -5.5458,-1.33146 -8.402911,-2.03771 -1.439971,-0.35222 -2.880933,-0.71488 -4.350864,-1.08045 -4.387015,-1.09855 -8.894942,-2.26097 -13.528979,-3.48159 -5.694267,-1.50344 -11.580756,-3.09652 -17.65531,-4.79538 -5.791175,-1.61649 -11.75182,-3.32448 -17.888098,-5.1287 -5.82291,-1.70849 -11.803902,-3.50939 -17.941982,-5.39227 -5.47616,-1.68374 -11.06801,-3.43699 -16.79937,-5.26839 -0.27821,-0.088 -0.55639,-0.17608 -0.82938,-0.26978 -5.68998,-1.81895 -11.50806,-3.71694 -17.44804,-5.68923 -0.13651,-0.0469 -0.27299,-0.0937 -0.40331,-0.1358 l 7.4677,-6.54423 c -0.099,0.16552 -0.21555,0.32718 -0.31452,0.4927 9.07173,-7.71799 26.60886,-13.7657 42.082402,-14.50031 7.130974,-0.33982 14.689435,0.18964 22.840099,1.56994 6.067741,1.02703 12.461933,2.52695 19.257152,4.49905 5.938834,1.72022 12.180797,3.78914 18.773426,6.22395 -2.953943,1.10323 -5.869407,2.7287 -8.744022,4.78162 -0.499373,0.3604 -1.009112,0.73216 -1.511672,1.1191 -0.502585,0.38691 -1.004151,0.78427 -1.498505,1.19683 l 0,0 0,0 c 0.0052,-0.006 0.01647,-0.007 0.02166,-0.0123 10.741665,-5.44059 21.911677,-5.49972 33.275347,-3.05294 -3.512293,0.90633 -8.725108,2.75774 -13.490013,6.1124 -0.650869,0.45659 -1.281184,0.9483 -1.904287,1.4552 -0.160021,0.1283 -0.314677,0.25106 -0.463195,0.37852 l 0,0 0,0 c 0.0052,-0.006 0.01127,-9.9e-4 0.01647,-0.007 0,0 0.0052,-0.006 0.01127,-9.9e-4 l 0,0 c 3.833524,-1.80927 7.415482,-3.06785 10.971709,-3.81484 0.75953,-0.16062 1.521076,-0.30038 2.285595,-0.40887 1.160272,-0.17169 2.320337,-0.28559 3.490588,-0.35301 0.747698,-0.0441 1.497407,-0.0674 2.255322,-0.065 1.7736055,-1.9e-4 3.5809872,0.11249 5.4459147,0.34666 0.5691898,0.07 1.1394009,0.1504 1.7219926,0.24033 0.8080111,0.16642 1.5932437,0.33468 2.3670894,0.50385 3.4947139,0.7708 6.5151055,1.56378 9.1028098,2.33365 1.2938545,0.38493 2.4717831,0.75813 3.5461715,1.12911 0.427069,0.1444 0.842778,0.28973 1.24088,0.4312 1.189109,0.43009 2.22612,0.83033 3.11722,1.20547 1.333581,0.56035 2.345383,1.05716 3.054216,1.4469 l 0,0 0,0 c -0.484902,0.0914 -1.006187,0.22239 -1.55767,0.39787 -3.810562,1.20862 -9.0630554,4.26613 -12.8155016,7.10372 l 6.8589836,-6.00695 -6.8589836,6.00695 c -0.059219,0.0415 -0.1120802,0.0878 -0.1712972,0.1293 -0.3686395,0.2869 -0.73626,0.58424 -1.1100962,0.87681 0.088156,-0.0386 0.1659184,-0.0658 0.2478563,-0.10915 l -23.4688293,20.55321 c -0.123105,-0.0269 -0.246211,-0.0538 -0.380705,-0.0798 z" id="path3598" style="fill:url(#SVGID_6_)" />
+    <path d="m 52.489098,337.22784 c -5.221409,-0.58001 -11.072737,-1.32494 -17.582802,-2.29555 -0.337345,-0.0465 -0.687098,-0.10255 -1.030661,-0.15384 -5.631475,-0.8466 -11.74798,-1.84346 -18.359704,-3.03705 -5.7115598,-1.02402 -11.780866,-2.1875 -18.2388704,-3.51423 -5.6261705,-1.15166 -11.5511356,-2.4265 -17.7644676,-3.83584 L 2.9813947,303.8381 c 9.3594193,-4.04821 15.0606363,-4.69376 22.0219053,-4.22681 1.892116,0.15844 3.845172,0.35401 5.836389,0.58854 6.095793,0.72012 12.552647,1.79478 18.766426,3.08853 5.997499,1.25326 11.744739,2.71043 16.714058,4.25614 3.159483,0.98674 6.000949,2.00943 8.377522,3.03258 2.095388,0.90383 4.020884,1.83177 5.804442,2.7763 -9.724453,7.55488 -21.194854,17.14061 -28.013039,23.87446 z" id="path3609" style="fill:url(#SVGID_7_)" />
+    <path d="m -46.179514,286.38427 c -0.502558,0.38693 -1.004124,0.78429 -1.498506,1.19682 l 0,0 c 0.494382,-0.41253 0.995948,-0.80989 1.498506,-1.19682 z" id="path3611" style="fill:#be202e" />
+    <path d="m -46.179514,286.38427 c -0.502558,0.38693 -1.004124,0.78429 -1.498506,1.19682 l 0,0 c 0.494382,-0.41253 0.995948,-0.80989 1.498506,-1.19682 z" id="path3613" style="opacity:0.35;fill:#be202e" />
+    <path d="m -46.179514,286.38427 c -0.502558,0.38693 -1.004124,0.78429 -1.498506,1.19682 l 0,0 c 0.494382,-0.41253 0.995948,-0.80989 1.498506,-1.19682 z" id="path3624" style="fill:url(#SVGID_8_)" />
+    <path d="m -30.254972,292.46861 c 0.153663,-0.13318 0.314647,-0.25107 0.463193,-0.37852 -0.148463,0.12751 -0.303257,0.25016 -0.463193,0.37852 l 0,0 z" id="path3626" style="fill:#be202e" />
+    <path d="m -30.254972,292.46861 c 0.153663,-0.13318 0.314647,-0.25107 0.463193,-0.37852 -0.148463,0.12751 -0.303257,0.25016 -0.463193,0.37852 l 0,0 z" id="path3628" style="opacity:0.35;fill:#be202e" />
+    <path d="m -30.254972,292.46861 c 0.153663,-0.13318 0.314647,-0.25107 0.463193,-0.37852 -0.148463,0.12751 -0.303257,0.25016 -0.463193,0.37852 l 0,0 z" id="path3639" style="fill:url(#SVGID_9_)" />
+    <path d="m -30.233189,292.45636 c 0,0 0.0052,-0.006 0.01127,-0.001 l 0,0 0,0 0,0 c 0,0 -0.0052,0.006 -0.01127,0.001 z" id="path3641" style="fill:#be202e" />
+    <path d="m -30.233189,292.45636 c 0,0 0.0052,-0.006 0.01127,-0.001 l 0,0 0,0 0,0 c 0,0 -0.0052,0.006 -0.01127,0.001 z" id="path3643" style="opacity:0.35;fill:#be202e" />
+    <path d="m -30.233189,292.45636 c 0,0 0.0052,-0.006 0.01127,-0.001 l 0,0 0,0 0,0 c 0,0 -0.0052,0.006 -0.01127,0.001 z" id="path3654" style="fill:url(#SVGID_10_)" />
+  </g>
+  <text id="text3761" y="61.094482" x="290" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:Oswald;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" xml:space="preserve">
+    <tspan y="61.094482" x="290" id="tspan3763">The</tspan>
+  </text>
+  <text id="text3416" y="72.094482" x="356" style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:57.5px;line-height:125%;font-family:Oswald;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" xml:space="preserve">
+    <tspan y="72.094482" x="356" id="tspan3418">Apache Velocity Project</tspan>
+  </text>
+  <path id="path3557" d="m 897.15,23.54449 0,1.58889 3.72099,0 0,10.51111 1.72469,0 0,-10.51111 3.74815,0 0,-1.58889 -9.19383,0 z m 21.49753,0 -4.15555,8.44691 -4.18272,-8.44691 -2.07778,0 0,12.1 1.58889,0 0,-9.60123 4.11482,8.32469 1.1,0 4.11481,-8.32469 0,9.60123 1.58889,0 0,-12.1 -2.09136,0 z" style="fill:#6d6e71" />
+  <text id="text3599" y="114.09448" x="400" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;line-height:125%;font-family:Arial;text-align:start;letter-spacing:0.03em;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" xml:space="preserve">
+    <tspan y="114.09448" x="400" id="tspan3601">http://velocity.apache.org/</tspan>
+  </text>
+</svg>
+</a>
+
+      </div>
+      <div id="breadcrumb">
+        <ul><li><a href="http://www.apache.org">apache</a></li><li><a href="/">velocity</a></li><li><a href="/engine/">engine</a></li><li><a href="/engine/2.3/">2.3</a></li><li><a href="#">configuration</a></li></ul>
+      </div>
+      <div id="middle">
+        <div id="leftnav">
+          
+          <style type="text/css">
+/* The following code is added by mdx_elementid.py
+   It was originally lifted from http://subversion.apache.org/style/site.css */
+/*
+ * Hide class="elementid-permalink", except when an enclosing heading
+ * has the :hover property.
+ */
+.headerlink, .elementid-permalink {
+  visibility: hidden;
+}
+h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover > .headerlink, h4:hover > .headerlink, h5:hover > .headerlink, dt:hover > .elementid-permalink { visibility: visible }</style>
+<h2 id="velocity-engine">Velocity Engine<a class="headerlink" href="#velocity-engine" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="index.html">Welcome</a></li>
+<li><a href="overview.html">Overview</a></li>
+<li><a href="getting-started.html">Getting Started</a></li>
+<li><a href="webapps.html">Web Applications</a></li>
+<li><a href="/download.cgi#engine">Downloads</a></li>
+<li><a href="http://wiki.apache.org/velocity/VelocityFAQ">FAQ</a></li>
+</ul>
+<h2 id="docs">Docs<a class="headerlink" href="#docs" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="user-guide.html">User Guide</a></li>
+<li><a href="developer-guide.html">Developer Guide</a></li>
+<li><a href="vtl-reference.html">VTL Reference</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+<li><a href="apidocs/index.html">Javadoc</a></li>
+<li><a href="upgrading.html">Upgrading</a></li>
+</ul>
+<h2 id="developers">Developers<a class="headerlink" href="#developers" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="license.html">License</a></li>
+<li><a href="changes.html">Changes</a></li>
+<li><a href="dependencies.html">Dependencies</a></li>
+<li><a href="source-repository.html">Sources</a></li>
+<li><a href="build.html">Building</a></li>
+<li><a href="https://issues.apache.org/jira/browse/VELOCITY">Issues</a></li>
+<li><a href="http://wiki.apache.org/velocity/RoadMap">Road Map</a></li>
+<li><a href="http://wiki.apache.org/velocity/CodeStandards">Coding Standards</a></li>
+<li><a href="http://wiki.apache.org/velocity/DocumentationGuidelines">Doc Guidelines</a></li>
+</ul>
+<h2 id="community">Community<a class="headerlink" href="#community" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="http://wiki.apache.org/velocity/">Wiki</a></li>
+<li><a href="/news.html">News</a></li>
+<li><a href="http://wiki.apache.org/velocity/PoweredByVelocity">Powered by Velocity</a></li>
+<li><a href="http://wiki.apache.org/velocity/VelocityEditors">IDE/Editor Plugins</a></li>
+<li><a href="http://wiki.apache.org/velocity/PublishedArticlesAndBooks">Articles and Books</a></li>
+<li><a href="/contact.html">Mailing Lists</a></li>
+</ul>
+<h2 id="translations-outdated">Translations (outdated)<a class="headerlink" href="#translations-outdated" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="http://www.jajakarta.org/velocity/">Site (Japanese)</a></li>
+<li><a href="translations/user-guide_fi.html">User's Guide (Finnish)</a></li>
+<li><a href="translations/user-guide_fr.html">User's Guide (French)</a></li>
+<li><a href="translations/user-guide_es.html">User's Guide (Spanish)</a></li>
+</ul>
+          
+          <div id="bottom-nav">
+            <img src="/images/pbv90x30.png"/>
+            <div id="rss">
+              <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
+            </div>
+            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+          </div>
+        </div>
+        <div id="content"><div class="section-content"><style type="text/css">
+/* The following code is added by mdx_elementid.py
+   It was originally lifted from http://subversion.apache.org/style/site.css */
+/*
+ * Hide class="elementid-permalink", except when an enclosing heading
+ * has the :hover property.
+ */
+.headerlink, .elementid-permalink {
+  visibility: hidden;
+}
+h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover > .headerlink, h4:hover > .headerlink, h5:hover > .headerlink, dt:hover > .elementid-permalink { visibility: visible }</style>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<div class="toc">
+<ul>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#configuring-velocity">Configuring Velocity</a></li>
+<li><a href="#configuration-summary-tree">Configuration Summary Tree</a></li>
+<li><a href="#logging">Logging</a></li>
+<li><a href="#vtl-directives">VTL Directives</a><ul>
+<li><a href="#define-directive">#define() Directive</a></li>
+<li><a href="#foreach-directive">#foreach() Directive</a></li>
+<li><a href="#if-directive">#if() Directive</a></li>
+<li><a href="#include-and-parse-directives">#include() and #parse() Directives</a></li>
+<li><a href="#custom-directives">custom directives</a></li>
+</ul>
+</li>
+<li><a href="#resource-management">Resource Management</a></li>
+<li><a href="#velocimacros">Velocimacros</a></li>
+<li><a href="#strict-reference-setting">Strict Reference Setting</a></li>
+<li><a href="#string-interpolation">String Interpolation</a></li>
+<li><a href="#math">Math</a></li>
+<li><a href="#parser-configuration">Parser Configuration</a></li>
+<li><a href="#event-handlers">Event Handlers</a></li>
+<li><a href="#introspection">Introspection</a></li>
+<li><a href="#context">Context</a></li>
+<li><a href="#string-interning">String Interning</a></li>
+<li><a href="#space-gobbling">Space Gobbling</a></li>
+<li><a href="#configuration-examples">Configuration Examples</a><ul>
+<li><a href="#resource-loading">Resource loading</a></li>
+<li><a href="#backward-compatibility">Backward compatibility</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<h2 id="configuring-velocity">Configuring Velocity<a class="headerlink" href="#configuring-velocity" title="Permanent link">&para;</a></h2>
+<p>Velocity's runtime configuration is controlled by a set of configuration keys listed below. Generally, these keys will have values that consist of either a String, or a comma-separated list of Strings, referred to as a CSV for comma-separated values.</p>
+<p>There is a set of default values contained in Velocity's jar, found in org/apache/velocity/runtime/defaults/velocity.properties, that Velocity uses as its configuration baseline. This ensures that Velocity will always have a 'correct' value for its configuration keys at startup, although it may not be what you want.</p>
+<p>Any values specified before init() time will replace the default values. Therefore, you only have to configure velocity with the values for the keys that you need to change, and not worry about the rest.  Further, as we add more features and configuration capability, you don't have to change your configuration files to suit - the Velocity engine will always have default values.</p>
+<p>Please see the section <a href="developer-guide.html#using-velocity"><strong>Using Velocity</strong></a> for discussion on the configuration API.</p>
+<p>The properties key names have been reviewed in Engine 2.1. Old names are still functional but will emit a deprecation warning in the log. See the <a href="configuration-property-changes-in-2.1.html"><strong>table of correspondance</strong></a>.</p>
+<h2 id="configuration-summary-tree">Configuration Summary Tree<a class="headerlink" href="#configuration-summary-tree" title="Permanent link">&para;</a></h2>
+<p>The following tree gathers all non deprecated configuration properties with their default values.</p>
+<div class="codehilite"><pre><span class="na">context. +-- scope_control. +-- define</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">         |                  +-- evaluate</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">         |                  +-- foreach</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">         |                  +-- macro</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">         |                  +-- template</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">         |                  +-- *somebodymacro*</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">         +-- self_reference_key</span> <span class="o">=</span> <span class="s">*key_name*</span>
+
+<span class="na">directive. +-- define.max_depth</span> <span class="o">=</span> <span class="s">2</span>
+<span class="na">           +-- foreach. +-- max_loops</span> <span class="o">=</span> <span class="s">-1</span>
+<span class="na">           |            +-- skip_invalid</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">           +-- if.empty_check</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">           +-- parse.max_depth</span> <span class="o">=</span> <span class="s">10</span>
+
+<span class="na">event_handler. +-- include.class</span> <span class="o">=</span> <span class="s">*classname*, *classname* ...</span>
+<span class="na">               +-- invalid_reference. +-- class</span> <span class="o">=</span> <span class="s">*classname*, *classname* ...</span>
+<span class="na">                                      +-- exception</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">                                      +-- null</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">                                      +-- quiet</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">                                      +-- tested</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">               +-- method_exception.class</span> <span class="o">=</span> <span class="s">*classname*, *classname* ...</span>
+<span class="na">               +-- reference_insertion.class</span> <span class="o">=</span> <span class="s">*classname*, *classname* ...</span>
+
+<span class="na">introspector. +-- conversion_handler. +-- class</span> <span class="o">=</span> <span class="s">org.apache.velocity.util.introspection.TypeConversionHandlerImpl</span>
+<span class="na">              |                       +-- instance</span> <span class="o">=</span> <span class="s">*Java Object instance*</span>
+<span class="na">              +-- uberspect.class</span> <span class="o">=</span> <span class="s">org.apache.velocity.util.introspection.UberspectImpl</span>
+
+<span class="na">parser. +-- allow_hyphen_in_identifiers</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">        +-- pool. +-- class</span> <span class="o">=</span> <span class="s">org.apache.velocity.runtime.ParserPoolImpl</span>
+<span class="na">        |         +-- size</span> <span class="o">=</span> <span class="s">20</span>
+<span class="na">        +-- space_gobbling</span> <span class="o">=</span> <span class="s">lines</span>
+
+<span class="na">resource. +-- default_encoding</span> <span class="o">=</span> <span class="s">UTF-8</span>
+<span class="na">          +-- loaders</span> <span class="o">=</span> <span class="s">file, ...</span>
+<span class="na">          +-- loader.*loader_name*. +-- class</span> <span class="o">=</span> <span class="s">*classname*</span>
+<span class="na">          |                         +-- instance</span> <span class="o">=</span> <span class="s">*Java Object instance*</span>
+<span class="na">          |                         +-- cache</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">          |                         +-- modification_check_interval</span> <span class="o">=</span> <span class="s">2</span>
+<span class="na">          |                         +-- *loader_prop*</span> <span class="o">=</span> <span class="s">...</span>
+<span class="na">          +-- manager. +-- cache. +-- class</span> <span class="o">=</span> <span class="s">org.apache.velocity.runtime.resource.ResourceCacheImpl</span>
+<span class="na">                       |          +-- default_size</span> <span class="o">=</span> <span class="s">89</span>
+<span class="na">                       +-- class</span> <span class="o">=</span> <span class="s">org.apache.velocity.runtime.resource.ResourceManagerImpl</span>
+<span class="na">                       +-- instance</span> <span class="o">=</span> <span class="s">null</span>
+<span class="na">                       +-- log_when_found</span> <span class="o">=</span> <span class="s">true</span>
+
+<span class="na">runtime. +-- custom_directives</span> <span class="o">=</span> <span class="s">*classname*, *classname* ...</span>
+<span class="na">         +-- interpolate_string_literals</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">         +-- log. +-- instance</span> <span class="o">=</span> <span class="s">*Java Object instance*</span>
+<span class="na">         |        +-- log_invalid_method_calls</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">         |        +-- log_invalid_references</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">         |        +-- name</span> <span class="o">=</span> <span class="s">org.apache.velocity</span>
+<span class="na">         |        +-- track_location</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">         +-- strict_math</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">         +-- strict_mode. +-- enable</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">         |                +-- escape</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">         +--string_interning</span> <span class="o">=</span> <span class="s">true</span>
+
+<span class="na">velocimacro. +-- arguments.strict</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">             +-- body_reference</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">             +-- enable_bc_mode</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">             +-- inline. +-- allow</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">             |           +-- local_scope</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">             |           +-- replace_global</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">             +-- library. +-- autoreload</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">                          +-- path</span> <span class="o">=</span> <span class="s">velocimacros.vtl</span>
+</pre></div>
+
+
+<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
+<p><strong><code>runtime.log.instance</code></strong> = <em>Java Object instance</em></p>
+<blockquote>
+<p>Living Java instance, that must implement the interface org.slf4j.Logger. This property can only be set programmatically. By default, Velocity uses the SLF4J static discovery mechanism, see the <a href="developer-guide.html#logging">Logging</a> section in the dev guide.</p>
+</blockquote>
+<p><strong><code>runtime.log.name = org.apache.velocity</code></strong></p>
+<blockquote>
+<p>If no living Logger instance has been given using the previous property, Velocity will get a Logger object using the provided name.</p>
+</blockquote>
+<p><strong><code>runtime.log.log_invalid_references = true</code></strong></p>
+<blockquote>
+<p>Property to turn off the log output when a reference isn't valid. Good thing to turn off in production, but very valuable for debugging.</p>
+</blockquote>
+<p><strong><code>runtime.log.log_invalid_method_calls = true</code></strong></p>
+<blockquote>
+<p>Property to turn off the log output when a method call isn't valid or has thrown. Good thing to turn off in production, but very valuable for debugging.</p>
+</blockquote>
+<p><strong><code>runtime.log.track_location = false</code></strong></p>
+<blockquote>
+<p>(Since 2.2) When this debugging flag is set to true, Velocity will:</p>
+</blockquote>
+<ol>
+<li>populate <a href="https://logback.qos.ch/manual/mdc.html">slf4j MDC</a> with the <code>file</code>, <code>line</code> and <code>context</code> tags during the template rendering process. When using an MDC-aware slf4j backend, you can display template locations in logs.</li>
+<li>print the VTL rendering stack trace in the logs when errors are encountered during rendering.</li>
+</ol>
+<p>As a side effect, any Java object with an access to a RuntimeServices object will be able to get the current VTL stack trace using:</p>
+<div class="codehilite"><pre><span class="cm">/* rsvc contains an instance of org.apache.velocity.runtime.RuntimeServices */</span>
+<span class="n">String</span><span class="o">[]</span> <span class="n">vtlStackTrace</span> <span class="o">=</span> <span class="n">rsvc</span><span class="o">.</span><span class="na">getLogContext</span><span class="o">().</span><span class="na">getStackTrace</span><span class="o">();</span>
+</pre></div>
+
+
+<p>Be aware that it can have a (probably very) small performance impact.</p>
+<h2 id="vtl-directives">VTL Directives<a class="headerlink" href="#vtl-directives" title="Permanent link">&para;</a></h2>
+<h3 id="define-directive">#define() Directive<a class="headerlink" href="#define-directive" title="Permanent link">&para;</a></h3>
+<p><strong><code>directive.define.max_depth = 2</code></strong></p>
+<blockquote>
+<p>Defines the allowable parse depth for the #define directive.</p>
+</blockquote>
+<h3 id="foreach-directive">#foreach() Directive<a class="headerlink" href="#foreach-directive" title="Permanent link">&para;</a></h3>
+<p><strong><code>directive.foreach.max_loops = -1</code></strong></p>
+<blockquote>
+<p>Maximum allowed number of loops for a #foreach() statement.</p>
+</blockquote>
+<p><strong><code>directive.foreach.skip_invalid = true</code></strong></p>
+<blockquote>
+<p>Tells #foreach to simply skip rendering when the object it is iterating over is not or cannot produce a valid Iterator.</p>
+</blockquote>
+<h3 id="if-directive">#if() Directive<a class="headerlink" href="#if-directive" title="Permanent link">&para;</a></h3>
+<p><strong><code>directive.if.empty_check = true</code></strong></p>
+<blockquote>
+<p>When evaluating if a reference resolves to <code>true</code> or <code>false</code> in a boolean context, the engine first checks if its value is <code>null</code>, if it is a <code>Boolean</code> or if it has a public <code>getAsBoolean()</code> method. Then, if none of this applies, the behavior depends upon this configuration flag:</p>
+<ul>
+<li>if <code>directive.if.empty_check</code> is <code>false</code>, no further check is performed and the object resolves to <code>true</code>.</li>
+<li>if <code>directive.if.empty_check</code> is <code>true</code>, the object is check for emptiness and zero value:<ul>
+<li>return whether an array is empty.</li>
+<li>return whether a public <code>isEmpty()</code> method exists and evaluates to false (<code>String</code>, <code>Collection</code>, etc).</li>
+<li>return whether a public <code>length()</code> method exists and evaluates to zero (<code>CharSequence</code>, etc).</li>
+<li>return whether a public <code>size()</code> method exists and evaluates to zero.</li>
+<li>return whether a <code>Number</code> <em>strictly</em> equals zero.</li>
+<li>return whether a public <code>getAsString()</code> method exists and evaluates to null or an empty string.</li>
+<li>return whether a public <code>getAsNumber()</code> method exists and evaluates to null or <em>strictly</em> zero.</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="include-and-parse-directives">#include() and #parse() Directives<a class="headerlink" href="#include-and-parse-directives" title="Permanent link">&para;</a></h3>
+<p><strong><code>directive.include.output_error_start =  &lt;!-- include error :</code></strong>
+<strong><code>directive.include.output_error_end =   see error log --&gt;</code></strong></p>
+<blockquote>
+<p><em>Deprecated. If/how errors are displayed is not the concern of the engine, which should throw in all cases.</em>
+Defines the beginning and ending tags for an in-stream error message in the case of a problem with the #include() directive. If both the .start and .end tags are defined, an error message will be output to the stream, of the form '.start msg .end' where .start and .end refer to the property values. Output to the render stream will only occur if both the .start and .end (next) tag are defined.</p>
+</blockquote>
+<p><strong><code>directive.parse.max_depth = 10</code></strong></p>
+<blockquote>
+<p>Defines the allowable parse depth for a template. A template may #parse() another template which itself may have a #parse() directive.  This value prevents runaway #parse() recursion.</p>
+</blockquote>
+<h3 id="custom-directives">custom directives<a class="headerlink" href="#custom-directives" title="Permanent link">&para;</a></h3>
+<p><strong><code>runtime.custom_directives =</code></strong> <em>empty</em></p>
+<blockquote>
+<p>coma separated list of custom directives class names, which must inherit from <code>org.apache.velocity.runtime.directive.Directive</code>.</p>
+</blockquote>
+<h2 id="resource-management">Resource Management<a class="headerlink" href="#resource-management" title="Permanent link">&para;</a></h2>
+<p><strong><code>resource.default_encoding = UTF-8</code></strong></p>
+<blockquote>
+<p>Default character encoding for input (templates). UTF-8 if not specified.</p>
+</blockquote>
+<p><strong><code>resource.manager.instance = null</code></strong></p>
+<blockquote>
+<p>Living Java instance, that must implement the <code>org.apache.velocity.runtime.resource.ResourceManager</code> interface. This property can only be set programmatically, and takes precedence over the next property. It is otherwise used by Velocity to store its actual resource manager once instanciated.</p>
+</blockquote>
+<p><strong><code>resource.manager.class = org.apache.velocity.runtime.resource.ResourceManagerImpl</code></strong></p>
+<blockquote>
+<p>Replace the Velocity default Resource Manager class. A resource manager implementation must implement the <a href="apidocs/org/apache/velocity/runtime/resource/ResourceManager.html"><code>org.apache.velocity.runtime.resource.ResourceManager</code></a> interface. A description of the requirements of a resource manager is out of scope for this document. Implementors are encouraged to review the default implementation.</p>
+</blockquote>
+<p>The following resource management configuration keys only apply to the default Resource Manager.</p>
+<p><strong><code>resource.manager.log_when_found = true</code></strong></p>
+<blockquote>
+<p>Switch to control logging of 'found' messages from resource manager. When a resource is found for the first time, the resource name and classname of the loader that found it will be noted in the runtime log.</p>
+</blockquote>
+<p><strong><code>resource.manager.cache.class = org.apache.velocity.runtime.resource.ResourceCacheImpl</code></strong></p>
+<blockquote>
+<p>Replace the Velocity default Resource Cache class. A resource cache implementation must implement the <a href="apidocs/org/apache/velocity/runtime/resource/ResourceCache.html"><code>org.apache.velocity.runtime.resource.ResourceCache</code></a> interface As with the resource manager. A description of the requirements of a resource manager is out of scope for this document.  Implementors are encouraged to review the default implementation.</p>
+</blockquote>
+<p><strong><code>resource.manager.cache.default_size = 89</code></strong></p>
+<blockquote>
+<p>Sets the size of the default implementation of the resource manager cache size (in number of elements). When <code>resource.manager.cache.default_size</code> is set to 0, then the default implementation uses the standard Java <code>ConcurrentHashMap</code>. Otherwise, a non-zero cache size uses an LRU Map. The default cache size is 89. Note that the ConcurrentHashMap may be better at thread concurrency.</p>
+</blockquote>
+<p><strong><code>resource.loaders = file</code></strong></p>
+<blockquote>
+<p><em>Multi-valued key.  Will accept CSV for value.</em>  Public name of a resource loader to be used.  This public name will then be used in the specification of the specific properties for that resource loader. Note that as a multi-valued key, it's possible to pass a value like "file, string" (sans quotes), indicating that following will be configuration values for two loaders.</p>
+<p>In a <a href="/tools/devel/view.html">VelocityToolsView</a> environment, VelocityView will override the default value and set it to <code>webapp</code>, its webapp resource loader.</p>
+</blockquote>
+<p><strong> <code>resource.loader.</code><em>name</em><code>.description = Velocity File Resource Loader</code></strong></p>
+<blockquote>
+<p>Optional description string for the given loader.</p>
+</blockquote>
+<p><strong> <code>resource.loader.</code><em>name</em><code>.class = org.apache.velocity.runtime.resource.loader.FileResourceLoader</code></strong></p>
+<blockquote>
+<p>Name of implementation class for the loader. The default loader is the <a href="/engine/devel/apidocs/org/apache/velocity/runtime/resource/loader/FileResourceLoader.html">file resource loader</a> (or the <a href="/tools/devel/apidocs/org/apache/velocity/tools/view/WebappResourceLoader.html">webapp resource loader</a> for VelocityTools). See <a href="developer-guide.html#resource-loaders">all available resource loaders</a>.</p>
+</blockquote>
+<p><strong> <code>resource.loader.</code><em>name</em><code>.path = .</code></strong></p>
+<blockquote>
+<p><em>Multi-valued key. Will accept CSV for value.</em> Root(s) from which the loader loads templates. Templates may live in  subdirectories of this root. ex. homesite/index.vm   This configuration key applies currently to the FileResourceLoader and JarResourceLoader.</p>
+</blockquote>
+<p><strong> <code>resource.loader.</code><em>name</em><code>.cache = false</code></strong></p>
+<blockquote>
+<p>Controls caching of the templates in the loader.  Default is false, to make life easy for development and debugging.  This should be set to true for production deployment.  When 'true', the <code>modificationCheckInterval</code> property applies.  This allows for the efficiency of caching, with the convenience of controlled reloads - useful in a hosted or ISP environment where templates can be modifed frequently and bouncing the application or servlet engine is not desired or permitted.</p>
+</blockquote>
+<p><strong> <code>resource.loader.</code><em>name</em><code>.modificationCheckInterval = 2</code></strong></p>
+<blockquote>
+<p>This is the number of seconds between modification checks when caching is turned on.  When this is an integer &gt; 0, this represents the number of seconds between checks to see if the template was modified.  If the template has been modified since last check, then it is reloaded and reparsed.  Otherwise nothing is done.  When &lt;= 0, no modification checks will take place, and assuming that the property <code>cache</code> (above) is true, once a template is loaded and parsed the first time it is used, it will not be checked or reloaded after that until the application or servlet engine is restarted.</p>
+<p>To illustrate, here is an example taken right from the default Velocity properties, showing how setting up the FileResourceLoader is managed</p>
+</blockquote>
+<div class="codehilite"><pre><span class="na">resource.loaders</span> <span class="o">=</span> <span class="s">file</span>
+
+<span class="na">resource.loader.file.description</span> <span class="o">=</span> <span class="s">Velocity File Resource Loader</span>
+<span class="na">resource.loader.file.class</span> <span class="o">=</span> <span class="s">org.apache.velocity.runtime.resource.loader.FileResourceLoader</span>
+<span class="na">resource.loader.file.path</span> <span class="o">=</span> <span class="s">.</span>
+<span class="na">resource.loader.file.cache</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">resource.loader.file.modification_check_interval</span> <span class="o">=</span> <span class="s">2</span>
+</pre></div>
+
+
+<h2 id="velocimacros">Velocimacros<a class="headerlink" href="#velocimacros" title="Permanent link">&para;</a></h2>
+<p><strong><code>velocimacro.library.path = velocimacros.vtl</code></strong></p>
+<blockquote>
+<p><em>Multi-valued key.  Will accept CSV for value.</em> Filename(s) of Velocimacro library to be loaded when the Velocity Runtime engine starts.  These Velocimacros are accessable to all templates.  The file is assumed to be relative to the root of the file loader resource path. If the default (<code>velocimacro.vtl</code> since 2.1) is not found, the old default (<code>VM_global_library.vm</code>) is also searched for.</p>
+</blockquote>
+<p><strong><code>velocimacro.inline.allow = true</code></strong></p>
+<blockquote>
+<p>Determines of the definition of new Velocimacros via the #macro() directive in templates is allowed.   The default value is true, meaning any template can define and use new Velocimacros.  Note that depending on other properties, those #macro() statements can replace global definitions.</p>
+</blockquote>
+<p><strong><code>velocimacro.inline.replace_global = false</code></strong></p>
+<blockquote>
+<p>Controls if a Velocimacro defind 'inline' in a template can replace a Velocimacro defined in a library loaded at startup.</p>
+</blockquote>
+<p><strong><code>velocimacro.inline.local_scope = false</code></strong></p>
+<blockquote>
+<p>Controls 'private' templates namespaces for Velocimacros.  When true, a #macro() directive in a template  creates a Velocimacro that is accessable only from the defining template.  This means that Velocimacros cannot be shared unless they are in the global or local library loaded at startup. (See above.)  It also means that templates cannot interfere with each other.  This property also allows a technique where there is a 'default' Velocimacro definition in the global or local library, and a template can 'override' the implementation for use within that template. This occurrs because when this property is true, the template's namespace is searched for a Velocimacro before the global namespace, therefore allowing the override mechanism.</p>
+</blockquote>
+<p><strong><code>velocimacro.library.autoreload = false</code></strong></p>
+<blockquote>
+<p>Controls Velocimacro library autoloading.  When set to <code>true</code> the source Velocimacro library for an invoked Velocimacro will be checked for changes, and reloaded if necessary.  This allows you to change and test Velocimacro libraries without having to restart your application or servlet container, just like you can with regular templates. This mode only works when caching is <em>off</em> in the resource loaders (e.g. <code>resource.loader.file.cache = false</code> ). This feature is intended for development, not for production.</p>
+</blockquote>
+<p><strong><code>velocimacro.arguments.strict = false</code></strong></p>
+<blockquote>
+<p>When set to true, will throw a <code>ParseErrorException</code> when parsing a template containing a macro with an invalid number of arguments. Is set to false by default to maintain backwards compatibility with templates written before this feature became available.</p>
+</blockquote>
+<p><strong><code>velocimacro.enable_bc_mode = false</code></strong></p>
+<blockquote>
+<p>This flag enables Velocimacro backward compatible mode. It has two effects:</p>
+<ol>
+<li>
+<p>Since 2.0, inside a macro, the rendering of null arguments uses the local reference literal. For instance, the following VTL code</p>
+<div class="codehilite"><pre><span class="cp">#</span><span class="nf">macro</span><span class="p">(</span> <span class="nf">display</span> <span class="p">$</span><span class="nv">foo</span> <span class="p">)</span><span class="x"> </span><span class="p">$</span><span class="nv">foo</span><span class="x"> </span><span class="cp">#</span><span class="nf">end</span><span class="x"></span>
+<span class="cp">#</span><span class="nf">display</span><span class="p">(</span> <span class="p">$</span><span class="nv">bar</span> <span class="p">)</span><span class="x"> </span><span class="cp">##</span><span class="c"> where $bar is null</span><span class="x"></span>
+</pre></div>
+
+
+<p>will display <code>$foo</code>. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to render <code>$bar</code>.</p>
+</li>
+<li>
+<p>Since 2.0, missing arguments which don't have an explicit default value are considered null inside the macro. The following code</p>
+<div class="codehilite"><pre><span class="cp">#</span><span class="nf">macro</span><span class="p">(</span> <span class="nf">display</span> <span class="p">$</span><span class="nv">foo</span> <span class="p">)</span><span class="x"> </span><span class="p">$</span><span class="nv">foo</span><span class="x"> </span><span class="cp">#</span><span class="nf">end</span><span class="x"></span>
+<span class="cp">#</span><span class="nf">set</span><span class="p">(</span> <span class="p">$</span><span class="nv">foo</span> <span class="o">=</span> <span class="s1">&#39;hello&#39;</span> <span class="p">)</span><span class="x"></span>
+<span class="cp">#</span><span class="nf">display</span><span class="p">()</span><span class="x"></span>
+</pre></div>
+
+
+<p>will display <code>$foo</code>. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to use the global context value, that is render <code>hello</code>.</p>
+</li>
+</ol>
+</blockquote>
+<p><strong><code>velocimacro.body_reference = false</code></strong></p>
+<blockquote>
+<p>Defines name of the reference that can be used to get the body content (an AST block) given for a block macro call (e.g. #@myMacro() has a body #end). The default reference name is "bodyContent" (e.g. $bodyContent).  This block macro feature was introduced in Velocity 1.7.</p>
+</blockquote>
+<h2 id="strict-reference-setting">Strict Reference Setting<a class="headerlink" href="#strict-reference-setting" title="Permanent link">&para;</a></h2>
+<p><strong><code>runtime.strict_mode.enable = false</code></strong></p>
+<blockquote>
+<p>When set to true Velocity will throw a <code>MethodInvocationException</code> for references that are not defined in the context, or have not been defined with a #set directive. This setting will also throw an exception if an attempt is made to call a non-existing property on an object or if the object is null. When this property is true then property <code>directive.foreach.skip_invalid</code> defaults to true, unless this later property is explicitly set to false. For a complete discussion see <a href="user-guide.html#strict-reference-mode">Strict References Setting</a>.</p>
+</blockquote>
+<p><strong><code>runtime.strict_mode.escape = false</code></strong></p>
+<blockquote>
+<p>Changes escape behavior such that putting a forward slash before a reference or macro always escapes the reference or macro and absorbs the forward slash regardless if the reference or macro is defined. For example "\$foo" always renders as "$foo", or "#foo()" is always rendered as "#foo()".  This escape behavior is of use in strict mode since unintended strings of characters that look like references or macros will throw an exception.  This provides an easy way to escape these references.  However, even in non-strict mode the developer may find this a more consistent and reliable method for escaping.</p>
+</blockquote>
+<h2 id="string-interpolation">String Interpolation<a class="headerlink" href="#string-interpolation" title="Permanent link">&para;</a></h2>
+<p><strong><code>runtime.interpolate_string_literals = true</code></strong></p>
+<blockquote>
+<p>Controls interpolation mechanism of VTL String Literals.  Note that a VTL StringLiteral is specifically a string using double quotes that is used in a #set() statement, a method call of a reference, a parameter to a VM, or as an argument to a VTL directive in general.  See the VTL reference for further information.</p>
+</blockquote>
+<h2 id="math">Math<a class="headerlink" href="#math" title="Permanent link">&para;</a></h2>
+<p><strong><code>runtime.strict_math = false</code></strong></p>
+<blockquote>
+<p>Affects all math operations in VTL. If changed to true, this will cause Velocity to throw a MathException whenever one side of a math operation has a null value (e.g. <code>#set( $foo = $null * 5 )</code>) or when trying to divide by zero.  If this value is left <code>false</code>, then rendering will continue and that math operation will be ignored.</p>
+</blockquote>
+<h2 id="parser-configuration">Parser Configuration<a class="headerlink" href="#parser-configuration" title="Permanent link">&para;</a></h2>
+<p><strong><code>parser.pool.class = org.apache.velocity.runtime.ParserPoolImpl</code></strong></p>
+<blockquote>
+<p>This property selects the implementation for the parser pool.  This class must implement ParserPool. Generally there is no reason to change this though if you are building a high volume web application you might consider including an alternate implementation that automatically adjusts the size of the pool.</p>
+</blockquote>
+<p><strong><code>parser.pool.size = 20</code></strong></p>
+<blockquote>
+<p>This property is used by the default pooling implementation to set the number of parser instances that Velocity will create at startup and keep in a pool.  The default of 20 parsers should be more than enough for most uses.  In the event that Velocity does run out of parsers, it will indicate so in the log, and dynamically create overflow instances as needed.  Note that these extra parsers will not be added to the pool, and will be discarded after use.  This will result in very slow operation compared to the normal usage of pooled parsers, but this is considered an exceptional condition.  A web application using Velocity as its view engine might exhibit this behavior under extremely high concurrency (such as when getting Slashdotted).  If you see a corresponding message referencing the <code>parser.pool.size</code> property in your log files, please increment this property immediately to avoid performance degradation.</p>
+</blockquote>
+<p><strong><code>parser.allow_hyphen_in_identifiers = false</code></strong></p>
+<blockquote>
+<p>This is a backward compatibility option, false by default, which allows the '<strong><code>-</code></strong>' character inside variable identifiers (available since 2.1). If enabled, be warned that you will have to surround the mathematical minus sign with spaces for it to be correctly interpreted.</p>
+</blockquote>
+<h2 id="event-handlers">Event Handlers<a class="headerlink" href="#event-handlers" title="Permanent link">&para;</a></h2>
+<p>See the <a href="developer-guide.html#event-handlers">Event Handlers</a> section of the dev guide.</p>
+<p><strong><code>event_handler.include.class</code></strong> = <em>classname</em>, <em>classname</em> ...</p>
+<blockquote>
+<p>register an <a href="apidocs/org/apache/velocity/app/event/IncludeEventHandler.html">include event handler</a>.</p>
+</blockquote>
+<p><strong><code>event_handler.invalid_reference.class</code></strong> = <em>classname</em>, <em>classname</em> ...</p>
+<blockquote>
+<p>register an <a href="apidocs/org/apache/velocity/app/event/InvalidReferenceEventHandler.html">invalid reference event handler</a>.</p>
+</blockquote>
+<p><strong><code>event_handler.invalid_reference.exception</code></strong> = <code>false</code></p>
+<blockquote>
+<p>Make the registered org.apache.velocity.app.event.implement.ReportInvalidReferences event handler throw an exception at the first encountered invalid reference.</p>
+</blockquote>
+<p><strong><code>event_handler.invalid_reference.null</code></strong> = <code>false</code></p>
+<blockquote>
+<p>(Since 2.2) Make registered invalid reference event handlers receive events whenever the reference value is present in the context but has a null value, or if a method call returned null.</p>
+</blockquote>
+<p><strong><code>event_handler.invalid_reference.quiet</code></strong> = <code>false</code></p>
+<blockquote>
+<p>(Since 2.2) Make registered invalid reference event handlers receive events whenever the invalid reference is a quiet reference.</p>
+</blockquote>
+<p><strong><code>event_handler.invalid_reference.tested</code></strong> = <code>false</code></p>
+<blockquote>
+<p>(Since 2.2) Make registered invalid reference event handlers receive events whenever the invalid reference is just tested for validity in an <code>#if()</code> statement.</p>
+</blockquote>
+<p><strong><code>event_handler.method_exception.class</code></strong> = <em>classname</em>, <em>classname</em> ...</p>
+<blockquote>
+<p>register a <a href="apidocs/org/apache/velocity/app/event/MethodExceptionEventHandler.html">method exception event handler</a>.</p>
+</blockquote>
+<p><strong><code>event_handler.reference_insertion.class</code></strong> = <em>classname</em>, <em>classname</em> ...</p>
+<blockquote>
+<p>register a <a href="apidocs/org/apache/velocity/app/event/ReferenceInsertionEventHandler.html">reference insertion event handler</a>.</p>
+</blockquote>
+<h2 id="introspection">Introspection<a class="headerlink" href="#introspection" title="Permanent link">&para;</a></h2>
+<p>Introspection is the process of mapping properties, methods and iterators of VTL references to Java objects. The object responsible of the introspection strategy in Velocity is called an <em>uberspector</em>.</p>
+<p><strong><code>introspector.uberspect.class = org.apache.velocity.util.introspection.UberspectImpl</code></strong></p>
+<blockquote>
+<p>This property sets the 'Uberspector', the introspection package that handles all introspection strategies for Velocity. You can specify a comma-separated list of Uberspector classes, in which case all Uberspectors are chained. The default chaining behaviour is to return the first non-null value for each introspection call among all provided uberspectors. You can modify this behaviour (for instance to restrict access to some methods) by subclassing org.apache.velocity.util.introspection.AbstractChainableUberspector (or implementing directly org.apache.velocity.util.introspection.ChainableUberspector).  This allows you to create more interesting rules or patterns for Uberspection, rather than just returning the first non-null value.</p>
+<p>Some alternate Uberspectors are provided within the Velocity package. Please refer to the <a href="developer-guide.html#customizing-introspection">Customizing Introspection</a> section for a detailed list. You would for instance use <code>introspector.uberspect.class = org.apache.velocity.util.introspection.SecureUberspector</code> to avoid template authors to instanciate new classes or to use reflection, or use <code>introspector.uberspect.class = org.apache.velocity.util.introspection.UberspectImpl, org.apache.velocity.util.introspection.UberspectPublicFields</code> to expose Java public fields in your templates.</p>
+</blockquote>
+<p><strong><code>introspector.conversion_handler.class = org.apache.velocity.util.introspection.TypeConversionHandlerImpl</code></strong></p>
+<blockquote>
+<p>This configuration option is only taken into account by the default uberspector (UberspectImpl) and its subclasses (like SecureUberspector). It can be set to:</p>
+<ul>
+<li><code>none</code>: the only accepted conversions for method arguments will be the ones accepted by Java, typically widening number conversions. This reflects the behavior of Velocity 1.x.</li>
+<li><em>classname</em>: the name of a class implementing the interface <a href="apidocs/org/apache/velocity/util/introspection/TypeConversionHandler.html">org.apache.velocity.util.introspection.TypeConversionHandler</a> or the deprecated (since 2.1) interface <a href="apidocs/org/apache/velocity/util/introspection/ConversionHandler.html">org.apache.velocity.util.introspection.ConversionHandler</a>.</li>
+</ul>
+<p>The default conversion handler will try to convert values between all number, boolean and string types (along with a Locale to string conversion since 2.1). Failed conversions will throw a MethodInvocationException (or call the registered MethodExceptionEventHandler, if any). Watch out for conversions towards boolean: non-zero numbers and the "true" String are true, everything else is false. This differs slighly from the <code>#if($reference)</code> truthness rules, where all non-null numbers and all non-null and non-empty strings are true.</p>
+</blockquote>
+<p><strong><code>introspector.conversion_handler.instance</code></strong> = <em>Java Object instance</em></p>
+<blockquote>
+<p>This configuration option is only taken into account by the default uberspector (UberspectImpl) and its subclasses (like SecureUberspector). It can be set to a living Java instance of an object implementing the interface <a href="apidocs/org/apache/velocity/util/introspection/TypeConversionHandler.html">org.apache.velocity.util.introspection.TypeConversionHandler</a> or the deprecated (since 2.1) interface <a href="apidocs/org/apache/velocity/util/introspection/ConversionHandler.html">org.apache.velocity.util.introspection.ConversionHandler</a>.</p>
+</blockquote>
+<h2 id="context">Context<a class="headerlink" href="#context" title="Permanent link">&para;</a></h2>
+<p><strong><code>context.self_reference_key = &lt;key name&gt;</code></strong></p>
+<blockquote>
+<p>This property has no default value. If present, the Context object will become accessible from the templates under the provided name. For instance, with the configuration "<code>context.self_reference_key = self</code>", then <code>$self</code> will contain the context itself. This feature is meant to be used for debugging purposes.</p>
+</blockquote>
+<p><strong><code>context.scope_control.define = false</code></strong></p>
+<blockquote>
+<p>Used to turn on the automatic provision of the $define scope control during #define() calls. The default is false. Set it to true if you want a local, managed namespace you can put references in when within a #define block or if you want it for more advanced #break usage.</p>
+</blockquote>
+<p><strong><code>context.scope_control.evaluate = false</code></strong></p>
+<blockquote>
+<p>Used to turn on the automatic provision of the $evaluate scope during #evaluate() or Velocity[Engine].evaluate(...) calls. The default is false.  Set it to true if you want a local, managed namespace you can put references in during an evaluation or if you want it for more advanced #break usage.</p>
+</blockquote>
+<p><strong><code>context.scope_control.foreach = true</code></strong></p>
+<blockquote>
+<p>Used to control the automatic provision of the $foreach scope during #foreach calls.  This gives access to the foreach status information (e.g. $foreach.index or $foreach.hasNext). The default is true. Set it to false if unused and you want a tiny performance boost.</p>
+</blockquote>
+<p><strong><code>context.scope_control.macro = false</code></strong></p>
+<blockquote>
+<p>Used to turn on the automatic provision of the $macro scope control during #macro calls. The default is false. Set it to true if you need a local namespace in macros or more advanced #break controls.</p>
+</blockquote>
+<p><strong><code>context.scope_control.template = false</code></strong></p>
+<blockquote>
+<p>Used to turn on the automatic provision of the $template scope control during #parse calls and template.merge(...) calls. The default is false. Set it to true if you want a secure namespace for your template variables or more advanced #break control.</p>
+</blockquote>
+<p><strong><code>context.scope_control.&lt;somebodymacro&gt; = false</code></strong></p>
+<blockquote>
+<p>Used to turn on the automatic provision of the $<nameofthemacro> scope control during a call to a macro with a body (e.g. #@foo #set($foo.a=$b) ... $foo.a #end). The default is false. Set it to true if you happen to need a namespace just for your macro's body content or more advanced #break controls.</p>
+</blockquote>
+<h2 id="string-interning">String Interning<a class="headerlink" href="#string-interning" title="Permanent link">&para;</a></h2>
+<p><strong><code>runtime.string_interning = true</code></strong></p>
+<blockquote>
+<p>This property specifies whether to use Java <a href="https://en.wikipedia.org/wiki/String_interning">String interning</a> on identifiers. This may save some memory when set to true, and run a little bit faster when set to false.</p>
+</blockquote>
+<h2 id="space-gobbling">Space Gobbling<a class="headerlink" href="#space-gobbling" title="Permanent link">&para;</a></h2>
+<p><strong><code>parser.space_gobbling = lines</code></strong></p>
+<blockquote>
+<p>Space gobbling policy. See the <a href="developer-guide.html#space-gobbling">Space Gobbling section</a> in the developer guide. Possible values are:
+- <code>none</code> : no space gobbling at all.
+- <code>bc</code> : Velocity 1.x backward compatible space gobbling.
+- <code>lines</code> : gobbles spaces and newline surrounding VTL directives alone in their line.
+- <code>structured</code> : like previous, plus fix inner text blocks indentation.</p>
+</blockquote>
+<h2 id="configuration-examples">Configuration Examples<a class="headerlink" href="#configuration-examples" title="Permanent link">&para;</a></h2>
+<h3 id="resource-loading">Resource loading<a class="headerlink" href="#resource-loading" title="Permanent link">&para;</a></h3>
+<p>Configuring the resource loaders for Velocity is straightforward. The properties that control the are listed in the <a href="#Configuring_Resource_Loaders">resource configuration</a> section, for further reference.</p>
+<p>The first step in configuring one or more resource loaders is do 'declare' them by name to Velocity.  Use the property <code>resource.loader</code> and list one or more loader names. You can use anything you want - these names are used to associate configuration properties with a given loader.</p>
+<div class="codehilite"><pre><span class="na">resource.loaders</span> <span class="o">=</span> <span class="s">file</span>
+</pre></div>
+
+
+<p>That entry declares that we will have a resource loader known as 'file'. The next thing to do is to set the important properties.  The most critical is to declare the class to use as the loader:</p>
+<div class="codehilite"><pre><span class="na">resource.loader.file.class</span> <span class="o">=</span> <span class="s">org.apache.velocity.runtime.resource.loader.FileResourceLoader</span>
+</pre></div>
+
+
+<p>In this case, we are telling velocity that we are setting up
+a resource loadercalled 'file', and are using the class <code>org.apache.velocity.runtime.resource.loader.FileResourceLoader</code> to be the class to use. The next thing we do is set the properties important to this loader.</p>
+<div class="codehilite"><pre><span class="na">resource.loader.file.path</span> <span class="o">=</span> <span class="s">/opt/templates</span>
+<span class="na">resource.loader.file.cache</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">resource.loader.file.modification_check_interval</span> <span class="o">=</span> <span class="s">2</span>
+</pre></div>
+
+
+<p>Here, we set a few things.  First, we set the path to find the templates to be <code>/opt/templates</code>.  Second, we turned caching on, so that after a template or static file is read in, it is cached in memory.  And finally, we set the modification check interval to 2 seconds, allowing Velocity to check for new templates.</p>
+<p>Those are the basics.  What follows are a few examples of different configuraitons.</p>
+<p><strong>Do-nothing Default Configuration: </strong> As the name says, there is nothing you have to do or configure to get the default configuration.  This configuration uses the FileResourceLoader with the current directory as the default resource path, and caching is off.  As a properties set, this is expressed as:</p>
+<div class="codehilite"><pre><span class="na">resource.loaders</span> <span class="o">=</span> <span class="s">file</span>
+
+<span class="na">resource.loader.file.description</span> <span class="o">=</span> <span class="s">Velocity File Resource Loader</span>
+<span class="na">resource.loader.file.class</span> <span class="o">=</span> <span class="s">org.apache.velocity.runtime.resource.loader.FileResourceLoader</span>
+<span class="na">resource.loader.file.path</span> <span class="o">=</span> <span class="s">.</span>
+<span class="na">resource.loader.file.cache</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">resource.loader.file.modification_check_interval</span> <span class="o">=</span> <span class="s">0</span>
+</pre></div>
+
+
+<p><strong>Multiple Template Path Configuration: </strong> This configuration uses the FileResourceLoader with several directories as 'nodes' on the template search path. We also want to use caching, and have the templates checked for changes in 10 second intervals.  As a properties set, this is expressed as:</p>
+<div class="codehilite"><pre><span class="na">resource.loaders</span> <span class="o">=</span> <span class="s">file</span>
+
+<span class="na">resource.loader.file.description</span> <span class="o">=</span> <span class="s">Velocity File Resource Loader</span>
+<span class="na">resource.loader.file.class</span> <span class="o">=</span> <span class="s">org.apache.velocity.runtime.resource.loader.FileResourceLoader</span>
+<span class="na">resource.loader.file.path</span> <span class="o">=</span> <span class="s">/opt/directory1, /opt/directory2</span>
+<span class="na">resource.loader.file.cache</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">resource.loader.file.modification_check_interval</span> <span class="o">=</span> <span class="s">10</span>
+</pre></div>
+
+
+<p><strong>Multiple Loader Configuration :</strong>  This configuration sets up three loaders at the same time, the FileResourceLoader, the ClasspathResourceLoader, and the JarResourceLoader. The loaders are set-up such that the FileResourceLoader is consulted first, then the ClasspathResourceLoader, and finally the JarResourceLoader. This would allow you to qickly drop a template into the file template area to replace on of the templates found in the classpath (usually via a jar) without having to rebuild the jar.</p>
+<div class="codehilite"><pre><span class="c">#</span>
+<span class="c"># specify three resource loaders to use</span>
+<span class="c">#</span>
+<span class="na">resource.loaders</span> <span class="o">=</span> <span class="s">file, class, jar</span>
+
+<span class="c">#</span>
+<span class="c"># for the loader we call &#39;file&#39;, set the FileResourceLoader as the</span>
+<span class="c"># class to use, turn off caching, and use 3 directories for templates</span>
+<span class="c">#</span>
+<span class="na">resource.loader.file.description</span> <span class="o">=</span> <span class="s">Velocity File Resource Loader</span>
+<span class="na">resource.loader.file.class</span> <span class="o">=</span> <span class="s">org.apache.velocity.runtime.resource.loader.FileResourceLoader</span>
+<span class="na">resource.loader.file.path</span> <span class="o">=</span> <span class="s">templatedirectory1, anotherdirectory, foo/bar</span>
+<span class="na">resource.loader.file.cache</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">resource.loader.file.modification_check_interval</span> <span class="o">=</span> <span class="s">0</span>
+
+<span class="c">#</span>
+<span class="c">#  for the loader we call &#39;class&#39;, use the ClasspathResourceLoader</span>
+<span class="c">#</span>
+<span class="na">resource.loader.class.description</span> <span class="o">=</span> <span class="s">Velocity Classpath Resource Loader</span>
+<span class="na">resource.loader.class.class</span> <span class="o">=</span> <span class="s">org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader</span>
+
+<span class="c">#</span>
+<span class="c"># and finally, for the loader we call &#39;jar&#39;, use the JarResourceLoader</span>
+<span class="c"># and specify two jars to load from</span>
+<span class="c">#</span>
+<span class="na">resource.loader.jar.description</span> <span class="o">=</span> <span class="s">Velocity Jar  Resource Loader</span>
+<span class="na">resource.loader.jar.class</span> <span class="o">=</span> <span class="s">org.apache.velocity.runtime.resource.loader.JarResourceLoader</span>
+<span class="na">resource.loader.jar.path</span> <span class="o">=</span> <span class="s">jar:file:/myjarplace/myjar.jar, jar:file:/myjarplace/myjar2.jar</span>
+</pre></div>
+
+
+<p>Node that the three names 'file', 'class', and 'jar' are merely for your convenience and sanity.  They can be anything you want - they are just used to associate a set of properties together.  However, it is recommended that you use names that give some hint of the function.</p>
+<p>Note that while all three require very little configuration information for proper operation, the ClasspathResourceLoader is the simplest.</p>
+<h3 id="backward-compatibility">Backward compatibility<a class="headerlink" href="#backward-compatibility" title="Permanent link">&para;</a></h3>
+<p>The following configuration maximizes the backward compatibility with Velocity 1.7.</p>
+<div class="codehilite"><pre><span class="c"># No automatic conversion of methods arguments</span>
+<span class="na">introspector.conversion_handler.class</span> <span class="o">=</span> <span class="s">none</span>
+
+<span class="c"># Use backward compatible space gobbling</span>
+<span class="na">engine.space_gobbling</span> <span class="o">=</span> <span class="s">bc</span>
+
+<span class="c"># Have #if($foo) only returns false if $foo is false or null</span>
+<span class="na">directive.if.empty_check</span> <span class="o">=</span> <span class="s">false</span>
+
+<span class="c"># Allow &#39;-&#39; in identifiers</span>
+<span class="na">parser.allow_hyphen_in_identifiers</span> <span class="o">=</span> <span class="s">true</span>
+
+<span class="c"># Enable velocimacros backward compatibility mode</span>
+<span class="na">velocimacro.enable_bc_mode</span> <span class="o">=</span> <span class="s">true</span>
+</pre></div></div></div>
+        <hr/>
+        <div id="copyright">
+          Copyright &#169; 2020 The Apache Software Foundation, Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

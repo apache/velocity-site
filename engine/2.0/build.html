@@ -224,23 +224,24 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 }
 h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover > .headerlink, h4:hover > .headerlink, h5:hover > .headerlink, dt:hover > .elementid-permalink { visibility: visible }</style>
 <h2 id="installation">Installation<a class="headerlink" href="#installation" title="Permanent link">&para;</a></h2>
-<p>Velocity runs on a variety of platforms that have installed the Java Virtual Machine. A Java Development Kit version 1.7+ is required to compile Velocity from its source code (as it is to run it).</p>
-<p>Everything required to build Velocity comes with the distribution, which can be obtained from <a href="http://svn.apache.org/repos/asf/velocity/engine/">Subversion</a> or from the <a href="/download.cgi#engine">main distribution</a>. However, you will need to install <a href="http://maven.apache.org/">Maven</a> to build the Velocity sources.</p>
+<p>Velocity runs on a variety of platforms that have installed the Java Virtual Machine. A Java Development Kit version 1.8+ is required to compile Velocity from its source code (as it is to run it).</p>
+<p>Everything required to build Velocity comes with the distribution, which can be obtained from <a href="https://gitbox.apache.org/repos/asf/velocity-engine.git">Apache git</a>, <a href="https://github.com/apache/velocity-engine.git">github</a> (handy to submit pull requests) or from the <a href="/download.cgi#engine">main distribution</a>. However, you will need to install <a href="http://maven.apache.org/">Maven</a> to build the Velocity sources.</p>
 <p><a href="http://maven.apache.org/">Maven</a> is also an Apache project. To build Apache Velocity, you need at least Version 3.0.5 of Apache Maven.</p>
 <h2 id="required-tools">Required Tools<a class="headerlink" href="#required-tools" title="Permanent link">&para;</a></h2>
 <p>To build Velocity we require <a href="http://maven.apache.org/">Maven</a> version 3.0.5 or higher to perform the build process. We assume that you have followed Maven's installation instructions and have it properly installed.</p>
-<h2 id="building">Building<a class="headerlink" href="#building" title="Permanent link">&para;</a></h2>
-<p>In each case below, it is assumed that you were successful in <a href="/download.cgi#engine">downloading</a> and unpacking the distribution source or <a href="/download.cgi#source-code-repository">checking out the sources from Subversion</a>:</p>
-<div class="codehilite"><pre>svn checkout https://svn.apache.org/repos/asf/velocity/engine/tags/2.0 velocity-2.0
-<span class="nb">cd</span> velocity-2.0
+<h2 id="building-from-sources">Building from Sources<a class="headerlink" href="#building-from-sources" title="Permanent link">&para;</a></h2>
+<p>In each case below, it is assumed that you were successful in <a href="/download.cgi#source-code-repository">checking out the sources from github</a>:</p>
+<div class="codehilite"><pre>git clone https://github.com/apache/velocity-engine.git velocity-engine
+<span class="nb">cd</span> velocity-engine
 mvn install
 </pre></div>
 
 
-<p>Executing this script will create a <strong>target</strong> directory within the velocity-2.0 directory. Each subdirectory containing a module of Velocity will contain a "target" directory too, containing all built jars.</p>
-<p>Refer to Maven documentation for all phases you can invoke.</p>
+<p>Executing this script will create a <strong>target</strong> directory within the velocity-engine directory. Each subdirectory containing a module of Velocity will contain a "target" directory too, containing all built jars.</p>
+<p>After a successful build with the above command, your Velocity build will be available in your local Maven repository.</p>
+<p>Refer to Maven documentation for alternate commands you can invoke.</p>
 <p>If you find a problem, do not hesitate to ask the Velocity community
-via our <a href="/contact.html">mail lists</a>.</p></div></div>
+via our <a href="/contact.html">mailing lists</a>.</p></div></div>
         <hr/>
         <div id="copyright">
           Copyright &#169; 2020 The Apache Software Foundation, Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
