@@ -22,7 +22,7 @@
     <title>Apache Velocity Engine - Upgrading</title>
 
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta property="og:image" content="http://www.apache.org/images/asf_logo.gif" />
+    <meta property="og:image" content="https://www.apache.org/images/asf_logo.gif" />
 
     <link rel="stylesheet" type="text/css" href="/css/site.css">
 
@@ -209,7 +209,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
             <div id="rss">
               <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
             </div>
-            <iframe src="http://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
           </div>
         </div>
         <div id="content"><div class="section-content"><style type="text/css">
@@ -387,7 +387,8 @@ Please note that the maven repository path has changed:
 <li>space gobbling (to control the indentation of generated code) is now configurable via the <code>space.gobbing</code> configuration key, which can take the following values: <code>none</code>, <code>bc</code> (aka. backward compatible), <code>lines</code> and <code>structured</code>. See the related documentation section for details. To maximize backward compatibility with 1.x, set it to <code>bc</code>.</li>
 <li>the #foreach predefined references <code>$velocityCount</code> and <code>$velocityHasNext</code> have been removed. Use <code>$foreach.count</code> (1-based), <code>$foreach.index</code> (0-based) and <code>foreach.hasNext()</code>.</li>
 <li>Velocimacro arguments are now evaluated only once (instead of each time they were referenced inside the macro body as was the case for v1.7) and passed by value (or more precisely as reference after evaluation).</li>
-<li>Velocimacros do not anymore have a <em>proxy context</em> of their own - if they do insert new values in the context, and then call an external code changing those values, they will now see the new values (see 2.2 for the velicomacro.enable_bc_mode backward compatibility flag).</li>
+<li>Velocimacros do not anymore have a <em>proxy context</em> of their own - if they do insert new values in the context, and then call an external code changing those values, they will now see the new values (see 2.2 for the velocimacro.enable_bc_mode backward compatibility flag).</li>
+<li>2.x follows a <a href="https://docs.oracle.com/javase/tutorial/java/nutsandbolts/operators.html">standard operators precedence rule</a>, whereas with 1.7 the expression <code>! "$foo" == 'bar'</code> will, wrongly, evaluate the equality before the unary negation.</li>
 </ul>
 <h3 id="dependency-changes_2">Dependency Changes<a class="headerlink" href="#dependency-changes_2" title="Permanent link">&para;</a></h3>
 <ul>
@@ -427,7 +428,7 @@ Please note that the maven repository path has changed:
 + <a href="http://www.hsqldb.org">HSQLDB</a> 1.7.1 is required for running unit tests.</p></div></div>
         <hr/>
         <div id="copyright">
-          Copyright &#169; 2020 The Apache Software Foundation, Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
+          Copyright &#169; 2020 The Apache Software Foundation, Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
         </div>
       </div>
     </div>

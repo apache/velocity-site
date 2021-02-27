@@ -22,7 +22,7 @@
     <title>Apache Velocity - Site Building</title>
 
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta property="og:image" content="http://www.apache.org/images/asf_logo.gif" />
+    <meta property="og:image" content="https://www.apache.org/images/asf_logo.gif" />
 
     <link rel="stylesheet" type="text/css" href="/css/site.css">
 
@@ -175,14 +175,14 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li><a href="/who-we-are.html">Who we are</a></li>
 <li><a href="/contact.html">Contact us</a></li>
 <li><a href="/get-involved.html">Get involved</a></li>
-<li><a href="http://wiki.apache.org/velocity/velocity">Wiki</a></li>
+<li><a href="https://wiki.apache.org/velocity/velocity">Wiki</a></li>
 <li><a href="/how-it-works.html">How it works</a></li>
 <li><a href="https://whimsy.apache.org/board/minutes/Velocity.html">Board Reports</a></li>
 </ul>
 <h2 id="developer-resources">Developer Resources<a class="headerlink" href="#developer-resources" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="https://issues.apache.org/jira/secure/BrowseProjects.jspa#10200">Issues</a></li>
-<li><a href="http://wiki.apache.org/velocity/CodeStandards">Coding standards</a></li>
+<li><a href="https://wiki.apache.org/velocity/CodeStandards">Coding standards</a></li>
 <li><a href="/how-it-works.html#Project%20Guidelines">Project guidelines</a></li>
 <li><a href="/site-building.html">Site building</a></li>
 <li><a href="/release-process.html">Release process</a></li>
@@ -196,13 +196,13 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </ul>
 <h2 id="apache-foundation">Apache Foundation<a class="headerlink" href="#apache-foundation" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="http://www.apache.org/">Apache Website</a></li>
-<li><a href="http://www.apache.org/foundation/how-it-works.html">How the ASF work</a></li>
-<li><a href="http://www.apache.org/dev/">ASF Developer Infos</a></li>
-<li><a href="http://www.apache.org/dev/version-control.html">ASF Source Code</a></li>
-<li><a href="http://www.apache.org/dev/version-control.html">Repository</a></li>
-<li><a href="http://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
-<li><a href="http://www.apache.org/foundation/thanks.html">Thanks</a></li>
+<li><a href="https://www.apache.org/">Apache Website</a></li>
+<li><a href="https://www.apache.org/foundation/how-it-works.html">How the ASF work</a></li>
+<li><a href="https://www.apache.org/dev/">ASF Developer Infos</a></li>
+<li><a href="https://www.apache.org/dev/version-control.html">ASF Source Code</a></li>
+<li><a href="https://www.apache.org/dev/version-control.html">Repository</a></li>
+<li><a href="https://www.apache.org/foundation/sponsorship.html">Sponsorship</a></li>
+<li><a href="https://www.apache.org/foundation/thanks.html">Thanks</a></li>
 </ul>
           
           <div id="bottom-nav">
@@ -210,7 +210,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
             <div id="rss">
               <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
             </div>
-            <iframe src="http://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
           </div>
         </div>
         <div id="content"><div class="section-content"><style type="text/css">
@@ -248,7 +248,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </div>
 <h3 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h3>
 <p>The Apache Velocity Site is what you get when you visit <a href="/">our homepage</a>. It is the envelope site for all Apache Velocity sub projects.</p>
-<p>In short: This svn repository is only interesting for you if you</p>
+<p>In short: This repository is only interesting for you if you</p>
 <ul>
 <li>want to re-create the Apache Velocity site on your local computer or intranet.</li>
 <li>are an <a href="/who-we-are.html">Apache Velocity committer</a> and want to update the site.</li>
@@ -258,7 +258,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <p>The site is not <em>hosted</em> by the CMS (it's planned to move it to pelican), so it still has to be build locally.</p>
 <h3 id="building-the-site">Building the Site<a class="headerlink" href="#building-the-site" title="Permanent link">&para;</a></h3>
 <p>To build the site locally, you'll need a local checkout of the <a href="https://svn.apache.org/repos/infra/websites/cms">Apache CMS</a>, then refer to the <a href="https://svn.apache.org/repos/infra/websites/cms/STATUS">STATUS</a> file.
-You'll of course also need a local checkout of <a href="https://gitbox.apache.org/repos/asf/velocity-site.git">the site sources</a>.</p>
+You'll of course also need a local clone of <a href="https://gitbox.apache.org/repos/asf/velocity-site.git">the site sources</a>, or even preferably a local clone of <a href="https://github.com/apache/velocity-site.git">github's mirror</a>, where you can submit pull requests.</p>
 <p>You'll have to generate the site in some <code>target</code> temporary directory, then check added/modified/deleted files in the <code>asf-site</code> branch of the <code>velocity-site</code> repository.</p>
 <p>Typically, you'll have to:</p>
 <ol>
@@ -382,7 +382,7 @@ git status
 <p>Integration of several Maven reports, like dependency-convergence</p></div></div>
         <hr/>
         <div id="copyright">
-          Copyright &#169; 2020 The Apache Software Foundation, Licensed under the <a href="http://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
+          Copyright &#169; 2020 The Apache Software Foundation, Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
         </div>
       </div>
     </div>
