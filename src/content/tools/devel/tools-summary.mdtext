@@ -8,20 +8,19 @@ You will find here a summary of all the available standard tools, sufficient for
 
 #### Generic Tools
 
-+ [`$alt` - AlternatorTool](#AlternatorTool)
 + [`$class` - ClassTool](#ClassTool),
++ [`$collection` - CollectionTool](#CollectionTool)
 + [`$context` - ContextTool](#ContextTool),
-+ [`$convert` - ConversionTool](#ConversionTool),
 + [`$date` - ComparisonDateTool](#ComparisonDateTool),
-+ [`$disp` - DisplayTool](#DisplayTool),
++ [`$display` - DisplayTool](#DisplayTool),
 + [`$esc` - EscapeTool](#EscapeTool),
 + [`$field` - FieldTool](#FieldTool),
++ [`$json` - JsonTool](#JsonTool),
 + [`$link` - LinkTool](#LinkTool),
 + [`$log` - LogTool](#LogTool),
 + [`$math` - MathTool](#MathTool),
 + [`$number` - NumberTool](#NumberTool),
 + [`$render` - RenderTool](#RenderTool),
-+ [`$sort` - SortTool](#SortTool),
 + [`$text` - ResourceTool](#ResourceTool),
 + [`$xml` - XmlTool](#XmlTool)
 
@@ -37,22 +36,15 @@ You will find here a summary of all the available standard tools, sufficient for
 + [`$params` - ParameterTool](#ParameterTool),
 + [`$search` - AbstractSearchTool](#AbstractSearchTool),
 
+#### Deprecated Tools
+
++ [`$alt` - ~~AlternatorTool~~](apidocs/org/apache/velocity/tools/generic/AlternatorTool.html), use `#if( $foreach.index % 2)` or, for HTML, css3 `nth-child(even/odd)` selectors.
++ [`$convert` - ~~ConversionTool~~](apidocs/org/apache/velocity/tools/generic/ConversionTool.html), use `NumberTool` for numbers formatting/parsing, `DateTool` for date/time formatting/parsing, or `CollectionTool` for string splitting.
++ [`$sort` - ~~SortTool~~](apidocs/org/apache/velocity/tools/generic/SortTool.html), use CollectionTool sort methods
+
 ### Generic Tools
 
 #### [**AlternatorTool**](apidocs/org/apache/velocity/tools/generic/AlternatorTool.html){#AlternatorTool} - tool to create [alternators](apidocs/org/apache/velocity/tools/generic/Alternator.html) (variables that cycle through an array)
-
-**`$alternator`** |
---|--
-`config.autoAlternate` [&nbsp;=&nbsp;`true`&nbsp;] | boolean, states whether the alternator will automatically switch values at each rendering
-`$alternator.autoAlternateDefault` | returns `true` if alternators created by this tool will auto-alternate by default, or set the property to a new boolean value
-`#set( $alt = $alternator.auto(value1,value2,...) )` | creates an automatic alternator
-`#set( $alt = $alternator.make(value1,value2,...) )` | creates an alternator with default auto behaviour
-`#set( $alt = $alternator.manual(value1,value2,...) )` | creates a manual alternator
-`$alt` | displays current value (and shift for automatic alternators)
-`alt.current` | displays current value
-`$alt.next` | displays current value and shift
-`$alt.shift` | shifts to next value
-`$alt.auto` | read/write property stating if this is an automatic alternator
 
 #### [**ClassTool**](apidocs/org/apache/velocity/tools/generic/ClassTool.html) - tool meant to use Java reflection in templates{#ClassTool}
 
@@ -78,6 +70,16 @@ You will find here a summary of all the available standard tools, sufficient for
 `$class.interface` | returns true if the class being inspected is an interface
 `$class.supportsNewInstance()` | returns true if a new instance of the class being inspected can be created via `$class.type.newInstance()`
 
+#### [**CollectionTool**](apidocs/org/apache/velocity/tools/generic/CollectionTool.html) - tool gathering several collection utilities {#CollectionTool}
+
+**`$collection`** | 
+--|--
+`config.stringsDelimiter` [&nbsp;=&nbsp;`,`&nbsp;] | string, default delimiter for splitting strings
+`config.trimStrings` [&nbsp;=&nbsp;`true`&nbsp;] | boolean, indicates whether to trim splitted strings
+`$collection.split(`&nbsp;*string*&nbsp;`)` | returns an array of strings obtained by splitting the input
+`$collection.sort(`&nbsp;*collection, map or array*&nbsp;`)` | returns a sorted version of the input collection
+`$collection.sort(`&nbsp;*collection, map or array*&nbsp; [,&nbsp;*property name*&nbsp;] `)` | returns a sorted version of the input collection under a spectific property ; contained objets are supposed to have the property passed as 2<sup>nd</sup> argument
+
 #### [**ContextTool**](apidocs/org/apache/velocity/tools/generic/ContextTool.html) - tool allowing Velocity context introspection{#ContextTool}
 
 **`$context`** |
@@ -87,23 +89,6 @@ You will find here a summary of all the available standard tools, sufficient for
 `$context.toolbox` | returns a `java.util.Map` of all the tools available in the current request context and their context keys
 `$context.values` | returns a `java.util.Set` of the values available in the current request context
 `$context.get(`&nbsp;*key*&nbsp;`)` | returns the value for the specified key in the current request context
-
-#### [**ConversionTool**](apidocs/org/apache/velocity/tools/generic/ConversionTool.html) - tool allowing conversions between datatypes{#ConversionTool}
-
-**`$convert`** |
---|--
-`config.stringsDelimiter` [&nbsp;=&nbsp;`','`&nbsp;] | delimiter used when parsing concatenated strings arrays
-`config.trimStrings` [&nbsp;=&nbsp;`true`&nbsp;] | boolean, states whether or not trim strings when parsing concatenated strings arrays
-`config.numberFormat` [&nbsp;=&nbsp;JVM Locale number format&nbsp;] | number format to use when parsing numbers
-`config.dateFormat` [&nbsp;=&nbsp;JVM Locale date format&nbsp;] | date format to use when parsing dates
-`$convert.stringsDelimiter` | delimiter used when parsing concatenated strings arrays
-`$convert.stringsTrim` | whether or not strings are trimmed when parsing concatenated strings arrays
-`$convert.dateFormat` | current date format used when parsing dates
-`$convert.numberFormat` | current number format used when parsing numbers
-`$convert.parseDate(`&nbsp;*string* [ , *format* [ , *locale* [ , *timezone*&nbsp;]&nbsp;]&nbsp;]&nbsp;`)` | parses a date
-`$convert.parseNumber(`&nbsp;*string* [ , *format* [ , *locale*&nbsp;]&nbsp;]&nbsp;`)` | parses a number
-`$convert.to`*Type*`(`&nbsp;*object*&nbsp;`)` | converts an object to an instance of *Type*, where *Type* can be one of `Boolean`, `Calendar`, `Date`, `Double`, `Integer`, `Locale`, `Number`, `String`
-`$convert.to`*Type*`s(`&nbsp;*object*&nbsp;`)` | converts an array, Collection, delimited String, or object to an array of *Type*s, where *Type* can be one of `Boolean`, `Calendar`, `Date`, `Double`, `Integer`, `Locale`, `Number`, `String`
 
 #### [**ComparisonDateTool**](apidocs/org/apache/velocity/tools/generic/ComparisonDateTool.html) - tool used to format, parse and compare dates{#ComparisonDateTool}
 
@@ -196,6 +181,23 @@ You will find here a summary of all the available standard tools, sufficient for
 `$field.get(`&nbsp;*string*&nbsp;`)` | returns the value of the field with the specified name, if found
 `$fields.in(`&nbsp;*class/object/string*&nbsp;`)` | loads all public static fields in the specified class or object
 
+#### [**JsonTool**](apidocs/org/apache/velocity/tools/generic/JsonTool.html) - Tool for JSON parsing and rendering
+
+**`$json`** | 
+--|--
+`config.resource` [&nbsp;=&nbsp;`null`&nbsp;] | Sets the locale resource (file or classpath) as JSON source
+`config.url` [&nbsp;=&nbsp;`null`&nbsp;] | Sets the distant resource (specified as an URL) as JSON source
+`$json.parse(`*JSON content*`)` | Parse JSON content
+`$json.read(`*resource*`)` | Parse the content of a local resource
+`$json.fetch(`*URL*`)` | Parse the content of a distant resource
+`$json.root()` | Returns the root parsed JSON object or array
+`$json.get(`*index or property*`)` | Returns the value under the specified index (for an array) or named property (for a map), if present, or null
+`$json.keys()` | Returns an iterator on the root object, null if root is null or is not an object
+`$json.keySet()` | Returns the root object keys set, null if root is null or is not an object
+`$json.iterator()` | When root is an array, returns an iterator on contained elements ; when root is an object, returns an iterator on keys ; returns null otherwise
+`$json.size()` | Returns the size of the root array/object, or null
+`$json` | Returns a JSON representation of the root array or object, or null
+
 #### [**LinkTool**](apidocs/org/apache/velocity/tools/generic/LinkTool.html) - tool used to format hyperlinks ; this tool is somewhat unusual in that every method that takes parameters will return a new instance of the tool that is a copy of the one the method was called upon, with the additional change specified by the method call, allowing for chained calls like `href="$link.relative('foobar.html').param('id','25').anchor('section4')"` (which would produce `href="foobar.html?id=25#section4"`){#LinkTool}
 
 **`$link`** |
@@ -285,12 +287,6 @@ You will find here a summary of all the available standard tools, sufficient for
 `config.forceThreadSafe` [&nbsp;=&nbsp;`true`&nbsp;] | whether to force a thread-safe evaluation
 `$render.eval(`&nbsp;*string*&nbsp;`)` | evaluates a String containing VTL using the current context, and returns the result as a String
 `$render.recurse(`&nbsp;*string*&nbsp;`)` | recursively evaluates a String containing VTL using the current context, and returns the result as a String
-
-#### [**SortTool**](apidocs/org/apache/velocity/tools/generic/SortTool.html) - tool used to sort collections{#SortTool}
-
-**`$sort`** |
---|--
-`$sorter.sort(`&nbsp;*collection* [ , *property  / property list*&nbsp;]&nbsp;`)` | sorts the values of the specified `Collection`, `Map`, or array of `Objects`, either by their natural order or  according to the values returned by the specified property or list of properties
 
 #### [**ResourceTool**](apidocs/org/apache/velocity/tools/generic/ResourceTool.html) - tool for accessing ResourceBundles and formatting messages therein ;  most methods return a new object that has mostly the same methods as the original, allowing you to build up parameters elegantly and simply, rather than try to remember how to use methods with many parameters that must be in a specific order: so, you can access a resource with the key `'hello.whoever'` in the `'otherStuff'` bundle with one message argument like this: `$text.hello.whoever.bundle('otherStuff').insert('World')` instead of like this: `$text.get('hello.whoever','otherStuff', $null, 'World')`{#ResourceTool}
 
