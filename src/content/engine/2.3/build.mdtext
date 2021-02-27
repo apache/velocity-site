@@ -1,0 +1,31 @@
+Title: Apache Velocity Engine - Building
+
+## Installation
+
+Velocity runs on a variety of platforms that have installed the Java Virtual Machine. A Java Development Kit version 1.8+ is required to compile Velocity from its source code (as it is to run it).
+
+Everything required to build Velocity comes with the distribution, which can be obtained from [Apache git](https://gitbox.apache.org/repos/asf/velocity-engine.git), [github](https://github.com/apache/velocity-engine.git) (handy to submit pull requests) or from the [main distribution](/download.cgi#engine). However, you will need to install [Maven](http://maven.apache.org/) to build the Velocity sources.
+
+[Maven](http://maven.apache.org/) is also an Apache project. To build Apache Velocity, you need at least Version 3.0.5 of Apache Maven.
+
+## Required Tools
+
+To build Velocity we require [Maven](http://maven.apache.org/) version 3.0.5 or higher to perform the build process. We assume that you have followed Maven's installation instructions and have it properly installed.
+
+## Building from Sources
+
+In each case below, it is assumed that you were successful in [checking out the sources from github](/download.cgi#source-code-repository):
+
+    :::shell
+    git clone https://github.com/apache/velocity-engine.git velocity-engine
+    cd velocity-engine
+    mvn install    
+
+Executing this script will create a **target** directory within the velocity-engine directory. Each subdirectory containing a module of Velocity will contain a "target" directory too, containing all built jars.
+
+After a successful build with the above command, your Velocity build will be available in your local Maven repository.
+
+Refer to Maven documentation for alternate commands you can invoke.
+
+If you find a problem, do not hesitate to ask the Velocity community
+via our [mailing lists](/contact.html).
