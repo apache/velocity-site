@@ -10,9 +10,9 @@ You can check the [Velocity Template Language (VTL) reference](vtl-reference.htm
 
 The current stable release version is version 2.2.
 
-The release distribution is available as a combined source/binary distribution in `tar.gz` and `zip` formats, and can be downloaded through the [Apache Mirror system](/download.cgi)..
+The release distribution is available as a combined source/binary distribution in `tar.gz` and `zip` formats, and can be downloaded through the [Apache Mirror system](/download.cgi).
 
-The Velocity jars are also available through the [central Maven repository](http://repo1.maven.org/maven2/org/apache/velocity/).
+The Velocity jars are also available through the [central Maven repository](https://search.maven.org/artifact/org.apache.velocity/velocity-engine-core/2.0/jar).
 
 Older releases are archived at the [Apache Velocity archives](http://archive.apache.org/dist/velocity/engine/).
 

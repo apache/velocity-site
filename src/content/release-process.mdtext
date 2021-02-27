@@ -12,10 +12,10 @@ Instructions make explicit references to the *engine* subproject, but you can ea
 
 To create a release you have to install:
 
-* [Java Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* [Maven 3](http://maven.apache.org/)
-* [GnuPG](http://www.gnupg.org/)
-* [OpenSSH](http://www.openssh.com/}OpenSSH)
+* [Java Development Kit 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Maven 3](https://maven.apache.org/)
+* [GnuPG](https://www.gnupg.org/)
+* [OpenSSH](https://www.openssh.com/}OpenSSH)
 
 ### One-time operations
 
@@ -23,11 +23,11 @@ These operations need to be performed only one time.
 
 * Create and publish your GPG key
 
-    To create a GPG key, follow the [guidelines](http://www.apache.org/dev/openpgp.html}guidelines). Insert in the file you find on people.apache.org at the directory:
+    To create a GPG key, follow the [guidelines](https://www.apache.org/dev/openpgp.html}guidelines). Insert in the file you find on people.apache.org at the directory:
     
         /www/www.apache.org/dist/velocity/
 
-	Publish your GPG key in a PGP key server, such as [MIT Keyserver](http://pgp.mit.edu/).
+	Publish your GPG key in a PGP key server, such as [MIT Keyserver](https://pgp.mit.edu/).
 
 * Modify `settings.xml`
     
