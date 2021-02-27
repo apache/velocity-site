@@ -101,6 +101,7 @@ Read below for futher details.
 + the #foreach predefined references `$velocityCount` and `$velocityHasNext` have been removed. Use `$foreach.count` (1-based), `$foreach.index` (0-based) and `foreach.hasNext()`.
 + Velocimacro arguments are now evaluated only once (instead of each time they were referenced inside the macro body as was the case for v1.7) and passed by value (or more precisely as reference after evaluation).
 + Velocimacros do not anymore have a *proxy context* of their own - if they do insert new values in the context, and then call an external code changing those values, they will now see the new values.
++ 2.x follows a [standard operators precedence rule](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/operators.html), whereas with 1.7 the expression `! "$foo" == 'bar'` will, wrongly, evaluate the equality before the unary negation.
 
 ### Dependency Changes
 

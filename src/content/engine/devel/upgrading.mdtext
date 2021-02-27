@@ -147,7 +147,8 @@ Read below for futher details.
 + space gobbling (to control the indentation of generated code) is now configurable via the `space.gobbing` configuration key, which can take the following values: `none`, `bc` (aka. backward compatible), `lines` and `structured`. See the related documentation section for details. To maximize backward compatibility with 1.x, set it to `bc`.
 + the #foreach predefined references `$velocityCount` and `$velocityHasNext` have been removed. Use `$foreach.count` (1-based), `$foreach.index` (0-based) and `foreach.hasNext()`.
 + Velocimacro arguments are now evaluated only once (instead of each time they were referenced inside the macro body as was the case for v1.7) and passed by value (or more precisely as reference after evaluation).
-+ Velocimacros do not anymore have a *proxy context* of their own - if they do insert new values in the context, and then call an external code changing those values, they will now see the new values (see 2.2 for the velicomacro.enable_bc_mode backward compatibility flag).
++ Velocimacros do not anymore have a *proxy context* of their own - if they do insert new values in the context, and then call an external code changing those values, they will now see the new values (see 2.2 for the velocimacro.enable_bc_mode backward compatibility flag).
++ 2.x follows a [standard operators precedence rule](https://docs.oracle.com/javase/tutorial/java/nutsandbolts/operators.html), whereas with 1.7 the expression `! "$foo" == 'bar'` will, wrongly, evaluate the equality before the unary negation.
 
 ### Dependency Changes
 
