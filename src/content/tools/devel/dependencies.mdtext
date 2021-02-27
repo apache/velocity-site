@@ -23,7 +23,7 @@ junit | 4.13.1 | No | Yes | No | Only required for tests.
 
 Jar Name | Version | Compile | Tests | Runtime | Notes
 ---------|---------|---------|-------|---------|------
-velocity-tools-generic | 3.0 | Yes | Yes | Yes |
+velocity-tools-generic | 3.1 | Yes | Yes | Yes |
 servletapi | 3.1.0 | Yes | Yes | No | Required for most view tools (provided by the J2EE container)
 junit | 4.13.1 | No | Yes | No | Only required for tests
 easymock | 4.2 | No | Yes | No | Only required for tests
