@@ -10,7 +10,7 @@ You can check the [Velocity Template Language (VTL) reference](vtl-reference.htm
 
 The current stable release version is version 2.2.
 
-The release distribution is available as a combined source/binary distribution in `tar.gz` and `zip` formats, and can be downloaded through the [Apache Mirror system](/download.cgi)..
+The release distribution is available as a combined source/binary distribution in `tar.gz` and `zip` formats, and can be downloaded through the [Apache Mirror system](/download.cgi).
 
 The Velocity jars are also available through the [central Maven repository](https://search.maven.org/artifact/org.apache.velocity/velocity-engine-core/2.2/jar).
 
@@ -18,13 +18,7 @@ Older releases are archived at the [Apache Velocity archives](http://archive.apa
 
 ## Where do I get nightly snapshots?
 
-<!--
-Nightly snapshots of the Velocity subversion source code tree can be found on our [nightly snapshot site(http://vc.apache.org/snapshots/velocity/).
-
-If you are willing to risk getting dirty, we invite you to try the nightly snapshot to see the current state of affairs. (and help out!) [Public subversion access](http://www.apache.org/dev/version-control.html) is also available.
--->
-
-Nightly snapshots aren't currently activated, but you can build the latest version using the [Public subversion access](http://www.apache.org/dev/version-control.html), and you can find the latest published snapshot on the [Apache Snapshot Repository](https://repository.apache.org/content/repositories/snapshots/org/apache/velocity/).
+Nightly snapshots aren't currently activated, but you can [build the latest version](build.html), and you can find the latest published snapshot on the [Apache Snapshot Repository](https://repository.apache.org/content/repositories/snapshots/org/apache/velocity/).
 
 **Caveat!** These snapshots are generated automatically from the project source code repository. As this is our live development workspace, there are no guarantees as to what you will find there, although we do our best to maintain a buildable source tree. If you are looking for the stable supported release, please use the current release of Velocity.
 
@@ -36,5 +30,5 @@ The Velocity project appreciates any contributions, including documentation help
 
 + Report bugs, ask questions, and help new users on the [Velocity mailing lists](http://velocity.apache.org/contact.html).
 + There's a list of issues waiting to be addressed in [our bug tracker](https://issues.apache.org/jira/browse/VELOCITY).
-+ [Our wiki](http://wiki.apache.org/velocity/velocity) has a large collection of community written content. Add your own article or contribute to the FAQ!
-+ Read-only access to the Subversion repository is available both [online](http://svn.apache.org/repos/asf/velocity/engine/trunk/) and with a [Subversion client](http://www.apache.org/dev/version-control.html).
++ [Our wiki](https://wiki.apache.org/velocity/velocity) has a large collection of community written content. Add your own article or contribute to the FAQ!
++ Read-only access to the git repository is available both [online](https://github.com/apache/velocity-engine) and with a [Git client](https://www.apache.org/dev/version-control.html).

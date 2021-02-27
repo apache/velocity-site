@@ -19,7 +19,7 @@ We suggest you read this article on [getting started with web applications](weba
 
 You can download the latest release version of the [Velocity Engine](/download.cgi#engine) or [Velocity Tools](/download.cgi#tools) from the main Apache Velocity download site. For Velocity itself, source is included with the binary download.
 
-If you want to download the latest source, you can do so via the Subversion (svn) source control system.
+If you want to download the latest source, you can do so via the git source control system and/or our github.com mirror.
 
 You can also find published snapshots on the [Apache Snapshot Repository](https://repository.apache.org/content/repositories/snapshots/org/apache/velocity/).
 
@@ -216,7 +216,8 @@ That's really all there is to basic context operations. For more information, se
 
 ### Support for Iterative Objects for #foreach()
 
-As a programmer, you have great freedom in the objects that you put into the context.  But as with most freedoms, this one comes with a little bit of responsibility, so understand what Velocity supports, and any issues that may arise.  Velocity supports serveral types of collection types  suitable for use in the VTL `#foreach()` directive.
+As a programmer, you have great freedom in the objects that you put into the context.  But as with most freedoms, this one comes with a little bit of responsibility, so understand what Velocity supports, and any issues that may arise. Velocity supports serveral types of collection types suitable for use in the VTL `#foreach()` directive:
+
 + `Object []`  Regular object array, not much needs to be said here. Velocity will internally wrap your array in a class that provides an Iterator interface,  but that shouldn't concern you as the programmer, or the template author.  Of more interest, is the fact that Velocity will now allow template authors to treat arrays as fixed-length lists. This means they may call methods like `size()`, `isEmpty()` and `get(int)` as well as the `empty` property on both arrays and standard java.util.List instances without concerning themselves about the difference.
 + `java.util.Collection`  Velocity will use the `iterator()` method to get an Iterator to use in the loop, so if you are implementing a Collection interface on your object, please ensure that `iterator()` returns a working  Iterator.
 + `java.util.Map ` Here, Velocity depends upon the `values()` method of the interface to get a `Collection` interface, on which `iterator()` is called to retrieve an Iterator for the loop.
@@ -844,7 +845,7 @@ There are currently four kinds of resource loaders that are included with Veloci
 
 The [VelocityTools](/tools/devel/) project also defines a [WebappResourceLoader](/tools/devel/apidocs/org/apache/velocity/tools/view/WebappResourceLoader.html), active by default, which maps '/' to the root of the webapp.
 
-Advanced users may also want to replace the Resource Manager or the Resource Cache: the Resource Manager is the main part of the resource (template and static content) management system, and is responsible for taking application requests for templates, finding them in the available resource loaders, and then optionally caching the parsed template. The Resource Cache is the mechanism that the Resource Manager uses to cache templates for quick reuse. While the default versions of these two facilities are suitable for most applications, it is possible to replace the default resource manager and resource cache with custom implementations. See the (related configuration options)[configuration.html#resource-management].
+Advanced users may also want to replace the Resource Manager or the Resource Cache: the Resource Manager is the main part of the resource (template and static content) management system, and is responsible for taking application requests for templates, finding them in the available resource loaders, and then optionally caching the parsed template. The Resource Cache is the mechanism that the Resource Manager uses to cache templates for quick reuse. While the default versions of these two facilities are suitable for most applications, it is possible to replace the default resource manager and resource cache with custom implementations. See the [related configuration options](configuration.html#resource-management).
 
 ## Application Attributes
 
