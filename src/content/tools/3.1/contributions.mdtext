@@ -1,0 +1,19 @@
+Title: Apache Velocity Tools - Contributions
+
+## Contributions
+
+This page lists reusable users contributed code. Please note that this code has been barely compiled and rarely tested by Velocity commiters.
+
+[TOC]
+
+### Tools
+
+* [FeedTool](contributions/FeedTool.html) by **C. Townson** is a tool providing the ability to retrieve and manipulate RSS and Atom feeds from within Velocity templates. It is built upon the [Rome API](https://rometools.github.io/rome/).
+
+### Contributing code
+
+If you can and wish to share your code, you're most welcome!
+
+Tools which are sufficiently generics will be considered for inclusion in the releases. Others will be listed on that page if considered productive.
+
+In either case, you will have to open an issue on [Velocity Tools' JIRA](https://issues.apache.org/jira/projects/VELTOOLS), describe your contribution, attach your code, and also the apropriate [Contributor License Agreement or Software Grant](https://www.apache.org/licenses/#grants).
