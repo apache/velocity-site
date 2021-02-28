@@ -213,20 +213,19 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <h3 id="index">Index<a class="headerlink" href="#index" title="Permanent link">&para;</a></h3>
 <h4 id="generic-tools">Generic Tools<a class="headerlink" href="#generic-tools" title="Permanent link">&para;</a></h4>
 <ul>
-<li><a href="#AlternatorTool"><code>$alt</code> - AlternatorTool</a></li>
 <li><a href="#ClassTool"><code>$class</code> - ClassTool</a>,</li>
+<li><a href="#CollectionTool"><code>$collection</code> - CollectionTool</a></li>
 <li><a href="#ContextTool"><code>$context</code> - ContextTool</a>,</li>
-<li><a href="#ConversionTool"><code>$convert</code> - ConversionTool</a>,</li>
 <li><a href="#ComparisonDateTool"><code>$date</code> - ComparisonDateTool</a>,</li>
-<li><a href="#DisplayTool"><code>$disp</code> - DisplayTool</a>,</li>
+<li><a href="#DisplayTool"><code>$display</code> - DisplayTool</a>,</li>
 <li><a href="#EscapeTool"><code>$esc</code> - EscapeTool</a>,</li>
 <li><a href="#FieldTool"><code>$field</code> - FieldTool</a>,</li>
+<li><a href="#JsonTool"><code>$json</code> - JsonTool</a>,</li>
 <li><a href="#LinkTool"><code>$link</code> - LinkTool</a>,</li>
 <li><a href="#LogTool"><code>$log</code> - LogTool</a>,</li>
 <li><a href="#MathTool"><code>$math</code> - MathTool</a>,</li>
 <li><a href="#NumberTool"><code>$number</code> - NumberTool</a>,</li>
 <li><a href="#RenderTool"><code>$render</code> - RenderTool</a>,</li>
-<li><a href="#SortTool"><code>$sort</code> - SortTool</a>,</li>
 <li><a href="#ResourceTool"><code>$text</code> - ResourceTool</a>,</li>
 <li><a href="#XmlTool"><code>$xml</code> - XmlTool</a></li>
 </ul>
@@ -242,58 +241,14 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li><a href="#ParameterTool"><code>$params</code> - ParameterTool</a>,</li>
 <li><a href="#AbstractSearchTool"><code>$search</code> - AbstractSearchTool</a>,</li>
 </ul>
+<h4 id="deprecated-tools">Deprecated Tools<a class="headerlink" href="#deprecated-tools" title="Permanent link">&para;</a></h4>
+<ul>
+<li><a href="apidocs/org/apache/velocity/tools/generic/AlternatorTool.html"><code>$alt</code> - ~~AlternatorTool~~</a>, use <code>#if( $foreach.index % 2)</code> or, for HTML, css3 <code>nth-child(even/odd)</code> selectors.</li>
+<li><a href="apidocs/org/apache/velocity/tools/generic/ConversionTool.html"><code>$convert</code> - ~~ConversionTool~~</a>, use <code>NumberTool</code> for numbers formatting/parsing, <code>DateTool</code> for date/time formatting/parsing, or <code>CollectionTool</code> for string splitting.</li>
+<li><a href="apidocs/org/apache/velocity/tools/generic/SortTool.html"><code>$sort</code> - ~~SortTool~~</a>, use CollectionTool sort methods</li>
+</ul>
 <h3 id="generic-tools_1">Generic Tools<a class="headerlink" href="#generic-tools_1" title="Permanent link">&para;</a></h3>
 <h4 id="alternatortool-tool-to-create-alternators-variables-that-cycle-through-an-array"><a href="apidocs/org/apache/velocity/tools/generic/AlternatorTool.html" id="AlternatorTool"><strong>AlternatorTool</strong></a> - tool to create <a href="apidocs/org/apache/velocity/tools/generic/Alternator.html">alternators</a> (variables that cycle through an array)<a class="headerlink" href="#alternatortool-tool-to-create-alternators-variables-that-cycle-through-an-array" title="Permanent link">&para;</a></h4>
-<table class="table">
-<thead>
-<tr>
-<th><strong><code>$alternator</code></strong></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>config.autoAlternate</code> [&nbsp;=&nbsp;<code>true</code>&nbsp;]</td>
-<td>boolean, states whether the alternator will automatically switch values at each rendering</td>
-</tr>
-<tr>
-<td><code>$alternator.autoAlternateDefault</code></td>
-<td>returns <code>true</code> if alternators created by this tool will auto-alternate by default, or set the property to a new boolean value</td>
-</tr>
-<tr>
-<td><code>#set( $alt = $alternator.auto(value1,value2,...) )</code></td>
-<td>creates an automatic alternator</td>
-</tr>
-<tr>
-<td><code>#set( $alt = $alternator.make(value1,value2,...) )</code></td>
-<td>creates an alternator with default auto behaviour</td>
-</tr>
-<tr>
-<td><code>#set( $alt = $alternator.manual(value1,value2,...) )</code></td>
-<td>creates a manual alternator</td>
-</tr>
-<tr>
-<td><code>$alt</code></td>
-<td>displays current value (and shift for automatic alternators)</td>
-</tr>
-<tr>
-<td><code>alt.current</code></td>
-<td>displays current value</td>
-</tr>
-<tr>
-<td><code>$alt.next</code></td>
-<td>displays current value and shift</td>
-</tr>
-<tr>
-<td><code>$alt.shift</code></td>
-<td>shifts to next value</td>
-</tr>
-<tr>
-<td><code>$alt.auto</code></td>
-<td>read/write property stating if this is an automatic alternator</td>
-</tr>
-</tbody>
-</table>
 <h4 id="ClassTool"><a href="apidocs/org/apache/velocity/tools/generic/ClassTool.html"><strong>ClassTool</strong></a> - tool meant to use Java reflection in templates<a class="headerlink" href="#ClassTool" title="Permanent link">&para;</a></h4>
 <table class="table">
 <thead>
@@ -381,6 +336,37 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </tr>
 </tbody>
 </table>
+<h4 id="CollectionTool"><a href="apidocs/org/apache/velocity/tools/generic/CollectionTool.html"><strong>CollectionTool</strong></a> - tool gathering several collection utilities<a class="headerlink" href="#CollectionTool" title="Permanent link">&para;</a></h4>
+<table class="table">
+<thead>
+<tr>
+<th><strong><code>$collection</code></strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config.stringsDelimiter</code> [&nbsp;=&nbsp;<code>,</code>&nbsp;]</td>
+<td>string, default delimiter for splitting strings</td>
+</tr>
+<tr>
+<td><code>config.trimStrings</code> [&nbsp;=&nbsp;<code>true</code>&nbsp;]</td>
+<td>boolean, indicates whether to trim splitted strings</td>
+</tr>
+<tr>
+<td><code>$collection.split(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
+<td>returns an array of strings obtained by splitting the input</td>
+</tr>
+<tr>
+<td><code>$collection.sort(</code>&nbsp;<em>collection, map or array</em>&nbsp;<code>)</code></td>
+<td>returns a sorted version of the input collection</td>
+</tr>
+<tr>
+<td><code>$collection.sort(</code>&nbsp;<em>collection, map or array</em>&nbsp; [,&nbsp;<em>property name</em>&nbsp;] <code>)</code></td>
+<td>returns a sorted version of the input collection under a spectific property ; contained objets are supposed to have the property passed as 2<sup>nd</sup> argument</td>
+</tr>
+</tbody>
+</table>
 <h4 id="ContextTool"><a href="apidocs/org/apache/velocity/tools/generic/ContextTool.html"><strong>ContextTool</strong></a> - tool allowing Velocity context introspection<a class="headerlink" href="#ContextTool" title="Permanent link">&para;</a></h4>
 <table class="table">
 <thead>
@@ -409,65 +395,6 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <tr>
 <td><code>$context.get(</code>&nbsp;<em>key</em>&nbsp;<code>)</code></td>
 <td>returns the value for the specified key in the current request context</td>
-</tr>
-</tbody>
-</table>
-<h4 id="ConversionTool"><a href="apidocs/org/apache/velocity/tools/generic/ConversionTool.html"><strong>ConversionTool</strong></a> - tool allowing conversions between datatypes<a class="headerlink" href="#ConversionTool" title="Permanent link">&para;</a></h4>
-<table class="table">
-<thead>
-<tr>
-<th><strong><code>$convert</code></strong></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>config.stringsDelimiter</code> [&nbsp;=&nbsp;<code>','</code>&nbsp;]</td>
-<td>delimiter used when parsing concatenated strings arrays</td>
-</tr>
-<tr>
-<td><code>config.trimStrings</code> [&nbsp;=&nbsp;<code>true</code>&nbsp;]</td>
-<td>boolean, states whether or not trim strings when parsing concatenated strings arrays</td>
-</tr>
-<tr>
-<td><code>config.numberFormat</code> [&nbsp;=&nbsp;JVM Locale number format&nbsp;]</td>
-<td>number format to use when parsing numbers</td>
-</tr>
-<tr>
-<td><code>config.dateFormat</code> [&nbsp;=&nbsp;JVM Locale date format&nbsp;]</td>
-<td>date format to use when parsing dates</td>
-</tr>
-<tr>
-<td><code>$convert.stringsDelimiter</code></td>
-<td>delimiter used when parsing concatenated strings arrays</td>
-</tr>
-<tr>
-<td><code>$convert.stringsTrim</code></td>
-<td>whether or not strings are trimmed when parsing concatenated strings arrays</td>
-</tr>
-<tr>
-<td><code>$convert.dateFormat</code></td>
-<td>current date format used when parsing dates</td>
-</tr>
-<tr>
-<td><code>$convert.numberFormat</code></td>
-<td>current number format used when parsing numbers</td>
-</tr>
-<tr>
-<td><code>$convert.parseDate(</code>&nbsp;<em>string</em> [ , <em>format</em> [ , <em>locale</em> [ , <em>timezone</em>&nbsp;]&nbsp;]&nbsp;]&nbsp;<code>)</code></td>
-<td>parses a date</td>
-</tr>
-<tr>
-<td><code>$convert.parseNumber(</code>&nbsp;<em>string</em> [ , <em>format</em> [ , <em>locale</em>&nbsp;]&nbsp;]&nbsp;<code>)</code></td>
-<td>parses a number</td>
-</tr>
-<tr>
-<td><code>$convert.to</code><em>Type</em><code>(</code>&nbsp;<em>object</em>&nbsp;<code>)</code></td>
-<td>converts an object to an instance of <em>Type</em>, where <em>Type</em> can be one of <code>Boolean</code>, <code>Calendar</code>, <code>Date</code>, <code>Double</code>, <code>Integer</code>, <code>Locale</code>, <code>Number</code>, <code>String</code></td>
-</tr>
-<tr>
-<td><code>$convert.to</code><em>Type</em><code>s(</code>&nbsp;<em>object</em>&nbsp;<code>)</code></td>
-<td>converts an array, Collection, delimited String, or object to an array of <em>Type</em>s, where <em>Type</em> can be one of <code>Boolean</code>, <code>Calendar</code>, <code>Date</code>, <code>Double</code>, <code>Integer</code>, <code>Locale</code>, <code>Number</code>, <code>String</code></td>
 </tr>
 </tbody>
 </table>
@@ -799,6 +726,65 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </tr>
 </tbody>
 </table>
+<h4 id="jsontool-tool-for-json-parsing-and-rendering"><a href="apidocs/org/apache/velocity/tools/generic/JsonTool.html"><strong>JsonTool</strong></a> - Tool for JSON parsing and rendering<a class="headerlink" href="#jsontool-tool-for-json-parsing-and-rendering" title="Permanent link">&para;</a></h4>
+<table class="table">
+<thead>
+<tr>
+<th><strong><code>$json</code></strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>config.resource</code> [&nbsp;=&nbsp;<code>null</code>&nbsp;]</td>
+<td>Sets the locale resource (file or classpath) as JSON source</td>
+</tr>
+<tr>
+<td><code>config.url</code> [&nbsp;=&nbsp;<code>null</code>&nbsp;]</td>
+<td>Sets the distant resource (specified as an URL) as JSON source</td>
+</tr>
+<tr>
+<td><code>$json.parse(</code><em>JSON content</em><code>)</code></td>
+<td>Parse JSON content</td>
+</tr>
+<tr>
+<td><code>$json.read(</code><em>resource</em><code>)</code></td>
+<td>Parse the content of a local resource</td>
+</tr>
+<tr>
+<td><code>$json.fetch(</code><em>URL</em><code>)</code></td>
+<td>Parse the content of a distant resource</td>
+</tr>
+<tr>
+<td><code>$json.root()</code></td>
+<td>Returns the root parsed JSON object or array</td>
+</tr>
+<tr>
+<td><code>$json.get(</code><em>index or property</em><code>)</code></td>
+<td>Returns the value under the specified index (for an array) or named property (for a map), if present, or null</td>
+</tr>
+<tr>
+<td><code>$json.keys()</code></td>
+<td>Returns an iterator on the root object, null if root is null or is not an object</td>
+</tr>
+<tr>
+<td><code>$json.keySet()</code></td>
+<td>Returns the root object keys set, null if root is null or is not an object</td>
+</tr>
+<tr>
+<td><code>$json.iterator()</code></td>
+<td>When root is an array, returns an iterator on contained elements ; when root is an object, returns an iterator on keys ; returns null otherwise</td>
+</tr>
+<tr>
+<td><code>$json.size()</code></td>
+<td>Returns the size of the root array/object, or null</td>
+</tr>
+<tr>
+<td><code>$json</code></td>
+<td>Returns a JSON representation of the root array or object, or null</td>
+</tr>
+</tbody>
+</table>
 <h4 id="LinkTool"><a href="apidocs/org/apache/velocity/tools/generic/LinkTool.html"><strong>LinkTool</strong></a> - tool used to format hyperlinks ; this tool is somewhat unusual in that every method that takes parameters will return a new instance of the tool that is a copy of the one the method was called upon, with the additional change specified by the method call, allowing for chained calls like <code>href="$link.relative('foobar.html').param('id','25').anchor('section4')"</code> (which would produce <code>href="foobar.html?id=25#section4"</code>)<a class="headerlink" href="#LinkTool" title="Permanent link">&para;</a></h4>
 <table class="table">
 <thead>
@@ -1111,21 +1097,6 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <tr>
 <td><code>$render.recurse(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
 <td>recursively evaluates a String containing VTL using the current context, and returns the result as a String</td>
-</tr>
-</tbody>
-</table>
-<h4 id="SortTool"><a href="apidocs/org/apache/velocity/tools/generic/SortTool.html"><strong>SortTool</strong></a> - tool used to sort collections<a class="headerlink" href="#SortTool" title="Permanent link">&para;</a></h4>
-<table class="table">
-<thead>
-<tr>
-<th><strong><code>$sort</code></strong></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>$sorter.sort(</code>&nbsp;<em>collection</em> [ , <em>property  / property list</em>&nbsp;]&nbsp;<code>)</code></td>
-<td>sorts the values of the specified <code>Collection</code>, <code>Map</code>, or array of <code>Objects</code>, either by their natural order or  according to the values returned by the specified property or list of properties</td>
 </tr>
 </tbody>
 </table>

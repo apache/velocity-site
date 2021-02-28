@@ -1,0 +1,284 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>Apache Velocity Tools - Usage</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+    <link rel="alternate" href="http://feeds.feedburner.com/ApacheVelocitySiteNews" type="application/rss+xml" title="Apache Velocity Tools - Usage News" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../../../" id="bannerLeft">
+    
+                                            <img src="images/velocity_project_wide.png" alt="" />
+    
+            </a>
+                          <span id="bannerRight">
+    
+                                            <img src="images/velocitytools.png" alt="" />
+    
+            </span>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+          
+          <a href="http://www.apache.org/">Apache</a>
+              &gt;
+      
+          <a href="../../../">Velocity</a>
+              &gt;
+      
+          <a href="../">Velocity Tools</a>
+              &gt;
+      
+          <a href="../../../">Velocity</a>
+              &gt;
+      
+          Velocity Tools
+                </div>
+            <div class="xright">      <a href="../../../engine/devel/">Engine</a>
+          |
+          <a href="../">Tools</a>
+          |
+          <a href="../../../anakia/devel/">Anakia</a>
+          |
+          <a href="../../../texen/devel/">Texen</a>
+          |
+          <a href="../../../docbook/">DocBook</a>
+          |
+          <a href="../../../dvsl/devel/">DVSL</a>
+          |
+          <a href="../../../engine/devel/">Engine</a>
+          |
+          <a href="../">Tools</a>
+          |
+          <a href="../../../anakia/devel/">Anakia</a>
+          |
+          <a href="../../../texen/devel/">Texen</a>
+          |
+          <a href="../../../docbook/">DocBook</a>
+          |
+          <a href="../../../dvsl/devel/">DVSL</a>
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>VelocityTools</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="../index.html">Velocity Tools parent module</a>
+        </li>
+          </ul>
+          <h5>Overview</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="index.html">Introduction</a>
+        </li>
+              
+    <li class="none">
+              <a href="plugin-info.html">Goals</a>
+        </li>
+              
+    <li class="none">
+              <strong>Usage</strong>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-info.html">Project Information</a>
+              </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-reports.html">Project Reports</a>
+              </li>
+          </ul>
+                                       <a class="poweredBy" href="http://maven.apache.org/" title="Built by Maven">
+            <img class="poweredBy" alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+            
+       <iframe src="http://www.apache.org/ads/buttonbar.html"
+               style="border-width:0; float: left" frameborder="0" scrolling="no"
+               width="135"
+               height="265" ></iframe>
+
+           
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        <div class="section"><h2>Usage<a name="Usage"></a></h2><p>The Velocity Tools Maven plugin contains mojos to work together with Velocity Tools.</p><div class="section"><h3>Generate Velocity directives from JSP tag libraries.<a name="Generate_Velocity_directives_from_JSP_tag_libraries."></a></h3><p>JSP tag libraries can be wrapped into Velocity directives to use them into Velocity templates.</p><p>Create a new project and configure the plugin.</p><div><pre>&lt;build&gt;
+    &lt;plugins&gt;
+        &lt;plugin&gt;
+            &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;
+            &lt;artifactId&gt;maven-velocity-tools-plugin&lt;/artifactId&gt;
+            &lt;version&gt;2.1.0-SNAPSHOT&lt;/version&gt;
+            &lt;configuration&gt;
+                &lt;packageName&gt;org.apache.velocity.tools.examples.displaytag&lt;/packageName&gt;
+                &lt;prefix&gt;display&lt;/prefix&gt;
+                &lt;tld&gt;META-INF/displaytag.tld&lt;/tld&gt;
+            &lt;/configuration&gt;
+            &lt;dependencies&gt;
+                &lt;dependency&gt;
+                    &lt;groupId&gt;displaytag&lt;/groupId&gt;
+                    &lt;artifactId&gt;displaytag&lt;/artifactId&gt;
+                    &lt;version&gt;1.2&lt;/version&gt;
+                &lt;/dependency&gt;
+            &lt;/dependencies&gt;
+            &lt;executions&gt;
+                &lt;execution&gt;
+                    &lt;id&gt;directive-generation&lt;/id&gt;
+                    &lt;goals&gt;
+                        &lt;goal&gt;taglib2directive&lt;/goal&gt;
+                    &lt;/goals&gt;
+                &lt;/execution&gt;
+            &lt;/executions&gt;
+        &lt;/plugin&gt;
+    &lt;/plugins&gt;
+&lt;/build&gt;</pre></div><p>In this case we are wrapping DisplayTag. Notice the fact that DisplayTag is configured as a dependency of the plugin itself, because it uses it to reflect some properties from the original tag library.</p><p>Add a dependency to the taglib itself:</p><div><pre>&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;displaytag&lt;/groupId&gt;
+        &lt;artifactId&gt;displaytag&lt;/artifactId&gt;
+        &lt;version&gt;1.2&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;
+        &lt;artifactId&gt;velocity&lt;/artifactId&gt;
+        &lt;version&gt;1.6&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.apache.velocity&lt;/groupId&gt;
+        &lt;artifactId&gt;velocity-tools-view-jsp&lt;/artifactId&gt;
+        &lt;version&gt;2.1.0-SNAPSHOT&lt;/version&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</pre></div><p>To use it, in your <tt>velocity.properties</tt> file, add the list of generated directives this way:</p><div><pre>userdirective=org.apache.velocity.tools.examples.displaytag.CaptionTagDirective,\
+  org.apache.velocity.tools.examples.displaytag.ColumnTagDirective,\
+  org.apache.velocity.tools.examples.displaytag.SetPropertyTagDirective,\
+  org.apache.velocity.tools.examples.displaytag.TableFooterTagDirective,\
+  org.apache.velocity.tools.examples.displaytag.TableTagDirective</pre></div></div></div>
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2002-2011
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+    
+             Last Published: 2011-04-13 16:53:02
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>

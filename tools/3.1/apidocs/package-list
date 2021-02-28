@@ -1,0 +1,10 @@
+org.apache.velocity.tools
+org.apache.velocity.tools.config
+org.apache.velocity.tools.examples.showcase
+org.apache.velocity.tools.examples.showcase.sample
+org.apache.velocity.tools.examples.showcase.tool
+org.apache.velocity.tools.examples.simple.tool
+org.apache.velocity.tools.generic
+org.apache.velocity.tools.view
+org.apache.velocity.tools.view.jsp
+org.apache.velocity.tools.view.jsp.jspimpl

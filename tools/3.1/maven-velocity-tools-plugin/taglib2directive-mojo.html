@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+
+
+
+
+
+
+
+
+<html>
+  <head>
+    <title>Apache Velocity Tools - 
+    velocity-tools:taglib2directive</title>
+    <style type="text/css" media="all">
+      @import url("./css/maven-base.css");
+      @import url("./css/maven-theme.css");
+      @import url("./css/site.css");
+    </style>
+    <link rel="stylesheet" href="./css/print.css" type="text/css" media="print" />
+    <link rel="alternate" href="http://feeds.feedburner.com/ApacheVelocitySiteNews" type="application/rss+xml" title="Apache Velocity Tools - 
+    velocity-tools:taglib2directive News" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+      </head>
+  <body class="composite">
+    <div id="banner">
+                  <a href="../../../" id="bannerLeft">
+    
+                                            <img src="images/velocity_project_wide.png" alt="" />
+    
+            </a>
+                          <span id="bannerRight">
+    
+                                            <img src="images/velocitytools.png" alt="" />
+    
+            </span>
+            <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="breadcrumbs">
+          
+  
+
+  
+    
+  
+  
+    
+            <div class="xleft">
+          
+          <a href="http://www.apache.org/">Apache</a>
+              &gt;
+      
+          <a href="../../../">Velocity</a>
+              &gt;
+      
+          <a href="../">Velocity Tools</a>
+              &gt;
+      
+          <a href="../../../">Velocity</a>
+              &gt;
+      
+          Velocity Tools
+                </div>
+            <div class="xright">      <a href="../../../engine/devel/">Engine</a>
+          |
+          <a href="../">Tools</a>
+          |
+          <a href="../../../anakia/devel/">Anakia</a>
+          |
+          <a href="../../../texen/devel/">Texen</a>
+          |
+          <a href="../../../docbook/">DocBook</a>
+          |
+          <a href="../../../dvsl/devel/">DVSL</a>
+          |
+          <a href="../../../engine/devel/">Engine</a>
+          |
+          <a href="../">Tools</a>
+          |
+          <a href="../../../anakia/devel/">Anakia</a>
+          |
+          <a href="../../../texen/devel/">Texen</a>
+          |
+          <a href="../../../docbook/">DocBook</a>
+          |
+          <a href="../../../dvsl/devel/">DVSL</a>
+          
+  
+
+  
+    
+  
+  
+    
+  </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+    <div id="leftColumn">
+      <div id="navcolumn">
+           
+  
+
+  
+    
+  
+  
+    
+                   <h5>VelocityTools</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="../index.html">Velocity Tools parent module</a>
+        </li>
+          </ul>
+          <h5>Overview</h5>
+        <ul>
+              
+    <li class="none">
+              <a href="index.html">Introduction</a>
+        </li>
+              
+    <li class="none">
+              <a href="plugin-info.html">Goals</a>
+        </li>
+              
+    <li class="none">
+              <a href="usage.html">Usage</a>
+        </li>
+          </ul>
+          <h5>Project Documentation</h5>
+        <ul>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-info.html">Project Information</a>
+              </li>
+              
+                
+              
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+            
+      
+              
+        <li class="collapsed">
+              <a href="project-reports.html">Project Reports</a>
+              </li>
+          </ul>
+                                       <a class="poweredBy" href="http://maven.apache.org/" title="Built by Maven">
+            <img class="poweredBy" alt="Built by Maven" src="./images/logos/maven-feather.png"></img>
+          </a>
+            
+       <iframe src="http://www.apache.org/ads/buttonbar.html"
+               style="border-width:0; float: left" frameborder="0" scrolling="no"
+               width="135"
+               height="265" ></iframe>
+
+           
+  
+
+  
+    
+  
+  
+    
+        </div>
+    </div>
+    <div id="bodyColumn">
+      <div id="contentBox">
+        
+  
+    <div class="section"><h2>velocity-tools:taglib2directive<a name="velocity-tools:taglib2directive"></a></h2>
+      <p><b>Full name</b>:</p>
+      <p>org.apache.velocity:maven-velocity-tools-plugin:2.1.0-SNAPSHOT:taglib2directive</p>
+      <p><b>Description</b>:</p>
+      <div>Creates directives from a tag library.</div>
+      <p><b>Attributes</b>:</p>
+      <ul>
+        <li>Requires a Maven 2.0 project to be executed.</li>
+        <li>Requires dependency resolution of artifacts in scope: <tt>compile</tt>.</li>
+        <li>Binds by default to the lifecycle phase: <tt>generate-resources</tt>.</li>
+      </ul>
+      <div class="section"><h3>Required Parameters<a name="Required_Parameters"></a></h3>
+        <table class="bodyTable" border="0" align="left">
+          <tr class="a">
+            <th>Name</th>
+            <th>Type</th>
+            <th>Since</th>
+            <th>Description</th>
+          </tr>
+          <tr class="b">
+            <td><b><a href="#classesOutputDirectory">classesOutputDirectory</a></b></td>
+            <td><tt>File</tt></td>
+            <td><tt>-</tt></td>
+            <td>Location of the file.<br /></td>
+          </tr>
+          <tr class="a">
+            <td><b><a href="#packageName">packageName</a></b></td>
+            <td><tt>String</tt></td>
+            <td><tt>-</tt></td>
+            <td>Name of the package.<br /></td>
+          </tr>
+          <tr class="b">
+            <td><b><a href="#prefix">prefix</a></b></td>
+            <td><tt>String</tt></td>
+            <td><tt>-</tt></td>
+            <td>Name of the TLD prefix.<br /></td>
+          </tr>
+          <tr class="a">
+            <td><b><a href="#resourcesOutputDirectory">resourcesOutputDirectory</a></b></td>
+            <td><tt>File</tt></td>
+            <td><tt>-</tt></td>
+            <td>Location of the file.<br /></td>
+          </tr>
+          <tr class="b">
+            <td><b><a href="#tld">tld</a></b></td>
+            <td><tt>String</tt></td>
+            <td><tt>-</tt></td>
+            <td>Location of the TLD to parse.<br /></td>
+          </tr>
+        </table>
+      </div>
+      <div class="section"><h3>Parameter Details<a name="Parameter_Details"></a></h3>
+        <p><b><a name="classesOutputDirectory">classesOutputDirectory</a>:</b></p>
+        <div>Location of the file.</div>
+        <ul>
+          <li><b>Type</b>: <tt>java.io.File</tt></li>
+          <li><b>Required</b>: <tt>Yes</tt></li>
+          <li><b>Expression</b>: <tt>${project.build.directory}/veltools-generated-classes</tt></li>
+        </ul><hr /><p><b><a name="packageName">packageName</a>:</b></p>
+        <div>Name of the package.</div>
+        <ul>
+          <li><b>Type</b>: <tt>java.lang.String</tt></li>
+          <li><b>Required</b>: <tt>Yes</tt></li>
+          <li><b>Expression</b>: <tt>sample</tt></li>
+        </ul><hr /><p><b><a name="prefix">prefix</a>:</b></p>
+        <div>Name of the TLD prefix.</div>
+        <ul>
+          <li><b>Type</b>: <tt>java.lang.String</tt></li>
+          <li><b>Required</b>: <tt>Yes</tt></li>
+          <li><b>Expression</b>: <tt>sample</tt></li>
+        </ul><hr /><p><b><a name="resourcesOutputDirectory">resourcesOutputDirectory</a>:</b></p>
+        <div>Location of the file.</div>
+        <ul>
+          <li><b>Type</b>: <tt>java.io.File</tt></li>
+          <li><b>Required</b>: <tt>Yes</tt></li>
+          <li><b>Expression</b>: <tt>${project.build.directory}/veltools-generated-resources</tt></li>
+        </ul><hr /><p><b><a name="tld">tld</a>:</b></p>
+        <div>Location of the TLD to parse.</div>
+        <ul>
+          <li><b>Type</b>: <tt>java.lang.String</tt></li>
+          <li><b>Required</b>: <tt>Yes</tt></li>
+          <li><b>Expression</b>: <tt>sample</tt></li>
+        </ul>
+      </div>
+    </div>
+  
+
+      </div>
+    </div>
+    <div class="clear">
+      <hr/>
+    </div>
+    <div id="footer">
+      <div class="xright">&#169;  
+          2002-2011
+    
+          The Apache Software Foundation
+          
+  
+
+  
+    
+  
+  
+    
+             Last Published: 2011-04-13 16:53:45
+            </div>
+      <div class="clear">
+        <hr/>
+      </div>
+    </div>
+  </body>
+</html>
