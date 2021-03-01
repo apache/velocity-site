@@ -30,6 +30,7 @@ sub changes_report
 {
     my ($project, $tag) = split '/', shift;
     my $url = "https://gitbox.apache.org/repos/asf?p=velocity-$project.git;a=blob_plain;f=src/changes/changes.xml;hb=$tag";
+    print("Generating changes report from " . $url . "\n");
     my $xml = get $url;
 
     # hack to fix an error in the XML up to 1.7
