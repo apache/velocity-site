@@ -26,6 +26,7 @@ You will find here a summary of all the available standard tools, sufficient for
 
 #### View Tools
 
++ [`$breadcrumb` - BreadcrumbTool (beta)](#BreadcrumbTool)
 + [`$browser` - BrowserTool](#BrowserTool),
 + [`$context` - ViewContextTool](#ViewContextTool)
 + [`$cookie` - CookieTool](#CookieTool),
@@ -331,6 +332,15 @@ You will find here a summary of all the available standard tools, sufficient for
 `$xml` | if this instance has no XML Nodes, then this returns the result of super.toString(); otherwise, it returns the XML (as a string) of all the internally held nodes that are not Attributes; for attributes, only the value is used
 
 ### View Tools
+
+#### [**BreadcrumbTool**](apidocs/org/apache/velocity/tools/view/BreadcrumbTool.html) - (beta) Tool helping maintaining a breadcrumbs trail UI component (also called an Ariane thread). {#BreadcrumbTool}
+
+**`$breadcrumb`** |
+--|--
+**scope** | session
+`config.`*segment*`.name` [&nbsp;=&nbsp;`null`&nbsp;] | an optional custom displayed name for the specific URI segment
+`config.`*segment*`.url` [&nbsp;=&nbsp;`null`&nbsp;] | an optional custom displayed URL for the specific URI segment
+`$breadcrumb.iterator()` | Iterate on URI elements, like in `#foreach($elem in $breadcrumb)`. Usefull if you want to customize the default displayed breadcrumbs trail rendered with `$breadcrumb`.
 
 #### [**BrowserTool**](apidocs/org/apache/velocity/tools/view/BrowserTool.html) - browser-sniffing tool; it defines properties that are used to test the client browser, operating system, device, language... apart from properties related to browser version and language, all properties are booleans.{#BrowserTool}
 
