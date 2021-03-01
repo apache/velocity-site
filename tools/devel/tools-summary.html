@@ -231,6 +231,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </ul>
 <h4 id="view-tools">View Tools<a class="headerlink" href="#view-tools" title="Permanent link">&para;</a></h4>
 <ul>
+<li><a href="#BreadcrumbTool"><code>$breadcrumb</code> - BreadcrumbTool (beta)</a></li>
 <li><a href="#BrowserTool"><code>$browser</code> - BrowserTool</a>,</li>
 <li><a href="#ViewContextTool"><code>$context</code> - ViewContextTool</a></li>
 <li><a href="#CookieTool"><code>$cookie</code> - CookieTool</a>,</li>
@@ -1251,6 +1252,33 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </tbody>
 </table>
 <h3 id="view-tools_1">View Tools<a class="headerlink" href="#view-tools_1" title="Permanent link">&para;</a></h3>
+<h4 id="BreadcrumbTool"><a href="apidocs/org/apache/velocity/tools/view/BreadcrumbTool.html"><strong>BreadcrumbTool</strong></a> - (beta) Tool helping maintaining a breadcrumbs trail UI component (also called an Ariane thread).<a class="headerlink" href="#BreadcrumbTool" title="Permanent link">&para;</a></h4>
+<table class="table">
+<thead>
+<tr>
+<th><strong><code>$breadcrumb</code></strong></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>scope</strong></td>
+<td>session</td>
+</tr>
+<tr>
+<td><code>config.</code><em>segment</em><code>.name</code> [&nbsp;=&nbsp;<code>null</code>&nbsp;]</td>
+<td>an optional custom displayed name for the specific URI segment</td>
+</tr>
+<tr>
+<td><code>config.</code><em>segment</em><code>.url</code> [&nbsp;=&nbsp;<code>null</code>&nbsp;]</td>
+<td>an optional custom displayed URL for the specific URI segment</td>
+</tr>
+<tr>
+<td><code>$breadcrumb.iterator()</code></td>
+<td>Iterate on URI elements, like in <code>#foreach($elem in $breadcrumb)</code>. Usefull if you want to customize the default displayed breadcrumbs trail rendered with <code>$breadcrumb</code>.</td>
+</tr>
+</tbody>
+</table>
 <h4 id="BrowserTool"><a href="apidocs/org/apache/velocity/tools/view/BrowserTool.html"><strong>BrowserTool</strong></a> - browser-sniffing tool; it defines properties that are used to test the client browser, operating system, device, language... apart from properties related to browser version and language, all properties are booleans.<a class="headerlink" href="#BrowserTool" title="Permanent link">&para;</a></h4>
 <table class="table">
 <thead>
