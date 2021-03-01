@@ -6,14 +6,14 @@ VelocityTools requires certain external jar dependencies at different times. The
 
 Since VelocityTools relies on Velocity Engine, please also check [Engine dependencies](/engine/2.0/dependencies.html).
 
-Note: Java version 1.7+ is required for compilation, testing and use of VelocityTools 3.x.
+Note: Java version 1.8+ (JDK 8) is required for compilation, testing and use of VelocityTools 3.x.
 {.note}
 
 ### GenericTools
 
 Jar Name | Version | Compile | Tests | Runtime | Notes
 ---------|---------|---------|-------|---------|------
-velocity | 2.0+ | Yes | Yes | Yes | Required for core infrastructure and several tools
+velocity | 2.3 | Yes | Yes | Yes | Required for core infrastructure and several tools
 commons-beanutils | 1.9.4 | Yes | Yes | Yes | Required for core infrastructure and several tools
 commons-digester3 | 3.2 | Yes | Yes | Yes | Required for [xml configuration](config-xml.html) (and [UIDependencyTool](apidocs/org/apache/velocity/tools/view/UiDependencyTool.html) view tool)
 com.github.cliftonlabs.json-simple | 1.1.1 | Yes | No | No | Required for [JsonTool](apidocs/org/apache/velocity/tools/generic/JsonTool.html)
