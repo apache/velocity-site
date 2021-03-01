@@ -236,6 +236,11 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     </thead>
     <tbody>
       <tr>
+        <td>2.3</td>
+        <td>2021-02-27</td>
+        <td/>
+      </tr>
+      <tr>
         <td>2.2</td>
         <td>2020-02-02</td>
         <td/>
@@ -313,7 +318,50 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     </tbody>
   </table>
 </p>
-<h3>Release 2.2 - 2020-02-02</h3><p>
+<h3>Release 2.3 - 2021-02-27</h3><p>
+  <table class="standard">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Changes</th>
+        <th>Bye</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Fix parser bug (newline and space inside an empty inline map definition). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-927">VELOCITY-927</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td/>
+        <td> Backported Spring framework Velocity Engine integration classes from Spring 4.x, in the new module <code> spring-velocity-support </code> . . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-933">VELOCITY-933</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Let SecureUberspector block methods on ClassLoader and subclasses. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-931">VELOCITY-931</a>. </td>
+        <td>wglass</td>
+      </tr>
+      <tr>
+        <td/>
+        <td> Added Travis CI. . Thanks to mgrigorov.</td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Don't leak classes via Stop.STOP_ALL stack trace. . Thanks to donnerpeter.</td>
+        <td>cbrisson</td>
+      </tr>
+    </tbody>
+  </table>
+</p><h3>Release 2.2 - 2020-02-02</h3><p>
   <table class="standard">
     <thead>
       <tr>
