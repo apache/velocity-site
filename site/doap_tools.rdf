@@ -28,6 +28,13 @@
     <category rdf:resource="http://projects.apache.org/category/library"/>
     <release>
       <Version>
+        <name>VelocityTools 3.1</name>
+        <created>2021-02-27</created>
+        <revision>3.0</revision>
+      </Version>
+    </release>
+    <release>
+      <Version>
         <name>VelocityTools 3.0</name>
         <created>2018-10-09</created>
         <revision>3.0</revision>

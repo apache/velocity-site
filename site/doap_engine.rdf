@@ -30,8 +30,15 @@ When Velocity is used for web development, Web designers can work in parallel wi
     <category rdf:resource="http://projects.apache.org/category/library"/>
     <release>
       <Version>
+        <name>Velocity 2.3</name>
+        <created>2021-02-27</created>
+        <revision>2.2</revision>
+      </Version>
+    </release>
+    <release>
+      <Version>
         <name>Velocity 2.2</name>
-        <created>20-02-02</created>
+        <created>2020-02-02</created>
         <revision>2.2</revision>
       </Version>
     </release>
