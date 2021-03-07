@@ -6,28 +6,33 @@ Here you will find the steps to create releases for Velocity Engine or Velocity 
 
 Instructions make explicit references to the *engine* subproject, but you can easily adapt them for the *tools* subproject.
 
-*Note - since Velocity repositories switched from svn to git, part of the following information has to be updated accordingly.*
+Note that *all mails* must be sent in plain text format, not HTML. For thunderbird, for instance, this option is located in `Options > Delivery Format > Plain Text only`.
 
 ### Prerequisites
 
 To create a release you have to install:
 
-* [Java Development Kit 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Java Development Kit 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) or more recent
 * [Maven 3](https://maven.apache.org/)
 * [GnuPG](https://www.gnupg.org/)
-* [OpenSSH](https://www.openssh.com/}OpenSSH)
+* [OpenSSH](https://www.openssh.com/OpenSSH)
 
 ### One-time operations
 
-These operations need to be performed only one time.
+These operations need to be performed only once per commiter.
 
 * Create and publish your GPG key
-
-    To create a GPG key, follow the [guidelines](https://www.apache.org/dev/openpgp.html}guidelines). Insert in the file you find on people.apache.org at the directory:
     
-        /www/www.apache.org/dist/velocity/
+    To create a GPG key, follow the [guidelines](https://www.apache.org/dev/openpgp.html).
 
-	Publish your GPG key in a PGP key server, such as [MIT Keyserver](https://pgp.mit.edu/).
+    Publish your GPG key in a PGP key server, such as [MIT Keyserver](https://pgp.mit.edu/).
+    
+    Log in with your apache credentials to the [Apache Identitity server](https://id.apache.org) and add the fingerprint of your GPG key to your account.
+    
+    It should be enough for your commiter GPG key to be known by Apache and linked to the project. You can check that this is the case by checking that:
+    
+    + your GPG commiter key is visible at `https://people.apache.org/keys/committer/<account>.asc`
+    + it is included in the [Velocity group keys file](https://people.apache.org/keys/group/velocity.asc).
 
 * Modify `settings.xml`
     
@@ -73,7 +78,7 @@ These operations need to be performed only one time.
 
 ### Repeatable operations
 
-These steps must be performed **for each** release.
+These steps must be performed **for each** release candidate.
 
 * Check updates of dependencies and maven plugins:
 
@@ -87,25 +92,23 @@ These steps must be performed **for each** release.
 
 * Archive the previous release candidate
 
-    If it's not the first release candidate you're trying to release, you should archive the previous release candidate. For instance:
+    If it's not the first release candidate you're trying to release, you have to drop the staged artifact from the nexus manager.
+    
+    You have to revert the two automated commits pushed by the maven release plugin, in the reverse order. Those should be the two most recent commits, and should look like something like this in the git log:
+    
+        * commit 1daf1668 (HEAD -> master, origin/master)
+          [maven-release-plugin] prepare for next development iteration
+        
+        * commit 9cd6c031 (tag: 2.3-RC2)
+          [maven-release-plugin] prepare release 2.3-RC2
+    
+    You would then issue commands like:
     
         :::shell
-        svn mv -m "[engine] archive engine 2.0 RC4" https://_your_apache_id_@svn.apache.org/repos/asf/velocity/engine/tags/2.0 https://_your_apache_id_@svn.apache.org/repos/asf/velocity/engine/tags/2.0-RC4
+        git revert 1daf1668
+        git revert 9cd6c031
+        git push
     
-    And don't forget to also drop the staged artifact.
-    
-    Of course, you will also have to revert the automated commits from the previous `mvn release:*` commands. You can use the following shell one-liner to get their revision numbers:
-    
-        :::shell
-        $ svn log pom.xml | grep -B2 maven-release-plugin | egrep "^r" | head -2 | cut -d' ' -f 1
-        r1866626
-        r1866624
-    
-    Then, revert:
-    
-        svn merge -r1866626:1866623 .
-        svn commit -m "[engine/tools] Revert poms for next 2.2 RC attempt"
-
 
 * Complete and update the changelog source file `src/changes/changes.xml` (note: we may get rid of this changelog in the future since it is quite painful to maintain and seems highly redundant with the JIRA release notes).
 
@@ -115,9 +118,9 @@ These steps must be performed **for each** release.
     you are preparing the release and type:
     
         :::shell
-        mvn release:prepare -Dusername=YOUR_SVN_USER -Dpassword=YOUR_SVN_PASSWORD
+        mvn release:prepare -Dusername=YOUR_APACHE_USER -Dpassword=YOUR_APACHE_PASSWORD
     
-    The plugin will interactively ask you the version to release, the subversion tag to use and the next snapshot version. Rather than the proposed default `velocity-engine-parent-X.X`, we tend to use X.X for the subversion tag.
+    The plugin will interactively ask you the version to release, the subversion tag to use and the next snapshot version. Rather than the proposed default `velocity-engine-parent-x.y`, we tend to use *x*.*y*-RC*z* for the git tag.
 
 * Perform the release
     
@@ -181,14 +184,16 @@ These steps must be performed **for each** release.
 
 * Prepare the site
 
-    Copy the `/devel/` section to its `<version>` section (but do not yet refence it from the menu), and fix any SNAPSHOT link within.
+    Copy the `<module>/devel/` section to its `<version>` section (but do not yet refence it from the menu), and fix any SNAPSHOT link within.
+    
+    Change the content of the `changes_report` tag in `<module>/<version>/changes.mdtext` to `<module>/<version>-RC<rc>` (for instance: `{{changes_report(engine/2.3-RC2)}}`).
     
     Generate the corresponding javadoc with
     
         :::shell
         mvn javadoc:aggregate
     
-    and commit the result in [VERSION]/apidocs
+    from the root of the module and commit the result in `<VERSION>/apidocs`.
     
     Push those changes to production (see the [Site Building](http://velocity.apache.org/site-building.html) page).
 
@@ -219,9 +224,10 @@ These steps must be performed **for each** release.
         Documentation:
         
         * https://velocity.apache.org/${module}/${version}
+        
         Sources:
         
-         * https://svn.apache.org/repos/asf/velocity/${module}/tags/${version}
+         * https://github.com/apache/${module}/tags/${version}-${rc}
         
         A vote regarding the quality of this test build will be initiated within the next couple of days.
 
@@ -247,7 +253,7 @@ These steps must be performed **for each** release.
         
         Sources:
         
-         * https://svn.apache.org/repos/asf/velocity/${module}/tags/${version}
+         * https://github.com/apache/${module}/tags/${version}-${rc}
         
         If you have had a chance to review the test build, please respond with a vote on its quality:
         
@@ -258,41 +264,50 @@ These steps must be performed **for each** release.
         
         Everyone who has tested the build is invited to vote. Votes by PMC members are considered binding. A vote passes if there are at least three binding +1s and more +1s than -1s.
 
+* The vote must last at least 72 hours. Once you decide to close the vote, reply to the vote thread with `[RESULT]` in the subject, counting binding and non-binding votes, and stating the release candidate status.
+
 ### Post-vote operations
     
 After a vote is finished, and it has been decided that is **at least of alpha quality**, there is the need of a post-vote process.
     
 * Promote staged artifacts
-    
+   
     Once the release is deemed fit for public consumption it can be transfered to a production repository where it will be available to all users.
     
     Login to [Nexus repository](https://repository.apache.org) again.
-	
-	Click on "Staging" and then on the repository with id "velocity-staging".
-	
-	Find your closed staging repository, right click on it and choose "Promote".
-	
-	Select the "Releases" repository and click "Promote".
-	
-	Next click on "Repositories", select the "Releases" repository and validate that your artifacts exist as you expect them.
+    
+    Click on "Staging" and then on the repository with id "velocity-staging".
+    
+    Find your closed staging repository, right click on it and choose "Release".
+    
+    Next click on "Repositories", select the "Releases" repository and validate that your artifacts exist as you expect them.
 
 * Publish the release
 
-    Copy the staged release to the Apache Releases svn repository at https://dist.apache.org/repos/dist/release/velocity/{module}/...
+    Copy the staged release to the Apache Releases svn repository towards `https://dist.apache.org/repos/dist/release/velocity/{module}/...`, add and commit it.
     
-    You may subsequently receive an automated email from the Apache Reporter Service asking you to log on to https://reporter.apache.org/addrelease.html?velocity to add the release metadata to its database. Please do so.
+    You may subsequently receive an automated email from the Apache Reporter Service asking you to log on to `https://reporter.apache.org/addrelease.html?velocity` to add the release metadata to its database. Please do so.
+
+* Create the final tag from the RC tag
+    
+        :::shell
+        git checkout x.y-RCz
+        git tag -a x.y
+        git push --tags
 
 * Update the site
         
     Wait 24 hours to let the mirror sync to the release and then update the site.
     
-    Update the download page, the left menu, the news section, and the engine or tools index:
+    Update the download page, the left menu, the news section, and the engine or tools index in the `velocity-site` module:
     
-        velocity/site/cms/trunk/content/download.mdtext
-        velocity/site/cms/trunk/content/left.nav
-        velocity/site/cms/trunk/content/news.xml
-        velocity/site/cms/trunk/content/${module}/index.mdtext
-        velocity/site/cms/trunk/content/index.mdtext (status section)
+        src/content/download.mdtext
+        src/content/left.nav
+        src/content/news.xml
+        src/content/${module}/index.mdtext
+        src/trunk/content/index.mdtext (status section)
+    
+    Change the content of the `changes_report` tag in `<module>/<version>/changes.mdtext` to `<module>/<version>` (for instance: `{{changes_report(engine/2.3)}}`).
         
     Push the changes into production.   
     
@@ -301,7 +316,7 @@ After a vote is finished, and it has been decided that is **at least of alpha qu
         :::shell
         wget --spider -r -nd -nv -H -l 2 -w 2 -o links.log https://velocity.apache.org/
 
-* Update the DOAP RDF project metadata located under `svn.apache.org/repos/asf/velocity/site/site\.
+* Update the DOAP RDF project metadata located in the `site` direcotry of the `velocity-site` module sources. Note that DOAP URLs are defined in the [https://svn.apache.org/repos/asf/comdev/projects.apache.org/trunk/data/projects.xml](https://svn.apache.org/repos/asf/comdev/projects.apache.org/trunk/data/projects.xml) file, which can be edited by every commiter (by checking out the project using `svn checkout https://svn.apache.org/repos/asf/comdev`).
 
 * Send announcement
         
