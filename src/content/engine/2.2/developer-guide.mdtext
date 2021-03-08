@@ -1044,8 +1044,6 @@ Here is the list of provided uberspectors (which are found in the [`org.apache.v
 > A Chainable uberspector is an uberspector that wraps the previous uberspector in the introspection chain.
 - [LinkingUberspector](apidocs/org/apache/velocity/util/introspection/LinkingUberspector.html)
 > The Linking uberspector is meant for internal use only. It provides introspection chaining when the left uberspector of two following uberspectors of the introspection chain is not a ChainableUberspector. It first tries to delegate introspection to the left uberspector, and only calls the right one in case of failure.
-- [UberspectLoggable](apidocs/org/apache/velocity/util/introspection/UberspectLoggable.html) interface
-> When an uberspector implements the UberspectLoggable interface, it is provided a logger during initialization via the `setLog(Logger)` method.
 
 If an Uberspector implements the [RuntimeServicesAware](apidocs/org/apache/velocity/util/RuntimeServicesAware.html) interface, it will be provided a Velocity [RuntimeServices](apidocs/org/apache/velocity/runtime/RuntimeServices.html) instance during initialization, via the `setRuntimeServices(RuntimeServices)` method.
 

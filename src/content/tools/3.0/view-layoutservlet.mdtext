@@ -8,7 +8,7 @@ This is an extension to the basic VelocityViewServlet. It provides a simple layo
 
 Since this class is an extension of the VelocityViewServlet (VVS), to use it simply change the servlet-class value of the web.xml entry to the following class:
 
-[org.apache.velocity.tools.view.servlet.VelocityLayoutServlet](apidocs/org/apache/velocity/tools/view/servlet/VelocityLayoutServlet.html)
+[org.apache.velocity.tools.view.servlet.VelocityLayoutServlet](apidocs/org/apache/velocity/tools/view/VelocityLayoutServlet.html)
 
 ## Configuration Settings
 

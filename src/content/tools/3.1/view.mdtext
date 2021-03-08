@@ -23,7 +23,7 @@ For inclusion in a Maven project, use the following dependency block:
         <version>3.0</version>
     </dependency>
 
-Otherwise, see the [download page](/download.html#tools) for how to get the Velocity View Tools jar.
+Otherwise, see the [download page](/download.cgi#tools) for how to get the Velocity View Tools jar.
 
 ## Default Configuration
 
@@ -61,14 +61,7 @@ Detailed documentation is [here](view-tag.html).
 
 These are in addition to those provided by [GenericTools](generic.html#Tools):
 
-+ [AbstractSearchTool](apidocs/org/apache/velocity/tools/view/AbstractSearchTool.html) - For doing "searching" and robust pagination of search results. Requires you to create a subclass.
-+ [BrowserTool](apidocs/org/apache/velocity/tools/view/BrowserTool.html) - For identifying the browser and features thereof requesting the template.
-+ [CookieTool](apidocs/org/apache/velocity/tools/view/CookieTool.html) - For convenient cookie access and creation.
-+ [ImportTool](apidocs/org/apache/velocity/tools/view/ImportTool.html) - For pulling down textual content from a URL.
-+ [LinkTool](apidocs/org/apache/velocity/tools/view/LinkTool.html) - For easy building of URLs (both relative or absolute).
-+ [PagerTool](apidocs/org/apache/velocity/tools/view/PagerTool.html) - For doing request-based pagination of items in an arbitrary list.
-+ [ParameterTool](apidocs/org/apache/velocity/tools/view/ParameterTool.html) - For easy retrieval and parsing of ServletRequest parameters.
-+ [ViewContextTool](apidocs/org/apache/velocity/tools/view/ViewContextTool.html) - For convenient access to ViewContext data and meta-data.
+Please consult the [Standard Tools](tools-summary.html) page for a list of standard view tools.
 
 ## Examples
 

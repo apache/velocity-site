@@ -23,9 +23,9 @@
 
         * Fix potential XSS vulterability in VelocityViewServlet error handling.
 
-        For a full list of changes, consult {{{Velocity Tools 3.1 Changes section}https://velocity.apache.org/tools/3.1/changes.html}} and {{{JIRA changelog}https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310130&version=12345408}.
+        For a full list of changes, consult {{{https://velocity.apache.org/tools/3.1/changes.html}Velocity Tools 3.1 Changes section}} and {{{https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310130&version=12345408}JIRA changelog}}.
 
-        For notes on upgrading from earlier versions, see {{{Velocity Tools 3.1 Upgrading section}https://velocity.apache.org/tools/3.1/upgrading.html}}.
+        For notes on upgrading from earlier versions, see {{{https://velocity.apache.org/tools/3.1/upgrading.html}Velocity Tools 3.1 Upgrading section}}.
 
         Downloads of Velocity Tools 3.1 are available {{{http://velocity.apache.org/download.cgi#tools}here}}.
 
