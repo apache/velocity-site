@@ -13,15 +13,52 @@ In short: This repository is only interesting for you if you
 + want to re-create the Apache Velocity site on your local computer or intranet.
 + are an [Apache Velocity committer](/who-we-are.html) and want to update the site.
 
-### Editing the Site
+### Editing the site
 
-Apache Velocity uses the [Apache Content Management System](http://www.apache.org/dev/cms.html) to manage its site.
+Most of the site sources are in plain markdown, more specifically in [python-markdown](https://python-markdown.github.io/).
+
+### Building the site with docker
+
+This method is by far the easiest one.
+
+1. Clone the site sources
+
+If you are a Velocity commiter, you will want to directly edit the site sources:
+
+    :::shell
+    git clone https://github.com/apache/velocity-site.git
+
+If you are a contributor, you should first fork the site sources to your github account, and use:
+
+    :::shell
+    git clone --single-branch --branch master git@github.com:[YOUR_GITHUB_ID]/velocity-site.git
+
+2. Clone the site production pages
+
+As a commiter you will use it to push into production the generated site. As a contributor, you will use it to check locally the result of your changes.
+
+This clone must be called `velocity-site-prod` and must be made in the same directory as the `velocity-site` one.
+
+    :::shell
+    git clone --single-branch --branch asf-site https://github.com/apache/velocity-site.git velocity-site-prod
+
+3. Make your changes to the site sources
+
+4. Run the script `velocity-site/builder/bin/builder.sh` (linux implied...)
+
+5. Check the result using your favorite browser
+
+6. Advertize your changes
+
+Commiters have to push the changes in both clones. Contributors only need to submit a pull request to the site sources.
+
+### Building the site without docker
+
+Apache Velocity uses the [Apache Content Management System](https://www.apache.org/dev/cms.html) to manage its site.
 
 The site is not *hosted* by the CMS (it's planned to move it to pelican), so it still has to be build locally.
 
-### Building the Site
-
-To build the site locally, you'll need a local checkout of the [Apache CMS](https://svn.apache.org/repos/infra/websites/cms), then refer to the [STATUS](https://svn.apache.org/repos/infra/websites/cms/STATUS) file.
+To do so, you'll need a local checkout of the [Apache CMS](https://svn.apache.org/repos/infra/websites/cms), then refer to the [STATUS](https://svn.apache.org/repos/infra/websites/cms/STATUS) file.
 You'll of course also need a local clone of [the site sources](https://gitbox.apache.org/repos/asf/velocity-site.git), or even preferably a local clone of [github's mirror](https://github.com/apache/velocity-site.git), where you can submit pull requests.
 
 You'll have to generate the site in some `target` temporary directory, then check added/modified/deleted files in the `asf-site` branch of the `velocity-site` repository.
