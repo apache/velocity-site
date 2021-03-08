@@ -177,16 +177,16 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li><a href="creating-tools.html">Creating Tools</a></li>
 <li><a href="contributions.html">Contributions</a></li>
 <li><a href="/engine/devel/glossary.html">Glossary</a></li>
-<li><a href="http://wiki.apache.org/velocity/VelocityFAQ">FAQ</a></li>
-<li><a href="http://wiki.apache.org/velocity/">Wiki</a></li>
+<li><a href="https://wiki.apache.org/velocity/VelocityFAQ">FAQ</a></li>
+<li><a href="https://wiki.apache.org/velocity/">Wiki</a></li>
 </ul>
 <h2 id="development">Development<a class="headerlink" href="#development" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="changes.html">Changes</a></li>
 <li><a href="dependencies.html">Dependencies</a></li>
 <li><a href="index.html#helping-out">Participating</a></li>
-<li><a href="http://velocity.apache.org/tools/releases/2.0/index.html#Subversion_Repository">Source Code</a></li>
-<li><a href="http://issues.apache.org/jira/browse/VELTOOLS">Report Issue</a></li>
+<li><a href="/download.cgi#tools">Source Code</a></li>
+<li><a href="https://issues.apache.org/jira/browse/VELTOOLS">Report Issue</a></li>
 </ul>
           
           <div id="bottom-nav">
@@ -269,7 +269,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li>VelocityLayoutServlet, it is now at <a href="apidocs/org/apache/velocity/tools/view/VelocityLayoutServlet.html">org.apache.velocity.tools.view.VelocityLayoutServlet</a></li>
 <li>WebappLoader, it is now at <a href="apidocs/org/apache/velocity/tools/view/WebappResourceLoader.html">org.apache.velocity.tools.view.WebappResourceLoader</a></li>
 <li>ViewContext, it is now at <a href="apidocs/org/apache/velocity/tools/view/ViewContext.html">org.apache.velocity.tools.view.ViewContext</a></li>
-<li>ServletLogger, it has been replaced by <a href="apidocs/org/apache/velocity/tools/view/ServletLogChute.html">org.apache.velocity.tools.view.ServletLogChute</a></li>
+<li>ServletLogger, it has been replaced by org.apache.velocity.tools.view.ServletLogChute</li>
 <li>ServletUtils, it is now at <a href="apidocs/org/apache/velocity/tools/view/ServletUtils.html">org.apache.velocity.tools.view.ServletUtils</a></li>
 <li>BrowserSniffer, it is now at <a href="apidocs/org/apache/velocity/tools/view/BrowserTool.html">org.apache.velocity.tools.view.BrowserTool</a></li>
 <li>AbstractPagerTool, it is now at <a href="apidocs/org/apache/velocity/tools/view/PagerTool.html">org.apache.velocity.tools.view.PagerTool</a></li>
@@ -321,7 +321,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <h3 id="custom-tools-in-20">Custom Tools in 2.0<a class="headerlink" href="#custom-tools-in-20" title="Permanent link">&para;</a></h3>
 <p>Those of you who write your own custom tools may want to make a few changes to upgrade your custom tools to do things the "Tools 2 way".  Here's a few quick starts for that, though this doesn't cover everything.  More details can be found in the <a href="creating-tools.html">instructions for creating tools</a>.</p>
 <p><strong>Naming:</strong> The recommended practice is to give a tool to be used as <code>$foo</code> the name <code>FooTool</code> . This is not required but is a convention that keeps things easy follow and learn.  If you have to name a tool FooBarUtility but want it to be <code>$foo</code> in templates, the second best thing is to provide a <a href="apidocs/org/apache/velocity/tools/config/DefaultKey.html"><code>@DefaultKey("foo")</code></a> annotation on the class, though this introduces a dependency on VelocityTools. As a last resort, if you are providing tools for a framework or otherwise can influence or control the configuration, you might consider providing a default configuration -- perhaps even one automatically discoverable by <a href="apidocs/org/apache/velocity/tools/config/ConfigurationUtils.html">ConfigurationUtils</a> -- to set the tool's key for your users.</p>
-<p><strong>Scoping:</strong> If your tool is only meant to be used in a particular scope, it's recommended that you give the class a <a href="apidocs/org/apache/velocity/tools/config/ValidScope.html"><code>@ValidScope(Scope.REQUEST)</code></a> annotation as well. If you only want to ban a particular scope and allow all others, you could provide a <a href="apidocs/org/apache/velocity/tools/config/InvalidScope.html"><code>@InvalidScope(Scope.APPLICATION)</code></a> annotation on the class. The <a href="apidocs/org/apache/velocity/tools/Scope.html"><code>Scope</code></a> class provides constants for REQUEST, SESSION, and APPLICATION. Other scopes are now theoretically possible, but only a little work and no testing has been done there at this point.</p>
+<p><strong>Scoping:</strong> If your tool is only meant to be used in a particular scope, it's recommended that you give the class a <a href="apidocs/org/apache/velocity/tools/config/ValidScope.html"><code>@ValidScope(Scope.REQUEST)</code></a> annotation as well. If you only want to ban a particular scope and allow all others, you could provide a <code>@InvalidScope(Scope.APPLICATION)</code> annotation on the class. The <a href="apidocs/org/apache/velocity/tools/Scope.html"><code>Scope</code></a> class provides constants for REQUEST, SESSION, and APPLICATION. Other scopes are now theoretically possible, but only a little work and no testing has been done there at this point.</p>
 <p><strong>Configuration:</strong> If you have a configurable tool whose configuration should not changed by the templates which use it, then consider having your tool extend the <a href="apidocs/org/apache/velocity/tools/generic/SafeConfig.html">SafeConfig</a> class (or <a href="apidocs/org/apache/velocity/tools/generic/FormatConfig.html">FormatConfig</a> or <a href="apidocs/org/apache/velocity/tools/generic/LocaleConfig.html">LocaleConfig</a>). These safely standardize configuration of these common configuration properties. Also take note that the <code>configure(Map)</code> and <code>init(Object)</code> methods have been changed into just the <code>configure(Map)</code> and individual setter methods (e.g. <code>setRequest</code>, <code>setSession</code>, etc).  Basically, when it's time to instantiate a tool, the tool manager will gather all the "configuration properties" for that tool, its toolbox, etc and combine it into a single map with the "init data" (context, request, session, etc).  The manager searches for relevant setter methods that accept that data and also for a <code>configure(Map)</code> method. The setters get what they're asking for (if available) and the <code>configure()</code> method accepts the whole combined <code>Map</code>. The upshot of this approach is that tools no longer need to conform to any interfaces or patterns. In fact, it's possible to write a FooTool that doesn't know anything about any VelocityTools classes whatsoever and yet be fully instantiable and configurable by VelocityTools. Your tools don't need to know about anything except what they need to know about.</p>
 <h2 id="upgrading-to-14">Upgrading to 1.4<a class="headerlink" href="#upgrading-to-14" title="Permanent link">&para;</a></h2>
 <p>This is unfinished. <a href="index.html#Contribution">You can help fix that!</a></p></div></div>

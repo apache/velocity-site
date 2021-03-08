@@ -175,7 +175,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li><a href="/who-we-are.html">Who we are</a></li>
 <li><a href="/contact.html">Contact us</a></li>
 <li><a href="/get-involved.html">Get involved</a></li>
-<li><a href="https://wiki.apache.org/velocity/velocity">Wiki</a></li>
+<li><a href="https://wiki.apache.org/velocity">Wiki</a></li>
 <li><a href="/how-it-works.html">How it works</a></li>
 <li><a href="https://whimsy.apache.org/board/minutes/Velocity.html">Board Reports</a></li>
 </ul>
@@ -529,8 +529,9 @@ src/content/index.mdtext (status section)
 <p>For the tools, update the links towards <code>tools.xml</code> configuration files in <code>generic.mdtext</code> and <code>view.mdtext</code>.</p>
 <p>Change the content of the <code>changes_report</code> tag in <code>&lt;module&gt;/&lt;version&gt;/changes.mdtext</code> to <code>&lt;module&gt;/&lt;version&gt;</code> (for instance: <code>{{changes_report(engine/2.3)}}</code>).</p>
 <p>Push the changes into production.   </p>
-<p>Check the resulting site for broken links</p>
-<div class="codehilite"><pre>wget --spider -r -nd -nv -H -l <span class="m">2</span> -w <span class="m">2</span> -o links.log https://velocity.apache.org/
+<p>Check the resulting site for broken links.</p>
+<div class="codehilite"><pre>sudo pip3 install git+https://github.com/linkchecker/linkchecker.git <span class="c1"># if not installed before</span>
+linkchecker https://velocity.apache.org
 </pre></div>
 
 

@@ -183,22 +183,21 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li><a href="source-repository.html">Sources</a></li>
 <li><a href="build.html">Building</a></li>
 <li><a href="https://issues.apache.org/jira/browse/VELOCITY">Issues</a></li>
-<li><a href="http://wiki.apache.org/velocity/RoadMap">Road Map</a></li>
-<li><a href="http://wiki.apache.org/velocity/CodeStandards">Coding Standards</a></li>
-<li><a href="http://wiki.apache.org/velocity/DocumentationGuidelines">Doc Guidelines</a></li>
+<li><a href="https://wiki.apache.org/velocity/RoadMap">Road Map</a></li>
+<li><a href="https://wiki.apache.org/velocity/CodeStandards">Coding Standards</a></li>
+<li><a href="https://wiki.apache.org/velocity/DocumentationGuidelines">Doc Guidelines</a></li>
 </ul>
 <h2 id="community">Community<a class="headerlink" href="#community" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="http://wiki.apache.org/velocity/">Wiki</a></li>
+<li><a href="https://wiki.apache.org/velocity/">Wiki</a></li>
 <li><a href="/news.html">News</a></li>
-<li><a href="http://wiki.apache.org/velocity/PoweredByVelocity">Powered by Velocity</a></li>
-<li><a href="http://wiki.apache.org/velocity/VelocityEditors">IDE/Editor Plugins</a></li>
-<li><a href="http://wiki.apache.org/velocity/PublishedArticlesAndBooks">Articles and Books</a></li>
+<li><a href="https://wiki.apache.org/velocity/PoweredByVelocity">Powered by Velocity</a></li>
+<li><a href="https://wiki.apache.org/velocity/VelocityEditors">IDE/Editor Plugins</a></li>
+<li><a href="https://wiki.apache.org/velocity/PublishedArticlesAndBooks">Articles and Books</a></li>
 <li><a href="/contact.html">Mailing Lists</a></li>
 </ul>
 <h2 id="translations-outdated">Translations (outdated)<a class="headerlink" href="#translations-outdated" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="http://www.jajakarta.org/velocity/">Site (Japanese)</a></li>
 <li><a href="translations/user-guide_fi.html">User's Guide (Finnish)</a></li>
 <li><a href="translations/user-guide_fr.html">User's Guide (French)</a></li>
 <li><a href="translations/user-guide_es.html">User's Guide (Spanish)</a></li>
@@ -236,8 +235,8 @@ providing a consistent way to mark up text.</li>
 <h2 id="use-a-famework">Use a Famework<a class="headerlink" href="#use-a-famework" title="Permanent link">&para;</a></h2>
 <p>The primary purpose of the Velocity engine is simply to generate text based on a template.  Consequently, Velocity does not contain any web-related functionality in and of itself. To make a web application, you will need a framework to respond to HTTP requests, handle user authentication, make business logic calls, and generate a response. There are several strong contenders.</p>
 <ol>
-<li><strong>Velocity Tools / VelocityViewServlet</strong> - The easiest way to get started is to download the companion <a href="http://velocity.apache.org/tools/devel/" class="externalLink">Velocity Tools</a> subproject and use the <a href="http://velocity.apache.org/tools/devel/view/">VelocityViewServlet</a>. This servlet is easy to configure and install. You create a directory of templates on your web server, optionally edit an XML file that lists various "Tools" to place in the context and you are off. More details can be found in the tutorial below.</li>
-<li><strong>Velocity Tools / VelocityStruts</strong> - You may be familiar with the popular <a href="http://struts.apache.org/" class="externalLink">Struts</a> framework, originally designed to provide much needed application functionality to JSP.  With the <a href="http://velocity.apache.org/tools/devel/struts/">VelocityStruts</a> module of Velocity Tools you can substitute Velocity for JSP as the page template language.  This allows you to take advantage of the large base of Struts infrastructure while designing pages using Velocity.</li>
+<li><strong>Velocity Tools / VelocityViewServlet</strong> - The easiest way to get started is to download the companion <a href="http://velocity.apache.org/tools/devel/" class="externalLink">Velocity Tools</a> subproject and use the <a href="https://velocity.apache.org/tools/devel/view.html">VelocityViewServlet</a>. This servlet is easy to configure and install. You create a directory of templates on your web server, optionally edit an XML file that lists various "Tools" to place in the context and you are off. More details can be found in the tutorial below.</li>
+<li><strong>Velocity Tools / VelocityStruts</strong> - You may be familiar with the popular <a href="http://struts.apache.org/" class="externalLink">Struts</a> framework, originally designed to provide much needed application functionality to JSP.  With the <a href="http://velocity.apache.org/tools/2.0/struts/">VelocityStruts</a> module of Velocity Tools you can substitute Velocity for JSP as the page template language.  This allows you to take advantage of the large base of Struts infrastructure while designing pages using Velocity.</li>
 <li><strong>Third party frameworks</strong> - There are a number of third party frameworks listed on the <a href="http://wiki.apache.org/velocity/PoweredByVelocity">PoweredByVelocity</a> wiki page. Of these, <a href="http://www.springframework.org/">Spring</a> is probably the most sophisticated and well known. <a href="http://turbine.apache.org/">Turbine</a> has many features and can also be very useful. It was built with Velocity as the primary page language, which is not surprising since many of the original Velocity developers were involved in creating it. Simpler alternatives are the <a href="http://click.sourceforge.net/">Click</a> or <a href="http://mav.sourceforge.net/">Maverick</a> frameworks, which provide a simple Controller architecture that integrates nicely with Velocity.</li>
 <li><strong>Build your own</strong> - A final alternative is to build your own framework. Create a dispatcher servlet, retrieve templates from a file or database, integate with your business logic and send the results back to the user. Often you'll have an easier time starting with one of the existing frameworks and customizing it.  In particular you can add new functionality to the VelocityViewServlet simply by creating a subclass.</li>
 </ol>
