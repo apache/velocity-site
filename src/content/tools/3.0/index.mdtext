@@ -6,7 +6,7 @@ A Velocity "tool" is just a POJO (plain old java object) that is "useful" in a t
 
 The VelocityTools project is, first of all, a collection of such useful Java classes, as well as infrastructure to easily, automatically and transparently make these tools available to your Velocity templates.  Other aims of the project include providing easy integration of Velocity into the view-layer of your web applications (via the [VelocityViewTag](view-tag.html), [VelocityViewServlet](view-servlet.html)) and the [Maven Plugin](maven-velocity-tools-plugin/index.html).
 
-In recognition of these varying aims, the VelocityTools project is divided into two parts: [GenericTools](generic.html) and [VelocityView](view.html. Each of these parts builds on the previous one and has its own JAR distribution.
+In recognition of these varying aims, the VelocityTools project is divided into two parts: [GenericTools](generic.html) and [VelocityView](view.html). Each of these parts builds on the previous one and has its own JAR distribution.
 
 ### GenericTools
 
@@ -28,11 +28,9 @@ Velocity Tools 3.0 new features:
 
 See the [Upgrading section](upgrading.html) for a complete list of changes.
 
-## Subversion Repository
+## Sources Repository
 
-All VelocityTools project code is maintained in the Subversion repository which can be reached in a number of ways. The most direct method of accessing the repository is through a web browser, but to effectively work on the code, a [Subversion client](http://svn.tigris.org/links.html#clients) is required.
-
-Repository: [http://svn.apache.org/viewcvs.cgi/velocity/tools/trunk/](http://svn.apache.org/viewcvs.cgi/velocity/tools/trunk/).
+All VelocityTools project code is maintained in the Apache gitbox repository and mirrored on github, see the [downloads section](/download.cgi).
 
 ## Helping Out
 

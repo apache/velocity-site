@@ -27,7 +27,7 @@ Otherwise, see the [download page](/download.html#tools) for how to get the Velo
 
 ## Default Configuration
 
-The default configuration provided for VelocityView is [here](http://svn.apache.org/viewvc/velocity/tools/trunk/velocity-tools-generic/src/main/resources/org/apache/velocity/tools/generic/tools.xml?view=markup") and [here](http://svn.apache.org/viewvc/velocity/tools/trunk/velocity-tools-view/src/main/resources/org/apache/velocity/tools/view/tools.xml?view=markup).
+The default configuration provided for VelocityView is [here](https://github.com/apache/velocity-tools/blob/8e7f20a4/velocity-tools-view/src/main/resources/org/apache/velocity/tools/view/tools.xml).
 
 ## Dependencies
 

@@ -32,11 +32,9 @@ Those already familiar with VelocityTools 1.x may be curious about the goals and
 
 These things could not have been accomplished without rewriting most of the core infrastructure and configuration code.  At the same time, we wanted to make it easy for people to upgrade from the 1.x series.  This led to the decision to aim for complete backwards compatibility.  Granted much has been deprecated and those who directly used or extended the 1.x infrastructure will have to update their code in just a few releases, but for the time being they should be able to use 2.0 in their applications with few problems. Those who merely used the old toolbox.xml format or the old tools directly will be immediately able to take advantage of the new infrastructure without even updating their configuration, though eventually even the old toolbox.xml format may be retired.  Don't cry.  You'll like the [new one](config-xml.html) better once you get to know it! It can do much more with much less typing.
 
-## Subversion Repository
+## Sources Repository
 
-All VelocityTools project code is maintained in the Subversion repository which can be reached in a number of ways. The most direct method of accessing the repository is through a web browser, but to effectively work on the code, a [Subversion client](http://svn.tigris.org/links.html#clients) is required.
-
-Repository: [http://svn.apache.org/viewcvs.cgi/velocity/tools/trunk/](http://svn.apache.org/viewcvs.cgi/velocity/tools/trunk/).
+All VelocityTools project code is maintained in the Apache gitbox repository and mirrored on github, see the [downloads section](/download.cgi).
 
 ## Helping Out
 

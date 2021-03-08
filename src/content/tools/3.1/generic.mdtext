@@ -70,7 +70,7 @@ You can then create Velocity contexts with:
 
 ## Default Configuration
 
-The default configuration provided for GenericTools is [here](http://svn.apache.org/viewvc/velocity/tools/trunk/velocity-tools-generic/src/main/resources/org/apache/velocity/tools/generic/tools.xml?view=markup). It includes all of the tools listed [below](#tools).
+The default configuration provided for GenericTools is [here](https://github.com/apache/velocity-tools/blob/8e7f20a4/velocity-tools-generic/src/main/resources/org/apache/velocity/tools/generic/tools.xml). It includes all of the tools listed [below](#tools).
 
 ## Dependencies
 

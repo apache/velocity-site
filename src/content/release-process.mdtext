@@ -305,10 +305,17 @@ After a vote is finished, and it has been decided that is **at least of alpha qu
         src/content/left.nav
         src/content/news.xml
         src/content/${module}/index.mdtext
-        src/trunk/content/index.mdtext (status section)
+        src/content/index.mdtext (status section)
     
+    There are also several mentions of the *current releaase* in all releases specific pages which should be upgraded (at least for the engine ; something similar should be done for the tools - *TODO*). You can do so by adapting the following bash one-liner:
+
+        :::shell
+        sed -ri -e 's/The current stable release version is version 2.2/The current stable release version is version 2.3/' $(find . -path "*/engine/*/index.mdtext")
+    
+    For the tools, update the links towards `tools.xml` configuration files in `generic.mdtext` and `view.mdtext`.
+
     Change the content of the `changes_report` tag in `<module>/<version>/changes.mdtext` to `<module>/<version>` (for instance: `{{changes_report(engine/2.3)}}`).
-        
+    
     Push the changes into production.   
     
     Check the resulting site for broken links

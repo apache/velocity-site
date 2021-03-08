@@ -1620,7 +1620,7 @@ Hello World example:
 
 ## Customizing the VTL parser
 
-Since 2.2, Velocity Engine can use a custom parser. You need to generate your custom parser class, let's say `com.foo.MyCustomParser`, by copy pasting the content of the [velocity-custom-parser-example](https://dist.apache.org/repos/dist/dev/velocity/velocity-engine/2.3/velocity-custom-parser-example-2.3.pom) maven module pom file inside one of your own modules pom.xml, and then adapting its `<properties>` section. There's a minimal maven knowledge required to understand what you are doing, but basically it boils down to do merge the content of the `<properties>`, `<dependencies>` and `<build>` sections in your target pom file.
+Since 2.2, Velocity Engine can use a custom parser. You need to generate your custom parser class, let's say `com.foo.MyCustomParser`, by copy pasting the content of the [velocity-custom-parser-example](https://raw.githubusercontent.com/apache/velocity-engine/master/velocity-custom-parser-example/pom.xml) maven module pom file inside one of your own modules pom.xml, and then adapting its `<properties>` section. There's a minimal maven knowledge required to understand what you are doing, but basically it boils down to do merge the content of the `<properties>`, `<dependencies>` and `<build>` sections in your target pom file.
 
 This custom parser will let you configure the following VTL characters:
 
