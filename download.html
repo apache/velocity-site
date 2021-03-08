@@ -162,8 +162,8 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </ul>
 <h2 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="/engine/2.2">Engine 2.2</a></li>
-<li><a href="/tools/3.0">Tools 3.0</a></li>
+<li><a href="/engine/2.3">Engine 2.3</a></li>
+<li><a href="/tools/3.1">Tools 3.1</a></li>
 </ul>
 <h2 id="development">Development<a class="headerlink" href="#development" title="Permanent link">&para;</a></h2>
 <ul>
@@ -226,6 +226,49 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover > .headerlink, h4:hover > .headerlink, h5:hover > .headerlink, dt:hover > .elementid-permalink { visibility: visible }</style>
 <h2 id="downloads">Downloads<a class="headerlink" href="#downloads" title="Permanent link">&para;</a></h2>
 <p>You can download sources and binaries for all Apache Velocity projects from here.</p>
+<div class="toc">
+<ul>
+<li><a href="#downloads">Downloads</a><ul>
+<li><a href="#mirror-selection">Mirror Selection</a></li>
+</ul>
+</li>
+<li><a href="#production-releases">Production releases</a><ul>
+<li><a href="#velocity-engine-23">Velocity Engine 2.3</a><ul>
+<li><a href="#modules">Modules</a></li>
+<li><a href="#inclusion-as-a-maven-dependency">Inclusion as a maven dependency</a></li>
+<li><a href="#binaries">Binaries</a></li>
+<li><a href="#pom-files">POM Files</a></li>
+<li><a href="#javadoc">Javadoc</a></li>
+<li><a href="#sources">Sources</a></li>
+<li><a href="#examples">Examples</a></li>
+</ul>
+</li>
+<li><a href="#velocity-tools-31">Velocity Tools 3.1</a><ul>
+<li><a href="#modules_1">Modules</a></li>
+<li><a href="#inclusion-as-a-maven-dependency_1">Inclusion as a maven dependency</a></li>
+<li><a href="#binaries_1">Binaries</a></li>
+<li><a href="#pom-files_1">POM Files</a></li>
+<li><a href="#javadoc_1">Javadoc</a></li>
+<li><a href="#sources_1">Sources</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#alphabeta-releases">Alpha/Beta Releases</a><ul>
+<li><a href="#engine">Engine</a></li>
+<li><a href="#tools">Tools</a></li>
+</ul>
+</li>
+<li><a href="#archived-components-releases">Archived Components Releases</a><ul>
+<li><a href="#anakia">Anakia</a></li>
+<li><a href="#texen">Texen</a></li>
+<li><a href="#dvsl">DVSL</a></li>
+</ul>
+</li>
+<li><a href="#older-releases">Older Releases</a></li>
+<li><a href="#source-code-repository">Source Code Repository</a></li>
+</ul>
+</div>
 <h3 id="mirror-selection">Mirror Selection<a class="headerlink" href="#mirror-selection" title="Permanent link">&para;</a></h3>
 <p>[if-any logo] <a href="[link]"><img src="[logo]" align="right" border="0" alt="logo" /></a>[end]
 The currently selected mirror is <b>[preferred]</b>. If you encounter a problem with this mirror, please select another mirror. If all mirrors are failing, there are <i>backup</i> mirrors (at the end of the mirrors list) that should be available.</p>
@@ -236,7 +279,7 @@ The currently selected mirror is <b>[preferred]</b>. If you encounter a problem 
         [if-any http]
             [for http]
             <option value="[http]">[http]</option>
-            [end]
+            [end] a
         [end]
         [if-any ftp]
             [for ftp]
@@ -260,33 +303,48 @@ The <tt>SHA</tt> links download the checksum from the main site. None of these s
 <p><a href="https://www.apache.org/dist/velocity/KEYS">KEYS</a></p>
 <h2 id="production-releases">Production releases<a class="headerlink" href="#production-releases" title="Permanent link">&para;</a></h2>
 <p>These releases are considered stable and suitable for production.</p>
-<h3 id="engine">Engine<a class="headerlink" href="#engine" title="Permanent link">&para;</a></h3>
-<p>Be sure to check the <a href="https://www.apache.org/dist/velocity/engine/2.2/release-notes.html">release notes</a> and the <a href="https://velocity.apache.org/engine/2.2/dependencies.html">dependencies</a>.</p>
+<h3 id="velocity-engine-23">Velocity Engine 2.3<a class="headerlink" href="#velocity-engine-23" title="Permanent link">&para;</a></h3>
+<p>Be sure to check the <a href="https://www.apache.org/dist/velocity/engine/2.3/release-notes.html">release notes</a> and the <a href="https://velocity.apache.org/engine/2.3/dependencies.html">dependencies</a>.</p>
+<h4 id="modules">Modules<a class="headerlink" href="#modules" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>velocity-engine-core</code>, the core templating engine</li>
+<li><code>velocity-engine-scripting</code>, the JSR223 scripting engine</li>
+<li><code>spring-velocity-support</code>, Spring framework integration support classes of the engine</li>
+<li><code>velocity-engine-examples</code>, a zip file of simple examples for the engine</li>
+<li><code>velocity-custom-parser-example</code>, a <code>pom.xml</code> example demonstrating parser customization</li>
+</ul>
 <h4 id="inclusion-as-a-maven-dependency">Inclusion as a maven dependency<a class="headerlink" href="#inclusion-as-a-maven-dependency" title="Permanent link">&para;</a></h4>
 <div class="codehilite"><pre><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>org.apache.velocity<span class="nt">&lt;/groupId&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>velocity-engine-core<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>2.2<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;version&gt;</span>2.3<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 </pre></div>
 
 
+<p>Replace <code>velocity-engine-core</code> with <code>velocity-engine-scripting</code> to include the scripting engine, or with <code>spring-velocity-support</code> to include the Spring integration support. Both will include <code>velocity-engine-core</code> as a dependency.</p>
 <h4 id="binaries">Binaries<a class="headerlink" href="#binaries" title="Permanent link">&para;</a></h4>
 <table class="smalltable">
   <thead>
   </thead>
   <tbody>
     <tr>
-      <th>engine-core</th>
-      <td><a href="[preferred]/velocity/engine/2.2/velocity-engine-core-2.2.jar">velocity-engine-core-2.2.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-core-2.2.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-core-2.2.jar.sha256">SHA256</a>]</td>
+      <th>velocity-engine-core</th>
+      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-core-2.3.jar">velocity-engine-core-2.3.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
-      <th>engine-scripting</th>
-      <td><a href="[preferred]/velocity/engine/2.2/velocity-engine-scripting-2.2.jar">velocity-engine-scripting-2.2.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-scripting-2.2.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-scripting-2.2.jar.sha256">SHA256</a>]</td>
+      <th>velocity-engine-scripting</th>
+      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-scripting-2.3.jar">velocity-engine-scripting-2.3.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3.jar.sha256">SHA256</a>]</td>
+    </tr>
+    <tr>
+      <th>spring-velocity-support</th>
+      <td><a href="[preferred]/velocity/engine/2.3/velocity-spring-velocity-support-2.3.jar">velocity-spring-velocity-support-2.3.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-spring-velocity-support-2.3.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-spring-velocity-support-2.3.jar.sha256">SHA256</a>]</td>
     </tr>
   </tbody>
 </table>
@@ -297,22 +355,28 @@ The <tt>SHA</tt> links download the checksum from the main site. None of these s
   </thead>
   <tbody>
     <tr>
-      <th>engine-core</th>
-      <td><a href="[preferred]/velocity/engine/2.2/velocity-engine-core-2.2.pom">velocity-engine-core-2.2.pom</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-core-2.2.pom.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-core-2.2.pom.sha256">SHA256</a>]</td>
+      <th>velocity-engine-core</th>
+      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-core-2.3.pom">velocity-engine-core-2.3.pom</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3.pom.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3.pom.sha256">SHA256</a>]</td>
     </tr>
     <tr>
-      <th>engine-scripting</th>
-      <td><a href="[preferred]/velocity/engine/2.2/velocity-engine-scripting-2.2.pom">velocity-engine-scripting-2.2.pom</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-scripting-2.2.pom.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-scripting-2.2.pom.sha256">SHA256</a>]</td>
+      <th>velocity-engine-scripting</th>
+      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-scripting-2.3.pom">velocity-engine-scripting-2.3.pom</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3.pom.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3.pom.sha256">SHA256</a>]</td>
+    </tr>
+    <tr>
+      <th>spring-velocity-support</th>
+      <td><a href="[preferred]/velocity/engine/2.3/velocity-spring-velocity-support-2.3.pom">velocity-spring-velocity-support-2.3.pom</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-spring-velocity-support-2.3.pom.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-spring-velocity-support-2.3.pom.sha256">SHA256</a>]</td>
     </tr>
     <tr>
       <th>velocity-custom-parser-example</th>
-      <td><a href="[preferred]/velocity/engine/2.2/velocity-custom-parser-example-2.2.pom">velocity-engine-scripting-2.2.pom</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-custom-parser-example-2.2.pom.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-custom-parser-example-2.2.pom.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.3/velocity-custom-parser-example-2.3.pom">velocity-engine-scripting-2.3.pom</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-custom-parser-example-2.3.pom.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-custom-parser-example-2.3.pom.sha256">SHA256</a>]</td>
     </tr>
   </tbody>
 </table>
@@ -323,16 +387,22 @@ The <tt>SHA</tt> links download the checksum from the main site. None of these s
   </thead>
   <tbody>
     <tr>
-      <th>engine-core</th>
-      <td><a href="[preferred]/velocity/engine/2.2/velocity-engine-core-2.2-javadoc.jar">velocity-engine-core-2.2-javadoc.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-core-2.2-javadoc.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-core-2.2-javadoc.jar.sha256">SHA256</a>]</td>
+      <th>velocity-engine-core</th>
+      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-core-2.3-javadoc.jar">velocity-engine-core-2.3-javadoc.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3-javadoc.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3-javadoc.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
-      <th>engine-scripting</th>
-      <td><a href="[preferred]/velocity/engine/2.2/velocity-engine-scripting-2.2-javadoc.jar">velocity-engine-scripting-2.2-javadoc.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-scripting-2.2-javadoc.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-scripting-2.2-javadoc.jar.sha256">SHA256</a>]</td>
+      <th>velocity-engine-scripting</th>
+      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-scripting-2.3-javadoc.jar">velocity-engine-scripting-2.3-javadoc.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3-javadoc.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3-javadoc.jar.sha256">SHA256</a>]</td>
+    </tr>
+    <tr>
+      <th>spring-velocity-support</th>
+      <td><a href="[preferred]/velocity/engine/2.3/velocity-spring-velocity-support-2.3-javadoc.jar">velocity-spring-velocity-support-2.3-javadoc.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-spring-velocity-support-2.3-javadoc.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-spring-velocity-support-2.3-javadoc.jar.sha256">SHA256</a>]</td>
     </tr>
   </tbody>
 </table>
@@ -343,16 +413,22 @@ The <tt>SHA</tt> links download the checksum from the main site. None of these s
   </thead>
   <tbody>
     <tr>
-      <th>engine-core</th>
-      <td><a href="[preferred]/velocity/engine/2.2/velocity-engine-core-2.2-sources.jar">velocity-engine-core-2.2-sources.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-core-2.2-sources.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-core-2.2-sources.jar.sha256">SHA256</a>]</td>
+      <th>velocity-engine-core</th>
+      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-core-2.3-sources.jar">velocity-engine-core-2.3-sources.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3-sources.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3-sources.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
-      <th>engine-scripting</th>
-      <td><a href="[preferred]/velocity/engine/2.2/velocity-engine-scripting-2.2-sources.jar">velocity-engine-scripting-2.2-sources.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-scripting-2.2-sources.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-scripting-2.2-sources.jar.sha256">SHA256</a>]</td>
+      <th>velocity-engine-scripting</th>
+      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-scripting-2.3-sources.jar">velocity-engine-scripting-2.3-sources.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3-sources.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3-sources.jar.sha256">SHA256</a>]</td>
+    </tr>
+    <tr>
+      <th>spring-velocity-support</th>
+      <td><a href="[preferred]/velocity/engine/2.3/velocity-spring-velocity-support-2.3-sources.jar">velocity-spring-velocity-support-2.3-sources.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-spring-velocity-support-2.3-sources.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-spring-velocity-support-2.3-sources.jar.sha256">SHA256</a>]</td>
     </tr>
   </tbody>
 </table>
@@ -364,25 +440,32 @@ The <tt>SHA</tt> links download the checksum from the main site. None of these s
   <tbody>
     <tr>
       <th>velocity-engine-examples</th>
-      <td><a href="[preferred]/velocity/engine/2.2/velocity-engine-examples-2.2.zip">velocity-engine-examples.zip</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-examples-2.2.zip.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.2/velocity-engine-examples-2.2.zip.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-examples-2.3.zip">velocity-engine-examples.zip</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-examples-2.3.zip.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-examples-2.3.zip.sha256">SHA256</a>]</td>
     </tr>
   </tbody>
 </table>
 
-<h3 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h3>
+<h3 id="velocity-tools-31">Velocity Tools 3.1<a class="headerlink" href="#velocity-tools-31" title="Permanent link">&para;</a></h3>
+<h4 id="modules_1">Modules<a class="headerlink" href="#modules_1" title="Permanent link">&para;</a></h4>
+<ul>
+<li><code>velocity-tools-generic</code>, the generic tools</li>
+<li><code>velocity-tools-view</code>, the view tools, meant to be used in a J2EE webapp</li>
+<li><code>velocity-tools-view-jsp</code>, the view tools JSP extension</li>
+</ul>
 <h4 id="inclusion-as-a-maven-dependency_1">Inclusion as a maven dependency<a class="headerlink" href="#inclusion-as-a-maven-dependency_1" title="Permanent link">&para;</a></h4>
+<p>Use one of:</p>
 <div class="codehilite"><pre><span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>org.apache.velocity.tools<span class="nt">&lt;/groupId&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>velocity-tools-generic<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>3.0<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;version&gt;</span>3.1<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 
 <span class="nt">&lt;dependency&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>org.apache.velocity.tools<span class="nt">&lt;/groupId&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>velocity-tools-view<span class="nt">&lt;/artifactId&gt;</span>
-  <span class="nt">&lt;version&gt;</span>3.0<span class="nt">&lt;/version&gt;</span>
+  <span class="nt">&lt;version&gt;</span>3.1<span class="nt">&lt;/version&gt;</span>
 <span class="nt">&lt;/dependency&gt;</span>
 
 <span class="nt">&lt;dependency&gt;</span>
@@ -393,6 +476,7 @@ The <tt>SHA</tt> links download the checksum from the main site. None of these s
 </pre></div>
 
 
+<p>Each of those modules will include the previous one as a dependency. But note that <code>velocity-tools-view-jsp</code> is still in 3.0.</p>
 <h4 id="binaries_1">Binaries<a class="headerlink" href="#binaries_1" title="Permanent link">&para;</a></h4>
 <table class="smalltable">
   <thead>
@@ -400,18 +484,18 @@ The <tt>SHA</tt> links download the checksum from the main site. None of these s
   <tbody>
     <tr>
       <th>Generic Tools</th>
-      <td><a href="[preferred]/velocity/tools/3.0/velocity-tools-generic-3.0.jar">velocity-tools-generic-3.0.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-generic-3.0.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-generic-3.0.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/tools/3.1/velocity-tools-generic-3.1.jar">velocity-tools-generic-3.1.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-generic-3.1.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-generic-3.1.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
       <th>View Tools</th>
-      <td><a href="[preferred]/velocity/tools/3.0/velocity-tools-view-3.0.jar">velocity-tools-view-3.0.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-3.0.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-3.0.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/tools/3.1/velocity-tools-view-3.1.jar">velocity-tools-view-3.1.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-view-3.1.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-view-3.1.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
-      <th>JSP View Tools</th>
+      <th>JSP View Tools (3.0)</th>
       <td><a href="[preferred]/velocity/tools/3.0/velocity-tools-view-jsp-3.0.jar">velocity-tools-view-jsp-3.0.jar</a></td>
       <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-jsp-3.0.jar.asc">PGP</a>]</td>
       <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-jsp-3.0.jar.sha256">SHA256</a>]</td>
@@ -426,18 +510,18 @@ The <tt>SHA</tt> links download the checksum from the main site. None of these s
   <tbody>
     <tr>
       <th>Generic Tools</th>
-      <td><a href="[preferred]/velocity/tools/3.0/velocity-tools-generic-3.0.pom">velocity-tools-generic-3.0.pom</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-generic-3.0.pom.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-generic-3.0.pom.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/tools/3.1/velocity-tools-generic-3.1.pom">velocity-tools-generic-3.1.pom</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-generic-3.1.pom.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-generic-3.1.pom.sha256">SHA256</a>]</td>
     </tr>
     <tr>
       <th>View Tools</th>
-      <td><a href="[preferred]/velocity/tools/3.0/velocity-tools-view-3.0.pom">velocity-tools-view-3.0.pom</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-3.0.pom.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-3.0.pom.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/tools/3.1/velocity-tools-view-3.1.pom">velocity-tools-view-3.1.pom</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-view-3.1.pom.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-view-3.1.pom.sha256">SHA256</a>]</td>
     </tr>
     <tr>
-      <th>JSP View Tools</th>
+      <th>JSP View Tools (3.0)</th>
       <td><a href="[preferred]/velocity/tools/3.0/velocity-tools-view-jsp-3.0.pom">velocity-tools-view-jsp-3.0.pom</a></td>
       <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-jsp-3.0.pom.asc">PGP</a>]</td>
       <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-jsp-3.0.pom.sha256">SHA256</a>]</td>
@@ -452,18 +536,18 @@ The <tt>SHA</tt> links download the checksum from the main site. None of these s
   <tbody>
     <tr>
       <th>Generic Tools</th>
-      <td><a href="[preferred]/velocity/tools/3.0/velocity-tools-generic-3.0-javadoc.jar">velocity-tools-generic-3.0-javadoc.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-generic-3.0-javadoc.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-generic-3.0-javadoc.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/tools/3.1/velocity-tools-generic-3.1-javadoc.jar">velocity-tools-generic-3.1-javadoc.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-generic-3.1-javadoc.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-generic-3.1-javadoc.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
       <th>View Tools</th>
-      <td><a href="[preferred]/velocity/tools/3.0/velocity-tools-view-3.0-javadoc.jar">velocity-tools-view-3.0-javadoc.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-3.0-javadoc.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-3.0-javadoc.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/tools/3.1/velocity-tools-view-3.1-javadoc.jar">velocity-tools-view-3.1-javadoc.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-view-3.1-javadoc.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-view-3.1-javadoc.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
-      <th>JSP View Tools</th>
+      <th>JSP View Tools (3.0)</th>
       <td><a href="[preferred]/velocity/tools/3.0/velocity-tools-view-jsp-3.0-javadoc.jar">velocity-tools-view-jsp-3.0-javadoc.jar</a></td>
       <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-jsp-3.0-javadoc.jar.asc">PGP</a>]</td>
       <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-jsp-3.0-javadoc.jar.sha256">SHA256</a>]</td>
@@ -478,18 +562,18 @@ The <tt>SHA</tt> links download the checksum from the main site. None of these s
   <tbody>
     <tr>
       <th>Generic Tools</th>
-      <td><a href="[preferred]/velocity/tools/3.0/velocity-tools-generic-3.0-sources.jar">velocity-tools-generic-3.0-sources.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-generic-3.0-sources.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-generic-3.0-sources.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/tools/3.1/velocity-tools-generic-3.1-sources.jar">velocity-tools-generic-3.1-sources.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-generic-3.1-sources.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-generic-3.1-sources.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
       <th>View Tools</th>
-      <td><a href="[preferred]/velocity/tools/3.0/velocity-tools-view-3.0-sources.jar">velocity-tools-view-3.0-sources.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-3.0-sources.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-3.0-sources.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/tools/3.1/velocity-tools-view-3.1-sources.jar">velocity-tools-view-3.1-sources.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-view-3.1-sources.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/tools/3.1/velocity-tools-view-3.1-sources.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
-      <th>JSP View Tools</th>
+      <th>JSP View Tools (3.0)</th>
       <td><a href="[preferred]/velocity/tools/3.0/velocity-tools-view-jsp-3.0-sources.jar">velocity-tools-view-jsp-3.0-sources.jar</a></td>
       <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-jsp-3.0-sources.jar.asc">PGP</a>]</td>
       <td>[<a href="https://www.apache.org/dist/velocity/tools/3.0/velocity-tools-view-jsp-3.0-sources.jar.sha256">SHA256</a>]</td>
@@ -497,40 +581,44 @@ The <tt>SHA</tt> links download the checksum from the main site. None of these s
   </tbody>
 </table>
 
-<p>Or checkout the svn repository from <a href="https://svn.apache.org/repos/asf/velocity/tools/tags/3.0">the 3.0 subversion tag</a>.</p>
+<p>Or clone the github mirror repository and checkout the 3.1 tag:</p>
+<div class="codehilite"><pre>git clone https://github.com/apache/velocity-tools
+<span class="nb">cd</span> velocity-tools
+git checkout tags/3.1
+</pre></div>
+
+
 <hr />
 <h2 id="alphabeta-releases">Alpha/Beta Releases<a class="headerlink" href="#alphabeta-releases" title="Permanent link">&para;</a></h2>
 <p>These releases are not considered production-ready but they might contain new features or bug fixes that are not yet in the production release.</p>
-<h2 id="engine_1">Engine<a class="headerlink" href="#engine_1" title="Permanent link">&para;</a></h2>
+<h3 id="engine">Engine<a class="headerlink" href="#engine" title="Permanent link">&para;</a></h3>
 <p>There are no current Alpha or Beta releases of the Engine project.</p>
-<h2 id="tools_1">Tools<a class="headerlink" href="#tools_1" title="Permanent link">&para;</a></h2>
+<h3 id="tools">Tools<a class="headerlink" href="#tools" title="Permanent link">&para;</a></h3>
 <p>There are no current Alpha or Beta releases of the Tools project.</p>
 <hr />
-<h2 id="snapshot-releases">Snapshot Releases<a class="headerlink" href="#snapshot-releases" title="Permanent link">&para;</a></h2>
-<p>Snapshot releases published from times to times on <a href="https://repository.apache.org/content/repositories/snapshots/org/apache/velocity/">Apache's repository</a>.</p>
 <h2 id="archived-components-releases">Archived Components Releases<a class="headerlink" href="#archived-components-releases" title="Permanent link">&para;</a></h2>
 <h3 id="anakia">Anakia<a class="headerlink" href="#anakia" title="Permanent link">&para;</a></h3>
 <p>Binaries and sources:</p>
 <ul>
-<li><a href="[preferred]/velocity/anakia/1.0/anakia-1.0.zip">anakia-1.0.zip</a> [<a href="https://www.apache.org/dist/velocity/anakia/1.0/anakia-1.0.zip.asc">PGP</a>] [<a href="https://www.apache.org/dist/velocity/anakia/1.0/anakia-1.0.zip.sha1">SHA1</a>]</li>
-<li><a href="[preferred]/velocity/anakia/1.0/anakia-1.0.tar.gz">anakia-1.0.tar.gz</a> [<a href="https://www.apache.org/dist/velocity/anakia/1.0/anakia-1.0.tar.gz.asc">PGP</a>] [<a href="https://www.apache.org/dist/velocity/anakia/1.0/anakia-1.0.tar.gz.sha1">SHA1</a>]</li>
+<li><a href="https://archive.apache.org/dist/velocity/anakia/1.0/anakia-1.0.zip">anakia-1.0.zip</a> [<a href="https://archive.apache.org/dist/velocity/anakia/1.0/anakia-1.0.zip.asc">PGP</a>] [<a href="https://archive.apache.org/dist/velocity/anakia/1.0/anakia-1.0.zip.sha1">SHA1</a>]</li>
+<li><a href="https://archive.apache.org/dist/velocity/anakia/1.0/anakia-1.0.tar.gz">anakia-1.0.tar.gz</a> [<a href="https://archive.apache.org/dist/velocity/anakia/1.0/anakia-1.0.tar.gz.asc">PGP</a>] [<a href="https://archive.apache.org/dist/velocity/anakia/1.0/anakia-1.0.tar.gz.sha1">SHA1</a>]</li>
 </ul>
 <h3 id="texen">Texen<a class="headerlink" href="#texen" title="Permanent link">&para;</a></h3>
 <p>Binaries and sources:</p>
 <ul>
-<li><a href="[preferred]/velocity/texen/1.0/texen-1.0.zip">texen-1.0.zip</a> [<a href="https://www.apache.org/dist/velocity/texen/1.0/texen-1.0.zip.asc">PGP</a>] [<a href="https://www.apache.org/dist/velocity/texen/1.0/texen-1.0.zip.sha1">SHA1</a>]</li>
-<li><a href="[preferred]/velocity/texen/1.0/texen-1.0.tar.gz">texen-1.0.tar.gz</a> [<a href="https://www.apache.org/dist/velocity/texen/1.0/texen-1.0.tar.gz.asc">PGP</a>] [<a href="https://www.apache.org/dist/velocity/texen/1.0/texen-1.0.tar.gz.sha1">SHA1</a>]</li>
+<li><a href="https://archive.apache.org/dist/velocity/texen/1.0/texen-1.0.zip">texen-1.0.zip</a> [<a href="https://archive.apache.org/dist/velocity/texen/1.0/texen-1.0.zip.asc">PGP</a>] [<a href="https://archive.apache.org/dist/velocity/texen/1.0/texen-1.0.zip.sha1">SHA1</a>]</li>
+<li><a href="https://archive.apache.org/dist/velocity/texen/1.0/texen-1.0.tar.gz">texen-1.0.tar.gz</a> [<a href="https://archive.apache.org/dist/velocity/texen/1.0/texen-1.0.tar.gz.asc">PGP</a>] [<a href="https://archive.apache.org/dist/velocity/texen/1.0/texen-1.0.tar.gz.sha1">SHA1</a>]</li>
 </ul>
 <h3 id="dvsl">DVSL<a class="headerlink" href="#dvsl" title="Permanent link">&para;</a></h3>
 <p>Binaries:</p>
 <ul>
-<li><a href="[preferred]/velocity/dvsl/1.0/velocity-dvsl-1.0.zip">velocity-dvsl-1.0.zip</a> [<a href="https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.zip.asc">PGP</a>] [<a href="https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.zip.sha1">SHA1</a>]</li>
-<li><a href="[preferred]/velocity/dvsl/1.0/velocity-dvsl-1.0.tar.gz">velocity-dvsl-1.0.tar.gz</a> [<a href="https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.tar.gz.asc">PGP</a>] [<a href="https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.tar.gz.sha1">SHA1</a>]</li>
+<li><a href="https://archive.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.zip">velocity-dvsl-1.0.zip</a> [<a href="https://archive.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.zip.asc">PGP</a>] [<a href="https://archive.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.zip.sha1">SHA1</a>]</li>
+<li><a href="https://archive.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.tar.gz">velocity-dvsl-1.0.tar.gz</a> [<a href="https://archive.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.tar.gz.asc">PGP</a>] [<a href="https://archive.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0.tar.gz.sha1">SHA1</a>]</li>
 </ul>
 <p>Sources:</p>
 <ul>
-<li><a href="[preferred]/velocity/dvsl/1.0/velocity-dvsl-1.0-src.zip">velocity-dvsl-1.0-src.zip</a> [<a href="https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.zip.asc">PGP</a>] [<a href="https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.zip.sha1">SHA1</a>]</li>
-<li><a href="[preferred]/velocity/dvsl/1.0/velocity-dvsl-1.0-src.tar.gz">velocity-dvsl-1.0-src.tar.gz</a> [<a href="https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.tar.gz.asc">PGP</a>] [<a href="https://www.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.tar.gz.sha1">SHA1</a>]</li>
+<li><a href="https://archive.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.zip">velocity-dvsl-1.0-src.zip</a> [<a href="https://archive.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.zip.asc">PGP</a>] [<a href="https://archive.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.zip.sha1">SHA1</a>]</li>
+<li><a href="https://archive.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.tar.gz">velocity-dvsl-1.0-src.tar.gz</a> [<a href="https://archive.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.tar.gz.asc">PGP</a>] [<a href="https://archive.apache.org/dist/velocity/dvsl/1.0/velocity-dvsl-1.0-src.tar.gz.sha1">SHA1</a>]</li>
 </ul>
 <h2 id="older-releases">Older Releases<a class="headerlink" href="#older-releases" title="Permanent link">&para;</a></h2>
 <p>Older versions of the Apache Velocity projects are available from <a href="https://archive.apache.org/dist/velocity/">our archive site</a>, and documented here:</p>
@@ -542,7 +630,7 @@ The <tt>SHA</tt> links download the checksum from the main site. None of these s
 <!-- nightly builds -->
 
 <h2 id="source-code-repository">Source Code Repository<a class="headerlink" href="#source-code-repository" title="Permanent link">&para;</a></h2>
-<p>You can download the source code to each Apache Velocity project directly from our apache gitbox repositories or from our github mirrors (which are preferable to open a pull request). Here you get logs, change histories and all the information necessary to follow the development process. If you are interested in the project development, please join the Apache Velocity development list.</p>
+<p>You can download the source code to each Apache Velocity project directly from our apache gitbox repositories or from our github mirrors (which are preferable if you intend to open a pull request). Here you get logs, change histories and all the information necessary to follow the development process. If you are interested in the project development, please join the Apache Velocity development list.</p>
 <table class="table">
 <thead>
 <tr>

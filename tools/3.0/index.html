@@ -211,7 +211,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>A Velocity "tool" is just a POJO (plain old java object) that is "useful" in a template and is not meant to be rendered in the output.  In other words, a "tool" (in Velocity-speak) is meant to be used but not seen themselves (e.g. for formatting dates or numbers, url building, etc).</p>
 <p>The VelocityTools project is, first of all, a collection of such useful Java classes, as well as infrastructure to easily, automatically and transparently make these tools available to your Velocity templates.  Other aims of the project include providing easy integration of Velocity into the view-layer of your web applications (via the <a href="view-tag.html">VelocityViewTag</a>, <a href="view-servlet.html">VelocityViewServlet</a>) and the <a href="maven-velocity-tools-plugin/index.html">Maven Plugin</a>.</p>
-<p>In recognition of these varying aims, the VelocityTools project is divided into two parts: <a href="generic.html">GenericTools</a> and [VelocityView](view.html. Each of these parts builds on the previous one and has its own JAR distribution.</p>
+<p>In recognition of these varying aims, the VelocityTools project is divided into two parts: <a href="generic.html">GenericTools</a> and <a href="view.html">VelocityView</a>. Each of these parts builds on the previous one and has its own JAR distribution.</p>
 <h3 id="generictools">GenericTools<a class="headerlink" href="#generictools" title="Permanent link">&para;</a></h3>
 <p><a href="generic.html">GenericTools</a> is the set of classes that provide basic infrastructure for using tools in standard Java SE Velocity projects, as well as a set of tools for use in generic Velocity templates.  Perenial favorites here are the DateTool, NumberTool and RenderTool, though there are many others available as well.</p>
 <h3 id="velocityview">VelocityView<a class="headerlink" href="#velocityview" title="Permanent link">&para;</a></h3>
@@ -226,9 +226,8 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li>A <a href="maven-velocity-tools-plugin/index.html">Maven plugin</a> to allow embedding of JSP tag libraries inside Velocity templates.</li>
 </ul>
 <p>See the <a href="upgrading.html">Upgrading section</a> for a complete list of changes.</p>
-<h2 id="subversion-repository">Subversion Repository<a class="headerlink" href="#subversion-repository" title="Permanent link">&para;</a></h2>
-<p>All VelocityTools project code is maintained in the Subversion repository which can be reached in a number of ways. The most direct method of accessing the repository is through a web browser, but to effectively work on the code, a <a href="http://svn.tigris.org/links.html#clients">Subversion client</a> is required.</p>
-<p>Repository: <a href="http://svn.apache.org/viewcvs.cgi/velocity/tools/trunk/">http://svn.apache.org/viewcvs.cgi/velocity/tools/trunk/</a>.</p>
+<h2 id="sources-repository">Sources Repository<a class="headerlink" href="#sources-repository" title="Permanent link">&para;</a></h2>
+<p>All VelocityTools project code is maintained in the Apache gitbox repository and mirrored on github, see the <a href="/download.cgi">downloads section</a>.</p>
 <h2 id="helping-out">Helping Out<a class="headerlink" href="#helping-out" title="Permanent link">&para;</a></h2>
 <p>Feedback about the project, whether positive or gently critical, is always helpful to those working on the project. Such feedback may be sent to either the user@velocity.apache.org or dev@velocity.apache.org <a href="/contact.html">mailing lists</a>.</p>
 <p>Another great way to help is to simply participate in conversations on the mailing list.  On the user list, you can help answer questions that other users have. This frees the developers to focus on development more than user support.  On the dev list, you can participate in design discussions and release votes to help maintain the high quality of the releases and direct the future directions of the project.</p>

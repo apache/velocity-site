@@ -5,6 +5,26 @@
     <link>http://velocity.apache.org</link>
     <description>Recent news from Apache Velocity Site</description>
     <item>
+      <title>Velocity Tools 3.1 released</title>
+      <link>http://velocity.apache.org/news.html#tools31</link>
+      <description>&lt;p&gt;The Velocity developers are pleased to announce the release of Velocity Tools 3.1.&lt;/p&gt;&lt;p&gt;VelocityTools is a collection of Velocity subprojects with a common goal of providing tools and infrastructure for building both web and standalone applications using the Apache Velocity template engine.&lt;/p&gt;&lt;p&gt;Main changes:&lt;/p&gt;&lt;p&gt;* Added an optional 'factory' attribute to tools with the classname of a factory for creating new tools instances.&lt;/p&gt;&lt;p&gt;* Added a new BreadcrumbTool meant to help displaying UI breadcrumb trails.&lt;/p&gt;&lt;p&gt;* Fix potential XSS vulterability in VelocityViewServlet error handling.&lt;/p&gt;&lt;p&gt;For a full list of changes, consult &lt;a href=&quot;Velocity Tools 3.1 Changes section&quot;&gt;https://velocity.apache.org/tools/3.1/changes.html&lt;/a&gt; and {{{JIRA changelog}https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310130&amp;version=12345408}.&lt;/p&gt;&lt;p&gt;For notes on upgrading from earlier versions, see &lt;a href=&quot;Velocity Tools 3.1 Upgrading section&quot;&gt;https://velocity.apache.org/tools/3.1/upgrading.html&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Downloads of Velocity Tools 3.1 are available &lt;a href=&quot;http://velocity.apache.org/download.cgi#tools&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</description>
+      <category>velocity</category>
+      <category>tools</category>
+      <pubDate>Sat, 27 Feb 2021 08:00:00 GMT</pubDate>
+      <guid>http://velocity.apache.org/news.html#tools31</guid>
+      <dc:date>2021-02-27T08:00:00Z</dc:date>
+    </item>
+    <item>
+      <title>Velocity Engine 2.3 released</title>
+      <link>http://velocity.apache.org/news.html#engine23</link>
+      <description>&lt;p&gt;The Velocity developers are pleased to announce the release of Velocity Engine 2.3.&lt;/p&gt;&lt;p&gt;Main changes in this release:&lt;/p&gt;&lt;p&gt;+ Fix a minor security issue in user-edited templates applications: let SecureUberspector block methods on ClassLoader and subclasses.&lt;/p&gt;&lt;p&gt;+ New spring-velocity-support module for Velocity Engine integration in Spring Framework.&lt;/p&gt;&lt;p&gt;For a full list of changes, consult &lt;a href=&quot;https://velocity.apache.org/engine/2.3/changes.html&quot;&gt;Velocity Engine 2.3 Changes section&lt;/a&gt; and &lt;a href=&quot;https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310104&amp;amp;version=12348601&quot;&gt;JIRA changelog&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;For notes on upgrading, see &lt;a href=&quot;http://velocity.apache.org/engine/2.3/upgrading.html&quot;&gt;Velocity Engine 2.3 Upgrading section&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Downloads of 2.3 are available &lt;a href=&quot;http://velocity.apache.org/download.cgi#engine&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+      <category>velocity</category>
+      <category>engine</category>
+      <pubDate>Sat, 27 Feb 2021 08:00:00 GMT</pubDate>
+      <guid>http://velocity.apache.org/news.html#engine23</guid>
+      <dc:date>2021-02-27T08:00:00Z</dc:date>
+    </item>
+    <item>
       <title>Velocity Engine 2.2 released</title>
       <link>http://velocity.apache.org/news.html#engine22</link>
       <description>&lt;p&gt;The Velocity developers are pleased to announce the release of Velocity Engine 2.2.&lt;/p&gt;&lt;p&gt;Main changes in this release:&lt;/p&gt;&lt;p&gt;+ New runtime.log.track_locations debugging configuration flag which displays the VTL stack trace in the logs in cases of errors, and populates slf4j MDC tags about position in VTL templates.&lt;/p&gt;&lt;p&gt;+ New example of how to build a customized VTL parser where the '#', '$', '*' and '@' characters can be replaced by alternate characters.&lt;/p&gt;&lt;p&gt;+ New backward compatibility flags to mimic 1.7.x event handlers and velicomacros behaviors.&lt;/p&gt;&lt;p&gt;For a full list of changes, consult &lt;a href=&quot;http://velocity.apache.org/engine/2.2/changes.html&quot;&gt;Velocity Engine 2.2 Changes section&lt;/a&gt; and &lt;a href=&quot;https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310104&amp;amp;version=12345391&quot;&gt;JIRA changelog&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;For notes on upgrading, see &lt;a href=&quot;http://velocity.apache.org/engine/2.2/upgrading.html&quot;&gt;Velocity Engine 2.2 Upgrading section&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Downloads of 2.2 are available &lt;a href=&quot;http://velocity.apache.org/download.cgi#engine&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>

@@ -16,5 +16,6 @@ org.apache.velocity.runtime.resource.loader
 org.apache.velocity.runtime.resource.util
 org.apache.velocity.runtime.visitor
 org.apache.velocity.script
+org.apache.velocity.spring
 org.apache.velocity.util
 org.apache.velocity.util.introspection

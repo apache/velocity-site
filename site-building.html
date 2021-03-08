@@ -162,8 +162,8 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </ul>
 <h2 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="/engine/2.2">Engine 2.2</a></li>
-<li><a href="/tools/3.0">Tools 3.0</a></li>
+<li><a href="/engine/2.3">Engine 2.3</a></li>
+<li><a href="/tools/3.1">Tools 3.1</a></li>
 </ul>
 <h2 id="development">Development<a class="headerlink" href="#development" title="Permanent link">&para;</a></h2>
 <ul>
@@ -229,8 +229,9 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <ul>
 <li><a href="#the-apache-velocity-site">the Apache Velocity Site</a><ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#editing-the-site">Editing the Site</a></li>
-<li><a href="#building-the-site">Building the Site</a></li>
+<li><a href="#editing-the-site">Editing the site</a></li>
+<li><a href="#building-the-site-with-docker">Building the site with docker</a></li>
+<li><a href="#building-the-site-without-docker">Building the site without docker</a></li>
 <li><a href="#additional-notes">Additional Notes</a></li>
 <li><a href="#javadocs">Javadocs</a><ul>
 <li><a href="#table-of-content">Table of Content</a></li>
@@ -253,11 +254,51 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li>want to re-create the Apache Velocity site on your local computer or intranet.</li>
 <li>are an <a href="/who-we-are.html">Apache Velocity committer</a> and want to update the site.</li>
 </ul>
-<h3 id="editing-the-site">Editing the Site<a class="headerlink" href="#editing-the-site" title="Permanent link">&para;</a></h3>
-<p>Apache Velocity uses the <a href="http://www.apache.org/dev/cms.html">Apache Content Management System</a> to manage its site.</p>
+<h3 id="editing-the-site">Editing the site<a class="headerlink" href="#editing-the-site" title="Permanent link">&para;</a></h3>
+<p>Most of the site sources are in plain markdown, more specifically in <a href="https://python-markdown.github.io/">python-markdown</a>.</p>
+<h3 id="building-the-site-with-docker">Building the site with docker<a class="headerlink" href="#building-the-site-with-docker" title="Permanent link">&para;</a></h3>
+<p>This method is by far the easiest one.</p>
+<ol>
+<li>Clone the site sources</li>
+</ol>
+<p>If you are a Velocity commiter, you will want to directly edit the site sources:</p>
+<div class="codehilite"><pre>git clone https://github.com/apache/velocity-site.git
+</pre></div>
+
+
+<p>If you are a contributor, you should first fork the site sources to your github account, and use:</p>
+<div class="codehilite"><pre>git clone --single-branch --branch master git@github.com:<span class="o">[</span>YOUR_GITHUB_ID<span class="o">]</span>/velocity-site.git
+</pre></div>
+
+
+<ol>
+<li>Clone the site production pages</li>
+</ol>
+<p>As a commiter you will use it to push into production the generated site. As a contributor, you will use it to check locally the result of your changes.</p>
+<p>This clone must be called <code>velocity-site-prod</code> and must be made in the same directory as the <code>velocity-site</code> one.</p>
+<div class="codehilite"><pre>git clone --single-branch --branch asf-site https://github.com/apache/velocity-site.git velocity-site-prod
+</pre></div>
+
+
+<ol>
+<li>
+<p>Make your changes to the site sources</p>
+</li>
+<li>
+<p>Run the script <code>velocity-site/builder/bin/builder.sh</code> (linux implied...)</p>
+</li>
+<li>
+<p>Check the result using your favorite browser</p>
+</li>
+<li>
+<p>Advertize your changes</p>
+</li>
+</ol>
+<p>Commiters have to push the changes in both clones. Contributors only need to submit a pull request to the site sources.</p>
+<h3 id="building-the-site-without-docker">Building the site without docker<a class="headerlink" href="#building-the-site-without-docker" title="Permanent link">&para;</a></h3>
+<p>Apache Velocity uses the <a href="https://www.apache.org/dev/cms.html">Apache Content Management System</a> to manage its site.</p>
 <p>The site is not <em>hosted</em> by the CMS (it's planned to move it to pelican), so it still has to be build locally.</p>
-<h3 id="building-the-site">Building the Site<a class="headerlink" href="#building-the-site" title="Permanent link">&para;</a></h3>
-<p>To build the site locally, you'll need a local checkout of the <a href="https://svn.apache.org/repos/infra/websites/cms">Apache CMS</a>, then refer to the <a href="https://svn.apache.org/repos/infra/websites/cms/STATUS">STATUS</a> file.
+<p>To do so, you'll need a local checkout of the <a href="https://svn.apache.org/repos/infra/websites/cms">Apache CMS</a>, then refer to the <a href="https://svn.apache.org/repos/infra/websites/cms/STATUS">STATUS</a> file.
 You'll of course also need a local clone of <a href="https://gitbox.apache.org/repos/asf/velocity-site.git">the site sources</a>, or even preferably a local clone of <a href="https://github.com/apache/velocity-site.git">github's mirror</a>, where you can submit pull requests.</p>
 <p>You'll have to generate the site in some <code>target</code> temporary directory, then check added/modified/deleted files in the <code>asf-site</code> branch of the <code>velocity-site</code> repository.</p>
 <p>Typically, you'll have to:</p>

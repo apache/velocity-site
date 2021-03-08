@@ -211,32 +211,20 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
 <p>A Velocity "tool" is just a POJO (plain old java object) that is "useful" in a template and is not meant to be rendered in the output.  In other words, a "tool" (in Velocity-speak) is meant to be used but not seen themselves (e.g. for formatting dates or numbers, url building, etc).</p>
 <p>The VelocityTools project is, first of all, a collection of such useful Java classes, as well as infrastructure to easily, automatically and transparently make these tools available to your Velocity templates.  Other aims of the project include providing easy integration of Velocity into the view-layer of your web applications (via the <a href="view-tag.html">VelocityViewTag</a>, <a href="view-servlet.html">VelocityViewServlet</a>) and the <a href="maven-velocity-tools-plugin/index.html">Maven Plugin</a>.</p>
-<p>In recognition of these varying aims, the VelocityTools project is divided into two parts: <a href="generic.html">GenericTools</a> and [VelocityView](view.html. Each of these parts builds on the previous one and has its own JAR distribution.</p>
+<p>In recognition of these varying aims, the VelocityTools project is divided into two parts: <a href="generic.html">GenericTools</a> and <a href="view.html">VelocityView</a>. Each of these parts builds on the previous one and has its own JAR distribution.</p>
 <h3 id="generictools">GenericTools<a class="headerlink" href="#generictools" title="Permanent link">&para;</a></h3>
 <p><a href="generic.html">GenericTools</a> is the set of classes that provide basic infrastructure for using tools in standard Java SE Velocity projects, as well as a set of tools for use in generic Velocity templates.  Perenial favorites here are the DateTool, NumberTool and RenderTool, though there are many others available as well.</p>
 <h3 id="velocityview">VelocityView<a class="headerlink" href="#velocityview" title="Permanent link">&para;</a></h3>
 <p><a href="view.html">VelocityView</a> includes all of the <a href="generic.html">GenericTools</a> structure and specialized tools for using Velocity in the view layer of web applications (Java EE projects). This includes the <a href="view-servlet.html">VelocityViewServlet</a> or <a href="view-layoutservlet.html">VelocityLayoutServlet</a> for processing Velocity template requests, the <a href="view-tag.html">VelocityViewTag</a> for embedding Velocity in JSP and a <a href="maven-velocity-tools-plugin/index.html">Maven plugin</a> to embed JSP tag libraries in Velocity templates. Popular tools here are the LinkTool and the ParameterTool.</p>
-<h2 id="whats-new-in-30">What's new in 3.0<a class="headerlink" href="#whats-new-in-30" title="Permanent link">&para;</a></h2>
-<p>Velocity Tools 3.0 new features:</p>
+<h2 id="whats-new-in-31">What's new in 3.1<a class="headerlink" href="#whats-new-in-31" title="Permanent link">&para;</a></h2>
+<p>Velocity Tools 3.1 new features:</p>
 <ul>
-<li>Use of Velocity Engine v2.0.</li>
-<li>New generic <a href="apidocs/org/apache/velocity/tools/generic/CollectionTool.html">CollectionTool</a> which replaces and enhances the former SortTool.</li>
-<li>New generic <a href="apidocs/org/apache/velocity/tools/generic/JsonTool.html">JsonTool</a> and view <a href="apidocs/org/apache/velocity/tools/view/JsonTool.html">JsonTool</a>.</li>
-<li>New generic <a href="apidocs/org/apache/velocity/tools/generic/LogTool.html">LogTool</a>.</li>
-<li>A <a href="maven-velocity-tools-plugin/index.html">Maven plugin</a> to allow embedding of JSP tag libraries inside Velocity templates.</li>
+<li>Added an optional 'factory' attribute to tools with the classname of a factory for creating new tools instances.                                                                                              </li>
+<li>Added a new BreadcrumbTool meant to help displaying UI breadcrumb trails.                                                                                                                                     </li>
 </ul>
 <p>See the <a href="upgrading.html">Upgrading section</a> for a complete list of changes.</p>
-<h2 id="why-20">Why 2.0?<a class="headerlink" href="#why-20" title="Permanent link">&para;</a></h2>
-<p>Those already familiar with VelocityTools 1.x may be curious about the goals and motivations behind developing VelocityTools 2. In planning and developing the 2.0 release, there were three main goals:</p>
-<ul>
-<li>Transparent, on-demand tool instantiation (aka lazy loading for tools) - This allows you to have many tools available (even ones that are expensive to instantiate), but not waste time instantiating or initializing/configuring those you don't use for every request.</li>
-<li>More accessible, reusable infrastructure - This allows easier access to tools outside of your templates and provides better means to integrate VelocityTools support into other web frameworks or even other view technologies (e.g. VelocityViewTag).</li>
-<li>Simpler, more flexible toolbox <a href="configuration.html">configuration</a> - Now you can configure via a <a href="config-properties.html">properties file</a>, <a href="config-java.html">plain java</a>, or really whatever you want (though perhaps with a bit more work). No <a href="config-xml.html">XML</a> required anymore; though, if you do use it, it's now a lot better than it was.</li>
-</ul>
-<p>These things could not have been accomplished without rewriting most of the core infrastructure and configuration code.  At the same time, we wanted to make it easy for people to upgrade from the 1.x series.  This led to the decision to aim for complete backwards compatibility.  Granted much has been deprecated and those who directly used or extended the 1.x infrastructure will have to update their code in just a few releases, but for the time being they should be able to use 2.0 in their applications with few problems. Those who merely used the old toolbox.xml format or the old tools directly will be immediately able to take advantage of the new infrastructure without even updating their configuration, though eventually even the old toolbox.xml format may be retired.  Don't cry.  You'll like the <a href="config-xml.html">new one</a> better once you get to know it! It can do much more with much less typing.</p>
-<h2 id="subversion-repository">Subversion Repository<a class="headerlink" href="#subversion-repository" title="Permanent link">&para;</a></h2>
-<p>All VelocityTools project code is maintained in the Subversion repository which can be reached in a number of ways. The most direct method of accessing the repository is through a web browser, but to effectively work on the code, a <a href="http://svn.tigris.org/links.html#clients">Subversion client</a> is required.</p>
-<p>Repository: <a href="http://svn.apache.org/viewcvs.cgi/velocity/tools/trunk/">http://svn.apache.org/viewcvs.cgi/velocity/tools/trunk/</a>.</p>
+<h2 id="sources-repository">Sources Repository<a class="headerlink" href="#sources-repository" title="Permanent link">&para;</a></h2>
+<p>All VelocityTools project code is maintained in the Apache gitbox repository and mirrored on github, see the <a href="/download.cgi">downloads section</a>.</p>
 <h2 id="helping-out">Helping Out<a class="headerlink" href="#helping-out" title="Permanent link">&para;</a></h2>
 <p>Feedback about the project, whether positive or gently critical, is always helpful to those working on the project. Such feedback may be sent to either the user@velocity.apache.org or dev@velocity.apache.org <a href="/contact.html">mailing lists</a>.</p>
 <p>Another great way to help is to simply participate in conversations on the mailing list.  On the user list, you can help answer questions that other users have. This frees the developers to focus on development more than user support.  On the dev list, you can participate in design discussions and release votes to help maintain the high quality of the releases and direct the future directions of the project.</p>
@@ -249,12 +237,11 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li>Working on unresolved tasks in <a href="http://issues.apache.org/jira/browse/VELTOOLS">JIRA</a></li>
 <li>Contributing to the <a href="http://wiki.apache.org/velocity/VelocimacroLibrary">VelocimacroLibrary</a></li>
 </ul>
-<p>Other project goals and proposals can be found in the project STATUS[http://svn.apache.org/viewcvs.cgi/velocity/tools/trunk/STATUS?view=markup] file.</p>
 <h3 id="code">Code<a class="headerlink" href="#code" title="Permanent link">&para;</a></h3>
 <p>When contributing code, it helps <strong>immensely</strong> if you follow through with the things on this checklist, especially the coding conventions. Keeping our code style consistent, our codebase stays easy to read and easy to patch.  Adding javadoc (and examples therein) simplifies the documentation process and reduces confusion about the purpose of various methods and classes. Tests make sure that things work as expected, especially as development continues down the road.  Of course, contributions that don't follow the checklist will be considered and often accepted, but you can expect the project committers to be slower and less enthusiastic in doing so. :)</p>
 <p><strong>Checklist for Code Contributions</strong>:</p>
 <ul>
-<li><a href="http://wiki.apache.org/velocity/CodeStandards">Velocity coding conventions</a></li>
+<li><a href="https://wiki.apache.org/velocity/CodeStandards">Velocity coding conventions</a></li>
 <li>Javadoc included (the more detailed the better)</li>
 <li>Examples included (in JavaDoc or as stand-alone template example)</li>
 <li>Tests included (not required but <b>GREATLY</b> appreciated)</li>

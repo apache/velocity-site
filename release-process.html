@@ -162,8 +162,8 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </ul>
 <h2 id="releases">Releases<a class="headerlink" href="#releases" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="/engine/2.2">Engine 2.2</a></li>
-<li><a href="/tools/3.0">Tools 3.0</a></li>
+<li><a href="/engine/2.3">Engine 2.3</a></li>
+<li><a href="/tools/3.1">Tools 3.1</a></li>
 </ul>
 <h2 id="development">Development<a class="headerlink" href="#development" title="Permanent link">&para;</a></h2>
 <ul>
@@ -227,26 +227,28 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <h2 id="velocity-release-process">Velocity Release Process<a class="headerlink" href="#velocity-release-process" title="Permanent link">&para;</a></h2>
 <p>Here you will find the steps to create releases for Velocity Engine or Velocity Tools.</p>
 <p>Instructions make explicit references to the <em>engine</em> subproject, but you can easily adapt them for the <em>tools</em> subproject.</p>
-<p><em>Note - since Velocity repositories switched from svn to git, part of the following information has to be updated accordingly.</em></p>
+<p>Note that <em>all mails</em> must be sent in plain text format, not HTML. For thunderbird, for instance, this option is located in <code>Options &gt; Delivery Format &gt; Plain Text only</code>.</p>
 <h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
 <p>To create a release you have to install:</p>
 <ul>
-<li><a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Development Kit 8</a></li>
+<li><a href="https://www.oracle.com/technetwork/java/javase/downloads/index.html">Java Development Kit 8</a> or more recent</li>
 <li><a href="https://maven.apache.org/">Maven 3</a></li>
 <li><a href="https://www.gnupg.org/">GnuPG</a></li>
-<li><a href="https://www.openssh.com/}OpenSSH">OpenSSH</a></li>
+<li><a href="https://www.openssh.com/OpenSSH">OpenSSH</a></li>
 </ul>
 <h3 id="one-time-operations">One-time operations<a class="headerlink" href="#one-time-operations" title="Permanent link">&para;</a></h3>
-<p>These operations need to be performed only one time.</p>
+<p>These operations need to be performed only once per commiter.</p>
 <ul>
 <li>
 <p>Create and publish your GPG key</p>
-<p>To create a GPG key, follow the <a href="https://www.apache.org/dev/openpgp.html}guidelines">guidelines</a>. Insert in the file you find on people.apache.org at the directory:</p>
-<div class="codehilite"><pre>/www/www.apache.org/dist/velocity/
-</pre></div>
-
-
+<p>To create a GPG key, follow the <a href="https://www.apache.org/dev/openpgp.html">guidelines</a>.</p>
 <p>Publish your GPG key in a PGP key server, such as <a href="https://pgp.mit.edu/">MIT Keyserver</a>.</p>
+<p>Log in with your apache credentials to the <a href="https://id.apache.org">Apache Identitity server</a> and add the fingerprint of your GPG key to your account.</p>
+<p>It should be enough for your commiter GPG key to be known by Apache and linked to the project. You can check that this is the case by checking that:</p>
+<ul>
+<li>your GPG commiter key is visible at <code>https://people.apache.org/keys/committer/&lt;account&gt;.asc</code></li>
+<li>it is included in the <a href="https://people.apache.org/keys/group/velocity.asc">Velocity group keys file</a>.</li>
+</ul>
 </li>
 <li>
 <p>Modify <code>settings.xml</code></p>
@@ -292,7 +294,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </li>
 </ul>
 <h3 id="repeatable-operations">Repeatable operations<a class="headerlink" href="#repeatable-operations" title="Permanent link">&para;</a></h3>
-<p>These steps must be performed <strong>for each</strong> release.</p>
+<p>These steps must be performed <strong>for each</strong> release candidate.</p>
 <ul>
 <li>
 <p>Check updates of dependencies and maven plugins:</p>
@@ -310,22 +312,20 @@ mvn versions:display-plugin-updates
 </li>
 <li>
 <p>Archive the previous release candidate</p>
-<p>If it's not the first release candidate you're trying to release, you should archive the previous release candidate. For instance:</p>
-<div class="codehilite"><pre>svn mv -m <span class="s2">&quot;[engine] archive engine 2.0 RC4&quot;</span> https://_your_apache_id_@svn.apache.org/repos/asf/velocity/engine/tags/2.0 https://_your_apache_id_@svn.apache.org/repos/asf/velocity/engine/tags/2.0-RC4
+<p>If it's not the first release candidate you're trying to release, you have to drop the staged artifact from the nexus manager.</p>
+<p>You have to revert the two automated commits pushed by the maven release plugin, in the reverse order. Those should be the two most recent commits, and should look like something like this in the git log:</p>
+<div class="codehilite"><pre>* commit 1daf1668 (HEAD -&gt; master, origin/master)
+  [maven-release-plugin] prepare for next development iteration
+
+* commit 9cd6c031 (tag: 2.3-RC2)
+  [maven-release-plugin] prepare release 2.3-RC2
 </pre></div>
 
 
-<p>And don't forget to also drop the staged artifact.</p>
-<p>Of course, you will also have to revert the automated commits from the previous <code>mvn release:*</code> commands. You can use the following shell one-liner to get their revision numbers:</p>
-<div class="codehilite"><pre>$ svn log pom.xml <span class="p">|</span> grep -B2 maven-release-plugin <span class="p">|</span> egrep <span class="s2">&quot;^r&quot;</span> <span class="p">|</span> head -2 <span class="p">|</span> cut -d<span class="s1">&#39; &#39;</span> -f <span class="m">1</span>
-r1866626
-r1866624
-</pre></div>
-
-
-<p>Then, revert:</p>
-<div class="codehilite"><pre>svn merge -r1866626:1866623 .
-svn commit -m &quot;[engine/tools] Revert poms for next 2.2 RC attempt&quot;
+<p>You would then issue commands like:</p>
+<div class="codehilite"><pre>git revert 1daf1668
+git revert 9cd6c031
+git push
 </pre></div>
 
 
@@ -337,11 +337,11 @@ svn commit -m &quot;[engine/tools] Revert poms for next 2.2 RC attempt&quot;
 <p>Prepare the release tag</p>
 <p>To prepare the release Subversion tag, check out the branch/trunk from where
 you are preparing the release and type:</p>
-<div class="codehilite"><pre>mvn release:prepare -Dusername<span class="o">=</span>YOUR_SVN_USER -Dpassword<span class="o">=</span>YOUR_SVN_PASSWORD
+<div class="codehilite"><pre>mvn release:prepare -Dusername<span class="o">=</span>YOUR_APACHE_USER -Dpassword<span class="o">=</span>YOUR_APACHE_PASSWORD
 </pre></div>
 
 
-<p>The plugin will interactively ask you the version to release, the subversion tag to use and the next snapshot version. Rather than the proposed default <code>velocity-engine-parent-X.X</code>, we tend to use X.X for the subversion tag.</p>
+<p>The plugin will interactively ask you the version to release, the subversion tag to use and the next snapshot version. Rather than the proposed default <code>velocity-engine-parent-x.y</code>, we tend to use <em>x</em>.<em>y</em>-RC<em>z</em> for the git tag.</p>
 </li>
 <li>
 <p>Perform the release</p>
@@ -400,13 +400,14 @@ you are preparing the release and type:</p>
 </li>
 <li>
 <p>Prepare the site</p>
-<p>Copy the <code>/devel/</code> section to its <code>&lt;version&gt;</code> section (but do not yet refence it from the menu), and fix any SNAPSHOT link within.</p>
+<p>Copy the <code>&lt;module&gt;/devel/</code> section to its <code>&lt;version&gt;</code> section (but do not yet refence it from the menu), and fix any SNAPSHOT link within.</p>
+<p>Change the content of the <code>changes_report</code> tag in <code>&lt;module&gt;/&lt;version&gt;/changes.mdtext</code> to <code>&lt;module&gt;/&lt;version&gt;-RC&lt;rc&gt;</code> (for instance: <code>{{changes_report(engine/2.3-RC2)}}</code>).</p>
 <p>Generate the corresponding javadoc with</p>
 <div class="codehilite"><pre>mvn javadoc:aggregate
 </pre></div>
 
 
-<p>and commit the result in [VERSION]/apidocs</p>
+<p>from the root of the module and commit the result in <code>&lt;VERSION&gt;/apidocs</code>.</p>
 <p>Push those changes to production (see the <a href="http://velocity.apache.org/site-building.html">Site Building</a> page).</p>
 </li>
 <li>
@@ -434,9 +435,10 @@ Maven 2 staging repository:
 Documentation:
 
 * https://velocity.apache.org/<span class="cp">${</span><span class="n">module</span><span class="cp">}</span>/<span class="cp">${</span><span class="n">version</span><span class="cp">}</span>
+
 Sources:
 
- * https://svn.apache.org/repos/asf/velocity/<span class="cp">${</span><span class="n">module</span><span class="cp">}</span>/tags/<span class="cp">${</span><span class="n">version</span><span class="cp">}</span>
+ * https://github.com/apache/<span class="cp">${</span><span class="n">module</span><span class="cp">}</span>/tags/<span class="cp">${</span><span class="n">version</span><span class="cp">}</span>-<span class="cp">${</span><span class="n">rc</span><span class="cp">}</span>
 
 A vote regarding the quality of this test build will be initiated within the next couple of days.
 </pre></div>
@@ -464,7 +466,7 @@ Maven 2 staging repository:
 
 Sources:
 
- * https://svn.apache.org/repos/asf/velocity/<span class="cp">${</span><span class="n">module</span><span class="cp">}</span>/tags/<span class="cp">${</span><span class="n">version</span><span class="cp">}</span>
+ * https://github.com/apache/<span class="cp">${</span><span class="n">module</span><span class="cp">}</span>/tags/<span class="cp">${</span><span class="n">version</span><span class="cp">}</span>-<span class="cp">${</span><span class="n">rc</span><span class="cp">}</span>
 
 If you have had a chance to review the test build, please respond with a vote on its quality:
 
@@ -478,6 +480,9 @@ Everyone who has tested the build is invited to vote. Votes by PMC members are c
 
 
 </li>
+<li>
+<p>The vote must last at least 72 hours. Once you decide to close the vote, reply to the vote thread with <code>[RESULT]</code> in the subject, counting binding and non-binding votes, and stating the release candidate status.</p>
+</li>
 </ul>
 <h3 id="post-vote-operations">Post-vote operations<a class="headerlink" href="#post-vote-operations" title="Permanent link">&para;</a></h3>
 <p>After a vote is finished, and it has been decided that is <strong>at least of alpha quality</strong>, there is the need of a post-vote process.</p>
@@ -487,27 +492,42 @@ Everyone who has tested the build is invited to vote. Votes by PMC members are c
 <p>Once the release is deemed fit for public consumption it can be transfered to a production repository where it will be available to all users.</p>
 <p>Login to <a href="https://repository.apache.org">Nexus repository</a> again.</p>
 <p>Click on "Staging" and then on the repository with id "velocity-staging".</p>
-<p>Find your closed staging repository, right click on it and choose "Promote".</p>
-<p>Select the "Releases" repository and click "Promote".</p>
+<p>Find your closed staging repository, right click on it and choose "Release".</p>
 <p>Next click on "Repositories", select the "Releases" repository and validate that your artifacts exist as you expect them.</p>
 </li>
 <li>
 <p>Publish the release</p>
-<p>Copy the staged release to the Apache Releases svn repository at https://dist.apache.org/repos/dist/release/velocity/{module}/...</p>
-<p>You may subsequently receive an automated email from the Apache Reporter Service asking you to log on to https://reporter.apache.org/addrelease.html?velocity to add the release metadata to its database. Please do so.</p>
+<p>Copy the staged release to the Apache Releases svn repository towards <code>https://dist.apache.org/repos/dist/release/velocity/{module}/...</code>, add and commit it.</p>
+<p>You may subsequently receive an automated email from the Apache Reporter Service asking you to log on to <code>https://reporter.apache.org/addrelease.html?velocity</code> to add the release metadata to its database. Please do so.</p>
+</li>
+<li>
+<p>Create the final tag from the RC tag</p>
+<div class="codehilite"><pre>git checkout x.y-RCz
+git tag -a x.y
+git push --tags
+</pre></div>
+
+
 </li>
 <li>
 <p>Update the site</p>
 <p>Wait 24 hours to let the mirror sync to the release and then update the site.</p>
-<p>Update the download page, the left menu, the news section, and the engine or tools index:</p>
-<div class="codehilite"><pre>velocity/site/cms/trunk/content/download.mdtext
-velocity/site/cms/trunk/content/left.nav
-velocity/site/cms/trunk/content/news.xml
-velocity/site/cms/trunk/content/<span class="cp">${</span><span class="n">module</span><span class="cp">}</span>/index.mdtext
-velocity/site/cms/trunk/content/index.mdtext (status section)
+<p>Update the download page, the left menu, the news section, and the engine or tools index in the <code>velocity-site</code> module:</p>
+<div class="codehilite"><pre>src/content/download.mdtext
+src/content/left.nav
+src/content/news.xml
+src/content/<span class="cp">${</span><span class="n">module</span><span class="cp">}</span>/index.mdtext
+src/content/index.mdtext (status section)
 </pre></div>
 
 
+<p>There are also several mentions of the <em>current releaase</em> in all releases specific pages which should be upgraded (at least for the engine ; something similar should be done for the tools - <em>TODO</em>). You can do so by adapting the following bash one-liner:</p>
+<div class="codehilite"><pre>sed -ri -e <span class="s1">&#39;s/The current stable release version is version 2.2/The current stable release version is version 2.3/&#39;</span> <span class="k">$(</span>find . -path <span class="s2">&quot;*/engine/*/index.mdtext&quot;</span><span class="k">)</span>
+</pre></div>
+
+
+<p>For the tools, update the links towards <code>tools.xml</code> configuration files in <code>generic.mdtext</code> and <code>view.mdtext</code>.</p>
+<p>Change the content of the <code>changes_report</code> tag in <code>&lt;module&gt;/&lt;version&gt;/changes.mdtext</code> to <code>&lt;module&gt;/&lt;version&gt;</code> (for instance: <code>{{changes_report(engine/2.3)}}</code>).</p>
 <p>Push the changes into production.   </p>
 <p>Check the resulting site for broken links</p>
 <div class="codehilite"><pre>wget --spider -r -nd -nv -H -l <span class="m">2</span> -w <span class="m">2</span> -o links.log https://velocity.apache.org/
@@ -516,7 +536,7 @@ velocity/site/cms/trunk/content/index.mdtext (status section)
 
 </li>
 <li>
-<p>Update the DOAP RDF project metadata located under `svn.apache.org/repos/asf/velocity/site/site.</p>
+<p>Update the DOAP RDF project metadata located in the <code>site</code> direcotry of the <code>velocity-site</code> module sources. Note that DOAP URLs are defined in the <a href="https://svn.apache.org/repos/asf/comdev/projects.apache.org/trunk/data/projects.xml">https://svn.apache.org/repos/asf/comdev/projects.apache.org/trunk/data/projects.xml</a> file, which can be edited by every commiter (by checking out the project using <code>svn checkout https://svn.apache.org/repos/asf/comdev</code>).</p>
 </li>
 <li>
 <p>Send announcement</p>

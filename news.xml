@@ -2,6 +2,58 @@
 
 <news xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://velocity.apache.org/NEWS/1.0.0" xsi:schemaLocation="http://velocity.apache.org/NEWS/1.0.0 http://velocity.apache.org/site/tools/velocity-site-news/xsd/news-1.0.0.xsd">
   <items>
+    <item id="tools31">
+        <date>2021-02-27</date>
+        <headline>Velocity Tools 3.1 released</headline>
+        <categories>
+            <category>velocity</category>
+            <category>tools</category>
+        </categories>
+        <text><![CDATA[
+        The Velocity developers are pleased to announce the release of Velocity Tools 3.1.
+
+        VelocityTools is a collection of Velocity subprojects with a common goal of providing tools and infrastructure
+        for building both web and standalone applications using the Apache Velocity template engine.
+
+        Main changes:
+
+        * Added an optional 'factory' attribute to tools with the classname of a factory for creating new tools instances.
+
+        * Added a new BreadcrumbTool meant to help displaying UI breadcrumb trails.
+
+        * Fix potential XSS vulterability in VelocityViewServlet error handling.
+
+        For a full list of changes, consult {{{Velocity Tools 3.1 Changes section}https://velocity.apache.org/tools/3.1/changes.html}} and {{{JIRA changelog}https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310130&version=12345408}.
+
+        For notes on upgrading from earlier versions, see {{{Velocity Tools 3.1 Upgrading section}https://velocity.apache.org/tools/3.1/upgrading.html}}.
+
+        Downloads of Velocity Tools 3.1 are available {{{http://velocity.apache.org/download.cgi#tools}here}}.
+
+        ]]></text>
+    </item>
+    <item id="engine23">
+        <date>2021-02-27</date>
+        <headline>Velocity Engine 2.3 released</headline>
+      <categories>
+        <category>velocity</category>
+        <category>engine</category>
+      </categories>
+      <text><![CDATA[
+        The Velocity developers are pleased to announce the release of Velocity Engine 2.3.
+
+        Main changes in this release:
+
+        + Fix a minor security issue in user-edited templates applications: let SecureUberspector block methods on ClassLoader and subclasses.
+
+        + New spring-velocity-support module for Velocity Engine integration in Spring Framework.
+
+        For a full list of changes, consult {{{https://velocity.apache.org/engine/2.3/changes.html}Velocity Engine 2.3 Changes section}} and {{{https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310104&version=12348601}JIRA changelog}}.
+
+        For notes on upgrading, see {{{http://velocity.apache.org/engine/2.3/upgrading.html}Velocity Engine 2.3 Upgrading section}}.
+
+        Downloads of 2.3 are available {{{http://velocity.apache.org/download.cgi#engine}here}}.
+      ]]></text>
+    </item>
     <item id="engine22">
         <date>2020-02-02</date>
         <headline>Velocity Engine 2.2 released</headline>
