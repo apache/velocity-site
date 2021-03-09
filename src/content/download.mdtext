@@ -37,11 +37,15 @@ The currently selected mirror is <b>[preferred]</b>. If you encounter a problem 
 
 You may also consult the [complete list of mirrors](https://www.apache.org/mirrors/).
 
-The <tt>KEYS</tt> link links to the code signing keys used to sign the product.
-The <tt>PGP</tt> links download the OpenPGP compatible signature from our main site. 
-The <tt>SHA</tt> links download the checksum from the main site. None of these should be downloaded from the mirrors.
+### Verifying integrity of downloaded files
 
-[KEYS](https://www.apache.org/dist/velocity/KEYS)
+It is essential that you [verify the integrity](https://www.apache.org/info/verification.html) of all downloaded files using the PGP and/or SHA signatures.
+
+The <tt>PGP</tt> links download the OpenPGP compatible signature from our main site.
+The <tt>SHA</tt> links download the checksum from the main site.
+None of these should be downloaded from the mirrors.
+
+Here are the Apache Velocity PGP [KEYS](https://www.apache.org/dist/velocity/KEYS) used to sign the files.
 
 ## Production releases
 
