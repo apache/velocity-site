@@ -22,25 +22,25 @@ Most of the site sources are in plain markdown, more specifically in [python-mar
 This method is by far the easiest one.
 
 1. Clone the site sources
-
-If you are a Velocity commiter, you will want to directly edit the site sources:
-
-    :::shell
-    git clone https://github.com/apache/velocity-site.git
-
-If you are a contributor, you should first fork the site sources to your github account, and use:
-
-    :::shell
-    git clone --single-branch --branch master git@github.com:[YOUR_GITHUB_ID]/velocity-site.git
+    
+    If you are a Velocity commiter, you will want to directly edit the site sources:
+    
+        :::shell
+        git clone https://github.com/apache/velocity-site.git
+    
+    If you are a contributor, you should first fork the site sources to your github account, and use:
+    
+        :::shell
+        git clone --single-branch --branch main git@github.com:[YOUR_GITHUB_ID]/velocity-site.git
 
 2. Clone the site production pages
-
-As a commiter you will use it to push into production the generated site. As a contributor, you will use it to check locally the result of your changes.
-
-This clone must be called `velocity-site-prod` and must be made in the same directory as the `velocity-site` one.
-
-    :::shell
-    git clone --single-branch --branch asf-site https://github.com/apache/velocity-site.git velocity-site-prod
+    
+    As a commiter you will use it to push into production the generated site. As a contributor, you will use it to check locally the result of your changes.
+    
+    This clone must be called `velocity-site-prod` and must be made in the same directory as the `velocity-site` one.
+    
+        :::shell
+        git clone --single-branch --branch asf-site https://github.com/apache/velocity-site.git velocity-site-prod
 
 3. Make your changes to the site sources
 
@@ -49,8 +49,8 @@ This clone must be called `velocity-site-prod` and must be made in the same dire
 5. Check the result using your favorite browser
 
 6. Advertize your changes
-
-Commiters have to push the changes in both clones. Contributors only need to submit a pull request to the site sources.
+    
+    Commiters have to push the changes in both clones, the source and the production one. Contributors only need to submit a pull request to the site sources.
 
 ### Building the site without docker
 
