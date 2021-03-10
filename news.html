@@ -227,6 +227,37 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <h2 id="project-news">Project News<a class="headerlink" href="#project-news" title="Permanent link">&para;</a></h2>
 <p><div class="newsitem">
   <h3>
+    <a name="CVE-2020-13936">Security Advisory for Velocity Engine - Velocity Sandbox Bypass - CVE-2020-13936</a>
+  </h3>
+  <div>
+    <p>
+      <b>Tuesday,  9 March 2021</b>
+    </p>
+    <p>PROBLEM:</p>
+    <p>An attacker that is able to modify Velocity templates may execute arbitrary Java code or run arbitrary system commands with the same privileges as the account running the Servlet container. This applies to applications that allow untrusted users to upload/modify velocity templates running Apache Velocity Engine versions up to 2.2.</p>
+    <p>This issue has been assigned CVE-2020-13936.</p>
+    <p>WORKAROUND:</p>
+    <p>Applications using Apache Velocity that allow untrusted users to upload templates should upgrade to version 2.3. This version adds additional default restrictions on what methods/properties can be accessed in a template.</p>
+    <p>ACKNOWLEDGEMENTS: This issue was discovered by Alvaro Munoz pwntester@github.com of Github Security Labs and was originally reported as GHSL-2020-048.</p>
+  </div>
+</div><div class="newsitem">
+  <h3>
+    <a name="CVE-2020-13959">Security Advisory for Velocity tools - XSS Vulnerability - CVE-2020-13959</a>
+  </h3>
+  <div>
+    <p>
+      <b>Tuesday,  9 March 2021</b>
+    </p>
+    <p>PROBLEM:</p>
+    <p>The default error page for VelocityView reflects back the vm file that was entered as part of the URL. An attacker can set an XSS payload file as this vm file in the URL which results in this payload being executed.</p>
+    <p>XSS vulnerabilities allow attackers to execute arbitrary JavaScript in the context of the attacked website and the attacked user. This can be abused to steal session cookies, perform requests in the name of the victim or for phishing attacks.</p>
+    <p>This issue has been assigned CVE-2020-13959.</p>
+    <p>WORKAROUND:</p>
+    <p>Applications based on Apache Velocity Tools should upgrade to version 3.1. This version escapes the reflected text on the default error page, preventing potential javascript execution.</p>
+    <p>ACKNOWLEDGEMENTS: This issue was reported and a patch was submitted by Jackson Henry, member of Sakura Samurai.</p>
+  </div>
+</div><div class="newsitem">
+  <h3>
     <a name="tools31">Velocity Tools 3.1 released</a>
   </h3>
   <div>

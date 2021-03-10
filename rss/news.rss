@@ -5,6 +5,26 @@
     <link>http://velocity.apache.org</link>
     <description>Recent news from Apache Velocity Site</description>
     <item>
+      <title>Security Advisory for Velocity Engine - Velocity Sandbox Bypass - CVE-2020-13936</title>
+      <link>http://velocity.apache.org/news.html#CVE-2020-13936</link>
+      <description>&lt;p&gt;PROBLEM:&lt;/p&gt;&lt;p&gt;An attacker that is able to modify Velocity templates may execute arbitrary Java code or run arbitrary system commands with the same privileges as the account running the Servlet container. This applies to applications that allow untrusted users to upload/modify velocity templates running Apache Velocity Engine versions up to 2.2.&lt;/p&gt;&lt;p&gt;This issue has been assigned CVE-2020-13936.&lt;/p&gt;&lt;p&gt;WORKAROUND:&lt;/p&gt;&lt;p&gt;Applications using Apache Velocity that allow untrusted users to upload templates should upgrade to version 2.3. This version adds additional default restrictions on what methods/properties can be accessed in a template.&lt;/p&gt;&lt;p&gt;ACKNOWLEDGEMENTS: This issue was discovered by Alvaro Munoz pwntester@github.com of Github Security Labs and was originally reported as GHSL-2020-048.&lt;/p&gt;</description>
+      <category>velocity</category>
+      <category>engine</category>
+      <pubDate>Tue,  9 Mar 2021 08:00:00 GMT</pubDate>
+      <guid>http://velocity.apache.org/news.html#CVE-2020-13936</guid>
+      <dc:date>2021-03-09T08:00:00Z</dc:date>
+    </item>
+    <item>
+      <title>Security Advisory for Velocity tools - XSS Vulnerability - CVE-2020-13959</title>
+      <link>http://velocity.apache.org/news.html#CVE-2020-13959</link>
+      <description>&lt;p&gt;PROBLEM:&lt;/p&gt;&lt;p&gt;The default error page for VelocityView reflects back the vm file that was entered as part of the URL. An attacker can set an XSS payload file as this vm file in the URL which results in this payload being executed.&lt;/p&gt;&lt;p&gt;XSS vulnerabilities allow attackers to execute arbitrary JavaScript in the context of the attacked website and the attacked user. This can be abused to steal session cookies, perform requests in the name of the victim or for phishing attacks.&lt;/p&gt;&lt;p&gt;This issue has been assigned CVE-2020-13959.&lt;/p&gt;&lt;p&gt;WORKAROUND:&lt;/p&gt;&lt;p&gt;Applications based on Apache Velocity Tools should upgrade to version 3.1. This version escapes the reflected text on the default error page, preventing potential javascript execution.&lt;/p&gt;&lt;p&gt;ACKNOWLEDGEMENTS: This issue was reported and a patch was submitted by Jackson Henry, member of Sakura Samurai.&lt;/p&gt;</description>
+      <category>velocity</category>
+      <category>tools</category>
+      <pubDate>Tue,  9 Mar 2021 08:00:00 GMT</pubDate>
+      <guid>http://velocity.apache.org/news.html#CVE-2020-13959</guid>
+      <dc:date>2021-03-09T08:00:00Z</dc:date>
+    </item>
+    <item>
       <title>Velocity Tools 3.1 released</title>
       <link>http://velocity.apache.org/news.html#tools31</link>
       <description>&lt;p&gt;The Velocity developers are pleased to announce the release of Velocity Tools 3.1.&lt;/p&gt;&lt;p&gt;VelocityTools is a collection of Velocity subprojects with a common goal of providing tools and infrastructure for building both web and standalone applications using the Apache Velocity template engine.&lt;/p&gt;&lt;p&gt;Main changes:&lt;/p&gt;&lt;p&gt;* Added an optional 'factory' attribute to tools with the classname of a factory for creating new tools instances.&lt;/p&gt;&lt;p&gt;* Added a new BreadcrumbTool meant to help displaying UI breadcrumb trails.&lt;/p&gt;&lt;p&gt;* Fix potential XSS vulterability in VelocityViewServlet error handling.&lt;/p&gt;&lt;p&gt;For a full list of changes, consult &lt;a href=&quot;https://velocity.apache.org/tools/3.1/changes.html&quot;&gt;Velocity Tools 3.1 Changes section&lt;/a&gt; and &lt;a href=&quot;https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310130&amp;amp;version=12345408&quot;&gt;JIRA changelog&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;For notes on upgrading from earlier versions, see &lt;a href=&quot;https://velocity.apache.org/tools/3.1/upgrading.html&quot;&gt;Velocity Tools 3.1 Upgrading section&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Downloads of Velocity Tools 3.1 are available &lt;a href=&quot;http://velocity.apache.org/download.cgi#tools&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;&lt;/p&gt;</description>
