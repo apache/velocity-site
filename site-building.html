@@ -259,28 +259,28 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <h3 id="building-the-site-with-docker">Building the site with docker<a class="headerlink" href="#building-the-site-with-docker" title="Permanent link">&para;</a></h3>
 <p>This method is by far the easiest one.</p>
 <ol>
-<li>Clone the site sources</li>
-</ol>
+<li>
+<p>Clone the site sources</p>
 <p>If you are a Velocity commiter, you will want to directly edit the site sources:</p>
 <div class="codehilite"><pre>git clone https://github.com/apache/velocity-site.git
 </pre></div>
 
 
 <p>If you are a contributor, you should first fork the site sources to your github account, and use:</p>
-<div class="codehilite"><pre>git clone --single-branch --branch master git@github.com:<span class="o">[</span>YOUR_GITHUB_ID<span class="o">]</span>/velocity-site.git
+<div class="codehilite"><pre>git clone --single-branch --branch main git@github.com:<span class="o">[</span>YOUR_GITHUB_ID<span class="o">]</span>/velocity-site.git
 </pre></div>
 
 
-<ol>
-<li>Clone the site production pages</li>
-</ol>
+</li>
+<li>
+<p>Clone the site production pages</p>
 <p>As a commiter you will use it to push into production the generated site. As a contributor, you will use it to check locally the result of your changes.</p>
 <p>This clone must be called <code>velocity-site-prod</code> and must be made in the same directory as the <code>velocity-site</code> one.</p>
 <div class="codehilite"><pre>git clone --single-branch --branch asf-site https://github.com/apache/velocity-site.git velocity-site-prod
 </pre></div>
 
 
-<ol>
+</li>
 <li>
 <p>Make your changes to the site sources</p>
 </li>
@@ -292,9 +292,9 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </li>
 <li>
 <p>Advertize your changes</p>
+<p>Commiters have to push the changes in both clones, the source and the production one. Contributors only need to submit a pull request to the site sources.</p>
 </li>
 </ol>
-<p>Commiters have to push the changes in both clones. Contributors only need to submit a pull request to the site sources.</p>
 <h3 id="building-the-site-without-docker">Building the site without docker<a class="headerlink" href="#building-the-site-without-docker" title="Permanent link">&para;</a></h3>
 <p>Apache Velocity uses the <a href="https://www.apache.org/dev/cms.html">Apache Content Management System</a> to manage its site.</p>
 <p>The site is not <em>hosted</em> by the CMS (it's planned to move it to pelican), so it still has to be build locally.</p>
