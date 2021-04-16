@@ -148,7 +148,7 @@ Read below for futher details.
 + the hypen ( `-` ) cannot be used in variable names anymore (see 2.1 for an 1.7 compatibility flag).
 + method arguments can be arithmetic expressions
 + method arguments are now converted as needed between all main basic Java standard types (booleans, numbers and strings). If you want to revert to the 1.x behavior, set the property `runtime.conversion.handler.class = none`.
-+ space gobbling (to control the indentation of generated code) is now configurable via the `space.gobbing` configuration key, which can take the following values: `none`, `bc` (aka. backward compatible), `lines` and `structured`. See the related documentation section for details. To maximize backward compatibility with 1.x, set it to `bc`.
++ space gobbling (to control the indentation of generated code) is now configurable via the `space.gobbling` configuration key, which can take the following values: `none`, `bc` (aka. backward compatible), `lines` and `structured`. See the related documentation section for details. To maximize backward compatibility with 1.x, set it to `bc`.
 + the #foreach predefined references `$velocityCount` and `$velocityHasNext` have been removed. Use `$foreach.count` (1-based), `$foreach.index` (0-based) and `foreach.hasNext()`.
 + Velocimacro arguments are now evaluated only once (instead of each time they were referenced inside the macro body as was the case for v1.7) and passed by value (or more precisely as reference after evaluation).
 + Velocimacros do not anymore have a *proxy context* of their own - if they do insert new values in the context, and then call an external code changing those values, they will now see the new values (see 2.2 for the velocimacro.enable_bc_mode backward compatibility flag).
