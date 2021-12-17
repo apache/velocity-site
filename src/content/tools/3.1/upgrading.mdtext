@@ -12,7 +12,7 @@ No special action to take.
 
 The maven `groupId` has been changed to `org.apache.velocity.tools` .
 
-Velocity Tools, as well as Velocity Engine 2.0+, has switched to the SLF4J logging facade. All logger objects are now `orf.slf4j.Logger` instances.
+Velocity Tools, as well as Velocity Engine 2.0+, has switched to the SLF4J logging facade. All logger objects are now `org.slf4j.Logger` instances.
 
 All objects, methods and configuration formats deprecated in 2.0 have been suppressed.
 
