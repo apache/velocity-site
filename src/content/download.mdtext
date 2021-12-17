@@ -411,5 +411,5 @@ You can download the source code to each Apache Velocity project directly from o
 Project | Apache Gitbox Repository | Github Repository
 --------|----------------|--------------------------
 Engine | [https://gitbox.apache.org/repos/asf/velocity-engine.git](https://gitbox.apache.org/repos/asf/velocity-engine.git) | [https://github.com/apache/velocity-engine.git](https://github.com/apache/velocity-engine.git)
-Tools| [https://gitbox.apache.org/repos/asf/velocity-tools.git](https://gitbox.apache.org/repos/asf/velocity-tools.git) | [https://github.com/apache/velocity-engine.git](https://github.com/apache/velocity-engine.git)
+Tools| [https://gitbox.apache.org/repos/asf/velocity-tools.git](https://gitbox.apache.org/repos/asf/velocity-tools.git) | [https://github.com/apache/velocity-tools.git](https://github.com/apache/velocity-tools.git)
 Site| [https://gitbox.apache.org/repos/asf/velocity-site.git](https://gitbox.apache.org/repos/asf/velocity-site.git) | [https://github.com/apache/velocity-site.git](https://github.com/apache/velocity-site.git)
