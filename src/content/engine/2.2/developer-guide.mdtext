@@ -538,7 +538,7 @@ By default, Velocity will use a base logger named `org.apache.velocity`, and sev
 
 You can customize this logger in two ways:
 
-+ By programmatically giving Velocity a living instance of an orf.slf4j.Logger object, using the runtime.log.instance property key.
++ By programmatically giving Velocity a living instance of an org.slf4j.Logger object, using the runtime.log.instance property key.
 + By configuring the name of the logger to be used by your velocity instance, using the runtime.log.name property key. It can be done from the velocity.properties file, if present.
 
 ## Space Gobbling
