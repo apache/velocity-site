@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 DOCKER_NAME=velocity-site-builder
+PORT=8000
 
 # exit on failures and undeclared variables, echo commands
 set -o errexit
@@ -85,7 +86,7 @@ if [[ "$(docker images -q $DOCKER_NAME 2> /dev/null)" == "" ]]; then
 fi
 
 # do the voodoo
-docker run --rm --name $DOCKER_NAME -u "$(id -u):$(id -g)" --volume="$BASE:/home/velocity" $DOCKER_NAME
+docker run --rm -ti --name $DOCKER_NAME -u "$(id -u):$(id -g)" --volume="$BASE:/home/velocity" --publish 127.0.0.1:$PORT:8000 $DOCKER_NAME
 
 # alternatively, if you need to debug the container (as root), comment the previous command and run instead:
 # docker run -it --name $DOCKER_NAME --volume="$BASE:/home/velocity" --entrypoint=/bin/bash velocity-site-builder
