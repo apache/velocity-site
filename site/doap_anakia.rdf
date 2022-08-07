@@ -18,7 +18,7 @@
     <license rdf:resource="http://usefulinc.com/doap/licenses/asl20" />
     <name>Apache Anakia</name>
     <homepage rdf:resource="http://velocity.apache.org/anakia/" />
-    <asfext:pmc rdf:resource="http://velocity.apache.org/anakia/"/>
+    <asfext:pmc rdf:resource="http://velocity.apache.org/"/>
     <shortdesc>Anakia uses Apache Velocity to generate documents based on XML source files.</shortdesc>
     <description>Anakia is an XML transformation tool that uses JDOM and Velocity to transform XML documents into the format of your choice. It provides an alternative to using Ant&apos;s style task and XSL to process XML files.</description>
     <bug-database rdf:resource="http://issues.apache.org/jira/browse/ANAKIA" />
