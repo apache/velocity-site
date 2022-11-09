@@ -18,7 +18,7 @@ In the following syntax references, *identifier* refers to:
 
 that is, a letter or an underscore followed by any number of letters, numbers and underscores.
 
-If the `parser.allows.dash.identifiers` configuration value is set to true, then the **-** dash is also allowed in identifiers (and must be surrounded by spaces to be interpreted as an arithmetic minus operator).
+If the `parser.allow_hyphen_in_identifiers` configuration value is set to true, then the **-** hyphen is also allowed in identifiers (and must be surrounded by spaces to be interpreted as an arithmetic minus operator).
 
 ### Variables
 
