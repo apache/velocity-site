@@ -13,23 +13,12 @@ The best place to start is with the examples provided in the distribution, and w
 
 ## Downloading Velocity
 
-You can download the latest release version of [Velocity Engine](/download.cgi#engine) or [Velocity Tools](/download.cgi#tools) from the main Apache Velocity download site. For Velocity itself, source is included with the binary download.
+You can download the latest release version of [Velocity Engine](/download.cgi#engine) or [Velocity Tools](/download.cgi#tools) from the main Apache Velocity download site.
 
-If you want to download the [latest source](source-repository.html), you can do so via the git source control system.
+If you want to download the latest source, you can do so using git, see the [downloads page](/download.cgi).
 
-You can also find published snapshots on the [Apache Snapshot Repository](https://repository.apache.org/content/repositories/snapshots/org/apache/velocity/).
-
-Instructions for building Velocity from source can be found in the [Build](build.html) document.
+Instructions for building Velocity from source can be found in the [Site Building](build.html) document.
 
 ## API Documentation
 
-Our API documentation is available [online](apidocs/), as part of the distribution package, an of course, you can generate it yourself from the included source code.
-
-If you would like to create a full set of detailed API documentation for Velocity, go to the `build` directory and run:
-
-    :::shell
-    ant javadocs
-
-The docs will be found in the `/bin/apidocs/` directory.
-
-**Note:** Velocity uses the [Maven](http://maven.Apache.org) build tool for all code and documentation generation, so you will need to have it installed.
+Our API documentation is available [online](apidocs/), you can generate it yourself from the included source code using the `mvn javadoc:aggregate` command.
