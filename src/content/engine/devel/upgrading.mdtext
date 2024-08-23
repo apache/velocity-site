@@ -8,9 +8,9 @@ Title: Apache Velocity Engine - Upgrading
 
 Release with the same major number (1.x, 2.x) are intended to be drop-in replacements. However, in most cases the versions of dependency jars must be adjusted because newer versions of Velocity might require updates.
 
-## Upgrading from Velocity 2.1 to Velocity 2.2
+## Upgrading from Velocity 1.x to the latest 2.x version for busy people
 
-For busy people: To maximize backward compatibility of Velocity 2.2 with Velocity 1.x, be sure to include the following lines in your Velocity configuration:
+To maximize backward compatibility of the last Velocity 2.x with Velocity 1.x, be sure to include the following lines in your Velocity configuration:
 
     :::properties
     # No automatic conversion of methods arguments
@@ -37,7 +37,16 @@ For busy people: To maximize backward compatibility of Velocity 2.2 with Velocit
     # When using an invalid reference handler, also include tested references (since 2.2)
     event_handler.invalid_references.tested = true
 
+    # Let the range operator expressions '[ x..y ]' return mutable lists (since 2.4)
+    runtime.immutable_ranges = false
+
 Also, please note that since version 2.1, Velocity requires Java JDK 1.8+ for bulding and Java JRE 1.8+ at runtime.
+
+## Upgrading from Velocity 2.2 to Velocity 2.3
+
+No specific change needed.
+
+## Upgrading from Velocity 2.1 to Velocity 2.2
 
 ### Behavior / API Changes
 
@@ -56,26 +65,6 @@ Also, please note that since version 2.1, Velocity requires Java JDK 1.8+ for bu
 + slf4j-api has been upgraded to 1.7.30.
 
 ## Upgrading from Velocity 2.0 to Velocity 2.1
-
-For busy people: To maximize backward compatibility of Velocity 2.1 with Velocity 1.x, be sure to include the following lines in your Velocity configuration:
-
-    :::properties
-    # No automatic conversion of methods arguments
-    introspector.conversion_handler.class = none
-    
-    # Use backward compatible space gobbling
-    parser.space_gobbling = bc
-    
-    # Have #if($foo) only returns false if $foo is false or null
-    directive.if.empty_check = false
-    
-    # Allow '-' in identifiers (since 2.1)
-    parser.allow_hyphen_in_identifiers = true
-    
-    # When displaying null arguments literals, use provided arguments literals (since 2.1, but deprecated in 2.2)
-    velocimacro.arguments.preserve_literals = true
-
-Also, please note that Velocity 2.1 now requires Java JDK 1.8+ for bulding and Java JRE 1.8+ at runtime.
 
 ### Behavior / API Changes
 
@@ -104,22 +93,6 @@ Please note that the maven repository path has changed:
   <li>new path: <code>org/apache/velocity/velocity-engine-core/2.<i>x</i></code></li>
 </ul>
 </div>
-
-For busy people: To maximize backward compatibility of Velocity 2.0 with Velocity 1.x, be sure to include the following lines in your Velocity configuration:
-
-    :::properties
-    # No automatic conversion of methods arguments
-    runtime.conversion.handler.class = none
-    
-    # Use backward compatible space gobbling
-    space.gobbling = bc
-    
-    # Have #if($foo) only returns false if $foo is false or null
-    directive.if.emptycheck = false
-
-and check the [Dependency changes](#dependencies-changes) below.
-
-Read below for futher details.
 
 ### Behavior / API Changes
 
