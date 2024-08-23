@@ -67,6 +67,7 @@ The following tree gathers all non deprecated configuration properties with thei
                            +-- log_when_found = true
     
     runtime. +-- custom_directives = *classname*, *classname* ...
+             +-- immutable_ranges = true
              +-- interpolate_string_literals = true
              +-- log. +-- instance = *Java Object instance*
              |        +-- log_invalid_method_calls = true
@@ -299,6 +300,12 @@ The following resource management configuration keys only apply to the default R
 **`runtime.interpolate_string_literals = true`**
 
 > Controls interpolation mechanism of VTL String Literals.  Note that a VTL StringLiteral is specifically a string using double quotes that is used in a #set() statement, a method call of a reference, a parameter to a VM, or as an argument to a VTL directive in general.  See the VTL reference for further information.
+
+## Ranges
+
+**`runtime.immutable_ranges = true`**
+
+> Controls whether the `java.util.List` object return by the VTL range operator [ *a* .. *b* ] is an immutable list (the default since Velocity 2.1) or a mutable list backed by a `java.util.ArrayList` object.
 
 ## Math
 

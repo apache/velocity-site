@@ -305,10 +305,12 @@ When a template adds objects to the context, the Java code can access those obje
 
 Dealing with these cases if very straighforward, as there are just a few things to know:
 
-+ The VTL RangeOperator  [ 1..10 ]  and  ObjectArray ["a","b"] are `java.util.ArrayList` objects when placed in the context or passed to methods.   Therefore, your methods that are designed to accept arrays created in the template should be written with this in mind.
++ The VTL array literal `[ "a", "b" ]` and the VTL range operator `[ 1..10 ]` are `java.util.List` objects<sup>(`*`)</sup> when placed in the context or passed to methods.   Therefore, your methods that are designed to accept arrays created in the template should be written with this in mind.
 + VTL Map references are unsurprisingly stored as `java.util.Map`.
 + Decimal numbers will be Doubles or BigDecimals in the context, integer numbers will be Integer, Long, or BigIntegers, and strings will be, of course, Strings.
 + Since version 2.0, Velocity will convert method arguments between all main Java standard types (booleans, numbers and strings). If you want to revert to the Velocity 1.x behavior, where provided conversions were restricted to implicit Java conversions, you can set the property `runtime.conversion.handler` to `none`.
+
+**(`*`)** While an array literal always produces a **mutable** `ArrayList`, the range operator produces an **immutable** `List` since Velocity 2.1. You can revert this default to get a mutable list with the configuration: `runtime.immutable_ranges = false`
 
 ### Other Context Issues
 

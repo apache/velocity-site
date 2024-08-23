@@ -1104,8 +1104,6 @@ Produces the following output:
 
 Note that the range operator only produces the array when used in conjunction with *#set* and *#foreach* directives, as demonstrated in the fourth example.
 
-Web page designers concerned with making tables a standard size, but where some will not have enough data to fill the table, will find the range operator particularly useful.
-
 ### Advanced Issues: Escaping and !
 
 When a reference is silenced with the *!* character and the *!* character preceded by an *\* escape character, the reference is handled in a special way. Note the differences between regular escaping, and the special case where *\* precedes *!* follows it:
