@@ -40,7 +40,17 @@ To maximize backward compatibility of the last Velocity 2.x with Velocity 1.x, b
     # Let the range operator expressions '[ x..y ]' return mutable lists (since 2.4)
     runtime.immutable_ranges = false
 
-Also, please note that since version 2.1, Velocity requires Java JDK 1.8+ for bulding and Java JRE 1.8+ at runtime.
+Also, please note that since version 2.1, Velocity requires Java JDK 1.8+ for building and Java JRE 1.8+ at runtime.
+
+## Upgrading from Velocity 2.3 to Velocity 2.4
+
+### Behavior / API Changes
+
++ New 1.7.x backward compatibility configuration flag `runtime.immutable_ranges`
+
+### VTL Changes
+
++ With the `runtime.immutable_ranges=false` configuration, the VTL range operator `[x..y]` returns a mutable list.
 
 ## Upgrading from Velocity 2.2 to Velocity 2.3
 
