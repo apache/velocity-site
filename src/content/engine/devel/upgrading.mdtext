@@ -50,6 +50,7 @@ Also, please note that since version 2.1, Velocity requires Java JDK 1.8+ for bu
 
 ### VTL Changes
 
++ The comparison `'1' == '1.0'` was returning true since Velocity 2.0 because of an overzealous String to Number conversion, which also had a performance impact. If a template relies on such a behaviour, it will need to be fixed.
 + With the `runtime.immutable_ranges=false` configuration, the VTL range operator `[x..y]` returns a mutable list.
 
 ## Upgrading from Velocity 2.2 to Velocity 2.3
