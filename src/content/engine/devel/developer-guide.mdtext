@@ -843,7 +843,7 @@ There are currently four kinds of resource loaders that are included with Veloci
     
     This loader simply downloads resources from configured URLs.  It works much like the FileResourceLoader, however, it can pull templates down from any valid URL to which the application can create a connection.
     
-+ **DataSourceResourceLoader :**  This loader will load resources from a DataSource such as a database.  This loader is only available under JDK 1.4 and later. For more information on this loader, please see the javadoc for the class `org.apache.velocity.runtime.resource.loader.DataSourceResourceLoader`.
++ **DataSourceResourceLoader :**  This loader will load resources from a DataSource such as a database.  For more information on this loader, please see [the javadoc for the class `org.apache.velocity.runtime.resource.loader.DataSourceResourceLoader`](apidocs/org/apache/velocity/runtime/resource/loader/DataSourceResourceLoader.html).
 
 The [VelocityTools](/tools/devel/) project also defines a [WebappResourceLoader](/tools/devel/apidocs/org/apache/velocity/tools/view/WebappResourceLoader.html), active by default, which maps '/' to the root of the webapp.
 
