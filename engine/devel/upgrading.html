@@ -227,21 +227,28 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <ul>
 <li><a href="#upgrading-contents">Upgrading - Contents</a></li>
 <li><a href="#upgrading-from-earlier-versions">Upgrading from earlier versions</a></li>
-<li><a href="#upgrading-from-velocity-21-to-velocity-22">Upgrading from Velocity 2.1 to Velocity 2.2</a><ul>
+<li><a href="#upgrading-from-velocity-1x-to-the-latest-2x-version-for-busy-people">Upgrading from Velocity 1.x to the latest 2.x version for busy people</a></li>
+<li><a href="#upgrading-from-velocity-23-to-velocity-24">Upgrading from Velocity 2.3 to Velocity 2.4</a><ul>
 <li><a href="#behavior-api-changes">Behavior / API Changes</a></li>
 <li><a href="#vtl-changes">VTL Changes</a></li>
+</ul>
+</li>
+<li><a href="#upgrading-from-velocity-22-to-velocity-23">Upgrading from Velocity 2.2 to Velocity 2.3</a></li>
+<li><a href="#upgrading-from-velocity-21-to-velocity-22">Upgrading from Velocity 2.1 to Velocity 2.2</a><ul>
+<li><a href="#behavior-api-changes_1">Behavior / API Changes</a></li>
+<li><a href="#vtl-changes_1">VTL Changes</a></li>
 <li><a href="#dependency-changes">Dependency Changes</a></li>
 </ul>
 </li>
 <li><a href="#upgrading-from-velocity-20-to-velocity-21">Upgrading from Velocity 2.0 to Velocity 2.1</a><ul>
-<li><a href="#behavior-api-changes_1">Behavior / API Changes</a></li>
-<li><a href="#vtl-changes_1">VTL Changes</a></li>
+<li><a href="#behavior-api-changes_2">Behavior / API Changes</a></li>
+<li><a href="#vtl-changes_2">VTL Changes</a></li>
 <li><a href="#dependency-changes_1">Dependency Changes</a></li>
 </ul>
 </li>
 <li><a href="#upgrading-from-velocity-17-to-velocity-20">Upgrading from Velocity 1.7 to Velocity 2.0</a><ul>
-<li><a href="#behavior-api-changes_2">Behavior / API Changes</a></li>
-<li><a href="#vtl-changes_2">VTL Changes</a></li>
+<li><a href="#behavior-api-changes_3">Behavior / API Changes</a></li>
+<li><a href="#vtl-changes_3">VTL Changes</a></li>
 <li><a href="#dependency-changes_2">Dependency Changes</a></li>
 </ul>
 </li>
@@ -252,8 +259,8 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </div>
 <h2 id="upgrading-from-earlier-versions">Upgrading from earlier versions<a class="headerlink" href="#upgrading-from-earlier-versions" title="Permanent link">&para;</a></h2>
 <p>Release with the same major number (1.x, 2.x) are intended to be drop-in replacements. However, in most cases the versions of dependency jars must be adjusted because newer versions of Velocity might require updates.</p>
-<h2 id="upgrading-from-velocity-21-to-velocity-22">Upgrading from Velocity 2.1 to Velocity 2.2<a class="headerlink" href="#upgrading-from-velocity-21-to-velocity-22" title="Permanent link">&para;</a></h2>
-<p>For busy people: To maximize backward compatibility of Velocity 2.2 with Velocity 1.x, be sure to include the following lines in your Velocity configuration:</p>
+<h2 id="upgrading-from-velocity-1x-to-the-latest-2x-version-for-busy-people">Upgrading from Velocity 1.x to the latest 2.x version for busy people<a class="headerlink" href="#upgrading-from-velocity-1x-to-the-latest-2x-version-for-busy-people" title="Permanent link">&para;</a></h2>
+<p>To maximize backward compatibility of the last Velocity 2.x with Velocity 1.x, be sure to include the following lines in your Velocity configuration:</p>
 <div class="codehilite"><pre><span class="c"># No automatic conversion of methods arguments</span>
 <span class="na">introspector.conversion_handler.class</span> <span class="o">=</span> <span class="s">none</span>
 
@@ -277,18 +284,34 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 
 <span class="c"># When using an invalid reference handler, also include tested references (since 2.2)</span>
 <span class="na">event_handler.invalid_references.tested</span> <span class="o">=</span> <span class="s">true</span>
+
+<span class="c"># Let the range operator expressions &#39;[ x..y ]&#39; return mutable lists (since 2.4)</span>
+<span class="na">runtime.immutable_ranges</span> <span class="o">=</span> <span class="s">false</span>
 </pre></div>
 
 
-<p>Also, please note that since version 2.1, Velocity requires Java JDK 1.8+ for bulding and Java JRE 1.8+ at runtime.</p>
+<p>Also, please note that since version 2.1, Velocity requires Java JDK 1.8+ for building and Java JRE 1.8+ at runtime.</p>
+<h2 id="upgrading-from-velocity-23-to-velocity-24">Upgrading from Velocity 2.3 to Velocity 2.4<a class="headerlink" href="#upgrading-from-velocity-23-to-velocity-24" title="Permanent link">&para;</a></h2>
 <h3 id="behavior-api-changes">Behavior / API Changes<a class="headerlink" href="#behavior-api-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>New 1.7.x backward compatibility configuration flag <code>runtime.immutable_ranges</code></li>
+</ul>
+<h3 id="vtl-changes">VTL Changes<a class="headerlink" href="#vtl-changes" title="Permanent link">&para;</a></h3>
+<ul>
+<li>The comparison <code>'1' == '1.0'</code> was returning true since Velocity 2.0 because of an overzealous String to Number conversion, which also had a performance impact. If a template relies on such a behaviour, it will need to be fixed.</li>
+<li>With the <code>runtime.immutable_ranges=false</code> configuration, the VTL range operator <code>[x..y]</code> returns a mutable list.</li>
+</ul>
+<h2 id="upgrading-from-velocity-22-to-velocity-23">Upgrading from Velocity 2.2 to Velocity 2.3<a class="headerlink" href="#upgrading-from-velocity-22-to-velocity-23" title="Permanent link">&para;</a></h2>
+<p>No specific change needed.</p>
+<h2 id="upgrading-from-velocity-21-to-velocity-22">Upgrading from Velocity 2.1 to Velocity 2.2<a class="headerlink" href="#upgrading-from-velocity-21-to-velocity-22" title="Permanent link">&para;</a></h2>
+<h3 id="behavior-api-changes_1">Behavior / API Changes<a class="headerlink" href="#behavior-api-changes_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>The references with alternate values like <code>${foo|'foo'}</code> won't trigger any invalid reference event if their alternate value is valid.</li>
 <li>New <a href="configuration.html#logging"><code>runtime.log.track_location</code></a> debugging configuration flag (defaults to false). When true, logs VTL stacktrace on errors and populate slf4j template location MDC tags.</li>
 <li>New 1.7.x backward compatibility configuration flags for event handlers, see above section.</li>
 <li>When active, the conversion handler will automatcally convert BigInteger and BigDecimal values towards/from expected method arguments types, see <a href="developer-guide.html#method-arguments-conversions">method arguments conversion</a>.</li>
 </ul>
-<h3 id="vtl-changes">VTL Changes<a class="headerlink" href="#vtl-changes" title="Permanent link">&para;</a></h3>
+<h3 id="vtl-changes_1">VTL Changes<a class="headerlink" href="#vtl-changes_1" title="Permanent link">&para;</a></h3>
 <ul>
 <li>The new velocity-custom-parser-example maven module demonstrates <a href="developer-guide.html#customizing-the-vtl-parser">how to buid a custom VTL parser</a> which uses alternatives to the following four VTL syntax characters: <code>$</code>, <code>#</code>, <code>@</code> and <code>*</code>.</li>
 </ul>
@@ -298,32 +321,13 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li>slf4j-api has been upgraded to 1.7.30.</li>
 </ul>
 <h2 id="upgrading-from-velocity-20-to-velocity-21">Upgrading from Velocity 2.0 to Velocity 2.1<a class="headerlink" href="#upgrading-from-velocity-20-to-velocity-21" title="Permanent link">&para;</a></h2>
-<p>For busy people: To maximize backward compatibility of Velocity 2.1 with Velocity 1.x, be sure to include the following lines in your Velocity configuration:</p>
-<div class="codehilite"><pre><span class="c"># No automatic conversion of methods arguments</span>
-<span class="na">introspector.conversion_handler.class</span> <span class="o">=</span> <span class="s">none</span>
-
-<span class="c"># Use backward compatible space gobbling</span>
-<span class="na">parser.space_gobbling</span> <span class="o">=</span> <span class="s">bc</span>
-
-<span class="c"># Have #if($foo) only returns false if $foo is false or null</span>
-<span class="na">directive.if.empty_check</span> <span class="o">=</span> <span class="s">false</span>
-
-<span class="c"># Allow &#39;-&#39; in identifiers (since 2.1)</span>
-<span class="na">parser.allow_hyphen_in_identifiers</span> <span class="o">=</span> <span class="s">true</span>
-
-<span class="c"># When displaying null arguments literals, use provided arguments literals (since 2.1, but deprecated in 2.2)</span>
-<span class="na">velocimacro.arguments.preserve_literals</span> <span class="o">=</span> <span class="s">true</span>
-</pre></div>
-
-
-<p>Also, please note that Velocity 2.1 now requires Java JDK 1.8+ for bulding and Java JRE 1.8+ at runtime.</p>
-<h3 id="behavior-api-changes_1">Behavior / API Changes<a class="headerlink" href="#behavior-api-changes_1" title="Permanent link">&para;</a></h3>
+<h3 id="behavior-api-changes_2">Behavior / API Changes<a class="headerlink" href="#behavior-api-changes_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>inside a macro, since 2.0, the rendering of null arguments uses the local reference literal. To revert to the 1.7 behavior, you can set the boolean property <code>velocimacro.preserve.arguments.literals</code> to true. The macros will then use the provided argument literals in such cases.</li>
 <li>the <a href="apidocs/org/apache/velocity/util/introspection/ConversionHandler.html"><code>org.apache.util.introspection.ConversionHandler</code></a> interface (introduced in 2.0) has been deprecated in favor of the <a href="apidocs/org/apache/velocity/util/introspection/TypeConversionHandler.html"><code>org.apache.util.introspection.TypeConversionHandler</code></a> interface. The new interface let one specify converters towards a <code>java.lang.reflect.Type</code> rather than a <code>java.lang.class</code>.</li>
 <li>most names of Velocity configuration properties have changed ; old names are still functional but will emit a deprecation warning in the log. See the <a href="configuration-property-changes-in-2.1.html">Configuration Changes in Velocity 2.1</a> page.</li>
 </ul>
-<h3 id="vtl-changes_1">VTL Changes<a class="headerlink" href="#vtl-changes_1" title="Permanent link">&para;</a></h3>
+<h3 id="vtl-changes_2">VTL Changes<a class="headerlink" href="#vtl-changes_2" title="Permanent link">&para;</a></h3>
 <ul>
 <li>since 2.0 the hypen ( <code>-</code> ) cannot be used in variable names anymore, but in 2.1, this behavior can be restored for backward compatibility with 1.7 by setting the new <code>parser.allow_hyphen_in_identifiers</code> boolean property to true</li>
 <li>it's now possible to provide default values for references, using the syntax <code>${name|'John Doe'}</code>. The right part can be any valid VTL expression.</li>
@@ -344,21 +348,7 @@ Please note that the maven repository path has changed:
 </ul>
 </div>
 
-<p>For busy people: To maximize backward compatibility of Velocity 2.0 with Velocity 1.x, be sure to include the following lines in your Velocity configuration:</p>
-<div class="codehilite"><pre><span class="c"># No automatic conversion of methods arguments</span>
-<span class="na">runtime.conversion.handler.class</span> <span class="o">=</span> <span class="s">none</span>
-
-<span class="c"># Use backward compatible space gobbling</span>
-<span class="na">space.gobbling</span> <span class="o">=</span> <span class="s">bc</span>
-
-<span class="c"># Have #if($foo) only returns false if $foo is false or null</span>
-<span class="na">directive.if.emptycheck</span> <span class="o">=</span> <span class="s">false</span>
-</pre></div>
-
-
-<p>and check the <a href="#dependencies-changes">Dependency changes</a> below.</p>
-<p>Read below for futher details.</p>
-<h3 id="behavior-api-changes_2">Behavior / API Changes<a class="headerlink" href="#behavior-api-changes_2" title="Permanent link">&para;</a></h3>
+<h3 id="behavior-api-changes_3">Behavior / API Changes<a class="headerlink" href="#behavior-api-changes_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>velocity is now using the SLF4J logging facade. Hence, all methods accepting or returning a logger now use the org.slf4j.Logger object. Velocity uses a logger name of <code>org.apache.velocity</code> (configurable with the <code>runtime.log.name</code> configuration entry), and <a href="developer-guide.html#logging">several other childen loggers</a>.</li>
 <li>the internal Context API now enforces String keys everywhere, this may break custom Context implementations at compile-time.</li>
@@ -378,7 +368,7 @@ Please note that the maven repository path has changed:
 <li>the <code>directive.if.tostring.nullcheck</code> configuration property has been superseded by the <code>directive.if.emptycheck</code> (warning: renamed as <code>directive.if.empty_check</code> in 2.1) property, which defaults to true. It means that all empty objects (strings and collections) as long as zero numbers, do evaluate to false (see the complete <a href="configuration.html#if-directive">boolean context evaluation</a> rules.). You may want to set <code>directive.if.emptycheck</code> to false to maximize backward compatibility with 1.x.</li>
 <li>inside a macro, the rendering of null arguments uses the local reference literal (see 2.1 for an 1.7 compatibility flag).</li>
 </ul>
-<h3 id="vtl-changes_2">VTL Changes<a class="headerlink" href="#vtl-changes_2" title="Permanent link">&para;</a></h3>
+<h3 id="vtl-changes_3">VTL Changes<a class="headerlink" href="#vtl-changes_3" title="Permanent link">&para;</a></h3>
 <ul>
 <li>the hypen ( <code>-</code> ) cannot be used in variable names anymore (see 2.1 for an 1.7 compatibility flag).</li>
 <li>method arguments can be arithmetic expressions</li>

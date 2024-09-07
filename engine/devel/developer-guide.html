@@ -540,11 +540,12 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 
 <p>Dealing with these cases if very straighforward, as there are just a few things to know:</p>
 <ul>
-<li>The VTL RangeOperator  [ 1..10 ]  and  ObjectArray ["a","b"] are <code>java.util.ArrayList</code> objects when placed in the context or passed to methods.   Therefore, your methods that are designed to accept arrays created in the template should be written with this in mind.</li>
+<li>The VTL array literal <code>[ "a", "b" ]</code> and the VTL range operator <code>[ 1..10 ]</code> are <code>java.util.List</code> objects<sup>(<code>*</code>)</sup> when placed in the context or passed to methods.   Therefore, your methods that are designed to accept arrays created in the template should be written with this in mind.</li>
 <li>VTL Map references are unsurprisingly stored as <code>java.util.Map</code>.</li>
 <li>Decimal numbers will be Doubles or BigDecimals in the context, integer numbers will be Integer, Long, or BigIntegers, and strings will be, of course, Strings.</li>
 <li>Since version 2.0, Velocity will convert method arguments between all main Java standard types (booleans, numbers and strings). If you want to revert to the Velocity 1.x behavior, where provided conversions were restricted to implicit Java conversions, you can set the property <code>runtime.conversion.handler</code> to <code>none</code>.</li>
 </ul>
+<p><strong>(<code>*</code>)</strong> While an array literal always produces a <strong>mutable</strong> <code>ArrayList</code>, the range operator produces an <strong>immutable</strong> <code>List</code> since Velocity 2.1. You can revert this default to get a mutable list with the configuration: <code>runtime.immutable_ranges = false</code></p>
 <h3 id="other-context-issues">Other Context Issues<a class="headerlink" href="#other-context-issues" title="Permanent link">&para;</a></h3>
 <p>One of the features provided by the VelocityContext (or any Context derived from AbstractContext) is node specific introspection caching.  Generally, you as a the developer don't need to worry about this when using the VelocityContext as your context.  However, there is currently one known usage pattern where you must be aware of this feature.</p>
 <p>The VelocityContext will accumulate intropection information about the syntax nodes in a template as it visits those nodes.  So, in the following situation:</p>
@@ -1042,7 +1043,7 @@ see the Javadoc API documentation.</p>
 <p>This loader simply downloads resources from configured URLs.  It works much like the FileResourceLoader, however, it can pull templates down from any valid URL to which the application can create a connection.</p>
 </li>
 <li>
-<p><strong>DataSourceResourceLoader :</strong>  This loader will load resources from a DataSource such as a database.  This loader is only available under JDK 1.4 and later. For more information on this loader, please see the javadoc for the class <code>org.apache.velocity.runtime.resource.loader.DataSourceResourceLoader</code>.</p>
+<p><strong>DataSourceResourceLoader :</strong>  This loader will load resources from a DataSource such as a database.  For more information on this loader, please see <a href="apidocs/org/apache/velocity/runtime/resource/loader/DataSourceResourceLoader.html">the javadoc for the class <code>org.apache.velocity.runtime.resource.loader.DataSourceResourceLoader</code></a>.</p>
 </li>
 </ul>
 <p>The <a href="/tools/devel/">VelocityTools</a> project also defines a <a href="/tools/devel/apidocs/org/apache/velocity/tools/view/WebappResourceLoader.html">WebappResourceLoader</a>, active by default, which maps '/' to the root of the webapp.</p>
@@ -1238,6 +1239,10 @@ see the Javadoc API documentation.</p>
 </li>
 <li><a href="apidocs/org/apache/velocity/util/introspection/LinkingUberspector.html">LinkingUberspector</a><blockquote>
 <p>The Linking uberspector is meant for internal use only. It provides introspection chaining when the left uberspector of two following uberspectors of the introspection chain is not a ChainableUberspector. It first tries to delegate introspection to the left uberspector, and only calls the right one in case of failure.</p>
+</blockquote>
+</li>
+<li><a href="apidocs/org/apache/velocity/util/introspection/UberspectLoggable.html">UberspectLoggable</a> interface<blockquote>
+<p>When an uberspector implements the UberspectLoggable interface, it is provided a logger during initialization via the <code>setLog(Logger)</code> method.</p>
 </blockquote>
 </li>
 </ul>

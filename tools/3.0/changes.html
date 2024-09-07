@@ -274,7 +274,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -282,301 +282,301 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> upgraded to servlet API 3.1.0 . </td>
+        <td> upgraded to servlet API 3.1.0 </td>
         <td>michaelo</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> JsonTool now uses an explicit dependency to <code> com.github.cliftonlabs.json-simple </code>  . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-179">VELTOOLS-179</a>. </td>
+        <td> JsonTool now uses an explicit dependency to <code> com.github.cliftonlabs.json-simple </code>  Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-179">VELTOOLS-179</a>. </td>
         <td>michaelo</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> The <code> tools.xml </code> file can now use XInclude file inclusion mechanism . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-162">VELTOOLS-162</a>. </td>
+        <td> The <code> tools.xml </code> file can now use XInclude file inclusion mechanism Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-162">VELTOOLS-162</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Most tools are now serializable . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-161">VELTOOLS-161</a>. </td>
+        <td> Most tools are now serializable Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-161">VELTOOLS-161</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> CollectionTool.sort() now filters out null elements . </td>
+        <td> CollectionTool.sort() now filters out null elements </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> ViewLayoutServlet layout cannot be changed using GET parameters, unless configured with the <code> tools.view.servlet.layout.dynamic </code> servlet param to true . </td>
+        <td> ViewLayoutServlet layout cannot be changed using GET parameters, unless configured with the <code> tools.view.servlet.layout.dynamic </code> servlet param to true </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Review tools-view initialization: default tools are now loaded only when asked for via the <code> org.apache.velocity.tools.loadDefaults </code> parameter (as an init or servlet parameter). . </td>
+        <td> Review tools-view initialization: default tools are now loaded only when asked for via the <code> org.apache.velocity.tools.loadDefaults </code> parameter (as an init or servlet parameter). </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Drop undocumented autoloaded tools feature, and have org.apache.velocity.tools.loadDefaults default to false . </td>
+        <td> Drop undocumented autoloaded tools feature, and have org.apache.velocity.tools.loadDefaults default to false </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Make tools-view initialization much pickier about file accesses, to ease the use of a Java SecurityManager . </td>
+        <td> Make tools-view initialization much pickier about file accesses, to ease the use of a Java SecurityManager </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed BrowserTool Accept-Language header parsing . </td>
+        <td> Fixed BrowserTool Accept-Language header parsing </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added new <code> $conv.toList(obj) </code> method . </td>
+        <td> Added new <code> $conv.toList(obj) </code> method </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added <code> $browser.IPAddress </code>  . </td>
+        <td> Added <code> $browser.IPAddress </code>  </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Removed deprecated components velocity-tools-uberjar and velocity-tools-assembly . </td>
+        <td> Removed deprecated components velocity-tools-uberjar and velocity-tools-assembly </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> ImportTool reenginering: <ul>  <li> the ImportSupport utility class has been splitted between o.a.v.generic.ImportSupport and o.a.v.view.ViewImportSupport </li>  <li> the ImportTool now has a generic version (for remote URLs import) and a view version (for local URLs import) which cannot use remote URLs in safe mode </li>  <li> the local URLs import respects the 3.1 servlets specification: query parameters of the included URL do overwrite original ones </li>  </ul>  . </td>
+        <td> ImportTool reenginering: <ul>  <li> the ImportSupport utility class has been splitted between o.a.v.generic.ImportSupport and o.a.v.view.ViewImportSupport </li>  <li> the ImportTool now has a generic version (for remote URLs import) and a view version (for local URLs import) which cannot use remote URLs in safe mode </li>  <li> the local URLs import respects the 3.1 servlets specification: query parameters of the included URL do overwrite original ones </li>  </ul>  </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> XmlTool now uses the standard JRE XML parser instead of the org.jdom API ; it is now in two flavors, the generic tools one and the view tools one. The view tools flavor allows the parsing of http query xml post data. . </td>
+        <td> XmlTool now uses the standard JRE XML parser instead of the org.jdom API ; it is now in two flavors, the generic tools one and the view tools one. The view tools flavor allows the parsing of http query xml post data. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added a new JsonTool for parsing json. It is in two flavors, the generic tools one and the view tools one. The view tools flavor allows the parsing of http query json post data. . </td>
+        <td> Added a new JsonTool for parsing json. It is in two flavors, the generic tools one and the view tools one. The view tools flavor allows the parsing of http query json post data. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added an EscapeTool.unurl(String) unescaping method . </td>
+        <td> Added an EscapeTool.unurl(String) unescaping method </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Deprecated ConversionTool: date/time parsing and formatting methods belong to DateTool, while number parsing and formatting methods belong to NumberTool ; toLocale() method is now in LocaleConfig . </td>
+        <td> Deprecated ConversionTool: date/time parsing and formatting methods belong to DateTool, while number parsing and formatting methods belong to NumberTool ; toLocale() method is now in LocaleConfig </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Deprecated SortTool, and added a CollectionTool to gather lists sorting/splitting methods . </td>
+        <td> Deprecated SortTool, and added a CollectionTool to gather lists sorting/splitting methods </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Deprecated MathTool number parsing methods, which are redundant with NumberTool ones . </td>
+        <td> Deprecated MathTool number parsing methods, which are redundant with NumberTool ones </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Deprecated AlternateTool . </td>
+        <td> Deprecated AlternateTool </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> DateTool reenginering: <ul>  <li> added iso and iso_tz date/datetime standard formats </li>  <li> added intl and intl_tz for human-readable international format (time zone displayed by id) </li>  </ul>  . </td>
+        <td> DateTool reenginering: <ul>  <li> added iso and iso_tz date/datetime standard formats </li>  <li> added intl and intl_tz for human-readable international format (time zone displayed by id) </li>  </ul>  </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> use static logging in Tools classes . </td>
+        <td> use static logging in Tools classes </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> new generic LogTool to emit logs from inside templates . </td>
+        <td> new generic LogTool to emit logs from inside templates </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> drop unmaintained Struts tools . </td>
+        <td> drop unmaintained Struts tools </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> full review of BrowserTool implementation, update user-agents detection algorithm . </td>
+        <td> full review of BrowserTool implementation, update user-agents detection algorithm </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Removed deprecated 1.x configuration handling and depreacted 1.x tools initialization support . </td>
+        <td> Removed deprecated 1.x configuration handling and depreacted 1.x tools initialization support </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Switched engine dependency to 2.0 . </td>
+        <td> Switched engine dependency to 2.0 </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Replace all uses of commons-collections ExtendedProperties class by org.apache.velocity.util.ExtProperties . </td>
+        <td> Replace all uses of commons-collections ExtendedProperties class by org.apache.velocity.util.ExtProperties </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Removed deprecated class org.apache.velocity.tools.generic.log.LogSystemCommonsLog . </td>
+        <td> Removed deprecated class org.apache.velocity.tools.generic.log.LogSystemCommonsLog </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> MathTool: added bitwise operations . </td>
+        <td> MathTool: added bitwise operations </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> fixed result type calculations . </td>
+        <td> fixed result type calculations </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Switched log system facade to SLF4j . </td>
+        <td> Switched log system facade to SLF4j </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Upgraded to JUnit 4.12, commons-beanutils 1.9.3, commons-digester 3.2, and Velocity Engine 2.0. . </td>
+        <td> Upgraded to JUnit 4.12, commons-beanutils 1.9.3, commons-digester 3.2, and Velocity Engine 2.0. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td>  . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-129">VELTOOLS-129</a>. Thanks to Michael Osipov.</td>
+        <td>  Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-129">VELTOOLS-129</a>. Thanks to Michael Osipov.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> fix sync problems . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-128">VELTOOLS-128</a>. </td>
+        <td> fix sync problems Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-128">VELTOOLS-128</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> correct handling and better reporting of commited responses in error() . </td>
+        <td> correct handling and better reporting of commited responses in error() </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added a custom number formats cache in ConversionUtils . </td>
+        <td> Added a custom number formats cache in ConversionUtils </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> added localization of DateFormat format strings . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-144">VELTOOLS-144</a>. </td>
+        <td> added localization of DateFormat format strings Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-144">VELTOOLS-144</a>. </td>
         <td>schultz</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> fixed a LinkTool bug with parametersToIgnore management . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-148">VELTOOLS-148</a>. </td>
+        <td> fixed a LinkTool bug with parametersToIgnore management Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-148">VELTOOLS-148</a>. </td>
         <td>schultz</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> changed LinkTool.addRequestParams to accept Object[] . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-149">VELTOOLS-149</a>. </td>
+        <td> changed LinkTool.addRequestParams to accept Object[] Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-149">VELTOOLS-149</a>. </td>
         <td>schultz</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> $link.absolute($uri) should not encode query strings in the argument . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-146">VELTOOLS-146</a>. </td>
+        <td> $link.absolute($uri) should not encode query strings in the argument Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-146">VELTOOLS-146</a>. </td>
         <td>schultz</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> ValidatorTool generates invalid XHTML even when in XHTML mode . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-152">VELTOOLS-152</a>. </td>
+        <td> ValidatorTool generates invalid XHTML even when in XHTML mode Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-152">VELTOOLS-152</a>. </td>
         <td>schultz</td>
       </tr>
     </tbody>
@@ -587,7 +587,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -595,70 +595,70 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> More convention over configuration and smart defaults . </td>
+        <td> More convention over configuration and smart defaults </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> New configuration formats (more concise/flexible/powerful xml, properties, java) . </td>
+        <td> New configuration formats (more concise/flexible/powerful xml, properties, java) </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Entirely new core infrastructure (lazy-loading tools, easier access, standalone support etc) . </td>
+        <td> Entirely new core infrastructure (lazy-loading tools, easier access, standalone support etc) </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added VelocityViewTag for JSP integration . </td>
+        <td> Added VelocityViewTag for JSP integration </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added DisplayTool, ConversionTool, ClassTool, LoopTool, FieldTool, a generic version of LinkTool and more . </td>
+        <td> Added DisplayTool, ConversionTool, ClassTool, LoopTool, FieldTool, a generic version of LinkTool and more </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Refactored and enhanced a number of existing tools . </td>
+        <td> Refactored and enhanced a number of existing tools </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Improved documentation . </td>
+        <td> Improved documentation </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Deprecated many outdated things . </td>
+        <td> Deprecated many outdated things </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Legacy support for almost all Tools 1.4 configurations and extensions . </td>
+        <td> Legacy support for almost all Tools 1.4 configurations and extensions </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Better integration of $application, $session and $request scope control objects . </td>
+        <td> Better integration of $application, $session and $request scope control objects </td>
         <td>cbrisson</td>
       </tr>
     </tbody>
@@ -669,7 +669,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -677,112 +677,112 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added ability to add current request parameters to LinkTool, including controls for automatically and/or manually ignoring some of those . Thanks to Christopher Schultz.</td>
+        <td> Added ability to add current request parameters to LinkTool, including controls for automatically and/or manually ignoring some of those Thanks to Christopher Schultz.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> fixed infinite recursion in RenderTool . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-87">VELTOOLS-87</a>. Thanks to Andrea Bernardo Ciddio.</td>
+        <td> fixed infinite recursion in RenderTool Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-87">VELTOOLS-87</a>. Thanks to Andrea Bernardo Ciddio.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Upgraded DVSL version used for documentation to v1.0 . </td>
+        <td> Upgraded DVSL version used for documentation to v1.0 </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix order preservation problem in SortTool . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-85">VELTOOLS-85</a>. Thanks to Tatyana.</td>
+        <td> Fix order preservation problem in SortTool Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-85">VELTOOLS-85</a>. Thanks to Tatyana.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Protect BrowserSniffer from requests without user-agent . </td>
+        <td> Protect BrowserSniffer from requests without user-agent </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added support for a MethodExceptionHandler - the TilesTool.get() method now only returns null if one isn't present . </td>
+        <td> Added support for a MethodExceptionHandler - the TilesTool.get() method now only returns null if one isn't present </td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Changed StrutsLinkTool.setForward() to look for forwards local to the action mapping, before looking up global forwards . Thanks to Christopher Schultz.</td>
+        <td> Changed StrutsLinkTool.setForward() to look for forwards local to the action mapping, before looking up global forwards Thanks to Christopher Schultz.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Rearrange/refactor/deprecate some internal methods in VelocityViewServlet in preparation for VelocityTools 2.0 upgrades . </td>
+        <td> Rearrange/refactor/deprecate some internal methods in VelocityViewServlet in preparation for VelocityTools 2.0 upgrades </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Upgraded Velocity Engine dependency to build and test against v1.5 (NOTE: Velocity Engine 1.5 will be required for VelocityTools 2.0.) . </td>
+        <td> Upgraded Velocity Engine dependency to build and test against v1.5 (NOTE: Velocity Engine 1.5 will be required for VelocityTools 2.0.) </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added propertyKey() and propertyValue() escaping support to EscapeTool . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-81">VELTOOLS-81</a>. Thanks to Phil Cornelius.</td>
+        <td> Added propertyKey() and propertyValue() escaping support to EscapeTool Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-81">VELTOOLS-81</a>. Thanks to Phil Cornelius.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed bug in request-path restriction when using wildcards . </td>
+        <td> Fixed bug in request-path restriction when using wildcards </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Make default locale and format for NumberTool configurable, just as they are in DateTool . </td>
+        <td> Make default locale and format for NumberTool configurable, just as they are in DateTool </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add ComparisonDateTool (with some tests and showcase demos) for comparing dates and displaying the comparisons textually . Thanks to Chris Townsen.</td>
+        <td> Add ComparisonDateTool (with some tests and showcase demos) for comparing dates and displaying the comparisons textually Thanks to Chris Townsen.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add ability to configure default Locale for DateTool and to lock down configure() so it is safe to use in application scope . </td>
+        <td> Add ability to configure default Locale for DateTool and to lock down configure() so it is safe to use in application scope </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add better support for dynamic locales in MessageTool . Thanks to Christopher Schultz.</td>
+        <td> Add better support for dynamic locales in MessageTool Thanks to Christopher Schultz.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Use ResourceTool for common text throughout the Showcase example . </td>
+        <td> Use ResourceTool for common text throughout the Showcase example </td>
         <td>nbubna</td>
       </tr>
     </tbody>
@@ -793,7 +793,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -801,210 +801,210 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added ResourceTool and ViewResourceTool for access to and use of ResourceBundles . </td>
+        <td> Added ResourceTool and ViewResourceTool for access to and use of ResourceBundles </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Upgraded to latest versions of Commons-Digester (1.8) and Commons-Validator (1.3.1) . </td>
+        <td> Upgraded to latest versions of Commons-Digester (1.8) and Commons-Validator (1.3.1) </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Updated ValidatorTool to mirror key changes/features in Struts 1.3.x's JavascriptValidatorTag . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-58">VELTOOLS-58</a>. Thanks to Christopher Schultz and Niall Pemberton.</td>
+        <td> Updated ValidatorTool to mirror key changes/features in Struts 1.3.x's JavascriptValidatorTag Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-58">VELTOOLS-58</a>. Thanks to Christopher Schultz and Niall Pemberton.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added url(String) method to EscapeTool for URL encoding . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-73">VELTOOLS-73</a>. Thanks to Marc Novakowski.</td>
+        <td> Added url(String) method to EscapeTool for URL encoding Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-73">VELTOOLS-73</a>. Thanks to Marc Novakowski.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added start.showcase.webapp and stop.showcase.webapp ant targets to manually launch the showcase webapp using the embedded Jetty servlet container . </td>
+        <td> Added start.showcase.webapp and stop.showcase.webapp ant targets to manually launch the showcase webapp using the embedded Jetty servlet container </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added a testcases framework for generic and view tools . </td>
+        <td> Added a testcases framework for generic and view tools </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Changed VelocityViewServlet to look for toolbox config at "/WEB-INF/toolbox.xml" and velocity init properties at "/WEB-INF/velocity.properties" when no other locations are specified (i.e. change the standard location into a convention to reduce configuration needs) . </td>
+        <td> Changed VelocityViewServlet to look for toolbox config at "/WEB-INF/toolbox.xml" and velocity init properties at "/WEB-INF/velocity.properties" when no other locations are specified (i.e. change the standard location into a convention to reduce configuration needs) </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Upgraded VelocityStruts dependencies to those for Struts 1.3.x series and updated "struts" example app according to <a href="http://wiki.apache.org/struts/StrutsUpgradeNotes12to13"> provided directions </a>  . </td>
+        <td> Upgraded VelocityStruts dependencies to those for Struts 1.3.x series and updated "struts" example app according to <a href="http://wiki.apache.org/struts/StrutsUpgradeNotes12to13"> provided directions </a>  </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Replaced "layout" example with new "showcase" example to interactively demonstrate all tools and the VelocityLayoutServlet . </td>
+        <td> Replaced "layout" example with new "showcase" example to interactively demonstrate all tools and the VelocityLayoutServlet </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added auto() and manual() methods to AlternatorTool and deprecated the make() methods that took a boolean parameter . </td>
+        <td> Added auto() and manual() methods to AlternatorTool and deprecated the make() methods that took a boolean parameter </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added getAll() method to ParameterParser to retrieve map of all params via <code> $params.all </code>  . </td>
+        <td> Added getAll() method to ParameterParser to retrieve map of all params via <code> $params.all </code>  </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added configurable getSelf() function to LinkTool to make self-referencing links easier . </td>
+        <td> Added configurable getSelf() function to LinkTool to make self-referencing links easier </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added create() methods to CookieTool to support more complex Cookie creation . </td>
+        <td> Added create() methods to CookieTool to support more complex Cookie creation </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added ContextTool for convenient access to context data and meta-data . </td>
+        <td> Added ContextTool for convenient access to context data and meta-data </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Overhauled ant build process: dependencies are now automatically download, jars have manifests, checksums are auto-generated, and more. Also, building with JDK 1.3 is no longer supported . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-71">VELTOOLS-71</a>. </td>
+        <td> Overhauled ant build process: dependencies are now automatically download, jars have manifests, checksums are auto-generated, and more. Also, building with JDK 1.3 is no longer supported Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-71">VELTOOLS-71</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Updated license headers and notices to comply with new ASF policy . </td>
+        <td> Updated license headers and notices to comply with new ASF policy </td>
         <td>henning</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Made auto-alternate default of AlternatorTool configurable via toolbox config . </td>
+        <td> Made auto-alternate default of AlternatorTool configurable via toolbox config </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add addQueryData(Map) and params(Map) method to LinkTool . Thanks to Mark Brunkhart.</td>
+        <td> Add addQueryData(Map) and params(Map) method to LinkTool Thanks to Mark Brunkhart.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed a number of problems with ImportSupport . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-56">VELTOOLS-56</a>. Thanks to Christopher Schultz.</td>
+        <td> Fixed a number of problems with ImportSupport Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-56">VELTOOLS-56</a>. Thanks to Christopher Schultz.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add ability to restrict availability of request-scoped tools according to a request path value set in the tool configuration . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-67">VELTOOLS-67</a>. Thanks to Claude Brisson.</td>
+        <td> Add ability to restrict availability of request-scoped tools according to a request path value set in the tool configuration Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-67">VELTOOLS-67</a>. Thanks to Claude Brisson.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Change VelocityViewServlet to read logger and resource loader config from velocity.properties file instead of hard-coding it . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-68">VELTOOLS-68</a>. </td>
+        <td> Change VelocityViewServlet to read logger and resource loader config from velocity.properties file instead of hard-coding it Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-68">VELTOOLS-68</a>. </td>
         <td>henning</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added setAbsolute() and absolute() methods to LinkTool . </td>
+        <td> Added setAbsolute() and absolute() methods to LinkTool </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Made default format of DateTool configurable via toolbox definition . </td>
+        <td> Made default format of DateTool configurable via toolbox definition </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Deprecated ViewTool and Configurable interfaces ; ViewToolInfo has been enhanced to automatically recognize such tools by checking for init(Object) and/or configure(Map) methods . </td>
+        <td> Deprecated ViewTool and Configurable interfaces ; ViewToolInfo has been enhanced to automatically recognize such tools by checking for init(Object) and/or configure(Map) methods </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Enhanced TextKey trick in MessageTool to make using args and bundles easier . </td>
+        <td> Enhanced TextKey trick in MessageTool to make using args and bundles easier </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add getInteger() and getDouble() convenience methods to ValueParser . </td>
+        <td> Add getInteger() and getDouble() convenience methods to ValueParser </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added get() method to StrutsLinkTool to allow syntax like <code> $link.action.saveFoo </code>  . </td>
+        <td> Added get() method to StrutsLinkTool to allow syntax like <code> $link.action.saveFoo </code>  </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added param(), relative(), anchor(), and uri() convenience methods to LinkTool . </td>
+        <td> Added param(), relative(), anchor(), and uri() convenience methods to LinkTool </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added currency(), number(), integer(), and percent() convenience methods to NumberTool . </td>
+        <td> Added currency(), number(), integer(), and percent() convenience methods to NumberTool </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Changed auto-alternate default in AlternatorTool to match Alternator default . </td>
+        <td> Changed auto-alternate default in AlternatorTool to match Alternator default </td>
         <td>nbubna</td>
       </tr>
     </tbody>
@@ -1015,7 +1015,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1023,224 +1023,224 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Updated documentation to cover new features and sync to many infrastructure changes . </td>
+        <td> Updated documentation to cover new features and sync to many infrastructure changes </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed incomplete escaping in ValidatorTool . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-52">VELTOOLS-52</a>. Thanks to Christopher Schultz.</td>
+        <td> Fixed incomplete escaping in ValidatorTool Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-52">VELTOOLS-52</a>. Thanks to Christopher Schultz.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed infinite loop logging problem with Tomcat 5.5 in the "simple" example webapp . </td>
+        <td> Fixed infinite loop logging problem with Tomcat 5.5 in the "simple" example webapp </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Upgraded jars to Struts 1.2.7, Commons-Logging 1.0.4, Commons-Validator 1.1.4, Digester 1.7, Commons-Collections 3.1, Beanutils 1.7.0, Struts SSL Extension for 1.2, and Commons-Lang 2.1 . </td>
+        <td> Upgraded jars to Struts 1.2.7, Commons-Logging 1.0.4, Commons-Validator 1.1.4, Digester 1.7, Commons-Collections 3.1, Beanutils 1.7.0, Struts SSL Extension for 1.2, and Commons-Lang 2.1 </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added VelocityStruts support for non-resource and session-scoped action messages . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-51">VELTOOLS-51</a>. Thanks to Niall Pemberton.</td>
+        <td> Added VelocityStruts support for non-resource and session-scoped action messages Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-51">VELTOOLS-51</a>. Thanks to Niall Pemberton.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Factored generic parsing code out of ParameterParser into new ValueParser for parsing strings pulled from any Map . </td>
+        <td> Factored generic parsing code out of ParameterParser into new ValueParser for parsing strings pulled from any Map </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Improved error handling/recovery in toolbox xml parsing by adding validation of tool info . </td>
+        <td> Improved error handling/recovery in toolbox xml parsing by adding validation of tool info </td>
         <td>henning</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added BrowserSnifferTool for identifying browsers and their features ; this depends on Java 1.4's regexp support for use . </td>
+        <td> Added BrowserSnifferTool for identifying browsers and their features ; this depends on Java 1.4's regexp support for use </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added EscapeTool for commons escaping needs ; this requires commons-lang for use . Thanks to Shinobu Kawai.</td>
+        <td> Added EscapeTool for commons escaping needs ; this requires commons-lang for use Thanks to Shinobu Kawai.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added ListTool as utility for using arrays like Lists in templates . Thanks to Shinobu Kawai.</td>
+        <td> Added ListTool as utility for using arrays like Lists in templates Thanks to Shinobu Kawai.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added DateTool methods to provide easy access to date values (e.g. month, year, day) . </td>
+        <td> Added DateTool methods to provide easy access to date values (e.g. month, year, day) </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Converted VelocityView and VelocityStruts to use a VelocityEngine instead of the Velocity singleton. This means only the servlets log directly to the VelocityEngine instance; the tools and other classes now use commons-logging (which can still be redirected to the VVS's VelocityEngine). Also, both the RenderTool and LogSystemCommonsLog now support either the singleton or non-singleton approach . </td>
+        <td> Converted VelocityView and VelocityStruts to use a VelocityEngine instead of the Velocity singleton. This means only the servlets log directly to the VelocityEngine instance; the tools and other classes now use commons-logging (which can still be redirected to the VVS's VelocityEngine). Also, both the RenderTool and LogSystemCommonsLog now support either the singleton or non-singleton approach </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Fixed bad relative URIs in LinkTool when webapp is installed as root . Thanks to Laurent Dauvilaire.</td>
+        <td> Fixed bad relative URIs in LinkTool when webapp is installed as root Thanks to Laurent Dauvilaire.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Factored basic pagination code out of AbstractSearchTool into new AbstractPagerTool . </td>
+        <td> Factored basic pagination code out of AbstractSearchTool into new AbstractPagerTool </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Make StrutsUtils.errorMarkup() support errors.prefix/suffix . Thanks to Shinobu Kawai.</td>
+        <td> Make StrutsUtils.errorMarkup() support errors.prefix/suffix Thanks to Shinobu Kawai.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Fixed ImportSupport bug with multiple calls to ImportResponseWrapper.getWriter() or getOutputStream() . Thanks to Shinobu Kawai.</td>
-        <td>nbubna</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/fix.png"/>
-        </td>
-        <td> Made DateTool.toDate(Object) accept Number in place of Long . </td>
+        <td> Fixed ImportSupport bug with multiple calls to ImportResponseWrapper.getWriter() or getOutputStream() Thanks to Shinobu Kawai.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed RenderTool NPE when passed null VTL string . Thanks to Tim Colson.</td>
-        <td>nbubna</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Enable template cache refreshing and global macro autoreloading in WebappLoader . </td>
-        <td>marino</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Stopped using Velocity's dependency jar . </td>
-        <td>marino</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Upgraded Struts, commons-collections, commons-logging, and commons-validator to Struts 1.2.4 versions . </td>
-        <td>marino</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Added new SortTool . Thanks to Brett Sutton.</td>
-        <td>nbubna</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Added MathTool methods for totalling or averaging lists or arrays of values . Thanks to Leon Messerschmidt.</td>
+        <td> Made DateTool.toDate(Object) accept Number in place of Long </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Prevent NPE in RenderTool.recurse() when an evaluation fails . </td>
+        <td> Fixed RenderTool NPE when passed null VTL string Thanks to Tim Colson.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Upgraded jars from Velocity 1.3.1 to Velocity 1.4 . </td>
-        <td>nbubna</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Simplified MessageTool interface to support $text.this.that syntax instead of just $text.get('this.that') . </td>
-        <td>nbubna</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Added Alternator and AlternatorTool to improve on the old VelocityFormatter.makeAutoAlternator() . Thanks to Daniel Rall.</td>
-        <td>nbubna</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Added new Configurable interface and support for configuring tools in the toolbox definition . </td>
-        <td>nbubna</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Added methods for integer division and modulus to MathTool . </td>
-        <td>nbubna</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Remove members, methods, and classes deprecated in 1.1 . </td>
-        <td>nbubna</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Bring example Struts apps up to speed with latest Struts version . </td>
+        <td> Enable template cache refreshing and global macro autoreloading in WebappLoader </td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Upgrade jars to Struts 1.2.0 and Validator 1.1.2 . </td>
+        <td> Stopped using Velocity's dependency jar </td>
+        <td>marino</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Upgraded Struts, commons-collections, commons-logging, and commons-validator to Struts 1.2.4 versions </td>
+        <td>marino</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Added new SortTool Thanks to Brett Sutton.</td>
+        <td>nbubna</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Added MathTool methods for totalling or averaging lists or arrays of values Thanks to Leon Messerschmidt.</td>
+        <td>nbubna</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Prevent NPE in RenderTool.recurse() when an evaluation fails </td>
+        <td>nbubna</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Upgraded jars from Velocity 1.3.1 to Velocity 1.4 </td>
+        <td>nbubna</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Simplified MessageTool interface to support $text.this.that syntax instead of just $text.get('this.that') </td>
+        <td>nbubna</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Added Alternator and AlternatorTool to improve on the old VelocityFormatter.makeAutoAlternator() Thanks to Daniel Rall.</td>
+        <td>nbubna</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Added new Configurable interface and support for configuring tools in the toolbox definition </td>
+        <td>nbubna</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Added methods for integer division and modulus to MathTool </td>
+        <td>nbubna</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Remove members, methods, and classes deprecated in 1.1 </td>
+        <td>nbubna</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Bring example Struts apps up to speed with latest Struts version </td>
+        <td>marino</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Upgrade jars to Struts 1.2.0 and Validator 1.1.2 </td>
         <td>marino</td>
       </tr>
     </tbody>
@@ -1251,7 +1251,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1259,21 +1259,21 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Deprecated StrutsUtils' getActionErrors() and getActionMessages() in favor of getErrors() and getMessages() . </td>
+        <td> Deprecated StrutsUtils' getActionErrors() and getActionMessages() in favor of getErrors() and getMessages() </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Fixed javadoc warnings during build . Thanks to Nathan Green.</td>
+        <td> Fixed javadoc warnings during build Thanks to Nathan Green.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Some sort of improvements to Struts example apps . </td>
+        <td> Some sort of improvements to Struts example apps </td>
         <td>marino</td>
       </tr>
     </tbody>
@@ -1284,7 +1284,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1292,119 +1292,119 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Changed recommended keys for MessageTool and ActionMessagesTool to $text and $messages . </td>
+        <td> Changed recommended keys for MessageTool and ActionMessagesTool to $text and $messages </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Changed XMLToolboxManager to use thread context classloader when digesting toolbox . </td>
+        <td> Changed XMLToolboxManager to use thread context classloader when digesting toolbox </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Fixed session tool initialization/synchronization issue . </td>
+        <td> Fixed session tool initialization/synchronization issue </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added TilesTool methods to import attributes to specific scopes (page/request/session/application) . </td>
+        <td> Added TilesTool methods to import attributes to specific scopes (page/request/session/application) </td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added new demos for using ValidatorTool, TilesTool, and SecureLinkTool to VelocityStruts example app . </td>
+        <td> Added new demos for using ValidatorTool, TilesTool, and SecureLinkTool to VelocityStruts example app </td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Upgraded/refactored MathTool to add floor() and ceil(), make type-handling more intuitive and flexible, and improve number parsing . </td>
+        <td> Upgraded/refactored MathTool to add floor() and ceil(), make type-handling more intuitive and flexible, and improve number parsing </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Improved resource bundle support in ActionMessagesTool . </td>
+        <td> Improved resource bundle support in ActionMessagesTool </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> ErrorsTool now extends ActionMessagesTool . </td>
+        <td> ErrorsTool now extends ActionMessagesTool </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> LinkTool now encodes URLs using the response's character encoding . </td>
+        <td> LinkTool now encodes URLs using the response's character encoding </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Removed inadvertant JDK 1.4 dependencies from ImportSupport . </td>
+        <td> Removed inadvertant JDK 1.4 dependencies from ImportSupport </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Made XMLToolboxManager not abstract . </td>
+        <td> Made XMLToolboxManager not abstract </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> De-staticized non-private methods in RenderTool and LinkTool . </td>
+        <td> De-staticized non-private methods in RenderTool and LinkTool </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added NumberTool for formatting numbers . Thanks to Mike Kienenberger.</td>
+        <td> Added NumberTool for formatting numbers Thanks to Mike Kienenberger.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Filled out and cleaned up DateTool's toDate(...) methods . </td>
+        <td> Filled out and cleaned up DateTool's toDate(...) methods </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Changed VelocityViewServlet's error method to print the stack trace of the root cause when it encounters a MethodInvocationException . </td>
+        <td> Changed VelocityViewServlet's error method to print the stack trace of the root cause when it encounters a MethodInvocationException </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added importAttributes() method to TilesTool to automatically put all attributes of the current Tiles context into the Velocity context . </td>
+        <td> Added importAttributes() method to TilesTool to automatically put all attributes of the current Tiles context into the Velocity context </td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Replaced TilesTool's getString(String) method with getAttribute(String) in order to support "put lists." . </td>
+        <td> Replaced TilesTool's getString(String) method with getAttribute(String) in order to support "put lists." </td>
         <td>marino</td>
       </tr>
     </tbody>
@@ -1415,7 +1415,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1423,245 +1423,245 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Made VelocityViewServlet use response.getOutputStream() if response.getWriter() fails. This is functionality is deprecated and provided as a migration path from 1.0 behavior . Thanks to Daniel Rall.</td>
+        <td> Made VelocityViewServlet use response.getOutputStream() if response.getWriter() fails. This is functionality is deprecated and provided as a migration path from 1.0 behavior Thanks to Daniel Rall.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> De-staticized MathTool to make it extendable . </td>
+        <td> De-staticized MathTool to make it extendable </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Factored common functionality of ErrorsTool, MessageTool, and ActionMessagesTool into abstract MessageResourcesTool . </td>
+        <td> Factored common functionality of ErrorsTool, MessageTool, and ActionMessagesTool into abstract MessageResourcesTool </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added ImportTool as a simple ImportSupport-based tool . </td>
+        <td> Added ImportTool as a simple ImportSupport-based tool </td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Converted TilesTool to extend ImportSupport. This allows easy mixing of view technologies (JSP, Velocity, etc.) in VelocityStruts applications . Thanks to Matthew Payne.</td>
+        <td> Converted TilesTool to extend ImportSupport. This allows easy mixing of view technologies (JSP, Velocity, etc.) in VelocityStruts applications Thanks to Matthew Payne.</td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added ImportSupport class for building tools that can import resources from local or remote URLS . </td>
+        <td> Added ImportSupport class for building tools that can import resources from local or remote URLS </td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Overhauled DateTool to make it more extendable, user-friendly, and add support for standard, localized date-time styles (see DateTool javadoc for more) . </td>
+        <td> Overhauled DateTool to make it more extendable, user-friendly, and add support for standard, localized date-time styles (see DateTool javadoc for more) </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added support for specifying message resource bundles to StrutsUtils, ErrorsTool, ActionMessagesTool, and MessageTool . Thanks to Marinó A. Jónsson.</td>
+        <td> Added support for specifying message resource bundles to StrutsUtils, ErrorsTool, ActionMessagesTool, and MessageTool Thanks to Marinó A. Jónsson.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added commons-validator (1.0.2) and sslext jars to library . </td>
+        <td> Added commons-validator (1.0.2) and sslext jars to library </td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added SecureLinkTool for using Struts SSL Extension with VelocityStruts . </td>
+        <td> Added SecureLinkTool for using Struts SSL Extension with VelocityStruts </td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added ValidatorTool to provide Struts 1.1 javascript validation for VelocityStruts . </td>
+        <td> Added ValidatorTool to provide Struts 1.1 javascript validation for VelocityStruts </td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> output.encoding property (if non-default) is appended to default content-type as the charset . </td>
+        <td> output.encoding property (if non-default) is appended to default content-type as the charset </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> VelocityViewServlet now uses response.getWriter() instead of response.getOutputStream() . Thanks to Matthew Payne.</td>
+        <td> VelocityViewServlet now uses response.getWriter() instead of response.getOutputStream() Thanks to Matthew Payne.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Improved VelocityViewServlet error handling (exceptions are logged and error() is now more robust) . </td>
+        <td> Improved VelocityViewServlet error handling (exceptions are logged and error() is now more robust) </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Put VelocityViewServlet's requestCleanup() call in a 'finally' clause to allow clean after errors during a request . </td>
-        <td>nbubna</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/fix.png"/>
-        </td>
-        <td> Fixed miscellaneous javadoc and doc typos . Thanks to Takayoshi Kimura.</td>
+        <td> Put VelocityViewServlet's requestCleanup() call in a 'finally' clause to allow clean after errors during a request </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Allow system to reclaim objects held by pooled writers in VelocityViewServlet . </td>
+        <td> Fixed miscellaneous javadoc and doc typos Thanks to Takayoshi Kimura.</td>
+        <td>nbubna</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Allow system to reclaim objects held by pooled writers in VelocityViewServlet </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Changed LinkTool to automatically check for XHTML setting . </td>
+        <td> Changed LinkTool to automatically check for XHTML setting </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added support for standard XHTML mode setting via toolbox config . </td>
+        <td> Added support for standard XHTML mode setting via toolbox config </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Moved request/response/session/application keys to ViewContext and add getAttribute() method . </td>
+        <td> Moved request/response/session/application keys to ViewContext and add getAttribute() method </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added selectModule() and getForwardURL() to StrutsUtils . </td>
+        <td> Added selectModule() and getForwardURL() to StrutsUtils </td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Convert VelocityStruts tools to use new StrutsUtils methods and be module aware . </td>
+        <td> Convert VelocityStruts tools to use new StrutsUtils methods and be module aware </td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Removed unused imports from StrutsLinkTool . </td>
+        <td> Removed unused imports from StrutsLinkTool </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Refactor StrutsUtils to use Struts 1.1 classes and support modules . </td>
+        <td> Refactor StrutsUtils to use Struts 1.1 classes and support modules </td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added TilesTool . </td>
+        <td> Added TilesTool </td>
         <td>marino</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Allow subclasses of VelocityViewServlet to use different ToolboxManager implementations . </td>
+        <td> Allow subclasses of VelocityViewServlet to use different ToolboxManager implementations </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added CookieTool . Thanks to Dmitri Colebatch.</td>
+        <td> Added CookieTool Thanks to Dmitri Colebatch.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added demo of &lt;data&gt; elements to simple VelocityView example . </td>
+        <td> Added demo of &lt;data&gt; elements to simple VelocityView example </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Made simple VelocityStruts example catch Commons-Logging output with LogSystemCommonsLog . </td>
+        <td> Made simple VelocityStruts example catch Commons-Logging output with LogSystemCommonsLog </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Convert toolbox setup to use Digester instead of dom4j . </td>
+        <td> Convert toolbox setup to use Digester instead of dom4j </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added LogSystemCommonsLog and CommonsLogLogSystem to provide bridges between Commons-Logging and Velocity's LogSystem . </td>
+        <td> Added LogSystemCommonsLog and CommonsLogLogSystem to provide bridges between Commons-Logging and Velocity's LogSystem </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added Commons Logging 1.0.3 jar . </td>
+        <td> Added Commons Logging 1.0.3 jar </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added ActionMessagesTool . </td>
+        <td> Added ActionMessagesTool </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Upgrade deprecated Struts 1.0 uses in examples . </td>
+        <td> Upgrade deprecated Struts 1.0 uses in examples </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Updated jars to Struts 1.1, BeanUtils 1.6.1, Digester 1.5, Collections 2.1 . </td>
+        <td> Updated jars to Struts 1.1, BeanUtils 1.6.1, Digester 1.5, Collections 2.1 </td>
         <td>nbubna</td>
       </tr>
     </tbody>
@@ -1672,7 +1672,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1680,7 +1680,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Initial release. . </td>
+        <td> Initial release. </td>
         <td>nbubna</td>
       </tr>
     </tbody>

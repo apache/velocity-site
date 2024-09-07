@@ -235,6 +235,11 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     </thead>
     <tbody>
       <tr>
+        <td>2.4</td>
+        <td>2024-09-07</td>
+        <td/>
+      </tr>
+      <tr>
         <td>2.3</td>
         <td>2021-02-27</td>
         <td/>
@@ -317,13 +322,84 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     </tbody>
   </table>
 </p>
-<h3>Release 2.3 - 2021-02-27</h3><p>
+<h3>Release 2.4 - 2024-09-07</h3><p>
   <table class="standard">
     <thead>
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td/>
+        <td> Add a new compatibility flag for integer ranges immutability. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-948">VELOCITY-948</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Fix a regression in the parser. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-961">VELOCITY-961</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> An unclosed verbatim section should give an error, as in Velocity 1.7. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-962">VELOCITY-962</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Add a few more dangerous classes to introspector blacklist. Fixes <a href="https://issues.apache.org/jira/browse/VELOCIY-982">VELOCIY-982</a>. Thanks to John Tal.</td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Fix overzealous string to number conversion in comparison, which gave unexpected comparison results in some case, and was also most probably the cause of a performance regression (VELOCITY-969, VELOCITY-979). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-957">VELOCITY-957</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Introspection should use the top-most declaration of methods. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-952">VELOCITY-952</a>. Thanks to Thomas Mortagne.</td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Fix <code> DataSourceResourceLoader </code> thread safety issue. Also Introduces a <code> DatabaseObjectsFactory </code> plugin mechanism which allows to customize caching of database connections and prepared statements. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-965">VELOCITY-965</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Refactor <code> SpringResourceLoader </code> . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-943">VELOCITY-943</a>. Thanks to Scott Cantor.</td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td/>
+        <td> Support Java 16 records in property lookup. Thanks to J. Tóth Tamás.</td>
+        <td>cbrisson</td>
+      </tr>
+    </tbody>
+  </table>
+</p><h3>Release 2.3 - 2021-02-27</h3><p>
+  <table class="standard">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Changes</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -331,31 +407,31 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix parser bug (newline and space inside an empty inline map definition). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-927">VELOCITY-927</a>. </td>
+        <td> Fix parser bug (newline and space inside an empty inline map definition). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-927">VELOCITY-927</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td/>
-        <td> Backported Spring framework Velocity Engine integration classes from Spring 4.x, in the new module <code> spring-velocity-support </code> . . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-933">VELOCITY-933</a>. </td>
+        <td> Backported Spring framework Velocity Engine integration classes from Spring 4.x, in the new module <code> spring-velocity-support </code> . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-933">VELOCITY-933</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Let SecureUberspector block methods on ClassLoader and subclasses. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-931">VELOCITY-931</a>. </td>
+        <td> Let SecureUberspector block methods on ClassLoader and subclasses. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-931">VELOCITY-931</a>. </td>
         <td>wglass</td>
       </tr>
       <tr>
         <td/>
-        <td> Added Travis CI. . Thanks to mgrigorov.</td>
+        <td> Added Travis CI. Thanks to mgrigorov.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Don't leak classes via Stop.STOP_ALL stack trace. . Thanks to donnerpeter.</td>
+        <td> Don't leak classes via Stop.STOP_ALL stack trace. Thanks to donnerpeter.</td>
         <td>cbrisson</td>
       </tr>
     </tbody>
@@ -366,90 +442,90 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td/>
-        <td> Deprecated 2.1 flag <code> velocimacro.arguments.preserve_literals </code> in favor of the new <code> valocimacro_enable_bc_mode </code> flag, which will also, like 1.7 does, use global context values as defaults for missing macro arguments which do not have an explicit default value. . </td>
+        <td> Deprecated 2.1 flag <code> velocimacro.arguments.preserve_literals </code> in favor of the new <code> valocimacro_enable_bc_mode </code> flag, which will also, like 1.7 does, use global context values as defaults for missing macro arguments which do not have an explicit default value. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed regression: Macro arguments names cannot collide with external references names . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-926">VELOCITY-926</a>. </td>
+        <td> Fixed regression: Macro arguments names cannot collide with external references names Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-926">VELOCITY-926</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed macro calls without parenthesis eating the following newline in BC mode . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-925">VELOCITY-925</a>. </td>
+        <td> Fixed macro calls without parenthesis eating the following newline in BC mode Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-925">VELOCITY-925</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed bad cache handling for java.lang.Class methods . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-924">VELOCITY-924</a>. </td>
+        <td> Fixed bad cache handling for java.lang.Class methods Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-924">VELOCITY-924</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed parser regression when || follow a Velocity expression . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-923">VELOCITY-923</a>. </td>
+        <td> Fixed parser regression when || follow a Velocity expression Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-923">VELOCITY-923</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added BigInteger and BigDecimal implicit conversions . </td>
+        <td> Added BigInteger and BigDecimal implicit conversions </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed abnormal suppression of zero-width whitespaces . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-919">VELOCITY-919</a>. </td>
+        <td> Fixed abnormal suppression of zero-width whitespaces Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-919">VELOCITY-919</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added an example of how to build a customized parser where the '#', '$', '*' and '@' can be replaced by any character . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-917">VELOCITY-917</a>. </td>
+        <td> Added an example of how to build a customized parser where the '#', '$', '*' and '@' can be replaced by any character Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-917">VELOCITY-917</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added the <code> runtime.log.track_locations </code> debugging flag (disabled by default), which: <ul>  <li> display a VTL stack trace on any error </li>  <li> Implement template location tracking with slf4j MDC tags: Once activated, an MDC-aware logger will be able to display the <code> file </code> , <code> line </code> and <code> column </code> MDC tags </li>  </ul>  . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-916">VELOCITY-916</a>. </td>
+        <td> Added the <code> runtime.log.track_locations </code> debugging flag (disabled by default), which: <ul>  <li> display a VTL stack trace on any error </li>  <li> Implement template location tracking with slf4j MDC tags: Once activated, an MDC-aware logger will be able to display the <code> file </code> , <code> line </code> and <code> column </code> MDC tags </li>  </ul>  Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-916">VELOCITY-916</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added the following 1.7.x backward compatibility flags: <ul>  <li><code> event_handler.invalid_references.quiet </code> - warn on invalid quiet references </li>  <li><code> event_handler.invalid_references.null </code> - warn on null references </li>  <li><code> event_handler.invalid_references.tested </code> - warn on invalid references tested with <code> #if() </code></li>  </ul> Those three flags are false by default, but can be set to true to mimic 1.7.x behavior . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-915">VELOCITY-915</a>. </td>
+        <td> Added the following 1.7.x backward compatibility flags: <ul>  <li><code> event_handler.invalid_references.quiet </code> - warn on invalid quiet references </li>  <li><code> event_handler.invalid_references.null </code> - warn on null references </li>  <li><code> event_handler.invalid_references.tested </code> - warn on invalid references tested with <code> #if() </code></li>  </ul> Those three flags are false by default, but can be set to true to mimic 1.7.x behavior Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-915">VELOCITY-915</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Introspection: favor non-vararg methods on ambiguities as does the Java compiler . </td>
+        <td> Introspection: favor non-vararg methods on ambiguities as does the Java compiler </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Also allow hyphen in subproperties when the corresponding backward compatibility flag is on . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-912">VELOCITY-912</a>. </td>
+        <td> Also allow hyphen in subproperties when the corresponding backward compatibility flag is on Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-912">VELOCITY-912</a>. </td>
         <td>cbrisson</td>
       </tr>
     </tbody>
@@ -460,7 +536,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -468,98 +544,98 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Reorganization of configuration properties key names, for clarity and consistency, see the <a href="configuration-property-changes-in-2.1.html"> table of correspondance </a>  . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-909">VELOCITY-909</a>. </td>
+        <td> Reorganization of configuration properties key names, for clarity and consistency, see the <a href="configuration-property-changes-in-2.1.html"> table of correspondance </a>  Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-909">VELOCITY-909</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Rendering of arrays should display their content, as for lists . </td>
+        <td> Rendering of arrays should display their content, as for lists </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Enhance space gobbling ("lines" mode): do not eat ending newline when directive doesn't start after a newline . </td>
+        <td> Enhance space gobbling ("lines" mode): do not eat ending newline when directive doesn't start after a newline </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix unary negate . </td>
+        <td> Fix unary negate </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Deprecate the Class to Class CoversionHandler in favor of a Class to Type TypeConversionHandler, which allows to specity converters towards generic types specializations. The minimum JDK is now 1.8 . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-892">VELOCITY-892</a>. </td>
+        <td> Deprecate the Class to Class CoversionHandler in favor of a Class to Type TypeConversionHandler, which allows to specity converters towards generic types specializations. The minimum JDK is now 1.8 Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-892">VELOCITY-892</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Rely on Locale.ROOT for lowercase/uppercase operations . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-908">VELOCITY-908</a>. </td>
+        <td> Rely on Locale.ROOT for lowercase/uppercase operations Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-908">VELOCITY-908</a>. </td>
         <td>michaelo</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added the <code> velocimacro.preserve.arguments.literals </code> flag (false by default), for backward compatibility. When true, for any macro argument that evaluates to null, the macro will display the provided argument literal representation instead of the literal argument reference . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-904">VELOCITY-904</a>. </td>
+        <td> Added the <code> velocimacro.preserve.arguments.literals </code> flag (false by default), for backward compatibility. When true, for any macro argument that evaluates to null, the macro will display the provided argument literal representation instead of the literal argument reference Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-904">VELOCITY-904</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Default block for empty loops: <code> #foreach($i in []) loop block #else empty #end </code>  . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-903">VELOCITY-903</a>. </td>
+        <td> Default block for empty loops: <code> #foreach($i in []) loop block #else empty #end </code>  Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-903">VELOCITY-903</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Include proper OSGi bundle informations in manifest files . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-888">VELOCITY-888</a>. </td>
+        <td> Include proper OSGi bundle informations in manifest files Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-888">VELOCITY-888</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Alternate reference values: <code> ${foo|'foo'} </code> evaluates to false whenever boolean evaluation of $foo is false . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-898">VELOCITY-898</a>. </td>
+        <td> Alternate reference values: <code> ${foo|'foo'} </code> evaluates to false whenever boolean evaluation of $foo is false Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-898">VELOCITY-898</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix parser regression in #macro whitespaces handling . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-889">VELOCITY-889</a>. </td>
+        <td> Fix parser regression in #macro whitespaces handling Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-889">VELOCITY-889</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added a new 'parser.allow_hypen_in_identifiers' boolean property (false per default) to (dis)allow '-' in reference identifiers . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-542">VELOCITY-542</a>. </td>
+        <td> Added a new 'parser.allow_hypen_in_identifiers' boolean property (false per default) to (dis)allow '-' in reference identifiers Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-542">VELOCITY-542</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix parsing of a terminal hash or dollar sign in sing litteral and template . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-896">VELOCITY-896</a>. </td>
+        <td> Fix parsing of a terminal hash or dollar sign in sing litteral and template Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-896">VELOCITY-896</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Implicit conversion to numbers in integer ranges . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-895">VELOCITY-895</a>. </td>
+        <td> Implicit conversion to numbers in integer ranges Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-895">VELOCITY-895</a>. </td>
         <td>cbrisson</td>
       </tr>
     </tbody>
@@ -570,7 +646,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -578,392 +654,392 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix DataSourceResourceLoader for UTF-8 correct handling in VARCHAR/CLOB columns, and for connection / statement / result set life cycle . </td>
+        <td> Fix DataSourceResourceLoader for UTF-8 correct handling in VARCHAR/CLOB columns, and for connection / statement / result set life cycle </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Allow expressions inside []: <code> $foo[$bar + 1] </code>  . </td>
+        <td> Allow expressions inside []: <code> $foo[$bar + 1] </code>  </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> New strategy for reference boolean evaluation: <ol>  <li> return false for a null object </li>  <li> return its value for a Boolean object, or the result of the <code> getAsBoolean() </code> method if it exists. </li>  <li> if <code> directive.if.emptycheck </code> is false (true by default), stop here and return true. </li>  <li> check for emptiness: <ul>  <li> return whether an array is empty. </li>  <li> return whether <code> isEmpty() </code> is false (covers String and all Collection classes). </li>  <li> return whether <code> length() </code> is zero (covers CharSequence classes other than String). </li>  <li> returns whether <code> size() </code> is zero. </li>  <li> return whether a Number <b> strictly </b> equals zero. </li>  </ul>  </li>  <li> check for emptiness after explicit conversion methods: <ul>  <li> return whether the result of <code> getAsString() </code> is empty (and false for a null result) if it exists. </li>  <li> return whether the result of <code> getAsNumber() </code>  <b> strictly </b> equals zero (and false for a null result) if it exists. </li>  </ul>  </li>  </ol>  . </td>
+        <td> New strategy for reference boolean evaluation: <ol>  <li> return false for a null object </li>  <li> return its value for a Boolean object, or the result of the <code> getAsBoolean() </code> method if it exists. </li>  <li> if <code> directive.if.emptycheck </code> is false (true by default), stop here and return true. </li>  <li> check for emptiness: <ul>  <li> return whether an array is empty. </li>  <li> return whether <code> isEmpty() </code> is false (covers String and all Collection classes). </li>  <li> return whether <code> length() </code> is zero (covers CharSequence classes other than String). </li>  <li> returns whether <code> size() </code> is zero. </li>  <li> return whether a Number <b> strictly </b> equals zero. </li>  </ul>  </li>  <li> check for emptiness after explicit conversion methods: <ul>  <li> return whether the result of <code> getAsString() </code> is empty (and false for a null result) if it exists. </li>  <li> return whether the result of <code> getAsNumber() </code>  <b> strictly </b> equals zero (and false for a null result) if it exists. </li>  </ul>  </li>  </ol>  </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Reviewed event handling API: <ul>  <li> added a Context argument for all events </li>  <li> got rid of the Executor pattern ; event handlers are directly called by the cartridge </li>  </ul>  . </td>
+        <td> Reviewed event handling API: <ul>  <li> added a Context argument for all events </li>  <li> got rid of the Executor pattern ; event handlers are directly called by the cartridge </li>  </ul>  </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Removed references to ExtProperties from the engine configuration API. . </td>
+        <td> Removed references to ExtProperties from the engine configuration API. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Default encoding is now UTF-8. . </td>
+        <td> Default encoding is now UTF-8. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Make Velocity use the base logger namespace 'org.apache.velocity' unless specified with runtime.log.name in the configuration, and have the runtime instance log with this base namespace, and other modules log with children namespaces: <ul>  <li> directive, and velocity.directive.[directivename] </li>  <li> parser </li>  <li> loader and loader.[loadername] </li>  <li> macro </li>  <li> rendering </li>  <li> event </li>  </ul> Get rid of UberspectLoggable interface. . </td>
+        <td> Make Velocity use the base logger namespace 'org.apache.velocity' unless specified with runtime.log.name in the configuration, and have the runtime instance log with this base namespace, and other modules log with children namespaces: <ul>  <li> directive, and velocity.directive.[directivename] </li>  <li> parser </li>  <li> loader and loader.[loadername] </li>  <li> macro </li>  <li> rendering </li>  <li> event </li>  </ul> Get rid of UberspectLoggable interface. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added unary negate math operator . </td>
+        <td> Added unary negate math operator </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add a configurable space gobbling feature, to control indentation in the generated code. <br/> Possible values for the 'space.gobbling' configuration key: <ul>  <li><code> none </code> : no space gobbling at all </li>  <li><code> bc </code> : Velocity 1.x backward compatible space gobbling </li>  <li><code> lines </code> (the default) : gobbles whitespaces and endline from lines containing a single VTL directive </li>  <li><code> structured </code> : like 'lines', but also fixes indentation in children text blocks </li>  </ul>  . </td>
+        <td> Add a configurable space gobbling feature, to control indentation in the generated code. <br/> Possible values for the 'space.gobbling' configuration key: <ul>  <li><code> none </code> : no space gobbling at all </li>  <li><code> bc </code> : Velocity 1.x backward compatible space gobbling </li>  <li><code> lines </code> (the default) : gobbles whitespaces and endline from lines containing a single VTL directive </li>  <li><code> structured </code> : like 'lines', but also fixes indentation in children text blocks </li>  </ul>  </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> added a new pluggable ConversionHandler class which, by default, converts method arguments as needed between main basic Java data types (boolean, numbers and strings) . </td>
+        <td> added a new pluggable ConversionHandler class which, by default, converts method arguments as needed between main basic Java data types (boolean, numbers and strings) </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> added a runtime.string.interning option to trigger Java String interning on or off . </td>
+        <td> added a runtime.string.interning option to trigger Java String interning on or off </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Applied Jarkko memory-saving patch which frees tokens while parsing. Macros now use a call by sharing convention. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-841">VELOCITY-841</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Applied Jarkko memory-saving patch which frees tokens while parsing. Macros now use a call by sharing convention. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-841">VELOCITY-841</a>. Thanks to Jarkko Viinamäki.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> support $array.empty, as for $list.empty . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-843">VELOCITY-843</a>. </td>
+        <td> support $array.empty, as for $list.empty Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-843">VELOCITY-843</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> avoid useless string calculation in ASTStringLiteral . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-833">VELOCITY-833</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> avoid useless string calculation in ASTStringLiteral Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-833">VELOCITY-833</a>. Thanks to Jarkko Viinamäki.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> nicified AST tree debug output . </td>
+        <td> nicified AST tree debug output </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> fix parsing of $obj._method() . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-830">VELOCITY-830</a>. </td>
+        <td> fix parsing of $obj._method() Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-830">VELOCITY-830</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> loading default properties should not prepend '/' and should use classloader to get resource stream . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-827">VELOCITY-827</a>. Thanks to Dawid Weiss.</td>
+        <td> loading default properties should not prepend '/' and should use classloader to get resource stream Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-827">VELOCITY-827</a>. Thanks to Dawid Weiss.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Allow conversion of method args from String to Enum constant . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-825">VELOCITY-825</a>. </td>
+        <td> Allow conversion of method args from String to Enum constant Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-825">VELOCITY-825</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Applied performance patch for MapGetExecutor: it's faster to directly use object instance rather than to inspect all public interfaces . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-815">VELOCITY-815</a>. Thanks to Oswaldo Hernandez.</td>
+        <td> Applied performance patch for MapGetExecutor: it's faster to directly use object instance rather than to inspect all public interfaces Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-815">VELOCITY-815</a>. Thanks to Oswaldo Hernandez.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> The new configuration property context.autoreference.key, if present, allows to specify the name of the reference under which the context is accessible in itself . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-799">VELOCITY-799</a>. </td>
+        <td> The new configuration property context.autoreference.key, if present, allows to specify the name of the reference under which the context is accessible in itself Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-799">VELOCITY-799</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> MethodExceptionEventHandler now provide template location infos . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-746">VELOCITY-746</a>. </td>
+        <td> MethodExceptionEventHandler now provide template location infos Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-746">VELOCITY-746</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Attach macros to their defining template. Also fixes VELOCITY-776. Thanks to Simon Kitching for the multithreading testcase. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-797">VELOCITY-797</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Attach macros to their defining template. Also fixes VELOCITY-776. Thanks to Simon Kitching for the multithreading testcase. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-797">VELOCITY-797</a>. Thanks to Jarkko Viinamäki.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> have #foreach honnor the Closeable interface on the iterator . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-820">VELOCITY-820</a>. Thanks to Robert Fuller.</td>
+        <td> have #foreach honnor the Closeable interface on the iterator Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-820">VELOCITY-820</a>. Thanks to Robert Fuller.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Don't leave 'initializing' to true if a problem occurs during initialization. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-804">VELOCITY-804</a>. Thanks to Felipe Maschio.</td>
+        <td> Don't leave 'initializing' to true if a problem occurs during initialization. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-804">VELOCITY-804</a>. Thanks to Felipe Maschio.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Remove dependency upon commons-collections-3 (except at compile-time for deprecated methods and classes which are needed for backward compatibility), use our own ExtProperties object. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-790">VELOCITY-790</a>. </td>
+        <td> Remove dependency upon commons-collections-3 (except at compile-time for deprecated methods and classes which are needed for backward compatibility), use our own ExtProperties object. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-790">VELOCITY-790</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add a first implementation for the JSR 223 standard scripting interface. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-735">VELOCITY-735</a>. Thanks to Dishara Wijewardana.</td>
+        <td> Add a first implementation for the JSR 223 standard scripting interface. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-735">VELOCITY-735</a>. Thanks to Dishara Wijewardana.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix Template default encoding initialization problem. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-809">VELOCITY-809</a>. </td>
+        <td> Fix Template default encoding initialization problem. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-809">VELOCITY-809</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> The ResourceLoader API now provides a Reader rather than an InputStream. Also fixes VELOCITY-599. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-793">VELOCITY-793</a>. </td>
+        <td> The ResourceLoader API now provides a Reader rather than an InputStream. Also fixes VELOCITY-599. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-793">VELOCITY-793</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> InvalidReferenceHandler events should not be triggered by quiet references, null values, or by references testing inside #if / #elseif. Thanks to Renato Steiner for his testcase. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-553">VELOCITY-553</a>. </td>
+        <td> InvalidReferenceHandler events should not be triggered by quiet references, null values, or by references testing inside #if / #elseif. Thanks to Renato Steiner for his testcase. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-553">VELOCITY-553</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Take advantage of the major version jump to enforce String keys in internal Context API . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-266">VELOCITY-266</a>. </td>
+        <td> Take advantage of the major version jump to enforce String keys in internal Context API Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-266">VELOCITY-266</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix regression: #set&lt;tab&gt;left-paren no longer valid grammar Patch from Mike Kienenberger applied + added test . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-863">VELOCITY-863</a>. Thanks to Mike Kienenberger.</td>
+        <td> Fix regression: #set&lt;tab&gt;left-paren no longer valid grammar Patch from Mike Kienenberger applied + added test Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-863">VELOCITY-863</a>. Thanks to Mike Kienenberger.</td>
         <td>sdumitriu</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> switch to slf4j logging facade . </td>
+        <td> switch to slf4j logging facade </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> fix parser for '$map{key}' text rendering (StackOverflow 32805217) . </td>
+        <td> fix parser for '$map{key}' text rendering (StackOverflow 32805217) </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Vulnerability in dependency: commons-collections: 3.2.1 . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-869">VELOCITY-869</a>. </td>
+        <td> Vulnerability in dependency: commons-collections: 3.2.1 Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-869">VELOCITY-869</a>. </td>
         <td>sdumitriu</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Exception displayed when trying to loop over an Iterable private class . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-870">VELOCITY-870</a>. </td>
+        <td> Exception displayed when trying to loop over an Iterable private class Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-870">VELOCITY-870</a>. </td>
         <td>sdumitriu</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> #foreach should work over any Iterable class . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-871">VELOCITY-871</a>. </td>
+        <td> #foreach should work over any Iterable class Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-871">VELOCITY-871</a>. </td>
         <td>sdumitriu</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Catch exceptions raised during chainable uberspector initialization . </td>
+        <td> Catch exceptions raised during chainable uberspector initialization </td>
         <td>sdumitriu</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Hypen is no more allowed in variable names . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-542">VELOCITY-542</a>. </td>
+        <td> Hypen is no more allowed in variable names Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-542">VELOCITY-542</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Method arguments can now be expressions . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-706">VELOCITY-706</a>. </td>
+        <td> Method arguments can now be expressions Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-706">VELOCITY-706</a>. </td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Parser generation from the .jjt file is now handled by Maven . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-819">VELOCITY-819</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Parser generation from the .jjt file is now handled by Maven Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-819">VELOCITY-819</a>. Thanks to Jarkko Viinamäki.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add a public fields Uberspector . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-12">VELOCITY-12</a>. Thanks to Candid Dauth.</td>
+        <td> Add a public fields Uberspector Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-12">VELOCITY-12</a>. Thanks to Candid Dauth.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Support query modification in DataSourceResourceLoader . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-814">VELOCITY-814</a>. Thanks to Darren Cruse.</td>
+        <td> Support query modification in DataSourceResourceLoader Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-814">VELOCITY-814</a>. Thanks to Darren Cruse.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add clear() to ResourceCache . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-813">VELOCITY-813</a>. Thanks to Oswaldo Hernandez.</td>
+        <td> Add clear() to ResourceCache Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-813">VELOCITY-813</a>. Thanks to Oswaldo Hernandez.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Make #if() return false for empty strings and empty collections . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-692">VELOCITY-692</a>. </td>
+        <td> Make #if() return false for empty strings and empty collections Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-692">VELOCITY-692</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add SLF4J logging option . </td>
+        <td> Add SLF4J logging option </td>
         <td>apetrelli</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Use Maven 2 as build system . </td>
+        <td> Use Maven 2 as build system </td>
         <td>apetrelli</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed quotes escaping so that doubling single quotes only works when enclosing quotes are single quotes (and same behaviour for double quotes) . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-785">VELOCITY-785</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Fixed quotes escaping so that doubling single quotes only works when enclosing quotes are single quotes (and same behaviour for double quotes) Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-785">VELOCITY-785</a>. Thanks to Jarkko Viinamäki.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Removed all remaining "throws Exception" clauses and the now useless ExceptionUtils class. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-751">VELOCITY-751</a>. </td>
+        <td> Removed all remaining "throws Exception" clauses and the now useless ExceptionUtils class. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-751">VELOCITY-751</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Remove directive.if.tostring.nullcheck crutch with intent to replace testing of toString() null status with support for toBoolean() (or similar) method on objects being "#if'd". . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-731">VELOCITY-731</a>. </td>
+        <td> Remove directive.if.tostring.nullcheck crutch with intent to replace testing of toString() null status with support for toBoolean() (or similar) method on objects being "#if'd". Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-731">VELOCITY-731</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Remove directive.set.null.allowed and instead always allow null to be #set to references. This also means removing all NullSetEventHandler code, since it was only in play when nulls were not allowed to be #set. . </td>
+        <td> Remove directive.set.null.allowed and instead always allow null to be #set to references. This also means removing all NullSetEventHandler code, since it was only in play when nulls were not allowed to be #set. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Remove features deprecated in 1.7 ($velocityCount, $velocityHasNext, velocimacro.context.localscope, directive.evaluate.context.class and all internal supporting code (ProxyVMContext, EvaluateContext, etc). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-704">VELOCITY-704</a>. </td>
+        <td> Remove features deprecated in 1.7 ($velocityCount, $velocityHasNext, velocimacro.context.localscope, directive.evaluate.context.class and all internal supporting code (ProxyVMContext, EvaluateContext, etc). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-704">VELOCITY-704</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add ability to specify default values for macro parameters, e.g.; #macro(foo bar=1) . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-697">VELOCITY-697</a>. </td>
+        <td> Add ability to specify default values for macro parameters, e.g.; #macro(foo bar=1) Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-697">VELOCITY-697</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add ability to place line comments next to macro parameter definitions. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-695">VELOCITY-695</a>. </td>
+        <td> Add ability to place line comments next to macro parameter definitions. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-695">VELOCITY-695</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Block directives no longer require parenthesis so #@foo #end is now allowed. Also, brackets now work with Block Macros so #{@foo}bar#end works. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-690">VELOCITY-690</a>. </td>
+        <td> Block directives no longer require parenthesis so #@foo #end is now allowed. Also, brackets now work with Block Macros so #{@foo}bar#end works. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-690">VELOCITY-690</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Removed all deprecations (Anakia, Texen, VelocityServlet, etc.) . </td>
+        <td> Removed all deprecations (Anakia, Texen, VelocityServlet, etc.) </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Changed macro arguments to be pass by value. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-687">VELOCITY-687</a>. </td>
+        <td> Changed macro arguments to be pass by value. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-687">VELOCITY-687</a>. </td>
         <td>byron</td>
       </tr>
     </tbody>
@@ -974,7 +1050,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -982,35 +1058,35 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed quotes escaping so that doubling single quotes only works when enclosing quotes are single quotes (and same behaviour for double quotes) . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-785">VELOCITY-785</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Fixed quotes escaping so that doubling single quotes only works when enclosing quotes are single quotes (and same behaviour for double quotes) Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-785">VELOCITY-785</a>. Thanks to Jarkko Viinamäki.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add access to template and directive debugging info via $/scope/.info. . </td>
+        <td> Add access to template and directive debugging info via $/scope/.info. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> LogManager now catches UnsupportedOperationExceptions during LogChute init. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-766">VELOCITY-766</a>. </td>
+        <td> LogManager now catches UnsupportedOperationExceptions during LogChute init. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-766">VELOCITY-766</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Ensure that DataSourceResourceLoader closes PreparedStatements. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-760">VELOCITY-760</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Ensure that DataSourceResourceLoader closes PreparedStatements. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-760">VELOCITY-760</a>. Thanks to Jarkko Viinamäki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Mark optional dependencies as such in OSGi bundle manifest. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-753">VELOCITY-753</a>. Thanks to Matt Ryall.</td>
+        <td> Mark optional dependencies as such in OSGi bundle manifest. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-753">VELOCITY-753</a>. Thanks to Matt Ryall.</td>
         <td>nbubna</td>
       </tr>
     </tbody>
@@ -1021,7 +1097,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1029,217 +1105,217 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add support for OSGi-ready manifests in build/release tasks. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-694">VELOCITY-694</a>. </td>
+        <td> Add support for OSGi-ready manifests in build/release tasks. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-694">VELOCITY-694</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> When comparing parameter types during method mapping, make Object always less specific than other types. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-753">VELOCITY-753</a>. </td>
+        <td> When comparing parameter types during method mapping, make Object always less specific than other types. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-753">VELOCITY-753</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Avoid NPEs in case of bad #foreach config. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-759">VELOCITY-759</a>. Thanks to Rachid.</td>
+        <td> Avoid NPEs in case of bad #foreach config. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-759">VELOCITY-759</a>. Thanks to Rachid.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Use LinkedHashMap to maintain order of VTL-created maps. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-755">VELOCITY-755</a>. </td>
+        <td> Use LinkedHashMap to maintain order of VTL-created maps. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-755">VELOCITY-755</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Treat \ as non-special in string literals, except when specifying unicode sequences. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-555">VELOCITY-555</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Treat \ as non-special in string literals, except when specifying unicode sequences. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-555">VELOCITY-555</a>. Thanks to Jarkko Viinamäki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Allow escaping of quotes (single or double) within string literals by doubling them ("" or ''). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-555">VELOCITY-555</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Allow escaping of quotes (single or double) within string literals by doubling them ("" or ''). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-555">VELOCITY-555</a>. Thanks to Jarkko Viinamäki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Give #parse better log/exception messages and give IncludeEventHandler a chance to handle null #parse args. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-758">VELOCITY-758</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Give #parse better log/exception messages and give IncludeEventHandler a chance to handle null #parse args. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-758">VELOCITY-758</a>. Thanks to Jarkko Viinamäki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix $.x parsing failures (particularly helpful for jQuery users). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-754,VELOCITY-729">VELOCITY-754,VELOCITY-729</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Fix $.x parsing failures (particularly helpful for jQuery users). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-754,VELOCITY-729">VELOCITY-754,VELOCITY-729</a>. Thanks to Jarkko Viinamäki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Log Velocimacro additions at debug level, as in pre-1.6 versions. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-744">VELOCITY-744</a>. </td>
+        <td> Log Velocimacro additions at debug level, as in pre-1.6 versions. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-744">VELOCITY-744</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add removeDirective(name) and loadDirective(classname) methods to allow runtime changes to the directive set. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-742">VELOCITY-742</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Add removeDirective(name) and loadDirective(classname) methods to allow runtime changes to the directive set. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-742">VELOCITY-742</a>. Thanks to Jarkko Viinamäki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Throw an informative VelocityException when #define is given no parameter (instead of an ArrayIndexOutOfBoundsException). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-727">VELOCITY-727</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Throw an informative VelocityException when #define is given no parameter (instead of an ArrayIndexOutOfBoundsException). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-727">VELOCITY-727</a>. Thanks to Jarkko Viinamäki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Throw an informative VelocityException when #parse is given no args (instead of an NPE). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-728">VELOCITY-728</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Throw an informative VelocityException when #parse is given no args (instead of an NPE). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-728">VELOCITY-728</a>. Thanks to Jarkko Viinamäki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Changed #stop to a directive implementation (get it out of the parser) and allow it to accept a message as an argument to be written to the logs for debugging purposes. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-704">VELOCITY-704</a>. </td>
+        <td> Changed #stop to a directive implementation (get it out of the parser) and allow it to accept a message as an argument to be written to the logs for debugging purposes. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-704">VELOCITY-704</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Change the scoping behavior of Velocity, keeping it optional (everything global scoped by default) but now providing an explicit namespace in content-containing directives (like macros, #foreach, #parse, etc.) in which references that should stay local may be kept. This is accompanied by numerous related changes, including: &lt;ul&gt; &lt;li&gt;A Scope reference can now be automatically made available within each content directive: &lt;ul&gt; &lt;li&gt;$template in Template.merge and #parse content&lt;li&gt; &lt;li&gt;$macro in #macro&lt;/li&gt; &lt;li&gt;$foreach in #foreach&lt;/li&gt; &lt;li&gt;$evaluate in #evaluate or Velocity.evaluate(...) content&lt;/li&gt; &lt;li&gt;$define in #define&lt;/li&gt; &lt;li&gt;$&amp;lt;amacro&amp;gt; in #@&amp;lt;amacro&amp;gt; (where &amp;lt;amacro&amp;gt; is the name of a macro being called with a body)&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;For performance and compatibility these are all off by default, *except* for $foreach. The others may be enabled by setting a velocity property like: &lt;br/&gt;&lt;code&gt;macro.provide.scope.control = true&lt;/code&gt;&lt;/li&gt; &lt;li&gt;When scopes of the same type are nested make the parent Scope available through the child (e.g. $foreach.parent or $foreach.topmost).&lt;/li&gt; &lt;li&gt;When a Scope reference overrides an existing reference that is not a Scope, make it available through the Scope (e.g. $foreach.replaced).&lt;/li&gt; &lt;li&gt;Made #break work in any of the above scopes to exit the most immediate one, unless a different scope is provided as an argument (e.g. #break($macro) or #break($foreach.topmost)).&lt;/li&gt; &lt;li&gt;Deprecated $velocityCount; please use $foreach.count or $foreach.index.&lt;/li&gt; &lt;li&gt;Deprecated $velocityHasNext; please use $foreach.hasNext, $foreach.first or $foreach.last&lt;/li&gt; &lt;li&gt;Deprecated velocimacro.context.localscope setting; please get/set local #macro references as members of the provided $macro scope control instead. (e.g. #set( $macro.foo = 'bar' ) and $macro.foo ).&lt;/li&gt; &lt;li&gt;Deprecated directive.evaluate.context.class setting; please get/set local #evaluate references as members of the provided $evaluate scope control instead. (e.g. #set( $evaluate.foo = 'bar' ) and $evaluate.foo ).&lt;/li&gt; &lt;/ul&gt; All of the deprecated features will be removed in Velocity 2.0. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-704">VELOCITY-704</a>. </td>
+        <td> Change the scoping behavior of Velocity, keeping it optional (everything global scoped by default) but now providing an explicit namespace in content-containing directives (like macros, #foreach, #parse, etc.) in which references that should stay local may be kept. This is accompanied by numerous related changes, including: &lt;ul&gt; &lt;li&gt;A Scope reference can now be automatically made available within each content directive: &lt;ul&gt; &lt;li&gt;$template in Template.merge and #parse content&lt;li&gt; &lt;li&gt;$macro in #macro&lt;/li&gt; &lt;li&gt;$foreach in #foreach&lt;/li&gt; &lt;li&gt;$evaluate in #evaluate or Velocity.evaluate(...) content&lt;/li&gt; &lt;li&gt;$define in #define&lt;/li&gt; &lt;li&gt;$&amp;lt;amacro&amp;gt; in #@&amp;lt;amacro&amp;gt; (where &amp;lt;amacro&amp;gt; is the name of a macro being called with a body)&lt;/li&gt; &lt;/ul&gt; &lt;/li&gt; &lt;li&gt;For performance and compatibility these are all off by default, *except* for $foreach. The others may be enabled by setting a velocity property like: &lt;br/&gt;&lt;code&gt;macro.provide.scope.control = true&lt;/code&gt;&lt;/li&gt; &lt;li&gt;When scopes of the same type are nested make the parent Scope available through the child (e.g. $foreach.parent or $foreach.topmost).&lt;/li&gt; &lt;li&gt;When a Scope reference overrides an existing reference that is not a Scope, make it available through the Scope (e.g. $foreach.replaced).&lt;/li&gt; &lt;li&gt;Made #break work in any of the above scopes to exit the most immediate one, unless a different scope is provided as an argument (e.g. #break($macro) or #break($foreach.topmost)).&lt;/li&gt; &lt;li&gt;Deprecated $velocityCount; please use $foreach.count or $foreach.index.&lt;/li&gt; &lt;li&gt;Deprecated $velocityHasNext; please use $foreach.hasNext, $foreach.first or $foreach.last&lt;/li&gt; &lt;li&gt;Deprecated velocimacro.context.localscope setting; please get/set local #macro references as members of the provided $macro scope control instead. (e.g. #set( $macro.foo = 'bar' ) and $macro.foo ).&lt;/li&gt; &lt;li&gt;Deprecated directive.evaluate.context.class setting; please get/set local #evaluate references as members of the provided $evaluate scope control instead. (e.g. #set( $evaluate.foo = 'bar' ) and $evaluate.foo ).&lt;/li&gt; &lt;/ul&gt; All of the deprecated features will be removed in Velocity 2.0. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-704">VELOCITY-704</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Calling #set on a macro argument (for which a #set-able reference was passed) will no longer propagate the new value to the original reference, but merely set the value of the macro argument reference. This was an obscure, infrequently used feature and was decided to be more problematic and unpredictable than useful. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-681">VELOCITY-681</a>. </td>
+        <td> Calling #set on a macro argument (for which a #set-able reference was passed) will no longer propagate the new value to the original reference, but merely set the value of the macro argument reference. This was an obscure, infrequently used feature and was decided to be more problematic and unpredictable than useful. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-681">VELOCITY-681</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> In strict mode attempts to render references that evaluate to null will throw an exception. In the user wishes to suppress the exception and render nothing then the reference can be preceeded with '$!' as in $!foo. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-688">VELOCITY-688</a>. </td>
+        <td> In strict mode attempts to render references that evaluate to null will throw an exception. In the user wishes to suppress the exception and render nothing then the reference can be preceeded with '$!' as in $!foo. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-688">VELOCITY-688</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> The non default VelocityEngine construtors now do not initialize the runtime system so that properties may be set after construction. Also fixes an Initialization race condition. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-673">VELOCITY-673</a>. </td>
+        <td> The non default VelocityEngine construtors now do not initialize the runtime system so that properties may be set after construction. Also fixes an Initialization race condition. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-673">VELOCITY-673</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Make velocimacro.arguments.strict=true work with block macros. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-685">VELOCITY-685</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Make velocimacro.arguments.strict=true work with block macros. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-685">VELOCITY-685</a>. Thanks to Jarkko Viinamäki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added a property for changing escape behavior such that putting a forward slash before a reference or macro always escapes the reference or macro and absorbs the forward slash regardless if the reference or macro is defined. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-623">VELOCITY-623</a>. </td>
+        <td> Added a property for changing escape behavior such that putting a forward slash before a reference or macro always escapes the reference or macro and absorbs the forward slash regardless if the reference or macro is defined. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-623">VELOCITY-623</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix StringIndexOutOfBoundsException caused by #[[##x]]# (line comment on same line as end of textblock). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-676">VELOCITY-676</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Fix StringIndexOutOfBoundsException caused by #[[##x]]# (line comment on same line as end of textblock). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-676">VELOCITY-676</a>. Thanks to Jarkko Viinamäki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix NPE caused by #@foo (w/o #end) in template. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-675">VELOCITY-675</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Fix NPE caused by #@foo (w/o #end) in template. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-675">VELOCITY-675</a>. Thanks to Jarkko Viinamäki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Minor performance tweaks based on Findbugs findings . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-668">VELOCITY-668</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Minor performance tweaks based on Findbugs findings Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-668">VELOCITY-668</a>. Thanks to Jarkko Viinamäki.</td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Pre 1.6 behavior of specifying #macro without parenthesis would throw a VelocityException has been restored. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-667">VELOCITY-667</a>. </td>
+        <td> Pre 1.6 behavior of specifying #macro without parenthesis would throw a VelocityException has been restored. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-667">VELOCITY-667</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add support for calling velocimacros with body content by prefixing the macro name with @. (e.g. #macro( bold )&lt;strong&gt;$bodyContent&lt;/strong&gt;#end #@bold()any valid VTL here#end) The $bodyContent reference may be renamed via a velocimacro.body.reference setting in your velocity.properties. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-666">VELOCITY-666</a>. Thanks to Jarkko Viinamaki.</td>
+        <td> Add support for calling velocimacros with body content by prefixing the macro name with @. (e.g. #macro( bold )&lt;strong&gt;$bodyContent&lt;/strong&gt;#end #@bold()any valid VTL here#end) The $bodyContent reference may be renamed via a velocimacro.body.reference setting in your velocity.properties. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-666">VELOCITY-666</a>. Thanks to Jarkko Viinamaki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Added #[[this is included in output but not parsed]]# syntax to replace and deprecate the much more limited #literal directive (which required parse-able content). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-661">VELOCITY-661</a>. Thanks to Jarkko Viinamaki.</td>
+        <td> Added #[[this is included in output but not parsed]]# syntax to replace and deprecate the much more limited #literal directive (which required parse-able content). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-661">VELOCITY-661</a>. Thanks to Jarkko Viinamaki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Re-implement #stop so that it stops template execution and rendering. This Also addresses a performance bottleneck detected in the old implementation. #stop is a general use directive now, and not just for debugging. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-663">VELOCITY-663</a>. </td>
+        <td> Re-implement #stop so that it stops template execution and rendering. This Also addresses a performance bottleneck detected in the old implementation. #stop is a general use directive now, and not just for debugging. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-663">VELOCITY-663</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Reduce performance bottleneck with the referenceInsert event handler call . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-662">VELOCITY-662</a>. </td>
+        <td> Reduce performance bottleneck with the referenceInsert event handler call Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-662">VELOCITY-662</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Better error reporting when toString() throw an exception when testing an #if conditional. For example #if($foo) . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-656">VELOCITY-656</a>. </td>
+        <td> Better error reporting when toString() throw an exception when testing an #if conditional. For example #if($foo) Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-656">VELOCITY-656</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added bracketed index syntax, $foo[0], or #set($foo[0] = 1) . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-406">VELOCITY-406</a>. </td>
+        <td> Added bracketed index syntax, $foo[0], or #set($foo[0] = 1) Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-406">VELOCITY-406</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Removed java.lang.Exception from throws clause of Velocity and VelocityEngine API. Also removed IOException so that all method calls use unchecked exceptions. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-659">VELOCITY-659</a>. </td>
+        <td> Removed java.lang.Exception from throws clause of Velocity and VelocityEngine API. Also removed IOException so that all method calls use unchecked exceptions. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-659">VELOCITY-659</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Removed obsolete WebMacro conversion tool and experimental Veltag (which has been replaced by VelocityViewTag from VelocityTools). . </td>
+        <td> Removed obsolete WebMacro conversion tool and experimental Veltag (which has been replaced by VelocityViewTag from VelocityTools). </td>
         <td>nbubna</td>
       </tr>
     </tbody>
@@ -1250,7 +1326,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1258,14 +1334,14 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix double-checked locking in RuntimeInstance's optional lazy-init. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-750">VELOCITY-750</a>. </td>
+        <td> Fix double-checked locking in RuntimeInstance's optional lazy-init. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-750">VELOCITY-750</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix 100% CPU loop hang under simultaneous HashMap calls in ClassMap due to classic bug in Sun's implementation. Now uses ConcurrentHashMap when available and Hashtable otherwise. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-718">VELOCITY-718</a>. </td>
+        <td> Fix 100% CPU loop hang under simultaneous HashMap calls in ClassMap due to classic bug in Sun's implementation. Now uses ConcurrentHashMap when available and Hashtable otherwise. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-718">VELOCITY-718</a>. </td>
         <td>nbubna</td>
       </tr>
     </tbody>
@@ -1276,7 +1352,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1284,7 +1360,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Add directive.if.tostring.nullcheck config switch to match past performance for those who do not need to check whether $foo.toString() returns null when doing #if( $foo ). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-731">VELOCITY-731</a>. Thanks to Jorgen Rydenius.</td>
+        <td> Add directive.if.tostring.nullcheck config switch to match past performance for those who do not need to check whether $foo.toString() returns null when doing #if( $foo ). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-731">VELOCITY-731</a>. Thanks to Jorgen Rydenius.</td>
         <td>nbubna</td>
       </tr>
     </tbody>
@@ -1295,7 +1371,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1303,84 +1379,84 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix obscure caching problem in multiple resource loader situations where resources may exist in more than one loader and appear and disappear from loaders. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-702">VELOCITY-702</a>. </td>
+        <td> Fix obscure caching problem in multiple resource loader situations where resources may exist in more than one loader and appear and disappear from loaders. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-702">VELOCITY-702</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix old regression from 1.4 in supporting methods declared as abstract in a public class but implemented in a non-public class. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-701">VELOCITY-701</a>. </td>
+        <td> Fix old regression from 1.4 in supporting methods declared as abstract in a public class but implemented in a non-public class. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-701">VELOCITY-701</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix problem with FileResourceLoader's resourceExists() when configured w/multiple paths. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-693">VELOCITY-693</a>. </td>
+        <td> Fix problem with FileResourceLoader's resourceExists() when configured w/multiple paths. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-693">VELOCITY-693</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix ClassMap introspection bug introduced in 1.5, where public super-interface methods implemented in protected or private classes were unreachable. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-689">VELOCITY-689</a>. </td>
+        <td> Fix ClassMap introspection bug introduced in 1.5, where public super-interface methods implemented in protected or private classes were unreachable. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-689">VELOCITY-689</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix regression in proxying of macro argument #set calls. Note that in 1.7, calling #set on a macro argument (for which a #set-able reference was passed) will not propagate the new value to the original reference, but merely set the value of the macro argument reference. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-681">VELOCITY-681</a>. </td>
+        <td> Fix regression in proxying of macro argument #set calls. Note that in 1.7, calling #set on a macro argument (for which a #set-able reference was passed) will not propagate the new value to the original reference, but merely set the value of the macro argument reference. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-681">VELOCITY-681</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix loss of inline macros when #evaluate is used. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-682">VELOCITY-682</a>. </td>
+        <td> Fix loss of inline macros when #evaluate is used. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-682">VELOCITY-682</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix name of sources jar for maven deployment. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-554">VELOCITY-554</a>. Thanks to Adrian Tarau.</td>
+        <td> Fix name of sources jar for maven deployment. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-554">VELOCITY-554</a>. Thanks to Adrian Tarau.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Pre 1.6 behavior of specifying #macro without parenthesis would throw a VelocityException has been restored. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-667">VELOCITY-667</a>. </td>
+        <td> Pre 1.6 behavior of specifying #macro without parenthesis would throw a VelocityException has been restored. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-667">VELOCITY-667</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Better error reporting when toString() throw an exception when testing an #if conditional. For example #if($foo) . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-656">VELOCITY-656</a>. </td>
+        <td> Better error reporting when toString() throw an exception when testing an #if conditional. For example #if($foo) Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-656">VELOCITY-656</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix $velocityHasNext so that it works in nested foreach blocks. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-658">VELOCITY-658</a>. Thanks to Jarkko Viinamäki.</td>
+        <td> Fix $velocityHasNext so that it works in nested foreach blocks. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-658">VELOCITY-658</a>. Thanks to Jarkko Viinamäki.</td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Throw an exception in strict mode when &gt;=, &lt;=, &lt; or &gt; comparisons can't be made. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-645">VELOCITY-645</a>. </td>
+        <td> Throw an exception in strict mode when &gt;=, &lt;=, &lt; or &gt; comparisons can't be made. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-645">VELOCITY-645</a>. </td>
         <td>byron</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix $velocityHasNext so it is not always true. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-657">VELOCITY-657</a>. </td>
+        <td> Fix $velocityHasNext so it is not always true. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-657">VELOCITY-657</a>. </td>
         <td>cbrisson</td>
       </tr>
     </tbody>
@@ -1391,7 +1467,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1399,28 +1475,28 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Correct/enhance template name reporting for #include and #parse. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-654">VELOCITY-654</a>. Thanks to Byron Foster.</td>
+        <td> Correct/enhance template name reporting for #include and #parse. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-654">VELOCITY-654</a>. Thanks to Byron Foster.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Removed redundant error message in ASTReference. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-653">VELOCITY-653</a>. Thanks to Byron Foster.</td>
+        <td> Removed redundant error message in ASTReference. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-653">VELOCITY-653</a>. Thanks to Byron Foster.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix limitation in new macro implementation that resisted #set calls to change references defined as arguments for the macro. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-615">VELOCITY-615</a>. Thanks to Steve O'Hara.</td>
+        <td> Fix limitation in new macro implementation that resisted #set calls to change references defined as arguments for the macro. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-615">VELOCITY-615</a>. Thanks to Steve O'Hara.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix vararg bugs when calling overloaded methods like get(String,String,Object[]) and get(String,List). (e.g. in VelocityStruts' MessageTool) . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-651">VELOCITY-651</a>. Thanks to Stephan Schmid.</td>
+        <td> Fix vararg bugs when calling overloaded methods like get(String,String,Object[]) and get(String,List). (e.g. in VelocityStruts' MessageTool) Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-651">VELOCITY-651</a>. Thanks to Stephan Schmid.</td>
         <td>nbubna</td>
       </tr>
     </tbody>
@@ -1431,7 +1507,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1439,63 +1515,63 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix NPE when null value is passed to array/vararg method. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-649">VELOCITY-649</a>. Thanks to Byron Foster.</td>
+        <td> Fix NPE when null value is passed to array/vararg method. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-649">VELOCITY-649</a>. Thanks to Byron Foster.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Track template name in Node, to get proper template name in the exception message when a reference in a macro causes that exception. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-644">VELOCITY-644</a>. Thanks to Byron Foster.</td>
+        <td> Track template name in Node, to get proper template name in the exception message when a reference in a macro causes that exception. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-644">VELOCITY-644</a>. Thanks to Byron Foster.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Update Finnish and Spanish User Guide sections on division operation. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-352">VELOCITY-352</a>. Thanks to Gonzalo Diethelm, Joni Salonen.</td>
+        <td> Update Finnish and Spanish User Guide sections on division operation. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-352">VELOCITY-352</a>. Thanks to Gonzalo Diethelm, Joni Salonen.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix classpath for XMLApp example. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-641">VELOCITY-641</a>. Thanks to Will Glass-Husain.</td>
+        <td> Fix classpath for XMLApp example. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-641">VELOCITY-641</a>. Thanks to Will Glass-Husain.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix references to Oro dependency to make it clear that it is only necessary for certain reference event handlers. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-617">VELOCITY-617</a>. Thanks to Adrian Tarau.</td>
+        <td> Fix references to Oro dependency to make it clear that it is only necessary for certain reference event handlers. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-617">VELOCITY-617</a>. Thanks to Adrian Tarau.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Remove old Anakia/Texen docs and examples. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-640">VELOCITY-640</a>. Thanks to Will Glass-Husain.</td>
+        <td> Remove old Anakia/Texen docs and examples. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-640">VELOCITY-640</a>. Thanks to Will Glass-Husain.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix bug in vararg support where an array passed to a vararg method was being wrapped in another array. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-642">VELOCITY-642</a>. Thanks to Ilkka Priha.</td>
+        <td> Fix bug in vararg support where an array passed to a vararg method was being wrapped in another array. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-642">VELOCITY-642</a>. Thanks to Ilkka Priha.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Locked down versions for reporting plugins in Maven POM. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-638">VELOCITY-638</a>. Thanks to Benjamin Bentmann.</td>
+        <td> Locked down versions for reporting plugins in Maven POM. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-638">VELOCITY-638</a>. Thanks to Benjamin Bentmann.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add Maven-Ant tasks for installing and deploying Maven artifacts, including previously missing source and javadoc jars (VELOCITY-554). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-466">VELOCITY-466</a>. Thanks to Adrian Tarau.</td>
+        <td> Add Maven-Ant tasks for installing and deploying Maven artifacts, including previously missing source and javadoc jars (VELOCITY-554). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-466">VELOCITY-466</a>. Thanks to Adrian Tarau.</td>
         <td>nbubna</td>
       </tr>
     </tbody>
@@ -1506,7 +1582,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1514,84 +1590,84 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix User Guide's Table of Contents anchor links. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-632">VELOCITY-632</a>. Thanks to Sebb.</td>
+        <td> Fix User Guide's Table of Contents anchor links. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-632">VELOCITY-632</a>. Thanks to Sebb.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix parser bug that prevented references from immediately preceding #set directives. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-631">VELOCITY-631</a>. Thanks to Byron Foster.</td>
+        <td> Fix parser bug that prevented references from immediately preceding #set directives. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-631">VELOCITY-631</a>. Thanks to Byron Foster.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Revert change made for VELOCITY-285, as it broke pass-by-name nature of macro arguments. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-630">VELOCITY-630</a>. Thanks to Byron Foster.</td>
+        <td> Revert change made for VELOCITY-285, as it broke pass-by-name nature of macro arguments. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-630">VELOCITY-630</a>. Thanks to Byron Foster.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix line numbers in string literals. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-629">VELOCITY-629</a>. Thanks to Byron Foster.</td>
+        <td> Fix line numbers in string literals. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-629">VELOCITY-629</a>. Thanks to Byron Foster.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix line number for exceptions with body of #foreach directive. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-627">VELOCITY-627</a>. Thanks to Byron Foster.</td>
+        <td> Fix line number for exceptions with body of #foreach directive. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-627">VELOCITY-627</a>. Thanks to Byron Foster.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Log full macro stack when a RuntimeException occurs in a template. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-626">VELOCITY-626</a>. Thanks to Byron Foster.</td>
+        <td> Log full macro stack when a RuntimeException occurs in a template. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-626">VELOCITY-626</a>. Thanks to Byron Foster.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Format template and line/column numbers consistently in error and log messages. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-622">VELOCITY-622</a>. Thanks to Byron Foster.</td>
+        <td> Format template and line/column numbers consistently in error and log messages. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-622">VELOCITY-622</a>. Thanks to Byron Foster.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Don't override pre-configured log levels for JdkLogChute or Log4JLogChute. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-624">VELOCITY-624</a>. Thanks to Byron Foster.</td>
+        <td> Don't override pre-configured log levels for JdkLogChute or Log4JLogChute. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-624">VELOCITY-624</a>. Thanks to Byron Foster.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add optional 'runtime.references.strict' property that has Velocity throw exceptions when it encounters undefined references or velocimacros in a template. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-618">VELOCITY-618</a>. Thanks to Byron Foster.</td>
+        <td> Add optional 'runtime.references.strict' property that has Velocity throw exceptions when it encounters undefined references or velocimacros in a template. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-618">VELOCITY-618</a>. Thanks to Byron Foster.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Inlude Maven Ant tasks jar in downloads and add support for downloading from Maven2 repos. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-554">VELOCITY-554</a>. Thanks to Adrian Tarau.</td>
+        <td> Inlude Maven Ant tasks jar in downloads and add support for downloading from Maven2 repos. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-554">VELOCITY-554</a>. Thanks to Adrian Tarau.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix problem with single backslash in interpolated (double-quoted) strings. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-585">VELOCITY-585</a>. Thanks to Jon Seymour.</td>
+        <td> Fix problem with single backslash in interpolated (double-quoted) strings. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-585">VELOCITY-585</a>. Thanks to Jon Seymour.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix escaping of bracketed directives (e.g. \#{if}($foo)$bar\#{end}). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-616">VELOCITY-616</a>. Thanks to Alik.</td>
+        <td> Fix escaping of bracketed directives (e.g. \#{if}($foo)$bar\#{end}). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-616">VELOCITY-616</a>. Thanks to Alik.</td>
         <td>nbubna</td>
       </tr>
     </tbody>
@@ -1602,7 +1678,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1610,222 +1686,222 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Uberspectors chaining . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-588">VELOCITY-588</a>. Thanks to Vincent Massol, Sergiu Dumitriu.</td>
+        <td> Uberspectors chaining Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-588">VELOCITY-588</a>. Thanks to Vincent Massol, Sergiu Dumitriu.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add ability to set a connection timeout for URLResourceLoader. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-585">VELOCITY-585</a>. Thanks to Tim White.</td>
+        <td> Add ability to set a connection timeout for URLResourceLoader. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-585">VELOCITY-585</a>. Thanks to Tim White.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Make it easier to override ResourceFactory.getResource(...) in ResourceManagerImpl. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-227">VELOCITY-227</a>. Thanks to Charles Morehead.</td>
+        <td> Make it easier to override ResourceFactory.getResource(...) in ResourceManagerImpl. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-227">VELOCITY-227</a>. Thanks to Charles Morehead.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Fix BooleanPropertyExecutor to recognize "public Boolean isFoo" properties. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-544">VELOCITY-544</a>. Thanks to Adam Bishop, Jarkko Viinamaki.</td>
+        <td> Fix BooleanPropertyExecutor to recognize "public Boolean isFoo" properties. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-544">VELOCITY-544</a>. Thanks to Adam Bishop, Jarkko Viinamaki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add a separate resourceExists(String name) method to ResourceLoader(s) to improve performance. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-439">VELOCITY-439</a>. Thanks to Tassos Bassoukos, Henning Schmiedehausen.</td>
+        <td> Add a separate resourceExists(String name) method to ResourceLoader(s) to improve performance. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-439">VELOCITY-439</a>. Thanks to Tassos Bassoukos, Henning Schmiedehausen.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Fix missing # and $ characters within #literal() directive output. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-355">VELOCITY-355</a>. Thanks to Geoffrey Lowney, Dan Ertman.</td>
+        <td> Fix missing # and $ characters within #literal() directive output. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-355">VELOCITY-355</a>. Thanks to Geoffrey Lowney, Dan Ertman.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add support for static utility classes: context.put("math", Math.class) -&gt; $math.sin(0) . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-102">VELOCITY-102</a>. Thanks to Juozas Baliuka, Adrian Tarau, Jim Seach.</td>
+        <td> Add support for static utility classes: context.put("math", Math.class) -&gt; $math.sin(0) Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-102">VELOCITY-102</a>. Thanks to Juozas Baliuka, Adrian Tarau, Jim Seach.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add #define directive set an unrendered block of VTL as a reference. (e.g. #define( $foo )Hello, $bar!#end #set( $bar = 'world') $foo -&gt; Hello, world!) . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-174">VELOCITY-174</a>. Thanks to Andrew Tetlaw.</td>
+        <td> Add #define directive set an unrendered block of VTL as a reference. (e.g. #define( $foo )Hello, $bar!#end #set( $bar = 'world') $foo -&gt; Hello, world!) Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-174">VELOCITY-174</a>. Thanks to Andrew Tetlaw.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add #break directive to exit #foreach loops early. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-612">VELOCITY-612</a>. Thanks to Jarkko Viinamaki.</td>
+        <td> Add #break directive to exit #foreach loops early. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-612">VELOCITY-612</a>. Thanks to Jarkko Viinamaki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Fixed major performance issues with Velocimacros. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-607">VELOCITY-607</a>. Thanks to Jarkko Viinamaki.</td>
+        <td> Fixed major performance issues with Velocimacros. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-607">VELOCITY-607</a>. Thanks to Jarkko Viinamaki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Removed many, various performance bottlenecks and concurrency issues. (Also see VELOCITY-595) . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-606">VELOCITY-606</a>. Thanks to Jarkko Viinamaki.</td>
+        <td> Removed many, various performance bottlenecks and concurrency issues. (Also see VELOCITY-595) Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-606">VELOCITY-606</a>. Thanks to Jarkko Viinamaki.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> New VTL syntax $velocityHasNext within #foreach loops . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-600">VELOCITY-600</a>. Thanks to Adrian Tarau.</td>
+        <td> New VTL syntax $velocityHasNext within #foreach loops Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-600">VELOCITY-600</a>. Thanks to Adrian Tarau.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Multi-line comments in macros were rendering extra *# when evaluated. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-580">VELOCITY-580</a>. Thanks to Marnix van Bochove.</td>
+        <td> Multi-line comments in macros were rendering extra *# when evaluated. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-580">VELOCITY-580</a>. Thanks to Marnix van Bochove.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Have VelocityCharStream use an exponential buffer expansion rate. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-570">VELOCITY-570</a>. Thanks to Ronald Klop.</td>
+        <td> Have VelocityCharStream use an exponential buffer expansion rate. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-570">VELOCITY-570</a>. Thanks to Ronald Klop.</td>
         <td>cbrisson</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Prevent exception due to simultaneous rendering of macros. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-566">VELOCITY-566</a>. Thanks to Etienne Massip.</td>
+        <td> Prevent exception due to simultaneous rendering of macros. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-566">VELOCITY-566</a>. Thanks to Etienne Massip.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> New VTL syntax allows arrays to be treated like fixed length lists. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-533">VELOCITY-533</a>. Thanks to Christopher Schultz.</td>
+        <td> New VTL syntax allows arrays to be treated like fixed length lists. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-533">VELOCITY-533</a>. Thanks to Christopher Schultz.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added support for varargs in method calls. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-534">VELOCITY-534</a>. </td>
+        <td> Added support for varargs in method calls. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-534">VELOCITY-534</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Prevent NPE when template is parsed simultaneously by multiple users. (may apply only to macros). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-536">VELOCITY-536</a>. Thanks to Lei Gu, Dima Tkach.</td>
+        <td> Prevent NPE when template is parsed simultaneously by multiple users. (may apply only to macros). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-536">VELOCITY-536</a>. Thanks to Lei Gu, Dima Tkach.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Users can now include libraries of macros with #parse in a template. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-362">VELOCITY-362</a>. Thanks to Supun Kamburugamuva.</td>
+        <td> Users can now include libraries of macros with #parse in a template. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-362">VELOCITY-362</a>. Thanks to Supun Kamburugamuva.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Macro libraries can now be selected programatically when merging templates. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-529">VELOCITY-529</a>. Thanks to Supun Kamburugamuva.</td>
+        <td> Macro libraries can now be selected programatically when merging templates. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-529">VELOCITY-529</a>. Thanks to Supun Kamburugamuva.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Catch IllegalArgumentException when invoking method. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-452">VELOCITY-452</a>. Thanks to Alexey Panchenko.</td>
+        <td> Catch IllegalArgumentException when invoking method. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-452">VELOCITY-452</a>. Thanks to Alexey Panchenko.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed parse error for map definitions ending with a reference. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-538">VELOCITY-538</a>. </td>
+        <td> Fixed parse error for map definitions ending with a reference. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-538">VELOCITY-538</a>. </td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add new property velocimacro.max.depth which limits max macro calling depth. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-297">VELOCITY-297</a>. Thanks to Supun Kamburugamuva.</td>
+        <td> Add new property velocimacro.max.depth which limits max macro calling depth. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-297">VELOCITY-297</a>. Thanks to Supun Kamburugamuva.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add ability to add directives programmatically . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-547">VELOCITY-547</a>. Thanks to Adam Heath.</td>
+        <td> Add ability to add directives programmatically Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-547">VELOCITY-547</a>. Thanks to Adam Heath.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Allow user directives to have no content. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-548">VELOCITY-548</a>. Thanks to Adam Heath.</td>
+        <td> Allow user directives to have no content. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-548">VELOCITY-548</a>. Thanks to Adam Heath.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> IncludeNotFound event handler was displaying "not found" template. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-551">VELOCITY-551</a>. Thanks to Michiel Toneman.</td>
+        <td> IncludeNotFound event handler was displaying "not found" template. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-551">VELOCITY-551</a>. Thanks to Michiel Toneman.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix StringResourceLoader to make it possible to use more than one loader per VM. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-541">VELOCITY-541</a>. </td>
+        <td> Fix StringResourceLoader to make it possible to use more than one loader per VM. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-541">VELOCITY-541</a>. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Make unicode encoding work in velocity templates. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-520">VELOCITY-520</a>. Thanks to Stepan Koltsov.</td>
+        <td> Make unicode encoding work in velocity templates. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-520">VELOCITY-520</a>. Thanks to Stepan Koltsov.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add a ServletLogChute that allows logging through the servlet API. Ported from the Velocity Tools project. . </td>
+        <td> Add a ServletLogChute that allows logging through the servlet API. Ported from the Velocity Tools project. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add a CommonsLogLogChute that allows logging through commons-logging. . </td>
+        <td> Add a CommonsLogLogChute that allows logging through commons-logging. </td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td/>
-        <td> Deprecate integrated texen and anakia, factor it out into separate jars. . </td>
+        <td> Deprecate integrated texen and anakia, factor it out into separate jars. </td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added new directive #evaluate() to dynamically evaluate VTL. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-509">VELOCITY-509</a>. </td>
+        <td> Added new directive #evaluate() to dynamically evaluate VTL. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-509">VELOCITY-509</a>. </td>
         <td>wglass</td>
       </tr>
     </tbody>
@@ -1836,7 +1912,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1844,14 +1920,14 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix to SecureUberspector to work properly with #foreach and iterators. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-516">VELOCITY-516</a>. Thanks to Vincent Massol.</td>
+        <td> Fix to SecureUberspector to work properly with #foreach and iterators. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-516">VELOCITY-516</a>. Thanks to Vincent Massol.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Make FileResourceLoader unicode aware to allow skipping over BOM markers like those created by Windows Notepad. This is a workaround for a Java bug, where Java itself does not recognize the UTF-8 BOM as defined by the unicode standard. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-191">VELOCITY-191</a>. Thanks to Aki Nieminen.</td>
+        <td> Make FileResourceLoader unicode aware to allow skipping over BOM markers like those created by Windows Notepad. This is a workaround for a Java bug, where Java itself does not recognize the UTF-8 BOM as defined by the unicode standard. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-191">VELOCITY-191</a>. Thanks to Aki Nieminen.</td>
         <td>henning</td>
       </tr>
     </tbody>
@@ -1862,7 +1938,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1870,105 +1946,105 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> New StringResourceLoader can retrieve templates from repository of in-memory Strings. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-183">VELOCITY-183</a>. Thanks to Eelco Hillenius.</td>
+        <td> New StringResourceLoader can retrieve templates from repository of in-memory Strings. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-183">VELOCITY-183</a>. Thanks to Eelco Hillenius.</td>
         <td>henning</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> RuntimeInstance.getProperty now returns value set with RuntimeInstance.setProperty, even before initialization. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-493">VELOCITY-493</a>. Thanks to Claude Brisson.</td>
+        <td> RuntimeInstance.getProperty now returns value set with RuntimeInstance.setProperty, even before initialization. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-493">VELOCITY-493</a>. Thanks to Claude Brisson.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> When macros have incorrect number of arguments, if property "velocimacro.arguments.strict" is set to true a ParseErrorException will be thrown. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-435">VELOCITY-435</a>. </td>
+        <td> When macros have incorrect number of arguments, if property "velocimacro.arguments.strict" is set to true a ParseErrorException will be thrown. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-435">VELOCITY-435</a>. </td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> MethodInvocationException now contains line, column, template name allowing application to produce more useful error messages. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-414">VELOCITY-414</a>. Thanks to Matthijs Lambooy.</td>
+        <td> MethodInvocationException now contains line, column, template name allowing application to produce more useful error messages. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-414">VELOCITY-414</a>. Thanks to Matthijs Lambooy.</td>
         <td>henning</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed race condition in template retrieval that caused macros to fail under simultaneous load. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-24">VELOCITY-24</a>. </td>
+        <td> Fixed race condition in template retrieval that caused macros to fail under simultaneous load. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-24">VELOCITY-24</a>. </td>
         <td>henning</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> New event handler InvalidReferenceHandler allows application to catch invalid references. Sample implementation collects them in list and optionally throws exception. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-423">VELOCITY-423</a>. </td>
+        <td> New event handler InvalidReferenceHandler allows application to catch invalid references. Sample implementation collects them in list and optionally throws exception. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-423">VELOCITY-423</a>. </td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> New, optional SecureIntrospector prohibits methods that involve manipulation of classes, classloaders or reflection objects. Use this introspector to secure Velocity against a risk of template writers using reflection to perform malicious acts. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-179">VELOCITY-179</a>. </td>
+        <td> New, optional SecureIntrospector prohibits methods that involve manipulation of classes, classloaders or reflection objects. Use this introspector to secure Velocity against a risk of template writers using reflection to perform malicious acts. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-179">VELOCITY-179</a>. </td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Removed Serializable from InternalContextBase, because one of the members is not serializable anyway so this never worked (Found by Findbugs). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-458">VELOCITY-458</a>. </td>
+        <td> Removed Serializable from InternalContextBase, because one of the members is not serializable anyway so this never worked (Found by Findbugs). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-458">VELOCITY-458</a>. </td>
         <td>henning</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Add an additional pair of Executors that are smart about Map. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-449">VELOCITY-449</a>. Thanks to Alexey Panchenko.</td>
+        <td> Add an additional pair of Executors that are smart about Map. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-449">VELOCITY-449</a>. Thanks to Alexey Panchenko.</td>
         <td>henning</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Method caching now uses consistent keys. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-453">VELOCITY-453</a>. Thanks to Alexey Panchenko.</td>
+        <td> Method caching now uses consistent keys. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-453">VELOCITY-453</a>. Thanks to Alexey Panchenko.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Change the meaning of localscope for macros to allow access to references from calling context. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-459">VELOCITY-459</a>. Thanks to Stephen Haberman.</td>
+        <td> Change the meaning of localscope for macros to allow access to references from calling context. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-459">VELOCITY-459</a>. Thanks to Stephen Haberman.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add a test for the DataSourceResource Loader. . </td>
+        <td> Add a test for the DataSourceResource Loader. </td>
         <td>henning</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Fix a problem in the DataSourceResource Loader, removing a potential security issue with SQL injection. . </td>
+        <td> Fix a problem in the DataSourceResource Loader, removing a potential security issue with SQL injection. </td>
         <td>henning</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Build now creates the MD5 and SHA1 checksums for archives and jars. . </td>
+        <td> Build now creates the MD5 and SHA1 checksums for archives and jars. </td>
         <td>henning</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix a number of issues reported by running FindBugs on the Velocity source. . </td>
+        <td> Fix a number of issues reported by running FindBugs on the Velocity source. </td>
         <td>henning</td>
       </tr>
     </tbody>
@@ -1979,7 +2055,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       <tr>
         <th>Type</th>
         <th>Changes</th>
-        <th>Bye</th>
+        <th>By</th>
       </tr>
     </thead>
     <tbody>
@@ -1987,411 +2063,411 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Stop references from calling object.toString() twice. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-438">VELOCITY-438</a>. Thanks to Stephen Haberman.</td>
+        <td> Stop references from calling object.toString() twice. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-438">VELOCITY-438</a>. Thanks to Stephen Haberman.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td/>
-        <td> Pass through all runtime exceptions. Among other benefits, this allows plugins to throw a runtime exception to signify an application level problem in the calling application. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-429">VELOCITY-429</a>. Thanks to .</td>
+        <td> Pass through all runtime exceptions. Among other benefits, this allows plugins to throw a runtime exception to signify an application level problem in the calling application. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-429">VELOCITY-429</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> When #include was followed by #parse with the same file name, a ClassCastException was thrown. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-98">VELOCITY-98</a>. Thanks to Michal Chmielewski.</td>
+        <td> When #include was followed by #parse with the same file name, a ClassCastException was thrown. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-98">VELOCITY-98</a>. Thanks to Michal Chmielewski.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Wrapped exceptions now have Cause property set on JDK 1.4. (note that Velocity continues to run under JDK 1.3). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-425">VELOCITY-425</a>. Thanks to Llewellyn Falco.</td>
+        <td> Wrapped exceptions now have Cause property set on JDK 1.4. (note that Velocity continues to run under JDK 1.3). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-425">VELOCITY-425</a>. Thanks to Llewellyn Falco.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> When Velocity is initialized, default.properties stream was not being closed. This made it difficult to undeploy webapps on Windows with Velocity unpacked. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-418">VELOCITY-418</a>. Thanks to Jason Weinstein.</td>
+        <td> When Velocity is initialized, default.properties stream was not being closed. This made it difficult to undeploy webapps on Windows with Velocity unpacked. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-418">VELOCITY-418</a>. Thanks to Jason Weinstein.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Upgraded to latest commons collection, fixing problem with non-recognition of configuration file encoding in rare circumstances. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-151">VELOCITY-151</a>. Thanks to Kirk Wolf.</td>
+        <td> Upgraded to latest commons collection, fixing problem with non-recognition of configuration file encoding in rare circumstances. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-151">VELOCITY-151</a>. Thanks to Kirk Wolf.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> The Introspector could throw a NPE when a parameter to an overloaded method was null. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-370">VELOCITY-370</a>. Thanks to Reggie Riser.</td>
+        <td> The Introspector could throw a NPE when a parameter to an overloaded method was null. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-370">VELOCITY-370</a>. Thanks to Reggie Riser.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> If toString() returned null in a silent reference then "null" was displayed. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-381">VELOCITY-381</a>. Thanks to Llwellyn Falco and Dan Powell.</td>
+        <td> If toString() returned null in a silent reference then "null" was displayed. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-381">VELOCITY-381</a>. Thanks to Llwellyn Falco and Dan Powell.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed bug in which empty body for #if (e.g. &lt;code&gt;#if(some expression)#end&lt;/code&gt; caused ParseException. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-359">VELOCITY-359</a>. Thanks to .</td>
+        <td> Fixed bug in which empty body for #if (e.g. &lt;code&gt;#if(some expression)#end&lt;/code&gt; caused ParseException. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-359">VELOCITY-359</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added javacc task to build.xml simplifying modification process for editing syntax files. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-222">VELOCITY-222</a>. Thanks to .</td>
+        <td> Added javacc task to build.xml simplifying modification process for editing syntax files. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-222">VELOCITY-222</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Velocity Engine was throwing NPE when used without a call to init(). Now gives a more meaningful exception message. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-374">VELOCITY-374</a>. Thanks to .</td>
+        <td> Velocity Engine was throwing NPE when used without a call to init(). Now gives a more meaningful exception message. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-374">VELOCITY-374</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td/>
-        <td> Fixed problem with Uberspect Info class being created incorrectly. Added template name to Info allowing better error reporting. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-404">VELOCITY-404</a>. Thanks to Llewellyn Falco.</td>
+        <td> Fixed problem with Uberspect Info class being created incorrectly. Added template name to Info allowing better error reporting. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-404">VELOCITY-404</a>. Thanks to Llewellyn Falco.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td/>
-        <td> Numerous improvements to the documentation. Reorganized table of contents, moved community content to the Wiki, added article on using Velocity in web applications. . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td> Numerous improvements to the documentation. Reorganized table of contents, moved community content to the Wiki, added article on using Velocity in web applications. Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td/>
-        <td> When testing objects in VTL for equality, if both objects are a number, use number equality. If both objects are the same class, use the equals method. New behavior: If objects are different classes, compare the String representation of both objects rather than logging an error. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-350">VELOCITY-350</a>. Thanks to .</td>
+        <td> When testing objects in VTL for equality, if both objects are a number, use number equality. If both objects are the same class, use the equals method. New behavior: If objects are different classes, compare the String representation of both objects rather than logging an error. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-350">VELOCITY-350</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Velocity would give error when last line of file was a ## comment. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-272">VELOCITY-272</a>. Thanks to .</td>
+        <td> Velocity would give error when last line of file was a ## comment. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-272">VELOCITY-272</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td/>
-        <td> Added method to retrieve application attributes. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-412">VELOCITY-412</a>. Thanks to Malcolm Edgar.</td>
+        <td> Added method to retrieve application attributes. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-412">VELOCITY-412</a>. Thanks to Malcolm Edgar.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td/>
-        <td> Velocity now searches in the current thread's context classloader before the system classloader for all templates loaded with the ClasspathResourceLoader and for all user-defined ResourceLoaders, introspectors, event handlers, etc. A typical use for this is to have Velocity in the application container classpath while keeping templates and plugins in the webapp classpath. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-196">VELOCITY-196</a>. Thanks to .</td>
+        <td> Velocity now searches in the current thread's context classloader before the system classloader for all templates loaded with the ClasspathResourceLoader and for all user-defined ResourceLoaders, introspectors, event handlers, etc. A typical use for this is to have Velocity in the application container classpath while keeping templates and plugins in the webapp classpath. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-196">VELOCITY-196</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td/>
-        <td> #set now sets references to null when required. For backwards compatibility this must be enabled by setting the configuration key &lt;code&gt;directive.set.null.allowed&lt;/code&gt; to true. . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to Thomas Veith.</td>
+        <td> #set now sets references to null when required. For backwards compatibility this must be enabled by setting the configuration key &lt;code&gt;directive.set.null.allowed&lt;/code&gt; to true. Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to Thomas Veith.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> New optional event handler that escapes all references. Regular expressions can be used to configure which references have HTML, JavaScript, SQL, or XML escaping. . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td> New optional event handler that escapes all references. Regular expressions can be used to configure which references have HTML, JavaScript, SQL, or XML escaping. Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> New optional event handler implementation that forces #parse / #include to stay in same directory as parent template. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-154">VELOCITY-154</a>. Thanks to .</td>
+        <td> New optional event handler implementation that forces #parse / #include to stay in same directory as parent template. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-154">VELOCITY-154</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> New event handler to modify behavior of #parse / #include. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-260">VELOCITY-260</a>. Thanks to .</td>
+        <td> New event handler to modify behavior of #parse / #include. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-260">VELOCITY-260</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td/>
-        <td> FileResourceLoader now accepts absolute path when configured to accept it. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-144">VELOCITY-144</a>. Thanks to .</td>
+        <td> FileResourceLoader now accepts absolute path when configured to accept it. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-144">VELOCITY-144</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> String containing "##" was treated as unterminated String. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-126">VELOCITY-126</a>. Thanks to .</td>
+        <td> String containing "##" was treated as unterminated String. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-126">VELOCITY-126</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Spruced up Geir's old URLResourceLoader and promoted it from the whiteboard to the main distribution. . Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-55">VELTOOLS-55</a>. Thanks to Charles Harvey.</td>
+        <td> Spruced up Geir's old URLResourceLoader and promoted it from the whiteboard to the main distribution. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-55">VELTOOLS-55</a>. Thanks to Charles Harvey.</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td/>
-        <td> Throw Runtime exceptions from nodes up the chain. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-424">VELOCITY-424</a>. Thanks to Malcom Edgar.</td>
+        <td> Throw Runtime exceptions from nodes up the chain. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-424">VELOCITY-424</a>. Thanks to Malcom Edgar.</td>
         <td>henning</td>
       </tr>
       <tr>
         <td/>
-        <td> Revert the split between org.apache.velocity.runtime.parser.node.Node and org.apache.velocity.runtime.parser.Node. The parser now only uses ...parser.node.Node because this change broke custom directives. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-426">VELOCITY-426</a>. Thanks to Malcom Edgar.</td>
+        <td> Revert the split between org.apache.velocity.runtime.parser.node.Node and org.apache.velocity.runtime.parser.Node. The parser now only uses ...parser.node.Node because this change broke custom directives. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-426">VELOCITY-426</a>. Thanks to Malcom Edgar.</td>
         <td>henning</td>
       </tr>
       <tr>
         <td/>
-        <td> Made a lot of internal logging upgrades including: Deprecated LogSystem interface and replaced it (and all its implementations) with a new LogChute interface and implementations, added getLog() to RuntimeServices (and all its friends) to improve on and replace its now deprecated logging methods, added a JdkLogChute as a 3rd default option for those using JDK 1.4+, and added a StandardOutLogChute as final resort if other LogChute inits fail. See JIRA issues VELOCITY-403, VELOCITY-166, VELOCITY-403,VELOCITY-166,VELOCITY-78, VELOCITY-157, VELOCITY-159, VELOCITY-193. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-403">VELOCITY-403</a>. Thanks to .</td>
+        <td> Made a lot of internal logging upgrades including: Deprecated LogSystem interface and replaced it (and all its implementations) with a new LogChute interface and implementations, added getLog() to RuntimeServices (and all its friends) to improve on and replace its now deprecated logging methods, added a JdkLogChute as a 3rd default option for those using JDK 1.4+, and added a StandardOutLogChute as final resort if other LogChute inits fail. See JIRA issues VELOCITY-403, VELOCITY-166, VELOCITY-403,VELOCITY-166,VELOCITY-78, VELOCITY-157, VELOCITY-159, VELOCITY-193. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-403">VELOCITY-403</a>. Thanks to .</td>
         <td>nbubna</td>
       </tr>
       <tr>
         <td/>
-        <td> Removed all J2EE build tasks. Now automatically detects availability of javax.sql.Datasource (in JDK 1.4+) and builds DatasourceResourceLoader when allowed. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-401">VELOCITY-401</a>. Thanks to .</td>
+        <td> Removed all J2EE build tasks. Now automatically detects availability of javax.sql.Datasource (in JDK 1.4+) and builds DatasourceResourceLoader when allowed. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-401">VELOCITY-401</a>. Thanks to .</td>
         <td>henning</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> ant build now downloads the required dependency jars from ibiblio.org . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td> ant build now downloads the required dependency jars from ibiblio.org Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
         <td>henning</td>
       </tr>
       <tr>
         <td/>
-        <td> Unified template name, line and column number reporting for ParserErrorException . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-373">VELOCITY-373</a>. Thanks to Malcolm Edgar.</td>
+        <td> Unified template name, line and column number reporting for ParserErrorException Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-373">VELOCITY-373</a>. Thanks to Malcolm Edgar.</td>
         <td>henning</td>
       </tr>
       <tr>
         <td/>
-        <td> Dropped the non-functional Velocity compiler. . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td> Dropped the non-functional Velocity compiler. Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
         <td>henning</td>
       </tr>
       <tr>
         <td/>
-        <td> Started separating out the JavaCC generated parts of the Velocity Parser. Not yet complete to avoid user visible changes. Scheduled to be completed for 2.0 . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
-        <td>henning</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/add.png"/>
-        </td>
-        <td> Contributed a maven build for Velocity . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
-        <td>henning</td>
-      </tr>
-      <tr>
-        <td>
-          <img src="images/fix.png"/>
-        </td>
-        <td> Reworked the ant build to product only two jars: velocity.jar and velocity-dep.jar. . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
-        <td>henning</td>
-      </tr>
-      <tr>
-        <td/>
-        <td> Removed the Configuration class and all methods that references it. This class was deprecated since Velocity 1.1 and was scheduled to be gone for Velocity 1.3 or 1.4. Now it was finally removed in 1.5. . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td> Started separating out the JavaCC generated parts of the Velocity Parser. Not yet complete to avoid user visible changes. Scheduled to be completed for 2.0 Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
         <td>henning</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Added support for decimal numbers. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-242">VELOCITY-242</a>. Thanks to Peter Romianowski.</td>
+        <td> Contributed a maven build for Velocity Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td>henning</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Reworked the ant build to product only two jars: velocity.jar and velocity-dep.jar. Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td>henning</td>
+      </tr>
+      <tr>
+        <td/>
+        <td> Removed the Configuration class and all methods that references it. This class was deprecated since Velocity 1.1 and was scheduled to be gone for Velocity 1.3 or 1.4. Now it was finally removed in 1.5. Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td>henning</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Added support for decimal numbers. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-242">VELOCITY-242</a>. Thanks to Peter Romianowski.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> MethodInvocationException now consistently thrown (previously was hidden when in parameter to Velocimacro). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-284">VELOCITY-284</a>. Thanks to Mike Rettig.</td>
+        <td> MethodInvocationException now consistently thrown (previously was hidden when in parameter to Velocimacro). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-284">VELOCITY-284</a>. Thanks to Mike Rettig.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixed problem in which foreach loop would fail to call overloaded method. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-109">VELOCITY-109</a>. Thanks to .</td>
+        <td> Fixed problem in which foreach loop would fail to call overloaded method. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-109">VELOCITY-109</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Removed ERROR level log message "Can't find 'VM_global_library.vm'". . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-86">VELOCITY-86</a>. Thanks to .</td>
+        <td> Removed ERROR level log message "Can't find 'VM_global_library.vm'". Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-86">VELOCITY-86</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Anakia now generates consistent line endings based on platform. Requires upgrade to JDom 1.0. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-348">VELOCITY-348</a>. Thanks to .</td>
+        <td> Anakia now generates consistent line endings based on platform. Requires upgrade to JDom 1.0. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-348">VELOCITY-348</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Anakia can now be pre-loaded with custom context values from an optional XML file. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-190">VELOCITY-190</a>. Thanks to Peter Ryan.</td>
+        <td> Anakia can now be pre-loaded with custom context values from an optional XML file. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-190">VELOCITY-190</a>. Thanks to Peter Ryan.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Directives can now be delimited with curly braces, for example #if($condition)something#{else}otherthing#{end}. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-43">VELOCITY-43</a>. Thanks to .</td>
+        <td> Directives can now be delimited with curly braces, for example #if($condition)something#{else}otherthing#{end}. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-43">VELOCITY-43</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Nulls now handled appropriate within #foreach. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-254">VELOCITY-254</a>. Thanks to Christopher Reck.</td>
+        <td> Nulls now handled appropriate within #foreach. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-254">VELOCITY-254</a>. Thanks to Christopher Reck.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Upgraded JavaCC to version 3.2, providing JDK 1.5 compatibility. (Older version used keyword 'enum' which is reserved in JDK 1.5). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-324">VELOCITY-324</a>. Thanks to Shinobu Kuwai.</td>
+        <td> Upgraded JavaCC to version 3.2, providing JDK 1.5 compatibility. (Older version used keyword 'enum' which is reserved in JDK 1.5). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-324">VELOCITY-324</a>. Thanks to Shinobu Kuwai.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td/>
-        <td> DatasourceResourceLoader now allows injection of Datasource, allowing it to be used in Inversion of Control (IOC) frameworks. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-267">VELOCITY-267</a>. Thanks to Matt Raible .</td>
+        <td> DatasourceResourceLoader now allows injection of Datasource, allowing it to be used in Inversion of Control (IOC) frameworks. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-267">VELOCITY-267</a>. Thanks to Matt Raible .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> #stop now works properly. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-218">VELOCITY-218</a>. Thanks to .</td>
+        <td> #stop now works properly. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-218">VELOCITY-218</a>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td/>
-        <td> ClasspathResourceLoader now searches ContextClassLoader for template. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-196">VELOCITY-196</a>. Thanks to Charles Oliver Nutter.</td>
+        <td> ClasspathResourceLoader now searches ContextClassLoader for template. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-196">VELOCITY-196</a>. Thanks to Charles Oliver Nutter.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td/>
-        <td> Removed use of &lt;a href="http://jakarta.apache.org/log4j/"&gt;Log4J's&lt;/a&gt; deprecated Category and Priority classes in favor of the corresponding and supported Logger and Level. To update, replace necessary references, and Category.getInstance() with Logger.getLogger(). . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-164">VELOCITY-164</a>. Thanks to .</td>
+        <td> Removed use of &lt;a href="http://jakarta.apache.org/log4j/"&gt;Log4J's&lt;/a&gt; deprecated Category and Priority classes in favor of the corresponding and supported Logger and Level. To update, replace necessary references, and Category.getInstance() with Logger.getLogger(). Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-164">VELOCITY-164</a>. Thanks to .</td>
         <td>dlr</td>
       </tr>
       <tr>
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> New Map literal syntax. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-152">VELOCITY-152</a>. Thanks to James Taylor.</td>
+        <td> New Map literal syntax. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-152">VELOCITY-152</a>. Thanks to James Taylor.</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td/>
-        <td> Removed the long-deprecated Log4JLogSystem. Never fear, SimpleLog4JLogSystem remains. . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td> Removed the long-deprecated Log4JLogSystem. Never fear, SimpleLog4JLogSystem remains. Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
         <td>dlr</td>
       </tr>
       <tr>
         <td/>
-        <td> Enhanced the implementation of ResourceCacheImpl using Jakarta Commons Collections LRUMap class. The previous greedy implementation did not set an upper bound for the cache size, meaning that cached resources were never relinquished (a possible memory leak). You can continue to use that behavior by setting the &lt;code&gt;resource.manager.cache.size&lt;/code&gt; for your cache to less than 1. . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td> Enhanced the implementation of ResourceCacheImpl using Jakarta Commons Collections LRUMap class. The previous greedy implementation did not set an upper bound for the cache size, meaning that cached resources were never relinquished (a possible memory leak). You can continue to use that behavior by setting the &lt;code&gt;resource.manager.cache.size&lt;/code&gt; for your cache to less than 1. Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
         <td>dlr</td>
       </tr>
       <tr>
         <td/>
-        <td> Took dan's modified SimpleLog4jLogSystem, and renamed Log4JLogSystem, and put back old version of SimpleLog4JLogSystem, as deprecated. That way we can move forward with an up-to-date version that uses Logger, and for one release, be backwards compatile for the Category-using log4j crowd. . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to Daniel Rall.</td>
+        <td> Took dan's modified SimpleLog4jLogSystem, and renamed Log4JLogSystem, and put back old version of SimpleLog4JLogSystem, as deprecated. That way we can move forward with an up-to-date version that uses Logger, and for one release, be backwards compatile for the Category-using log4j crowd. Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to Daniel Rall.</td>
         <td>geirm</td>
       </tr>
       <tr>
         <td/>
-        <td> Deprecated org.apache.velocity.tools.VelocityFormatter class in favor of the various format classes in the Velocity Tools library. . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td> Deprecated org.apache.velocity.tools.VelocityFormatter class in favor of the various format classes in the Velocity Tools library. Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
         <td>wglass</td>
       </tr>
       <tr>
         <td/>
-        <td> Deprecated the org.apache.velocity.servlet.VelocityServlet class in favor of org.apache.velocity.tools.view.servlet.VelocityViewServlet from the Velocity Tools library. Servlet interaction is more a core competency of the Velocity Tools package than of Velocity's core. . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td> Deprecated the org.apache.velocity.servlet.VelocityServlet class in favor of org.apache.velocity.tools.view.servlet.VelocityViewServlet from the Velocity Tools library. Servlet interaction is more a core competency of the Velocity Tools package than of Velocity's core. Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
         <td>dlr</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix to BaseTestCase as suggested by Will Glass-Husain to handle line endings . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-185">VELOCITY-185</a>. Thanks to wglass.</td>
+        <td> Fix to BaseTestCase as suggested by Will Glass-Husain to handle line endings Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-185">VELOCITY-185</a>. Thanks to wglass.</td>
         <td>geirm</td>
       </tr>
       <tr>
         <td/>
-        <td> Parameterized cache and mod time control in TexenTask based on patch from Henning. . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to henning.</td>
+        <td> Parameterized cache and mod time control in TexenTask based on patch from Henning. Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to henning.</td>
         <td/>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fix to DatasourceResourceLoader - stop using the old Runtime singleton as would leak a little memory for each instance of VelocityEngine created. Hunted down by Will Glass-Husain. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-150">VELOCITY-150</a>. Thanks to wglass.</td>
+        <td> Fix to DatasourceResourceLoader - stop using the old Runtime singleton as would leak a little memory for each instance of VelocityEngine created. Hunted down by Will Glass-Husain. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-150">VELOCITY-150</a>. Thanks to wglass.</td>
         <td>geirm</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> SimplePool now removes elements from pool on a get(). NOTE : Previously, it left the reference to the object in the pool. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-161">VELOCITY-161</a>. Thanks to wglass.</td>
+        <td> SimplePool now removes elements from pool on a get(). NOTE : Previously, it left the reference to the object in the pool. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-161">VELOCITY-161</a>. Thanks to wglass.</td>
         <td>geirm</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Fixes problem with single line comment embedded in a multi-line comment. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-61">VELOCITY-61</a>. Thanks to wglass.</td>
+        <td> Fixes problem with single line comment embedded in a multi-line comment. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-61">VELOCITY-61</a>. Thanks to wglass.</td>
         <td>geirm</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Change for VELOCITY-221 and partial for VELOCITY-148, allowing newlines in directives. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-221">VELOCITY-221</a>. Thanks to .</td>
+        <td> Change for VELOCITY-221 and partial for VELOCITY-148, allowing newlines in directives. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-221">VELOCITY-221</a>. Thanks to .</td>
         <td>geirm</td>
       </tr>
       <tr>
         <td/>
-        <td> Change to finish request VELOCITY-148, allowing '+' as a string concat. We'll have to see how the community likes it. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-148">VELOCITY-148</a>. Thanks to .</td>
+        <td> Change to finish request VELOCITY-148, allowing '+' as a string concat. We'll have to see how the community likes it. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-148">VELOCITY-148</a>. Thanks to .</td>
         <td>geirm</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Didn't allow formal reference notation as first arg to foreach. . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-239">VELOCITY-239</a>. Thanks to .</td>
+        <td> Didn't allow formal reference notation as first arg to foreach. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-239">VELOCITY-239</a>. Thanks to .</td>
         <td>geirm</td>
       </tr>
       <tr>
         <td/>
-        <td> To make using w/ XML easier allow alternative logical operators 'and', 'or', 'lt', 'gt', 'le', 'ge', 'eq', 'ne', 'not'. . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td> To make using w/ XML easier allow alternative logical operators 'and', 'or', 'lt', 'gt', 'le', 'ge', 'eq', 'ne', 'not'. Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
         <td>geirm</td>
       </tr>
       <tr>
         <td/>
-        <td> Allow newlines in strings. . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td> Allow newlines in strings. Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
         <td>geirm</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Tiny fix to VelocityWriter to prevent a NPE if someone passes it a null . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-148">VELOCITY-148</a>. Thanks to .</td>
+        <td> Tiny fix to VelocityWriter to prevent a NPE if someone passes it a null Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-148">VELOCITY-148</a>. Thanks to .</td>
         <td>geirm</td>
       </tr>
       <tr>
         <td>
           <img src="images/fix.png"/>
         </td>
-        <td> Anakia changes to accomodate finalization of JDOM API. In AnakiaJDOMFactory, AnakiaTask, and OutputWrapper . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td> Anakia changes to accomodate finalization of JDOM API. In AnakiaJDOMFactory, AnakiaTask, and OutputWrapper Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
         <td>geirm</td>
       </tr>
       <tr>
         <td/>
-        <td> Added template, line and column info to MIEs thrown by ASTMethod . Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
+        <td> Added template, line and column info to MIEs thrown by ASTMethod Fixes <a href="https://issues.apache.org/jira/browse/"/>. Thanks to .</td>
         <td>geirm</td>
       </tr>
     </tbody>

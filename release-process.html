@@ -335,18 +335,20 @@ git push
 </li>
 <li>
 <p>Prepare the release tag</p>
-<p>To prepare the release Subversion tag, check out the branch/trunk from where
+<p>To prepare the git release tag, check out the branch/trunk from where
 you are preparing the release and type:</p>
 <div class="codehilite"><pre>mvn release:prepare -Dusername<span class="o">=</span>YOUR_APACHE_USER -Dpassword<span class="o">=</span>YOUR_APACHE_PASSWORD
+git push
 </pre></div>
 
 
-<p>The plugin will interactively ask you the version to release, the subversion tag to use and the next snapshot version. Rather than the proposed default <code>velocity-engine-parent-x.y</code>, we tend to use <em>x</em>.<em>y</em>-RC<em>z</em> for the git tag.</p>
+<p>The plugin will interactively ask you the version to release, the git tag to use and the next snapshot version. Rather than the proposed default <code>velocity-engine-parent-x.y</code>, we tend to use <em>x</em>.<em>y</em>-RC<em>z</em> for the git tag.</p>
 </li>
 <li>
 <p>Perform the release</p>
 <p>To perform the release, i.e. creating and deploying Maven artifacts, use:</p>
 <div class="codehilite"><pre>mvn release:perform
+git push
 </pre></div>
 
 

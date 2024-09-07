@@ -241,6 +241,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li><a href="#velocimacros">Velocimacros</a></li>
 <li><a href="#strict-reference-setting">Strict Reference Setting</a></li>
 <li><a href="#string-interpolation">String Interpolation</a></li>
+<li><a href="#ranges">Ranges</a></li>
 <li><a href="#math">Math</a></li>
 <li><a href="#parser-configuration">Parser Configuration</a></li>
 <li><a href="#event-handlers">Event Handlers</a></li>
@@ -309,6 +310,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <span class="na">                       +-- log_when_found</span> <span class="o">=</span> <span class="s">true</span>
 
 <span class="na">runtime. +-- custom_directives</span> <span class="o">=</span> <span class="s">*classname*, *classname* ...</span>
+<span class="na">         +-- immutable_ranges</span> <span class="o">=</span> <span class="s">true</span>
 <span class="na">         +-- interpolate_string_literals</span> <span class="o">=</span> <span class="s">true</span>
 <span class="na">         +-- log. +-- instance</span> <span class="o">=</span> <span class="s">*Java Object instance*</span>
 <span class="na">         |        +-- log_invalid_method_calls</span> <span class="o">=</span> <span class="s">true</span>
@@ -541,6 +543,11 @@ Defines the beginning and ending tags for an in-stream error message in the case
 <p><strong><code>runtime.interpolate_string_literals = true</code></strong></p>
 <blockquote>
 <p>Controls interpolation mechanism of VTL String Literals.  Note that a VTL StringLiteral is specifically a string using double quotes that is used in a #set() statement, a method call of a reference, a parameter to a VM, or as an argument to a VTL directive in general.  See the VTL reference for further information.</p>
+</blockquote>
+<h2 id="ranges">Ranges<a class="headerlink" href="#ranges" title="Permanent link">&para;</a></h2>
+<p><strong><code>runtime.immutable_ranges = true</code></strong></p>
+<blockquote>
+<p>Controls whether the <code>java.util.List</code> object return by the VTL range operator [ <em>a</em> .. <em>b</em> ] is an immutable list (the default since Velocity 2.1) or a mutable list backed by a <code>java.util.ArrayList</code> object.</p>
 </blockquote>
 <h2 id="math">Math<a class="headerlink" href="#math" title="Permanent link">&para;</a></h2>
 <p><strong><code>runtime.strict_math = false</code></strong></p>
