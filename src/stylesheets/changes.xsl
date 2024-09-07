@@ -32,7 +32,7 @@
           <tr>
             <th>Type</th>
             <th>Changes</th>
-            <th>Bye</th>
+            <th>By</th>
           </tr>
         </thead>
         <tbody>
@@ -56,7 +56,7 @@
       <td>
         <xsl:apply-templates select="node()" mode="nospace"/>
 <!--        <xsl:value-of select="normalize-space()"/>-->
-        <xsl:text>. </xsl:text>
+        <xsl:text></xsl:text>
         <xsl:if test="@issue">
           <xsl:text>Fixes </xsl:text>
           <a href="https://issues.apache.org/jira/browse/{@issue}">
