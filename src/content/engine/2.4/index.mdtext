@@ -1,0 +1,34 @@
+Title: Apache Velocity Engine
+
+## Velocity Engine
+
+If you're new to Velocity, you can read the [Overview](overview.html) to understand its principles. Then, you can go through the [User Guide](user-guide.html) for more details.
+
+You can check the [Velocity Template Language (VTL) reference](vtl-reference.html) to write templates, and the [Developer Guide](developer-guide.html) to guide you in the process of configuring and integrating Velocity.
+
+## Where do I get releases?
+
+The current stable release version is version 2.3.
+
+The release distribution is available as a combined source/binary distribution in `tar.gz` and `zip` formats, and can be downloaded through the [Apache Mirror system](/download.cgi).
+
+The Velocity jars are also available through the [central Maven repository](https://search.maven.org/artifact/org.apache.velocity/velocity-engine-core/2.2/jar).
+
+Older releases are archived at the [Apache Velocity archives](http://archive.apache.org/dist/velocity/engine/).
+
+## Where do I get nightly snapshots?
+
+Nightly snapshots aren't currently activated, but you can [build the latest version](build.html), and you can find the latest published snapshot on the [Apache Snapshot Repository](https://repository.apache.org/content/repositories/snapshots/org/apache/velocity/).
+
+**Caveat!** These snapshots are generated automatically from the project source code repository. As this is our live development workspace, there are no guarantees as to what you will find there, although we do our best to maintain a buildable source tree. If you are looking for the stable supported release, please use the current release of Velocity.
+
+**Please be aware that these snapshots are not official releases of Apache Velocity software. They are provided for developer convenience only!**
+
+## How do I contribute, give feedback, fix bugs and so on?
+
+The Velocity project appreciates any contributions, including documentation help, source code and feedback. Suggested changes should come in the form of source code and/or feedback.
+
++ Report bugs, ask questions, and help new users on the [Velocity mailing lists](http://velocity.apache.org/contact.html).
++ There's a list of issues waiting to be addressed in [our bug tracker](https://issues.apache.org/jira/browse/VELOCITY).
++ [Our wiki](https://wiki.apache.org/velocity) has a large collection of community written content. Add your own article or contribute to the FAQ!
++ Read-only access to the git repository is available both [online](https://github.com/apache/velocity-engine) and with a [Git client](https://www.apache.org/dev/version-control.html).
