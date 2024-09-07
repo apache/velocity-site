@@ -14,6 +14,7 @@ use Date::Parse;
 use LWP::Simple;
 use File::Temp qw/tempfile/;
 use HTML::Entities;
+use utf8;
     
 # set to 1 for some debug output
 my $DEBUG = 1;
@@ -37,6 +38,7 @@ sub changes_report
     $xml =~ s/<scope>/&lt;scope&gt;/;
 
     my ($fh, $filename) = tempfile("XXXXXX");
+    binmode $fh, ":encoding(UTF-8)";
     print $fh $xml;
     close $fh;
     my $summary = `xsltproc stylesheets/releases_history.xsl $filename`;
@@ -81,7 +83,7 @@ sub team()
 {
     my $xml = get 'https://gitbox.apache.org/repos/asf?p=velocity-master.git;a=blob_plain;f=pom/pom.xml;hb=HEAD';
     my ($fh, $filename) = tempfile("XXXXXX");
-
+    binmode $fh, ":encoding(UTF-8)";
     print $fh $xml;
     close $fh;
     my $pmc = `xsltproc stylesheets/pmc.xsl $filename`;
