@@ -11,6 +11,7 @@ set -o pipefail
 # debugging
 #set -o xtrace
 
+
 # Determine the real location of the script, past symlinks.
 # (source: https://stackoverflow.com/a/246128/710286 )
 SOURCE="${BASH_SOURCE[0]}"
@@ -60,7 +61,7 @@ then
    exit 1
 fi
 cd velocity-site-prod
-BRANCH="$(git status -bs | head -1 | sed -r -e 's,^.*origin/,,')"
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 if test "$BRANCH" != "asf-site"
 then
     echo velocity-site-prod repository not on the asf-site branch, exiting
@@ -86,7 +87,7 @@ if [[ "$(docker images -q $DOCKER_NAME 2> /dev/null)" == "" ]]; then
 fi
 
 # do the voodoo
-docker run --rm -ti --name $DOCKER_NAME -u "$(id -u):$(id -g)" --volume="$BASE:/home/velocity" --publish 127.0.0.1:$PORT:8000 $DOCKER_NAME
+docker run -it --name $DOCKER_NAME -u "$(id -u):$(id -g)" --volume="$BASE:/home/velocity" --publish 127.0.0.1:$PORT:8000 $DOCKER_NAME
 
 # alternatively, if you need to debug the container (as root), comment the previous command and run instead:
 # docker run -it --name $DOCKER_NAME --volume="$BASE:/home/velocity" --entrypoint=/bin/bash velocity-site-builder
