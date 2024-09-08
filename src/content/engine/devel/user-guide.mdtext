@@ -228,6 +228,7 @@ As was mentioned earlier, properties often refer to methods of the parent object
 2. getAddress()
 3. get("address")
 4. isAddress()
+5. address() (since Velocity 2.4, to match Java 16 record fields getters)
 
 For upper-case property names like *$customer.Address*, it is slightly different:
 
@@ -235,6 +236,7 @@ For upper-case property names like *$customer.Address*, it is slightly different
 2. getaddress()
 3. get("Address")
 4. isAddress()
+5. Address() (since Velocity 2.4, to match Java 16 record fields getters)
 
 ### Rendering
 
