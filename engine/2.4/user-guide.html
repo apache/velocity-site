@@ -486,6 +486,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li>getAddress()</li>
 <li>get("address")</li>
 <li>isAddress()</li>
+<li>address() (since Velocity 2.4, to match Java 16 record fields getters)</li>
 </ol>
 <p>For upper-case property names like <em>$customer.Address</em>, it is slightly different:</p>
 <ol>
@@ -493,6 +494,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li>getaddress()</li>
 <li>get("Address")</li>
 <li>isAddress()</li>
+<li>Address() (since Velocity 2.4, to match Java 16 record fields getters)</li>
 </ol>
 <h3 id="rendering">Rendering<a class="headerlink" href="#rendering" title="Permanent link">&para;</a></h3>
 <p>The final value resulting from each and every reference (whether variable, property, or method) is converted to a String object when it is rendered into the final output. If there is an object that represents <em>$foo</em> (such as an Integer object), then Velocity will call its <code>.toString()</code> method to resolve the object into a String.</p>
