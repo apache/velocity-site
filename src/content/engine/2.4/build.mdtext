@@ -4,7 +4,7 @@ Title: Apache Velocity Engine - Building
 
 Velocity runs on a variety of platforms that have installed the Java Virtual Machine. A Java Development Kit version 1.8+ is required to compile Velocity from its source code (as it is to run it).
 
-Everything required to build Velocity comes with the distribution, which can be obtained from [Apache git](https://gitbox.apache.org/repos/asf/velocity-engine.git), [github](https://github.com/apache/velocity-engine.git) (handy to submit pull requests) or from the [main distribution](/download.cgi#engine). However, you will need to install [Maven](http://maven.apache.org/) to build the Velocity sources.
+Everything required to build Velocity comes with the distribution, which can be obtained from [Apache git](https://gitbox.apache.org/repos/asf/velocity-engine.git), [github](https://github.com/apache/velocity-engine.git) (handy to submit pull requests) or from the [main distribution](/download.cgi#velocity-engine-24). However, you will need to install [Maven](http://maven.apache.org/) to build the Velocity sources.
 
 [Maven](http://maven.apache.org/) is also an Apache project. To build Apache Velocity, you need at least Version 3.0.5 of Apache Maven.
 

@@ -2,6 +2,33 @@
 
 <news xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://velocity.apache.org/NEWS/1.0.0" xsi:schemaLocation="http://velocity.apache.org/NEWS/1.0.0 http://velocity.apache.org/site/tools/velocity-site-news/xsd/news-1.0.0.xsd">
   <items>
+    <item id="engine24">
+        <date>2024-09-07</date>
+        <headline>Velocity Engine 2.4 released</headline>
+      <categories>
+        <category>velocity</category>
+        <category>engine</category>
+      </categories>
+      <text><![CDATA[
+        The Velocity developers are pleased to announce the release of Velocity Engine 2.4.
+
+        This is a maintenance release. Main changes:
+
+        * Fix an overzealous string to number conversion which induced a performace loss.
+
+        * Refactoring of the spring-velocity-support module.
+
+        * Review of DataSourceResourceLoader for thread safety.
+
+        * Add Java 16 record field property getters mapping.
+
+        For a full list of changes, consult {{{https://velocity.apache.org/engine/2.4/changes.html}Velocity Engine 2.4 Changes section}} and {{{https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310104&version=12352138}JIRA changelog}}.
+
+        For notes on upgrading, see {{{http://velocity.apache.org/engine/2.4/upgrading.html}Velocity Engine 2.4 Upgrading section}}.
+
+        Downloads of 2.4 are available {{{http://velocity.apache.org/download.cgi#velocity-engine-24}here}}.
+      ]]></text>
+    </item>
     <item id="CVE-2020-13936">
         <date>2021-03-09</date>
         <headline>Security Advisory for Velocity Engine - Velocity Sandbox Bypass - CVE-2020-13936</headline>

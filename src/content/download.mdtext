@@ -51,9 +51,9 @@ Here are the Apache Velocity PGP [KEYS](https://www.apache.org/dist/velocity/KEY
 
 These releases are considered stable and suitable for production.
 
-### Velocity Engine 2.3
+### Velocity Engine 2.4
 
-Be sure to check the [release notes](https://www.apache.org/dist/velocity/engine/2.3/release-notes.html) and the [dependencies](https://velocity.apache.org/engine/2.3/dependencies.html).
+Be sure to check the [release notes](https://www.apache.org/dist/velocity/engine/2.4/release-notes.html) and the [dependencies](https://velocity.apache.org/engine/2.4/dependencies.html).
 
 #### Modules
 
@@ -68,7 +68,7 @@ Be sure to check the [release notes](https://www.apache.org/dist/velocity/engine
     <dependency>
       <groupId>org.apache.velocity</groupId>
       <artifactId>velocity-engine-core</artifactId>
-      <version>2.3</version>
+      <version>2.4</version>
     </dependency>
 
 Replace `velocity-engine-core` with `velocity-engine-scripting` to include the scripting engine, or with `spring-velocity-support` to include the Spring integration support. Both will include `velocity-engine-core` as a dependency.
@@ -81,21 +81,21 @@ Replace `velocity-engine-core` with `velocity-engine-scripting` to include the s
   <tbody>
     <tr>
       <th>velocity-engine-core</th>
-      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-core-2.3.jar">velocity-engine-core-2.3.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.4/velocity-engine-core-2.4.jar">velocity-engine-core-2.4.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-core-2.4.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-core-2.4.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
       <th>velocity-engine-scripting</th>
-      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-scripting-2.3.jar">velocity-engine-scripting-2.3.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.4/velocity-engine-scripting-2.4.jar">velocity-engine-scripting-2.4.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-scripting-2.4.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-scripting-2.4.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
       <th>spring-velocity-support</th>
-      <td><a href="[preferred]/velocity/engine/2.3/spring-velocity-support-2.3.jar">spring-velocity-support-2.3.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/spring-velocity-support-2.3.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/spring-velocity-support-2.3.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.4/spring-velocity-support-2.4.jar">spring-velocity-support-2.4.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/spring-velocity-support-2.4.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/spring-velocity-support-2.4.jar.sha256">SHA256</a>]</td>
     </tr>
   </tbody>
 </table>
@@ -108,27 +108,27 @@ Replace `velocity-engine-core` with `velocity-engine-scripting` to include the s
   <tbody>
     <tr>
       <th>velocity-engine-core</th>
-      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-core-2.3.pom">velocity-engine-core-2.3.pom</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3.pom.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3.pom.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.4/velocity-engine-core-2.4.pom">velocity-engine-core-2.4.pom</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-core-2.4.pom.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-core-2.4.pom.sha256">SHA256</a>]</td>
     </tr>
     <tr>
       <th>velocity-engine-scripting</th>
-      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-scripting-2.3.pom">velocity-engine-scripting-2.3.pom</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3.pom.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3.pom.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.4/velocity-engine-scripting-2.4.pom">velocity-engine-scripting-2.4.pom</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-scripting-2.4.pom.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-scripting-2.4.pom.sha256">SHA256</a>]</td>
     </tr>
     <tr>
       <th>spring-velocity-support</th>
-      <td><a href="[preferred]/velocity/engine/2.3/spring-velocity-support-2.3.pom">spring-velocity-support-2.3.pom</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/spring-velocity-support-2.3.pom.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/spring-velocity-support-2.3.pom.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.4/spring-velocity-support-2.4.pom">spring-velocity-support-2.4.pom</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/spring-velocity-support-2.4.pom.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/spring-velocity-support-2.4.pom.sha256">SHA256</a>]</td>
     </tr>
     <tr>
       <th>velocity-custom-parser-example</th>
-      <td><a href="[preferred]/velocity/engine/2.3/velocity-custom-parser-example-2.3.pom">velocity-engine-scripting-2.3.pom</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-custom-parser-example-2.3.pom.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-custom-parser-example-2.3.pom.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.4/velocity-custom-parser-example-2.4.pom">velocity-engine-scripting-2.4.pom</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-custom-parser-example-2.4.pom.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-custom-parser-example-2.4.pom.sha256">SHA256</a>]</td>
     </tr>
   </tbody>
 </table>
@@ -141,21 +141,21 @@ Replace `velocity-engine-core` with `velocity-engine-scripting` to include the s
   <tbody>
     <tr>
       <th>velocity-engine-core</th>
-      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-core-2.3-javadoc.jar">velocity-engine-core-2.3-javadoc.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3-javadoc.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3-javadoc.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.4/velocity-engine-core-2.4-javadoc.jar">velocity-engine-core-2.4-javadoc.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-core-2.4-javadoc.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-core-2.4-javadoc.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
       <th>velocity-engine-scripting</th>
-      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-scripting-2.3-javadoc.jar">velocity-engine-scripting-2.3-javadoc.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3-javadoc.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3-javadoc.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.4/velocity-engine-scripting-2.4-javadoc.jar">velocity-engine-scripting-2.4-javadoc.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-scripting-2.4-javadoc.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-scripting-2.4-javadoc.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
       <th>spring-velocity-support</th>
-      <td><a href="[preferred]/velocity/engine/2.3/spring-velocity-support-2.3-javadoc.jar">spring-velocity-support-2.3-javadoc.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/spring-velocity-support-2.3-javadoc.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/spring-velocity-support-2.3-javadoc.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.4/spring-velocity-support-2.4-javadoc.jar">spring-velocity-support-2.4-javadoc.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/spring-velocity-support-2.4-javadoc.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/spring-velocity-support-2.4-javadoc.jar.sha256">SHA256</a>]</td>
     </tr>
   </tbody>
 </table>
@@ -168,21 +168,21 @@ Replace `velocity-engine-core` with `velocity-engine-scripting` to include the s
   <tbody>
     <tr>
       <th>velocity-engine-core</th>
-      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-core-2.3-sources.jar">velocity-engine-core-2.3-sources.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3-sources.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-core-2.3-sources.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.4/velocity-engine-core-2.4-sources.jar">velocity-engine-core-2.4-sources.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-core-2.4-sources.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-core-2.4-sources.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
       <th>velocity-engine-scripting</th>
-      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-scripting-2.3-sources.jar">velocity-engine-scripting-2.3-sources.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3-sources.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-scripting-2.3-sources.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.4/velocity-engine-scripting-2.4-sources.jar">velocity-engine-scripting-2.4-sources.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-scripting-2.4-sources.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-scripting-2.4-sources.jar.sha256">SHA256</a>]</td>
     </tr>
     <tr>
       <th>spring-velocity-support</th>
-      <td><a href="[preferred]/velocity/engine/2.3/spring-velocity-support-2.3-sources.jar">spring-velocity-support-2.3-sources.jar</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/spring-velocity-support-2.3-sources.jar.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/spring-velocity-support-2.3-sources.jar.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.4/spring-velocity-support-2.4-sources.jar">spring-velocity-support-2.4-sources.jar</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/spring-velocity-support-2.4-sources.jar.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/spring-velocity-support-2.4-sources.jar.sha256">SHA256</a>]</td>
     </tr>
   </tbody>
 </table>
@@ -195,9 +195,9 @@ Replace `velocity-engine-core` with `velocity-engine-scripting` to include the s
   <tbody>
     <tr>
       <th>velocity-engine-examples</th>
-      <td><a href="[preferred]/velocity/engine/2.3/velocity-engine-examples-2.3.zip">velocity-engine-examples.zip</a></td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-examples-2.3.zip.asc">PGP</a>]</td>
-      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.3/velocity-engine-examples-2.3.zip.sha256">SHA256</a>]</td>
+      <td><a href="[preferred]/velocity/engine/2.4/velocity-engine-examples-2.4.zip">velocity-engine-examples.zip</a></td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-examples-2.4.zip.asc">PGP</a>]</td>
+      <td>[<a href="https://www.apache.org/dist/velocity/engine/2.4/velocity-engine-examples-2.4.zip.sha256">SHA256</a>]</td>
     </tr>
   </tbody>
 </table>

@@ -17,7 +17,7 @@ We suggest you read this article on [getting started with web applications](weba
 
 ### Downloading Velocity
 
-You can download the latest release version of the [Velocity Engine](/download.cgi#engine) or [Velocity Tools](/download.cgi#tools) from the main Apache Velocity download site. For Velocity itself, source is included with the binary download.
+You can download the latest release version of the [Velocity Engine](/download.cgi#velocity-engine-24) or [Velocity Tools](/download.cgi#tools) from the main Apache Velocity download site. For Velocity itself, source is included with the binary download.
 
 If you want to download the latest source, you can do so via the git source control system and/or our github.com mirror.
 
