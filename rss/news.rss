@@ -5,6 +5,16 @@
     <link>http://velocity.apache.org</link>
     <description>Recent news from Apache Velocity Site</description>
     <item>
+      <title>Velocity Engine 2.4 released</title>
+      <link>http://velocity.apache.org/news.html#engine24</link>
+      <description>&lt;p&gt;The Velocity developers are pleased to announce the release of Velocity Engine 2.4.&lt;/p&gt;&lt;p&gt;This is a maintenance release. Main changes:&lt;/p&gt;&lt;p&gt;* Fix an overzealous string to number conversion which induced a performace loss.&lt;/p&gt;&lt;p&gt;* Refactoring of the spring-velocity-support module.&lt;/p&gt;&lt;p&gt;* Review of DataSourceResourceLoader for thread safety.&lt;/p&gt;&lt;p&gt;* Add Java 16 record field property getters mapping.&lt;/p&gt;&lt;p&gt;For a full list of changes, consult &lt;a href=&quot;https://velocity.apache.org/engine/2.4/changes.html&quot;&gt;Velocity Engine 2.4 Changes section&lt;/a&gt; and &lt;a href=&quot;https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310104&amp;amp;version=12352138&quot;&gt;JIRA changelog&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;For notes on upgrading, see &lt;a href=&quot;http://velocity.apache.org/engine/2.4/upgrading.html&quot;&gt;Velocity Engine 2.4 Upgrading section&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Downloads of 2.4 are available &lt;a href=&quot;http://velocity.apache.org/download.cgi#velocity-engine-24&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
+      <category>velocity</category>
+      <category>engine</category>
+      <pubDate>Sat,  7 Sep 2024 08:00:00 GMT</pubDate>
+      <guid>http://velocity.apache.org/news.html#engine24</guid>
+      <dc:date>2024-09-07T08:00:00Z</dc:date>
+    </item>
+    <item>
       <title>Security Advisory for Velocity Engine - Velocity Sandbox Bypass - CVE-2020-13936</title>
       <link>http://velocity.apache.org/news.html#CVE-2020-13936</link>
       <description>&lt;p&gt;PROBLEM:&lt;/p&gt;&lt;p&gt;An attacker that is able to modify Velocity templates may execute arbitrary Java code or run arbitrary system commands with the same privileges as the account running the Servlet container. This applies to applications that allow untrusted users to upload/modify velocity templates running Apache Velocity Engine versions up to 2.2.&lt;/p&gt;&lt;p&gt;This issue has been assigned CVE-2020-13936.&lt;/p&gt;&lt;p&gt;WORKAROUND:&lt;/p&gt;&lt;p&gt;Applications using Apache Velocity that allow untrusted users to upload templates should upgrade to version 2.3. This version adds additional default restrictions on what methods/properties can be accessed in a template.&lt;/p&gt;&lt;p&gt;ACKNOWLEDGEMENTS: This issue was discovered by Alvaro Munoz pwntester@github.com of Github Security Labs and was originally reported as GHSL-2020-048.&lt;/p&gt;</description>
