@@ -326,7 +326,7 @@ After a vote is finished, and it has been decided that is **at least of alpha qu
         sudo pip3 install git+https://github.com/linkchecker/linkchecker.git # if not installed before
         linkchecker https://velocity.apache.org
 
-* Update the DOAP RDF project metadata located in the `site` direcotry of the `velocity-site` module sources. Note that DOAP URLs are defined in the [https://svn.apache.org/repos/asf/comdev/projects.apache.org/trunk/data/projects.xml](https://svn.apache.org/repos/asf/comdev/projects.apache.org/trunk/data/projects.xml) file, which can be edited by every commiter (by checking out the project using `svn checkout https://svn.apache.org/repos/asf/comdev`).
+* Update the DOAP RDF project metadata located in the `site` directory of the `velocity-site` module sources. Note that DOAP URLs are defined in the [https://svn.apache.org/repos/asf/comdev/projects.apache.org/trunk/data/projects.xml](https://svn.apache.org/repos/asf/comdev/projects.apache.org/trunk/data/projects.xml) file, which can be edited by every commiter (by checking out the project using `svn checkout https://svn.apache.org/repos/asf/comdev`).
 
 * Send announcement
         
