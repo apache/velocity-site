@@ -1,0 +1,1830 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+    KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+  -->
+<html lang="en">
+  <head>
+    <title>Apache Velocity Engine - Developer Guide</title>
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta property="og:image" content="https://www.apache.org/images/asf_logo.gif" />
+
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+
+    
+
+    
+    
+  </head>
+
+  <body>
+    <div id="page">
+      <div id="header">
+        
+        <div id="logo2"><img src="/engine/devel/images/velocity-logo.png"/></div>
+        
+        <a href="/">
+<svg height="60" width="50%" viewBox="20 20 800 110" preserveAspectRatio="xMinYMin">
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="1395.619" x2="-4570.1162" y1="697.55487" x1="-5167.0962" gradientUnits="userSpaceOnUse" id="SVGID_1_">
+    <stop id="stop3521" style="stop-color:#F69923" offset="0" />
+    <stop id="stop3523" style="stop-color:#F79A23" offset="0.3123" />
+    <stop id="stop3525" style="stop-color:#E97826" offset="0.8383" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="620.50482" x2="-5326.209" y1="620.50482" x1="-9585.3418" gradientUnits="userSpaceOnUse" id="SVGID_2_">
+    <stop id="stop3546" style="stop-color:#9E2064" offset="0.3233" />
+    <stop id="stop3548" style="stop-color:#C92037" offset="0.6302" />
+    <stop id="stop3550" style="stop-color:#CD2335" offset="0.7514" />
+    <stop id="stop3552" style="stop-color:#E97826" offset="1" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="1047.6898" x2="-6533.1782" y1="1047.6898" x1="-9071.207" gradientUnits="userSpaceOnUse" id="SVGID_3_">
+    <stop id="stop3557" style="stop-color:#282662" offset="0" />
+    <stop id="stop3559" style="stop-color:#662E8D" offset="9.548390e-02" />
+    <stop id="stop3561" style="stop-color:#9F2064" 1  offset="0.7882" />
+    <stop id="stop3563" style="stop-color:#CD2032" offset="0.9487" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="580.81702" x2="-5086.9941" y1="580.81702" x1="-9346.126" gradientUnits="userSpaceOnUse" id="SVGID_4_">
+    <stop id="stop3568" style="stop-color:#9E2064" offset="0.3233" />
+    <stop id="stop3570" style="stop-color:#C92037" offset="0.6302" />
+    <stop id="stop3572" style="stop-color:#CD2335" offset="0.7514" />
+    <stop id="stop3574" style="stop-color:#E97826" offset="1" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="638.4408" x2="-6797.2012" y1="638.4408" x1="-9035.5029" gradientUnits="userSpaceOnUse" id="SVGID_5_">
+    <stop id="stop3579" style="stop-color:#282662" offset="0" />
+    <stop id="stop3581" style="stop-color:#662E8D" offset="9.548390e-02" />
+    <stop id="stop3583" style="stop-color:#9F2064" offset="0.7882" />
+    <stop id="stop3585" style="stop-color:#CD2032" offset="0.9487" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="1021.6218" x2="-5086.9941" y1="1021.6218" x1="-9346.126" gradientUnits="userSpaceOnUse" id="SVGID_6_">
+    <stop id="stop3590" style="stop-color:#9E2064" offset="0.3233" />
+    <stop id="stop3592" style="stop-color:#C92037" offset="0.6302" />
+    <stop id="stop3594" style="stop-color:#CD2335" offset="0.7514" />
+    <stop id="stop3596" style="stop-color:#E97826" offset="1" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="999.73297" x2="-5351.2017" y1="999.73297" x1="-9610.334" gradientUnits="userSpaceOnUse" id="SVGID_7_">
+    <stop id="stop3601" style="stop-color:#9E2064" offset="0.3233" />
+    <stop id="stop3603" style="stop-color:#C92037" offset="0.6302" />
+    <stop id="stop3605" style="stop-color:#CD2335" offset="0.7514" />
+    <stop id="stop3607" style="stop-color:#E97826" offset="1" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="1152.7261" x2="-5086.9941" y1="1152.7261" x1="-9346.126" gradientUnits="userSpaceOnUse" id="SVGID_8_">
+    <stop id="stop3616" style="stop-color:#9E2064" offset="0.3233" />
+    <stop id="stop3618" style="stop-color:#C92037" offset="0.6302" />
+    <stop id="stop3620" style="stop-color:#CD2335" offset="0.7514" />
+    <stop id="stop3622" style="stop-color:#E97826" offset="1" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="1137.7247" x2="-5086.9941" y1="1137.7247" x1="-9346.126" gradientUnits="userSpaceOnUse" id="SVGID_9_">
+    <stop id="stop3631" style="stop-color:#9E2064" offset="0.3233" />
+    <stop id="stop3633" style="stop-color:#C92037" offset="0.6302" />
+    <stop id="stop3635" style="stop-color:#CD2335" offset="0.7514" />
+    <stop id="stop3637" style="stop-color:#E97826" offset="1" />
+  </linearGradient>
+  <linearGradient gradientTransform="matrix(0.07810935,0.01915457,0.02093045,-0.07148201,452.38809,497.7395)" y2="1134.7161" x2="-6011.9995" y1="1134.7161" x1="-6953.4072" gradientUnits="userSpaceOnUse" id="SVGID_10_">
+    <stop id="stop3646" style="stop-color:#9E2064" offset="0.3233" />
+    <stop id="stop3648" style="stop-color:#C92037" offset="0.6302" />
+    <stop id="stop3650" style="stop-color:#CD2335" offset="0.7514" />
+    <stop id="stop3652" style="stop-color:#E97826" offset="1" />
+  </linearGradient>
+  <g transform="translate(275,-230)" id="g3735">
+    <path d="m 95.030525,353.34688 c -5.868388,1.89866 -18.455097,2.86966 -35.232972,2.68962 l -7.844759,-17.69411 c 11.922072,0.96277 23.155947,1.27149 33.446456,0.7785 0.806681,-0.0278 1.205437,-0.0597 1.205437,-0.0597 -0.39975,0.0215 -0.805689,0.0382 -1.205437,0.0597 -3.380984,0.11837 -13.97859,0.22097 -32.909158,-1.88263 6.824373,-6.72909 18.288583,-16.31958 28.008861,-23.85834 18.433387,9.69185 21.017957,20.51606 21.017957,20.51606 0,0 5.61321,15.54576 -6.486385,19.4509 z" id="path3527" style="fill:url(#SVGID_1_)" />
+    <path d="m 3.8322454,303.07135 c 0.059217,-0.0415 0.1120778,-0.0878 0.1712971,-0.12929 l -1.0221478,0.89604 c -0.088131,0.0386 -0.1658908,0.0658 -0.2478563,0.10915 0.3676459,-0.29732 0.7362578,-0.58424 1.098707,-0.8759 z" id="path3529" style="fill:none" />
+    <path d="m -27.876072,290.63399 c -0.650899,0.45658 -1.281214,0.94828 -1.904317,1.45519 0.623103,-0.50691 1.259608,-0.99386 1.904317,-1.45519 z" id="path3531" style="fill:none" />
+    <path d="m -128.18492,294.56272 c 0.27819,0.088 0.55639,0.17608 0.82938,0.26978 5.73136,1.8314 11.32321,3.58465 16.79937,5.26839 6.14427,1.88764 12.119072,3.68379 17.941982,5.39228 6.136306,1.80423 12.096924,3.5122 17.888098,5.1287 6.074555,1.69886 11.961044,3.29193 17.65531,4.79537 4.634037,1.22062 9.141965,2.38304 13.528979,3.48159 1.458542,0.36649 2.910894,0.72823 4.350865,1.08046 2.85092,0.70149 5.659501,1.38013 8.402938,2.03773 2.537553,0.60576 5.026574,1.18393 7.479394,1.74394 0.816212,0.19205 1.625242,0.36892 2.435266,0.55621 0.129295,0.0317 0.263817,0.0577 0.393113,0.0893 l -0.868431,0.76291 0.823816,1.77257 c -0.199639,-0.047 -0.398312,-0.0837 -0.603148,-0.12504 -3.709945,-0.80082 -7.434286,-1.63202 -11.17299,-2.49357 -2.160061,-0.49944 -4.326285,-1.00361 -6.493528,-1.51823 -6.008289,-1.42577 -12.02773,-2.90842 -18.046963,-4.44886 -6.083384,-1.55106 -12.155172,-3.16085 -18.201961,-4.8094 -5.94027,-1.61506 -11.850346,-3.27456 -17.722022,-4.95287 -5.860317,-1.67925 -11.671838,-3.38866 -17.421218,-5.10831 -6.00377,-1.79907 -11.9226,-3.61019 -17.74509,-5.43429 -1.31344,-0.40964 -2.62686,-0.81925 -3.9351,-1.23456 -4.69313,-1.47853 -9.30551,-2.95301 -13.84851,-4.42253 l -1.30665,-2.80027 0.97437,-0.85544 c 0.1365,0.0469 0.27298,0.0937 0.4033,0.1358 5.95137,1.97137 11.76945,3.86936 17.45943,5.68831 z" id="path3533" style="fill:none" />
+    <path d="m -30.254972,292.46861 0,0 c 0.0052,-0.006 0.01127,-0.001 0.01647,-0.007 0,0 -0.0052,0.006 -0.01647,0.007 z" id="path3535" style="fill:none" />
+    <path d="m -44.667842,285.26517 c -0.973928,0.73986 -1.967656,1.51281 -2.988395,2.30367 -0.0052,0.006 -0.01647,0.007 -0.02166,0.0123 0.500572,-0.40778 0.995948,-0.80989 1.498505,-1.19683 0.50256,-0.38694 1.00094,-0.75776 1.511673,-1.1191 z" id="path3537" style="fill:#be202e" />
+    <path d="m -44.667842,285.26517 c -0.973928,0.73986 -1.967656,1.51281 -2.988395,2.30367 -0.0052,0.006 -0.01647,0.007 -0.02166,0.0123 0.500572,-0.40778 0.995948,-0.80989 1.498505,-1.19683 0.50256,-0.38694 1.00094,-0.75776 1.511673,-1.1191 z" id="path3539" style="opacity:0.35;fill:#be202e" />
+    <path d="m -30.2218,292.45544 c 0,0 -0.0052,0.006 -0.01127,10e-4 -0.0052,0.006 -0.01127,9.9e-4 -0.01647,0.007 0.153662,-0.13318 0.314646,-0.25108 0.463195,-0.37852 0.628302,-0.51257 1.264807,-0.99953 1.904289,-1.45521 -0.763241,0.60216 -1.549259,1.20616 -2.339509,1.82623 l 0,0 0,0 z" id="path3541" style="fill:#be202e" />
+    <path d="m -30.2218,292.45544 c 0,0 -0.0052,0.006 -0.01127,10e-4 -0.0052,0.006 -0.01127,9.9e-4 -0.01647,0.007 0.153662,-0.13318 0.314646,-0.25108 0.463195,-0.37852 0.628302,-0.51257 1.264807,-0.99953 1.904289,-1.45521 -0.763241,0.60216 -1.549259,1.20616 -2.339509,1.82623 l 0,0 0,0 z" id="path3543" style="opacity:0.35;fill:#be202e" />
+    <path d="m -3.0502818,330.5069 c 6.1572269,1.1827 12.247534,2.26571 18.2471238,3.24041 6.227231,1.01426 12.356561,1.90504 18.357978,2.65895 0.348762,0.0456 0.708911,0.0903 1.063863,0.1407 5.913525,0.73472 11.699134,1.33257 17.339307,1.78976 l 7.844762,17.69411 c -1.160612,-0.0121 -2.333632,-0.0338 -3.529455,-0.0536 -4.497401,-0.0917 -9.271992,-0.26093 -14.266831,-0.51239 -5.629411,-0.28469 -11.556567,-0.6821 -17.699796,-1.1778 -5.67533,-0.46487 -11.549098,-1.02415 -17.5529729,-1.68334 -5.1106845,-0.5626 -10.3308648,-1.18997 -15.622198,-1.90096 -0.197654,-0.0262 -0.3953057,-0.0524 -0.5929873,-0.0786 L -20.52484,326.94198 c 5.866009,1.25856 11.69707,2.45163 17.4745582,3.56492 z" id="path3554" style="fill:url(#SVGID_2_)" />
+    <path d="m -148.64432,287.87492 c -4.62455,-1.5418 -9.31626,-3.12551 -14.09367,-4.76537 -0.0714,-0.0258 -0.13651,-0.0469 -0.20787,-0.0727 -0.67629,-0.2295 -1.34737,-0.46467 -2.02369,-0.69419 -3.21697,-1.10818 -6.09263,-2.12815 -12.63913,-4.44059 1.0996,-3.6285 -0.41103,-8.38228 -2.49019,-13.37944 3.85283,3.31605 6.24773,7.77315 6.52364,12.94094 11.22895,-13.43253 25.02773,-21.83891 40.65304,-19.66506 1.39603,0.1929 2.79384,0.46445 4.21819,0.83367 -6.03156,-0.16844 -10.5525,1.89547 -15.78323,8.30262 -0.0165,0.007 -0.0384,0.0188 -0.0549,0.0255 0.0165,-0.007 0.0384,-0.0188 0.0549,-0.0255 12.65883,-5.62036 21.02643,-6.89439 31.69203,-5.50534 2.52825,0.32813 5.18536,0.80351 8.06151,1.40845 -16.05366,1.09099 -26.93227,8.28126 -33.83488,19.35554 l -7.46769,6.54422 c -0.87076,-0.28223 -1.73631,-0.57012 -2.60806,-0.86277 z" id="path3565" style="fill:url(#SVGID_3_)" />
+    <path d="m -127.92557,298.05617 c 5.82769,1.81842 11.74652,3.62955 17.74512,5.43431 5.74415,1.7253 11.554681,3.42428 17.421188,5.10828 5.866507,1.68401 11.775562,3.33306 17.722022,4.95287 6.046789,1.64856 12.123776,3.25267 18.201961,4.8094 6.013043,1.53569 12.038702,3.02311 18.046963,4.44886 2.167243,0.51462 4.333467,1.0188 6.493528,1.51824 3.738705,0.86155 7.463045,1.69274 11.172991,2.49357 0.199636,0.047 0.398312,0.0837 0.603147,0.12503 l 11.0633797,23.68219 c -0.3953333,-0.0524 -0.7854697,-0.11047 -1.1807777,-0.16285 -5.606921,-0.76978 -11.295338,-1.6118 -17.027898,-2.55534 -5.790549,-0.94943 -11.619023,-1.99561 -17.461681,-3.12996 -4.930086,-0.95526 -9.854792,-1.97402 -14.768868,-3.06189 -0.99728,-0.22482 -1.97698,-0.44581 -2.962873,-0.67154 -6.150175,-1.40914 -11.974938,-2.89686 -17.487932,-4.42532 -6.244233,-1.73255 -12.086525,-3.52355 -17.517683,-5.33696 -3.574927,-1.18983 -6.978977,-2.39336 -10.215327,-3.58405 -2.73994,-1.04133 -5.46008,-2.11577 -8.13662,-3.21469 -6.31977,-2.58273 -12.45563,-5.34303 -18.38577,-8.29314 l -11.10848,-23.79411 c 4.54303,1.46954 9.15538,2.94401 13.84853,4.42255 1.30203,0.41054 2.62167,0.82493 3.93508,1.23455 z" id="path3576" style="fill:url(#SVGID_4_)" />
+    <path d="m -135.39748,315.78421 c -7.2115,-3.62494 -14.10198,-7.55402 -20.5914,-11.85137 -0.2272,-0.15514 -0.45863,-0.29422 -0.68582,-0.44936 2.3312,6.55285 0.24599,17.70369 0.21823,17.65338 -3.57467,-11.87432 -8.27251,-22.40852 -15.98628,-29.36565 -3.27442,2.37386 -5.94744,7.01608 -8.28358,12.96033 -0.41103,-8.38228 1.53485,-12.94527 2.45003,-14.5997 -4.28418,4.11989 -11.70198,6.14259 -19.64656,7.81875 9.09151,-4.3892 15.21177,-8.8767 17.7976,-13.46995 -24.55723,-8.42409 -51.09999,-18.3439 -78.93127,-29.25317 2.33282,-1.41596 4.74343,-1.47765 7.19121,-0.67033 5.0236,1.99314 38.05928,14.98608 83.16344,30.23283 1.28124,0.43321 2.57389,0.86552 3.8727,1.30257 0.36193,0.12335 0.72908,0.24106 1.08481,0.35966 4.73826,1.59047 9.59244,3.19267 14.55737,4.81229 1.13136,0.36642 2.26272,0.73284 3.40026,1.10401 0.0237,0.009 0.0476,0.0172 0.0652,0.021 l 11.11272,23.77804 c -0.25321,-0.12682 -0.52301,-0.24705 -0.7886,-0.38338 z" id="path3587" style="fill:url(#SVGID_5_)" />
+    <path d="m -20.879529,324.31241 c -0.803833,-0.18253 -1.613855,-0.36983 -2.435266,-0.5562 -2.447621,-0.56569 -4.936644,-1.14385 -7.479421,-1.74397 -2.748608,-0.6519 -5.5458,-1.33146 -8.402911,-2.03771 -1.439971,-0.35222 -2.880933,-0.71488 -4.350864,-1.08045 -4.387015,-1.09855 -8.894942,-2.26097 -13.528979,-3.48159 -5.694267,-1.50344 -11.580756,-3.09652 -17.65531,-4.79538 -5.791175,-1.61649 -11.75182,-3.32448 -17.888098,-5.1287 -5.82291,-1.70849 -11.803902,-3.50939 -17.941982,-5.39227 -5.47616,-1.68374 -11.06801,-3.43699 -16.79937,-5.26839 -0.27821,-0.088 -0.55639,-0.17608 -0.82938,-0.26978 -5.68998,-1.81895 -11.50806,-3.71694 -17.44804,-5.68923 -0.13651,-0.0469 -0.27299,-0.0937 -0.40331,-0.1358 l 7.4677,-6.54423 c -0.099,0.16552 -0.21555,0.32718 -0.31452,0.4927 9.07173,-7.71799 26.60886,-13.7657 42.082402,-14.50031 7.130974,-0.33982 14.689435,0.18964 22.840099,1.56994 6.067741,1.02703 12.461933,2.52695 19.257152,4.49905 5.938834,1.72022 12.180797,3.78914 18.773426,6.22395 -2.953943,1.10323 -5.869407,2.7287 -8.744022,4.78162 -0.499373,0.3604 -1.009112,0.73216 -1.511672,1.1191 -0.502585,0.38691 -1.004151,0.78427 -1.498505,1.19683 l 0,0 0,0 c 0.0052,-0.006 0.01647,-0.007 0.02166,-0.0123 10.741665,-5.44059 21.911677,-5.49972 33.275347,-3.05294 -3.512293,0.90633 -8.725108,2.75774 -13.490013,6.1124 -0.650869,0.45659 -1.281184,0.9483 -1.904287,1.4552 -0.160021,0.1283 -0.314677,0.25106 -0.463195,0.37852 l 0,0 0,0 c 0.0052,-0.006 0.01127,-9.9e-4 0.01647,-0.007 0,0 0.0052,-0.006 0.01127,-9.9e-4 l 0,0 c 3.833524,-1.80927 7.415482,-3.06785 10.971709,-3.81484 0.75953,-0.16062 1.521076,-0.30038 2.285595,-0.40887 1.160272,-0.17169 2.320337,-0.28559 3.490588,-0.35301 0.747698,-0.0441 1.497407,-0.0674 2.255322,-0.065 1.7736055,-1.9e-4 3.5809872,0.11249 5.4459147,0.34666 0.5691898,0.07 1.1394009,0.1504 1.7219926,0.24033 0.8080111,0.16642 1.5932437,0.33468 2.3670894,0.50385 3.4947139,0.7708 6.5151055,1.56378 9.1028098,2.33365 1.2938545,0.38493 2.4717831,0.75813 3.5461715,1.12911 0.427069,0.1444 0.842778,0.28973 1.24088,0.4312 1.189109,0.43009 2.22612,0.83033 3.11722,1.20547 1.333581,0.56035 2.345383,1.05716 3.054216,1.4469 l 0,0 0,0 c -0.484902,0.0914 -1.006187,0.22239 -1.55767,0.39787 -3.810562,1.20862 -9.0630554,4.26613 -12.8155016,7.10372 l 6.8589836,-6.00695 -6.8589836,6.00695 c -0.059219,0.0415 -0.1120802,0.0878 -0.1712972,0.1293 -0.3686395,0.2869 -0.73626,0.58424 -1.1100962,0.87681 0.088156,-0.0386 0.1659184,-0.0658 0.2478563,-0.10915 l -23.4688293,20.55321 c -0.123105,-0.0269 -0.246211,-0.0538 -0.380705,-0.0798 z" id="path3598" style="fill:url(#SVGID_6_)" />
+    <path d="m 52.489098,337.22784 c -5.221409,-0.58001 -11.072737,-1.32494 -17.582802,-2.29555 -0.337345,-0.0465 -0.687098,-0.10255 -1.030661,-0.15384 -5.631475,-0.8466 -11.74798,-1.84346 -18.359704,-3.03705 -5.7115598,-1.02402 -11.780866,-2.1875 -18.2388704,-3.51423 -5.6261705,-1.15166 -11.5511356,-2.4265 -17.7644676,-3.83584 L 2.9813947,303.8381 c 9.3594193,-4.04821 15.0606363,-4.69376 22.0219053,-4.22681 1.892116,0.15844 3.845172,0.35401 5.836389,0.58854 6.095793,0.72012 12.552647,1.79478 18.766426,3.08853 5.997499,1.25326 11.744739,2.71043 16.714058,4.25614 3.159483,0.98674 6.000949,2.00943 8.377522,3.03258 2.095388,0.90383 4.020884,1.83177 5.804442,2.7763 -9.724453,7.55488 -21.194854,17.14061 -28.013039,23.87446 z" id="path3609" style="fill:url(#SVGID_7_)" />
+    <path d="m -46.179514,286.38427 c -0.502558,0.38693 -1.004124,0.78429 -1.498506,1.19682 l 0,0 c 0.494382,-0.41253 0.995948,-0.80989 1.498506,-1.19682 z" id="path3611" style="fill:#be202e" />
+    <path d="m -46.179514,286.38427 c -0.502558,0.38693 -1.004124,0.78429 -1.498506,1.19682 l 0,0 c 0.494382,-0.41253 0.995948,-0.80989 1.498506,-1.19682 z" id="path3613" style="opacity:0.35;fill:#be202e" />
+    <path d="m -46.179514,286.38427 c -0.502558,0.38693 -1.004124,0.78429 -1.498506,1.19682 l 0,0 c 0.494382,-0.41253 0.995948,-0.80989 1.498506,-1.19682 z" id="path3624" style="fill:url(#SVGID_8_)" />
+    <path d="m -30.254972,292.46861 c 0.153663,-0.13318 0.314647,-0.25107 0.463193,-0.37852 -0.148463,0.12751 -0.303257,0.25016 -0.463193,0.37852 l 0,0 z" id="path3626" style="fill:#be202e" />
+    <path d="m -30.254972,292.46861 c 0.153663,-0.13318 0.314647,-0.25107 0.463193,-0.37852 -0.148463,0.12751 -0.303257,0.25016 -0.463193,0.37852 l 0,0 z" id="path3628" style="opacity:0.35;fill:#be202e" />
+    <path d="m -30.254972,292.46861 c 0.153663,-0.13318 0.314647,-0.25107 0.463193,-0.37852 -0.148463,0.12751 -0.303257,0.25016 -0.463193,0.37852 l 0,0 z" id="path3639" style="fill:url(#SVGID_9_)" />
+    <path d="m -30.233189,292.45636 c 0,0 0.0052,-0.006 0.01127,-0.001 l 0,0 0,0 0,0 c 0,0 -0.0052,0.006 -0.01127,0.001 z" id="path3641" style="fill:#be202e" />
+    <path d="m -30.233189,292.45636 c 0,0 0.0052,-0.006 0.01127,-0.001 l 0,0 0,0 0,0 c 0,0 -0.0052,0.006 -0.01127,0.001 z" id="path3643" style="opacity:0.35;fill:#be202e" />
+    <path d="m -30.233189,292.45636 c 0,0 0.0052,-0.006 0.01127,-0.001 l 0,0 0,0 0,0 c 0,0 -0.0052,0.006 -0.01127,0.001 z" id="path3654" style="fill:url(#SVGID_10_)" />
+  </g>
+  <text id="text3761" y="61.094482" x="290" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:Oswald;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" xml:space="preserve">
+    <tspan y="61.094482" x="290" id="tspan3763">The</tspan>
+  </text>
+  <text id="text3416" y="72.094482" x="356" style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:57.5px;line-height:125%;font-family:Oswald;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" xml:space="preserve">
+    <tspan y="72.094482" x="356" id="tspan3418">Apache Velocity Project</tspan>
+  </text>
+  <path id="path3557" d="m 897.15,23.54449 0,1.58889 3.72099,0 0,10.51111 1.72469,0 0,-10.51111 3.74815,0 0,-1.58889 -9.19383,0 z m 21.49753,0 -4.15555,8.44691 -4.18272,-8.44691 -2.07778,0 0,12.1 1.58889,0 0,-9.60123 4.11482,8.32469 1.1,0 4.11481,-8.32469 0,9.60123 1.58889,0 0,-12.1 -2.09136,0 z" style="fill:#6d6e71" />
+  <text id="text3599" y="114.09448" x="400" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35px;line-height:125%;font-family:Arial;text-align:start;letter-spacing:0.03em;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" xml:space="preserve">
+    <tspan y="114.09448" x="400" id="tspan3601">http://velocity.apache.org/</tspan>
+  </text>
+</svg>
+</a>
+
+      </div>
+      <div id="breadcrumb">
+        <ul><li><a href="http://www.apache.org">apache</a></li><li><a href="/">velocity</a></li><li><a href="/engine/">engine</a></li><li><a href="/engine/2.4.1/">2.4.1</a></li><li><a href="#">developer guide</a></li></ul>
+      </div>
+      <div id="middle">
+        <div id="leftnav">
+          
+          <style type="text/css">
+/* The following code is added by mdx_elementid.py
+   It was originally lifted from http://subversion.apache.org/style/site.css */
+/*
+ * Hide class="elementid-permalink", except when an enclosing heading
+ * has the :hover property.
+ */
+.headerlink, .elementid-permalink {
+  visibility: hidden;
+}
+h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover > .headerlink, h4:hover > .headerlink, h5:hover > .headerlink, dt:hover > .elementid-permalink { visibility: visible }</style>
+<h2 id="velocity-engine">Velocity Engine<a class="headerlink" href="#velocity-engine" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="index.html">Welcome</a></li>
+<li><a href="overview.html">Overview</a></li>
+<li><a href="getting-started.html">Getting Started</a></li>
+<li><a href="webapps.html">Web Applications</a></li>
+<li><a href="/download.cgi#velocity-engine-24">Downloads</a></li>
+<li><a href="http://wiki.apache.org/velocity/VelocityFAQ">FAQ</a></li>
+</ul>
+<h2 id="docs">Docs<a class="headerlink" href="#docs" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="user-guide.html">User Guide</a></li>
+<li><a href="developer-guide.html">Developer Guide</a></li>
+<li><a href="vtl-reference.html">VTL Reference</a></li>
+<li><a href="configuration.html">Configuration</a></li>
+<li><a href="glossary.html">Glossary</a></li>
+<li><a href="apidocs/index.html">Javadoc</a></li>
+<li><a href="upgrading.html">Upgrading</a></li>
+</ul>
+<h2 id="developers">Developers<a class="headerlink" href="#developers" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="license.html">License</a></li>
+<li><a href="changes.html">Changes</a></li>
+<li><a href="dependencies.html">Dependencies</a></li>
+<li><a href="source-repository.html">Sources</a></li>
+<li><a href="build.html">Building</a></li>
+<li><a href="https://issues.apache.org/jira/browse/VELOCITY">Issues</a></li>
+<li><a href="https://wiki.apache.org/velocity/RoadMap">Road Map</a></li>
+<li><a href="https://wiki.apache.org/velocity/CodeStandards">Coding Standards</a></li>
+<li><a href="https://wiki.apache.org/velocity/DocumentationGuidelines">Doc Guidelines</a></li>
+</ul>
+<h2 id="community">Community<a class="headerlink" href="#community" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="https://wiki.apache.org/velocity/">Wiki</a></li>
+<li><a href="/news.html">News</a></li>
+<li><a href="https://wiki.apache.org/velocity/PoweredByVelocity">Powered by Velocity</a></li>
+<li><a href="https://wiki.apache.org/velocity/VelocityEditors">IDE/Editor Plugins</a></li>
+<li><a href="https://wiki.apache.org/velocity/PublishedArticlesAndBooks">Articles and Books</a></li>
+<li><a href="/contact.html">Mailing Lists</a></li>
+</ul>
+<h2 id="translations-outdated">Translations (outdated)<a class="headerlink" href="#translations-outdated" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="translations/user-guide_fi.html">User's Guide (Finnish)</a></li>
+<li><a href="translations/user-guide_fr.html">User's Guide (French)</a></li>
+<li><a href="translations/user-guide_es.html">User's Guide (Spanish)</a></li>
+</ul>
+          
+          <div id="bottom-nav">
+            <img src="/images/pbv90x30.png"/>
+            <div id="rss">
+              <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
+            </div>
+            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+          </div>
+        </div>
+        <div id="content"><div class="section-content"><style type="text/css">
+/* The following code is added by mdx_elementid.py
+   It was originally lifted from http://subversion.apache.org/style/site.css */
+/*
+ * Hide class="elementid-permalink", except when an enclosing heading
+ * has the :hover property.
+ */
+.headerlink, .elementid-permalink {
+  visibility: hidden;
+}
+h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover > .headerlink, h4:hover > .headerlink, h5:hover > .headerlink, dt:hover > .elementid-permalink { visibility: visible }</style>
+<h2 id="developer-guide-contents">Developer Guide - Contents<a class="headerlink" href="#developer-guide-contents" title="Permanent link">&para;</a></h2>
+<div class="toc">
+<ul>
+<li><a href="#developer-guide-contents">Developer Guide - Contents</a></li>
+<li><a href="#introduction">Introduction</a><ul>
+<li><a href="#building-web-applications-with-velocity">Building Web Applications with Velocity</a></li>
+<li><a href="#downloading-velocity">Downloading Velocity</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#how-velocity-works">How Velocity Works</a><ul>
+<li><a href="#the-fundamental-pattern">'The Fundamental Pattern'</a></li>
+</ul>
+</li>
+<li><a href="#to-singleton-or-not-to-singleton">To Singleton Or Not To Singleton...</a><ul>
+<li><a href="#singleton-model">Singleton Model</a></li>
+<li><a href="#separate-instance">Separate Instance</a></li>
+</ul>
+</li>
+<li><a href="#the-context">The Context</a><ul>
+<li><a href="#the-basics">The Basics</a></li>
+<li><a href="#support-for-iterative-objects-for-foreach">Support for Iterative Objects for #foreach()</a></li>
+<li><a href="#support-for-static-classes">Support for "Static Classes"</a></li>
+<li><a href="#context-chaining">Context Chaining</a></li>
+<li><a href="#objects-created-in-the-template">Objects Created in the Template</a></li>
+<li><a href="#other-context-issues">Other Context Issues</a></li>
+</ul>
+</li>
+<li><a href="#using-velocity">Using Velocity</a><ul>
+<li><a href="#the-velocity-helper-class">The Velocity Helper Class</a></li>
+<li><a href="#exceptions">Exceptions</a></li>
+<li><a href="#miscellaneous-details">Miscellaneous Details</a></li>
+</ul>
+</li>
+<li><a href="#logging">Logging</a></li>
+<li><a href="#space-gobbling">Space Gobbling</a><ul>
+<li><a href="#no-space-gobbling">No space gobbling</a></li>
+<li><a href="#backward-compatible-space-gobbling">Backward compatible space gobbling</a></li>
+<li><a href="#lines-space-gobbling">Lines space gobbling</a></li>
+<li><a href="#structured-space-gobbling">Structured space gobbling</a></li>
+</ul>
+</li>
+<li><a href="#resource-loaders">Resource Loaders</a></li>
+<li><a href="#application-attributes">Application Attributes</a></li>
+<li><a href="#event-handlers">Event Handlers</a><ul>
+<li><a href="#orgapachevelocityappeventincludeeventhandler">org.apache.velocity.app.event.IncludeEventHandler</a></li>
+<li><a href="#orgapachevelocityappeventinvalidreferenceeventhandler">org.apache.velocity.app.event.InvalidReferenceEventHandler</a></li>
+<li><a href="#orgapachevelocityappeventmethodexceptioneventhandler">org.apache.velocity.app.event.MethodExceptionEventHandler</a></li>
+<li><a href="#orgapachevelocityappeventreferenceinsertioneventhandler">org.apache.velocity.app.event.ReferenceInsertionEventHandler</a></li>
+<li><a href="#registering-event-handlers">Registering Event Handlers</a></li>
+</ul>
+</li>
+<li><a href="#customizing-introspection">Customizing Introspection</a><ul>
+<li><a href="#standard-uberspectors">Standard Uberspectors</a></li>
+<li><a href="#uberspectors-providing-extra-features">Uberspectors providing extra features</a></li>
+<li><a href="#method-arguments-conversions">Method arguments conversions</a></li>
+</ul>
+</li>
+<li><a href="#template-encoding-for-internationalization">Template Encoding for Internationalization</a></li>
+<li><a href="#velocity-and-structured-data">Velocity and structured data</a></li>
+<li><a href="#velocity-scripting">Velocity Scripting</a></li>
+<li><a href="#customizing-the-vtl-parser">Customizing the VTL parser</a></li>
+<li><a href="#summary">Summary</a></li>
+</ul>
+</div>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Velocity is a Java-based template engine, a simple and powerful development tool that allows you to easily create and render documents that format and present your data. In this guide, we hope to give an overview of the basics of development using Velocity.</p>
+<h3 id="building-web-applications-with-velocity">Building Web Applications with Velocity<a class="headerlink" href="#building-web-applications-with-velocity" title="Permanent link">&para;</a></h3>
+<p>Velocity is often used for building web applications. In order to use Velocity in a web app you'll need a servlet or servlet-based framework. The easiest way to get started is with <a href="/tools/devel/view-servlet.html">VelocityViewServlet</a> in the <a href="/tools/devel/">Velocity Tools</a> subproject. You can also use any of a number of <a href="http://wiki.apache.org/velocity/PoweredByVelocity">third party framework</a> or build your own servlet using the techniques described in this document.</p>
+<p>We suggest you read this article on <a href="webapps.html">getting started with web applications</a> for more detail on the various options.</p>
+<h3 id="downloading-velocity">Downloading Velocity<a class="headerlink" href="#downloading-velocity" title="Permanent link">&para;</a></h3>
+<p>You can download the latest release version of the <a href="/download.cgi#velocity-engine-24">Velocity Engine</a> or <a href="/download.cgi#tools">Velocity Tools</a> from the main Apache Velocity download site. For Velocity itself, source is included with the binary download.</p>
+<p>If you want to download the latest source, you can do so via the git source control system and/or our github.com mirror.</p>
+<p>You can also find published snapshots on the <a href="https://repository.apache.org/content/repositories/snapshots/org/apache/velocity/">Apache Snapshot Repository</a>.</p>
+<p>Instructions for building Velocity from source can be found in the <a href="build.html">Build</a> document.</p>
+<h3 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h3>
+<p>For compiling or at runtime, Velocity needs a Java runtime environment version of 1.7 or more recent.</p>
+<p>Velocity also depends upon a few packages for general functionality:</p>
+<ul>
+<li><a href="https://commons.apache.org/proper/commons-collections/"><strong>Apache Commons Collections</strong></a> - required for compilation only.</li>
+<li><a href="http://commons.apache.org/proper/commons-lang/"><strong>Apache Commons Lang</strong></a> - required for compilation only.</li>
+<li><a href="http://www.slf4j.org"><strong> SLF4J API</strong></a> - required for compilation and at runtime.</li>
+</ul>
+<p>At runtime, Velocity will require an SLF4J binding to be present in the path. Typically, one of:</p>
+<ul>
+<li><a href="http://software.clapper.org/avsl/">AVSL</a></li>
+<li><a href="http://www.slf4j.org/api/org/slf4j/impl/JDK14LoggerAdapter.html">SLF4J JDK14 Adapter</a></li>
+<li><a href="http://www.slf4j.org/api/org/slf4j/impl/Log4jLoggerAdapter.html">SLF4J Log4J Adapter</a></li>
+<li><a href="http://www.slf4j.org/api/org/slf4j/impl/SimpleLogger.html">SLF4J Simple Logger</a></li>
+<li><a href="http://www.slf4j.org/android/">SLF4J Android</a></li>
+<li><a href="http://logback.qos.ch/">LOGBack</a></li>
+<li><a href="https://github.com/arkanovicz/webapp-slf4j-logger">WebApp SLF4J Logger</a></li>
+</ul>
+<h2 id="resources">Resources<a class="headerlink" href="#resources" title="Permanent link">&para;</a></h2>
+<p>There are quite a few resources and examples available to the programmer, and we recommend that you look at our examples, documentation and even the source code. Some great sources are:</p>
+<ul>
+<li>The user and developer community: join us via the <a href="/contact.html">mail-lists</a>. Mail list archives are available from that page, too.</li>
+<li>The <a href="http://wiki.apache.org/velocity/">Velocity Wiki</a> contains articles, sample code, and other community-written content.</li>
+<li><a href="http://wiki.apache.org/velocity/VelocityFAQ">Frequently Asked Questions (FAQ)</a> : please visit this page to read the latest FAQ and to contribute your own answers.</li>
+<li>source code: <code>src/java/...</code>: all the source code to the Velocity project</li>
+<li>application example 1: <code>examples/app_example1</code>: a simple example showing how to use Velocity in an application program.</li>
+<li>application example 2: <code>examples/app_example2</code>: a simple example showing how to use Velocity in an application program using the Velocity application utility class.</li>
+<li>XML example: <code>examples/xmlapp_example</code>: a simple example showing how to use JDOM to read and access XML document data from within a Velocity template.  It also includes a demonstration of a recursive Velocimacro that walks the document tree.</li>
+<li>event example: <code>examples/event_example</code>: An example that demonstrates the use of the event handling API.</li>
+<li>Anakia application: <code>examples/anakia</code>: example application showing how to use Velocity for creating stylesheet renderings of xml data</li>
+<li>documentation: <code>docs</code>: all the generated documentation for the Velocity project in html</li>
+<li>API documentation: <code>docs/api</code>: the generated Javadoc documentation for the Velocity project</li>
+<li>templates: <code>test/templates</code>: a large collection of template examples in our testbed directory, these are a great source of useage examples of VTL, the Velocity Template Language</li>
+<li>context example: <code>examples/context_example</code>: two examples showing how the Velocity context can be extended. For advanced users.</li>
+</ul>
+<p>All directory references above are relative to the distribution root directory.</p>
+<h2 id="how-velocity-works">How Velocity Works<a class="headerlink" href="#how-velocity-works" title="Permanent link">&para;</a></h2>
+<h3 id="the-fundamental-pattern">'The Fundamental Pattern'<a class="headerlink" href="#the-fundamental-pattern" title="Permanent link">&para;</a></h3>
+<p>When using Velocity in an application program or in a servlet (or anywhere, actually), you will generally do the following:</p>
+<ol>
+<li>Initialize Velocity. This applies to both usage patterns for Velocity, the Singleton as well as the 'separate runtime instance' (see more on this below), and you only do this once.</li>
+<li>Create a Context object (more on what that is later).</li>
+<li>Add your data objects to the Context.</li>
+<li>Choose a template.</li>
+<li>'Merge' the template and your data to produce the ouput.</li>
+</ol>
+<p>In code, using the singleton pattern via the <code>org.apache.velocity.app.Velocity</code> class, this looks like</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">java.io.StringWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.velocity.VelocityContext</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.velocity.Template</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.velocity.app.Velocity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.velocity.exception.ResourceNotFoundException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.velocity.exception.ParseErrorException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.velocity.exception.MethodInvocationException</span><span class="o">;</span>
+
+<span class="n">Velocity</span><span class="o">.</span><span class="na">init</span><span class="o">();</span>
+
+<span class="n">VelocityContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VelocityContext</span><span class="o">();</span>
+
+<span class="n">context</span><span class="o">.</span><span class="na">put</span><span class="o">(</span> <span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">String</span><span class="o">(</span><span class="s">&quot;Velocity&quot;</span><span class="o">)</span> <span class="o">);</span>
+
+<span class="n">Template</span> <span class="n">template</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="k">try</span>
+<span class="o">{</span>
+  <span class="n">template</span> <span class="o">=</span> <span class="n">Velocity</span><span class="o">.</span><span class="na">getTemplate</span><span class="o">(</span><span class="s">&quot;mytemplate.vm&quot;</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">catch</span><span class="o">(</span> <span class="n">ResourceNotFoundException</span> <span class="n">rnfe</span> <span class="o">)</span>
+<span class="o">{</span>
+  <span class="c1">// couldn&#39;t find the template</span>
+<span class="o">}</span>
+<span class="k">catch</span><span class="o">(</span> <span class="n">ParseErrorException</span> <span class="n">pee</span> <span class="o">)</span>
+<span class="o">{</span>
+  <span class="c1">// syntax error: problem parsing the template</span>
+<span class="o">}</span>
+<span class="k">catch</span><span class="o">(</span> <span class="n">MethodInvocationException</span> <span class="n">mie</span> <span class="o">)</span>
+<span class="o">{</span>
+  <span class="c1">// something invoked in the template</span>
+  <span class="c1">// threw an exception</span>
+<span class="o">}</span>
+<span class="k">catch</span><span class="o">(</span> <span class="n">Exception</span> <span class="n">e</span> <span class="o">)</span>
+<span class="o">{}</span>
+
+<span class="n">StringWriter</span> <span class="n">sw</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringWriter</span><span class="o">();</span>
+
+<span class="n">template</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span> <span class="n">context</span><span class="o">,</span> <span class="n">sw</span> <span class="o">);</span>
+</pre></div>
+
+
+<p>That's the basic pattern. It is very simple, isn't it?  This is generally what happens when you use Velocity to render a template. You probably won't be writing code exactly like this - we provide a few tools to help make it even easier.  However, no matter how to use Velocity the above sequence is what is happening either explicitly, or behind the scenes.</p>
+<h2 id="to-singleton-or-not-to-singleton">To Singleton Or Not To Singleton...<a class="headerlink" href="#to-singleton-or-not-to-singleton" title="Permanent link">&para;</a></h2>
+<p>Developers have two options for using the Velocity engine, the singleton model and the separate instance model. The same core Velocity code is used for both approaches, which are provided to make Velocity easier to integrate into your Java application.</p>
+<h3 id="singleton-model">Singleton Model<a class="headerlink" href="#singleton-model" title="Permanent link">&para;</a></h3>
+<p>This is the legacy pattern, where there is only one instance of the Velocity engine in the JVM (or web application, depending) that is shared by all. This is very convenient as it allows localized configuration and sharing of resources.  For example, this is a very appropriate model for use in a Servlet 2.2+ compliant web application as each web application can have its own instance of Velocity, allowing that web application's servlet to share resources like templates, a logger, etc. The singleton is accessable via the <code>org.apache.velocity.app.Velocity</code> class, and and example of use:</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">org.apache.velocity.app.Velocity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.velocity.Template</span><span class="o">;</span>
+
+<span class="o">...</span>
+
+<span class="cm">/*</span>
+<span class="cm"> *  Configure the engine</span>
+<span class="cm"> */</span>
+
+<span class="n">Velocity</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span>
+    <span class="n">Velocity</span><span class="o">.</span><span class="na">RUNTIME_LOG_NAME</span><span class="o">,</span> <span class="s">&quot;mylog&quot;</span><span class="o">);</span>
+
+<span class="cm">/*</span>
+<span class="cm"> *  now initialize the engine</span>
+<span class="cm"> */</span>
+
+<span class="n">Velocity</span><span class="o">.</span><span class="na">init</span><span class="o">();</span>
+
+<span class="o">...</span>
+
+<span class="n">Template</span> <span class="n">t</span> <span class="o">=</span> <span class="n">Velocity</span><span class="o">.</span><span class="na">getTemplate</span><span class="o">(</span><span class="s">&quot;foo.vm&quot;</span><span class="o">);</span>
+</pre></div>
+
+
+<h3 id="separate-instance">Separate Instance<a class="headerlink" href="#separate-instance" title="Permanent link">&para;</a></h3>
+<p>New in version 1.2, the separate instance allows you to create, configure and use as many instances of Velocity as you wish in the same JVM (or web application.)  This is useful when you wish to support separate configurations, such as template directories, loggers, etc in the same application.  To use separate instances, use the <code>org.apache.velocity.app.VelocityEngine</code> class.  An example, which parallels the above singleton example, looks like:</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">org.apache.velocity.app.VelocityEngine</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.velocity.Template</span><span class="o">;</span>
+
+<span class="o">...</span>
+
+<span class="cm">/*</span>
+<span class="cm"> *  create a new instance of the engine</span>
+<span class="cm"> */</span>
+
+<span class="n">VelocityEngine</span> <span class="n">ve</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VelocityEngine</span><span class="o">();</span>
+
+<span class="cm">/*</span>
+<span class="cm"> *  configure the engine.  In this case, we are using</span>
+<span class="cm"> *  a specific logger name</span>
+<span class="cm"> */</span>
+
+<span class="n">ve</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span>
+    <span class="n">VelocityEngine</span><span class="o">.</span><span class="na">RUNTIME_LOG_NAME</span><span class="o">,</span> <span class="s">&quot;mylog&quot;</span><span class="o">);</span>
+
+<span class="cm">/*</span>
+<span class="cm"> *  initialize the engine</span>
+<span class="cm"> */</span>
+
+<span class="n">ve</span><span class="o">.</span><span class="na">init</span><span class="o">();</span>
+
+<span class="o">...</span>
+
+<span class="n">Template</span> <span class="n">t</span> <span class="o">=</span> <span class="n">ve</span><span class="o">.</span><span class="na">getTemplate</span><span class="o">(</span><span class="s">&quot;foo.vm&quot;</span><span class="o">);</span>
+</pre></div>
+
+
+<p>As you can see, this is very simple and straightforward.  Except for some simple syntax changes, using Velocity as a singleton or as separate instances requires no changes to the high-level structure of your application or templates.</p>
+<p>As a programmer, the classes you should use to interact with the Velocity internals are the <code>org.apache.velocity.app.Velocity</code> class if using the singleton model, or <code>org.apache.velocity.app.VelocityEngine</code> if using the non-singleton model ('separate instance').</p>
+<p>At no time should an application use the internal <code>Runtime, RuntimeConstants, RuntimeSingleton or RuntimeInstance</code> classes in the <code>org.apache.velocity.runtime</code> package, as these are intended for internal use only and may change over time.  As mentioned above, the classes you should use are located in the <code>org.apache.velocity.app</code> package, and are the <code>Velocity</code> and <code>VelocityEngine</code> classes.  If anything is missing or needed from those classes, do not hesitate to suggest changes - these classes are intended for the application developer.</p>
+<h2 id="the-context">The Context<a class="headerlink" href="#the-context" title="Permanent link">&para;</a></h2>
+<h3 id="the-basics">The Basics<a class="headerlink" href="#the-basics" title="Permanent link">&para;</a></h3>
+<p>The concept of the 'context' is central to Velocity, and is a common technique for moving a container of data around between parts of a system. The idea is that the context is a 'carrier' of data between the Java layer (or you the programmer) and the template layer ( or the designer ). You as the programmer will gather objects of various types, whatever your application calls for, and place them in the context.  To the designer, these objects, and their methods and properties, will become accessable via template elements called <a href="vtl-reference.html"> references</a>. Generally, you will work with the designer to determine the data needs for the application. In a sense, this will become an 'API'  as you produce a data set for the designer to access in the template.  Therefore, in this phase of  the development process it is worth devoting some time and careful analysis.</p>
+<p>While Velocity allows you to create your own context classes to support special needs and techniques (like a context that accesses an LDAP server directly, for example), a good basic implementation class called VelocityContext is provided for you as part of the distribution.</p>
+<p>VelocityContext is suitable for all general purpose needs, and we strongly recommended that you use it. Only in exceptional and advanced cases will you need to extend or create your own context implementation.</p>
+<p>Using VelocityContext is as simple as using a normal Java Hashtable class. While the interface contains other useful methods, the two main methods you will use are</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="n">Object</span> <span class="nf">put</span><span class="o">(</span><span class="n">String</span> <span class="n">key</span><span class="o">,</span> <span class="n">Object</span> <span class="n">value</span><span class="o">);</span>
+<span class="kd">public</span> <span class="n">Object</span> <span class="nf">get</span><span class="o">(</span><span class="n">String</span> <span class="n">key</span><span class="o">);</span>
+</pre></div>
+
+
+<p>Please note that like a Hashtable, the value must be derived from java.lang.Object, and must not be null. Fundamental types like int or float must be wrapped in the appropriate wrapper classes.</p>
+<p>That's really all there is to basic context operations. For more information, see the API documentation included in the distribution.</p>
+<h3 id="support-for-iterative-objects-for-foreach">Support for Iterative Objects for #foreach()<a class="headerlink" href="#support-for-iterative-objects-for-foreach" title="Permanent link">&para;</a></h3>
+<p>As a programmer, you have great freedom in the objects that you put into the context.  But as with most freedoms, this one comes with a little bit of responsibility, so understand what Velocity supports, and any issues that may arise. Velocity supports serveral types of collection types suitable for use in the VTL <code>#foreach()</code> directive:</p>
+<ul>
+<li><code>Object []</code>  Regular object array, not much needs to be said here. Velocity will internally wrap your array in a class that provides an Iterator interface,  but that shouldn't concern you as the programmer, or the template author.  Of more interest, is the fact that Velocity will now allow template authors to treat arrays as fixed-length lists. This means they may call methods like <code>size()</code>, <code>isEmpty()</code> and <code>get(int)</code> as well as the <code>empty</code> property on both arrays and standard java.util.List instances without concerning themselves about the difference.</li>
+<li><code>java.util.Collection</code>  Velocity will use the <code>iterator()</code> method to get an Iterator to use in the loop, so if you are implementing a Collection interface on your object, please ensure that <code>iterator()</code> returns a working  Iterator.</li>
+<li><code>java.util.Map</code> Here, Velocity depends upon the <code>values()</code> method of the interface to get a <code>Collection</code> interface, on which <code>iterator()</code> is called to retrieve an Iterator for the loop.</li>
+<li><code>java.util.Iterator</code> USE WITH CAUTION: This is currently supported only provisionally - the issue of concern is the 'non-resettablity' of the Iterator.  If a 'naked' Iterator is placed into the context, and used in more than one #foreach(), subsequent #foreach() blocks after the first will fail, as the Iterator doesn't reset.</li>
+<li><code>java.util.Enumeration</code> USE WITH CAUTION: Like <code>java.util.Iterator</code>, this is currently supported only provisionally - the issue of concern is the 'non-resettablity' of the Enumeration.  If a 'naked' Enumeration is placed into the context, and used in more than one #foreach(), subsequent #foreach() blocks after the first will fail, as the Enumeration doesn't reset.</li>
+<li>Any public class with a <code>public Iterator iterator()</code> method that never returns <code>null</code>.  As a last resort, Velocity will look for an <code>iterator()</code> method. This provides great flexibility and automatic support for <code>java.util.Iterable</code> interface.</li>
+</ul>
+<p>In the case of the <code>Iterator</code> and <code>Enumeration</code>, it is recommended that they are placed in the context only when it cannot be avoided, and you should let Velocity find the appropriate reusable iterative interface when that is sufficient and possible.</p>
+<p>There are good reasons to use the <code>java.util.Iterator</code> interface directly (large data sets via JDBC, for example), but if it can be avoided, it might be better to use something else. By 'directly' , we meant doing something like:</p>
+<div class="codehilite"><pre><span class="n">Vector</span> <span class="n">v</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Vector</span><span class="o">();</span>
+<span class="n">v</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="s">&quot;Hello&quot;</span><span class="o">);</span>
+<span class="n">v</span><span class="o">.</span><span class="na">addElement</span><span class="o">(</span><span class="s">&quot;There&quot;</span><span class="o">);</span>
+
+<span class="n">context</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;words&quot;</span><span class="o">,</span> <span class="n">v</span><span class="o">.</span><span class="na">iterator</span><span class="o">()</span> <span class="o">);</span>
+</pre></div>
+
+
+<p>where the Iterator itself is placed into the context. Instead, if you simply did:</p>
+<div class="codehilite"><pre><span class="n">context</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;words&quot;</span><span class="o">,</span> <span class="n">v</span> <span class="o">);</span>
+</pre></div>
+
+
+<p>then all would be fine: Velocity would figure out that Vector implement Collection (via List), and therefore will find the <code>iterator()</code> method, and use that to get a 'fresh' Iterator for its use each time it needs to.  With just a plain Iterator (the first snippet above...), once velocity has used it in a <code>#foreach()</code>, Velocity has no way of getting a new one to use for the next <code>#foreach()</code> it is used in.  The result is no output from any subsequent <code>#foreach()</code> blocks using that reference.</p>
+<p>This above isn't meant to give the impression that iterating over collections in Velocity is something that requires great care and thought.  Rather, the opposite is true, in general.  Just be careful when you place an Iterator into the context.</p>
+<h3 id="support-for-static-classes">Support for "Static Classes"<a class="headerlink" href="#support-for-static-classes" title="Permanent link">&para;</a></h3>
+<p>Not all classes are instantiable.  Classes like <code>java.lang.Math</code> do not provide any public constructor, and yet may contain useful static methods. In order to access these static methods from a template, you can simply add the class itself to the context:</p>
+<div class="codehilite"><pre><span class="n">context</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;Math&quot;</span><span class="o">,</span> <span class="n">Math</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+</pre></div>
+
+
+<p>This will allow you to call any public static method in <code>java.lang.Math</code> on the <code>$Math</code> reference in the template.</p>
+<h3 id="context-chaining">Context Chaining<a class="headerlink" href="#context-chaining" title="Permanent link">&para;</a></h3>
+<p>An innovative feature of Velocity's context design is the concept of <em>context chaining</em>. Also sometimes referred to as <em>context wrapping</em>, this advanced feature allows you to connect separate contexts together in a manner that makes it appear as one 'contiguous' context to the template.</p>
+<p>This is best illustrated by an example:</p>
+<div class="codehilite"><pre><span class="n">VelocityContext</span> <span class="n">context1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VelocityContext</span><span class="o">();</span>
+
+<span class="n">context1</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span><span class="s">&quot;Velocity&quot;</span><span class="o">);</span>
+<span class="n">context1</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;project&quot;</span><span class="o">,</span> <span class="s">&quot;Jakarta&quot;</span><span class="o">);</span>
+<span class="n">context1</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;duplicate&quot;</span><span class="o">,</span> <span class="s">&quot;I am in context1&quot;</span><span class="o">);</span>
+
+<span class="n">VelocityContext</span> <span class="n">context2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VelocityContext</span><span class="o">(</span> <span class="n">context1</span> <span class="o">);</span>
+
+<span class="n">context2</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;lang&quot;</span><span class="o">,</span> <span class="s">&quot;Java&quot;</span> <span class="o">);</span>
+<span class="n">context2</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;duplicate&quot;</span><span class="o">,</span> <span class="s">&quot;I am in context2&quot;</span><span class="o">);</span>
+
+<span class="n">template</span><span class="o">.</span><span class="na">merge</span><span class="o">(</span> <span class="n">context2</span><span class="o">,</span> <span class="n">writer</span> <span class="o">);</span>
+</pre></div>
+
+
+<p>In the code above, we have set up context2 such that it <em>chains</em> context1.  This means that in the template, you can access any of the items that were put into either of the two VelocityContext objects, as long as there is no duplication of the keys used to add objects. If that is the case, as it is above for the key 'duplicate', the object stored in the nearest context in the chain will be available.  In this example above, the object returned would be the string "I am in context2".</p>
+<p>Note that this duplication, or 'covering', of a context item does not in any way harm or alter the covered object.  So in the example above, the string "I am in context1" is alive and well, still accessable via context1.get("duplicate").  But in the example above, the value of the reference '$duplicate' in the template would be 'I am in context2', and the template has no access to the covered string 'I am in context1'.</p>
+<p>Note also that you have to be careful when you are relying on the template to add information to a context that you will examine later after the rendering.  The changes to the context via <code>#set()</code> statements in a template will affect only the outer context.  So make sure that you don't discard the outer context, expecting the data from the template to have been placed onto the inner one.</p>
+<p>This feature has many uses, the most common so far is providing layered data access and toolsets.</p>
+<p>As mentioned before, the Velocity context mechanism is also extendable, but beyond the current scope of this guide. If you are interested, please see the classes in the package <code>org.apache.velocity.context</code> to see how the provided contexts are put together.  Futher, there are a few examples in the <code>examples/context_example</code> directory in the distribution which show alternate implementations, including [a goofy] one that uses a database as the backing storage.</p>
+<p>Please note that these examples are unsupported and are there for demonstration/educational purposes only.</p>
+<h3 id="objects-created-in-the-template">Objects Created in the Template<a class="headerlink" href="#objects-created-in-the-template" title="Permanent link">&para;</a></h3>
+<p>There are two common situations where the Java code must deal with objects created at runtime in the template:</p>
+<p>When a template author calls a method of an object placed into the context by Java code.</p>
+<div class="codehilite"><pre><span class="cp">#</span><span class="nf">set</span><span class="p">($</span><span class="nv">myarr</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">]</span> <span class="p">)</span><span class="x"></span>
+<span class="p">$</span><span class="nv">foo</span><span class="p">.</span><span class="nv">bar</span><span class="p">(</span> <span class="p">$</span><span class="nv">myarr</span> <span class="p">)</span><span class="x"></span>
+</pre></div>
+
+
+<p>When a template adds objects to the context, the Java code can access those objects after the merge process is complete.</p>
+<div class="codehilite"><pre><span class="cp">#</span><span class="nf">set</span><span class="p">($</span><span class="nv">myarr</span> <span class="o">=</span> <span class="o">[</span><span class="s2">&quot;a&quot;</span><span class="p">,</span><span class="s2">&quot;b&quot;</span><span class="p">,</span><span class="s2">&quot;c&quot;</span><span class="p">]</span> <span class="p">)</span><span class="x"></span>
+<span class="cp">#</span><span class="nf">set</span><span class="p">(</span> <span class="p">$</span><span class="nv">foo</span> <span class="o">=</span> <span class="m">1</span> <span class="p">)</span><span class="x"></span>
+<span class="cp">#</span><span class="nf">set</span><span class="p">(</span> <span class="p">$</span><span class="nv">bar</span> <span class="o">=</span> <span class="s2">&quot;bar&quot;</span><span class="p">)</span><span class="x"></span>
+</pre></div>
+
+
+<p>Dealing with these cases if very straighforward, as there are just a few things to know:</p>
+<ul>
+<li>The VTL array literal <code>[ "a", "b" ]</code> and the VTL range operator <code>[ 1..10 ]</code> are <code>java.util.List</code> objects<sup>(<code>*</code>)</sup> when placed in the context or passed to methods.   Therefore, your methods that are designed to accept arrays created in the template should be written with this in mind.</li>
+<li>VTL Map references are unsurprisingly stored as <code>java.util.Map</code>.</li>
+<li>Decimal numbers will be Doubles or BigDecimals in the context, integer numbers will be Integer, Long, or BigIntegers, and strings will be, of course, Strings.</li>
+<li>Since version 2.0, Velocity will convert method arguments between all main Java standard types (booleans, numbers and strings). If you want to revert to the Velocity 1.x behavior, where provided conversions were restricted to implicit Java conversions, you can set the property <code>runtime.conversion.handler</code> to <code>none</code>.</li>
+</ul>
+<p><strong>(<code>*</code>)</strong> While an array literal always produces a <strong>mutable</strong> <code>ArrayList</code>, the range operator produces an <strong>immutable</strong> <code>List</code> since Velocity 2.1. You can revert this default to get a mutable list with the configuration: <code>runtime.immutable_ranges = false</code></p>
+<h3 id="other-context-issues">Other Context Issues<a class="headerlink" href="#other-context-issues" title="Permanent link">&para;</a></h3>
+<p>One of the features provided by the VelocityContext (or any Context derived from AbstractContext) is node specific introspection caching.  Generally, you as a the developer don't need to worry about this when using the VelocityContext as your context.  However, there is currently one known usage pattern where you must be aware of this feature.</p>
+<p>The VelocityContext will accumulate intropection information about the syntax nodes in a template as it visits those nodes.  So, in the following situation:</p>
+<ul>
+<li>You are iterating over the same template using the same VelocityContext object.</li>
+<li>Template caching is off.</li>
+<li>You request the Template from getTemplate() on each iteration.</li>
+</ul>
+<p>It is possible that your VelocityContext will appear to 'leak' memory (it is really just gathering more introspection information.)  What happens is that it accumulates template node introspection information for each template it visits, and as template caching is off, it appears to the VelocityContext that it is visiting a new template each time. Hence it gathers more introspection information and grows. It is highly recommended that you do one or more of the following:</p>
+<ul>
+<li>Create a new VelocityContext for each excursion down through the template render process. This will prevent the accumulation of introspection cache data.  For the case where you want to reuse the VelocityContext because it's populated with data or objects, you can simply wrap the populated VelocityContext in another, and the 'outer' one will accumulate the introspection information, which you will just discard.  Ex. <code>VelocityContext useThis = new VelocityContext( populatedVC );</code> This works because the outer context will store the introspection cache data, and get any requested data from the inner context (as it is empty.) Be careful though - if your template places data into the context and it's expected that it will be used in the subsequent iterations, you will need to do one of the other fixes, as any template #set() statements will be stored in the outermost context. See the discussion in <a href="#context-chaining"><strong>Context Chaining</strong></a> for more information.</li>
+<li>Turn on template caching.  This will prevent the template from being re-parsed on each iteration, resulting the the VelocityContext being able to not only avoid adding to the introspection cache information, but be able to use it resulting in a performance improvement.</li>
+<li>Reuse the Template object for the duration of the loop iterations. Then you won't be forcing Velocity, if the cache is turned off, to reread and reparse the same template over and over, so the VelocityContext won't gather new introspection information each time.</li>
+</ul>
+<h2 id="using-velocity">Using Velocity<a class="headerlink" href="#using-velocity" title="Permanent link">&para;</a></h2>
+<p>If you are using <a href="/tools/devel/view-servlet.html">VelocityViewServlet</a> or other web frameworks, you may never call Velocity directly.  However, if you use Velocity for non-web purposes, or create your own web framework you will need to directly call the Velocity Engine similar to <a href="#the-fundamental-pattern">the fundamental pattern</a> shown earlier. One important additional thing to remember is to initialize the Velocity Engine before using it to merge templates.</p>
+<h3 id="the-velocity-helper-class">The Velocity Helper Class<a class="headerlink" href="#the-velocity-helper-class" title="Permanent link">&para;</a></h3>
+<p>Velocity contains an application utility class called Velocity ( <code>org.apache.velocity.app.Velocity</code> ).  The purpose of this class is to provide the necessary methods required to initialize Velocity, as well as useful utility routines to make life easier in using Velocity. This class is documented  in the project's javadoc, so please look there for definitive details. This documentation is intended to be of a tutorial nature; therefore for compete API information, the Javadoc is the definitive source.</p>
+<p>The Velocity runtime engine is a singleton instance that provides resource, logging and other services to all Velocity users running in the same JVM. Therefore, the runtime engine is initialized only once.  You can attempt to initialize Velocity more than once, but only the first initialization will apply.  The rest of the attempts will be ignored.  The Velocity utility class currently provides five methods used in configuration of the runtime engine.</p>
+<p>The five configuration methods are:</p>
+<ul>
+<li>
+<p><code>setProperty( String key, Object o )</code></p>
+<p>Sets the property <code>key</code> with the value <code>o</code>. The value is typically a String, but in special cases can also be a comma-separated list of values (in a single String, ex."foo, bar, woogie") as well as other things that will arise.</p>
+</li>
+<li>
+<p><code>Object getProperty( String key )</code></p>
+<p>Returns the value of the property key.  Note that you must be aware of the type of the return value, as they can be things other than Strings.</p>
+</li>
+<li>
+<p><code>init()</code></p>
+<p>Initializes the runtime with the default properties provided in the distribution.(These are listed below in the section pertaining to properties.)</p>
+</li>
+<li>
+<p><code>init( Properties p )</code></p>
+<p>Initializes the runtime with the properties contained in the <code>java.util.Properties</code> object passed as an argument.</p>
+</li>
+<li>
+<p><code>init( String filename )</code></p>
+<p>initializes the runtime using the properties found in the properties file <code>filename</code></p>
+</li>
+</ul>
+<p>Note that in each case, the default properties will be used as a base configuration, and any additional properties specified by the application will replace individual defaults.  Any default properties not overwritten will remain in effect.  This has the benefit that only the properties you are interested in changing need to be specified, rather than a complete set.</p>
+<p>Another thing to note is that the <code>init()</code> calls may be called more than once without harm in an application. However, the first call to any of the <code>init()</code> functions will configure the engine with the configuration properties set at that point, and any further configuration changes or <code>init()</code> calls will be ignored.</p>
+<p>The most common approaches to initializing Velocity will be something like:</p>
+<ol>
+<li>Setup the configuration values you wish to set in a file in the same format as org/apache/velocity/runtime/defaults/velocity.properties (the default set),  or in a <code>java.util.Properties</code>, and then call either <code>init( filename )</code> or <code>init( Properties )</code></li>
+<li>Set the configuration values individually using <code>setProperty()</code> and then call <code>init()</code>.  This method is generally used by more advanced applications that already have their own configuration management system - this allows the application to configure Velocity based upon values it generates at runtime, for example.</li>
+</ol>
+<p>Once the runtime is initialized, you can do with it what you wish. This mostly revolves around rendering templates into an output stream, and the Velocity utility class allows you to do this easily.  Currently, here are the methods and a brief description of what they do:</p>
+<ul>
+<li>
+<p><code>evaluate( Context context,  Writer out, String logTag, String instring )</code></p>
+<p><code>evaluate( Context context, Writer writer, String logTag, InputStream instream )</code></p>
+<p>These methods will render the input, in either the form of String or InputStream to an output Writer, using a Context that you provide. This is a very convenient method to use for token replacement of strings, or if you keep 'templates' of VTL-containing content in a place like a database or other non-file storage, or simply generate such dynamically.</p>
+</li>
+<li>
+<p><code>invokeVelocimacro( String vmName, String namespace, String params[],
+    Context context, Writer writer )</code></p>
+<p>Allows direct access to Velocimacros.  This can also be accomplished via the <code>evaluate()</code> method above  if you wish.  Here you simply name the vm you wish to be called, create an array of args to the VM, a Context of data, and Writer for the output.  Note that the VM args must be the 'keys' of the data objects in the Context, rather than literal data to be used as the arg.  This will probably change.</p>
+</li>
+<li>
+<p><code>mergeTemplate( String templateName, Context context, Writer writer )</code></p>
+<p>Convenient access to the normal template handling and rendering services of Velocity.  This method will take care of getting and rendering the template.  It will take advantage of loading the template according to the properties setting for the file resource loader, and therefore provides the advantage of file and parsed template caching that Velocity offers.  This is the most efficient way to access templates, and is recommended unless you have special needs.</p>
+</li>
+<li>
+<p><code>boolean templateExists( String name )</code></p>
+<p>Determines if a template <code>name</code> is able to be found by the currently configured resource loaders.</p>
+</li>
+</ul>
+<p>Once we know about these basic helpers, it is easy to write a Java program that uses Velocity.  Here it is:</p>
+<div class="codehilite"><pre><span class="kn">import</span> <span class="nn">java.io.StringWriter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.velocity.app.Velocity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.velocity.VelocityContext</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Example2</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span> <span class="n">String</span> <span class="n">args</span><span class="o">[]</span> <span class="o">)</span>
+    <span class="o">{</span>
+        <span class="cm">/* first, we init the runtime engine.  Defaults are fine. */</span>
+
+        <span class="n">Velocity</span><span class="o">.</span><span class="na">init</span><span class="o">();</span>
+
+        <span class="cm">/* lets make a Context and put data into it */</span>
+
+        <span class="n">VelocityContext</span> <span class="n">context</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VelocityContext</span><span class="o">();</span>
+
+        <span class="n">context</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;name&quot;</span><span class="o">,</span> <span class="s">&quot;Velocity&quot;</span><span class="o">);</span>
+        <span class="n">context</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;project&quot;</span><span class="o">,</span> <span class="s">&quot;Jakarta&quot;</span><span class="o">);</span>
+
+        <span class="cm">/* lets render a template */</span>
+
+        <span class="n">StringWriter</span> <span class="n">w</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringWriter</span><span class="o">();</span>
+
+        <span class="n">Velocity</span><span class="o">.</span><span class="na">mergeTemplate</span><span class="o">(</span><span class="s">&quot;testtemplate.vm&quot;</span><span class="o">,</span> <span class="n">context</span><span class="o">,</span> <span class="n">w</span> <span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot; template : &quot;</span> <span class="o">+</span> <span class="n">w</span> <span class="o">);</span>
+
+        <span class="cm">/* lets make our own string to render */</span>
+
+        <span class="n">String</span> <span class="n">s</span> <span class="o">=</span> <span class="s">&quot;We are using $project $name to render this.&quot;</span><span class="o">;</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringWriter</span><span class="o">();</span>
+        <span class="n">Velocity</span><span class="o">.</span><span class="na">evaluate</span><span class="o">(</span> <span class="n">context</span><span class="o">,</span> <span class="n">w</span><span class="o">,</span> <span class="s">&quot;mystring&quot;</span><span class="o">,</span> <span class="n">s</span> <span class="o">);</span>
+        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot; string : &quot;</span> <span class="o">+</span> <span class="n">w</span> <span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>When we run this program, and have the template <code>testtemplate.vm</code> in the same directory as our program (because we used the default configuration properties, and the defaul place to load templates from is the current directory...), our output should be:</p>
+<div class="codehilite"><pre><span class="n">template</span> <span class="o">:</span> <span class="n">Hi</span><span class="o">!</span>  <span class="n">This</span> <span class="n">Velocity</span> <span class="n">from</span> <span class="n">the</span> <span class="n">Jakarta</span> <span class="n">project</span><span class="o">.</span>
+
+<span class="n">string</span> <span class="o">:</span> <span class="n">We</span> <span class="n">are</span> <span class="n">using</span> <span class="n">Jakarta</span> <span class="n">Velocity</span> <span class="n">to</span> <span class="n">render</span> <span class="k">this</span><span class="o">.</span>
+</pre></div>
+
+
+<p>where the template we used, testtemplate.vm, is</p>
+<div class="codehilite"><pre><span class="x">Hi!  This </span><span class="p">$</span><span class="nv">name</span><span class="x"> from the </span><span class="p">$</span><span class="nv">project</span><span class="x"> project.</span>
+</pre></div>
+
+
+<p>That's all there is to it!  Note that we didn't have to use both <code>mergeTemplate()</code> and <code>evaluate()</code> in our program.  They are both included there for demonstration purposes. You will probably use only one of the methods, but depending on you application requirements,  you are free to do what you wish.</p>
+<p>This appears to be a little different from the 'fundamental pattern' that was mentioned at the beginning of this guide, but it really is the same thing.  First, you are making a context and filling it with the data needed.  Where this examples differs is that in the part of the above example where <code>mergeTemplate()</code> is used, <code>mergeTemplate()</code> is doing the work of getting the template and merging it for you, using the lower-level calls in the Runtime class. In the second example, you are making your template dynamically via the String, so that is analgous to the 'choose template' part of the process, and the <code>evaluate()</code> method does the merging for you using lower level calls.</p>
+<p>So the example above sticks to the same simple pattern of using the Velocity template engine, but the utility functions do some of the repeated drudge work, or allow you other options for your template content other than template files.</p>
+<h3 id="exceptions">Exceptions<a class="headerlink" href="#exceptions" title="Permanent link">&para;</a></h3>
+<p>Velocity may throw one of several exceptions during the parse / merge cycle. These exceptions extend RuntimeException and do not need to explicitly caught, although each includes specific properties that may help in presenting useful error messages to the end user. The exceptions are found in the package <code>org.apache.velocity.exception</code> and are:</p>
+<ol>
+<li>
+<p><code>ResourceNotFoundException</code></p>
+<p>Thrown when the resource managment system cannot find a resource (template) that
+was requested.</p>
+</li>
+<li>
+<p><code>ParseErrorException</code></p>
+</li>
+</ol>
+<p>Thrown when a VTL syntax error is found when parsing a resource (template).</p>
+<ol>
+<li><code>TemplateInitException</code></li>
+</ol>
+<p>Thrown during the first pass of template parsing; reports problems with macro and directive initialization.</p>
+<ol>
+<li><code>MethodInvocationException</code></li>
+</ol>
+<p>Thrown when an object's method in the context throws an exception during render time.  This exception wraps the thrown exception and propagates it to the application.  This allows you to handle problems in your own objects at runtime.</p>
+<p>In each case, a message is put into the runtime log.  For more information,
+see the Javadoc API documentation.</p>
+<h3 id="miscellaneous-details">Miscellaneous Details<a class="headerlink" href="#miscellaneous-details" title="Permanent link">&para;</a></h3>
+<p>While the above example used the default properties, setting your own properties is very simple. All you have to do is make a properties file somewhere and pass the name of that file to the <code>init(String)</code> method of the Velocity utility class, or make a <code>java.util.Properties</code> object, add the desired properties and values, and pass that to the <code>init(Properties)</code> method. The latter method is convenient, because you can either fill it directly from a separate properties file via the <code>load()</code>  method, or even better, you can fill it dynamically from your own application / framework's property set at runtime.  This gives you the freedom to combine all of the properties for your app into one properties file.</p>
+<p>If we wanted to use a different directory than the current directory to load our template from, we could do something like this:</p>
+<div class="codehilite"><pre> <span class="o">...</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Properties</span><span class="o">;</span>
+ <span class="o">...</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span> <span class="n">String</span> <span class="n">args</span><span class="o">[]</span> <span class="o">)</span>
+<span class="o">{</span>
+    <span class="cm">/* first, we init the runtime engine.  */</span>
+
+    <span class="n">Properties</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">();</span>
+    <span class="n">p</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;resource.loader.file.path&quot;</span><span class="o">,</span> <span class="s">&quot;/opt/templates&quot;</span><span class="o">);</span>
+    <span class="n">Velocity</span><span class="o">.</span><span class="na">init</span><span class="o">(</span> <span class="n">p</span> <span class="o">);</span>
+
+    <span class="cm">/* lets make a Context and put data into it */</span>
+
+    <span class="o">...</span>
+</pre></div>
+
+
+<p>And the same if you want to use a VelocityEngine object rather than the singleton engine:</p>
+<div class="codehilite"><pre> <span class="o">...</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Properties</span><span class="o">;</span>
+ <span class="o">...</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span> <span class="n">String</span> <span class="n">args</span><span class="o">[]</span> <span class="o">)</span>
+<span class="o">{</span>
+    <span class="cm">/* first, we init the runtime engine.  */</span>
+
+    <span class="n">Properties</span> <span class="n">p</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Properties</span><span class="o">();</span>
+    <span class="n">p</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="s">&quot;resource.loader.file.path&quot;</span><span class="o">,</span> <span class="s">&quot;/opt/templates&quot;</span><span class="o">);</span>
+    <span class="n">VelocityEngine</span> <span class="n">engine</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VelocityEngine</span><span class="o">();</span>
+    <span class="n">engine</span><span class="o">.</span><span class="na">init</span><span class="o">(</span> <span class="n">p</span> <span class="o">);</span>
+
+    <span class="cm">/* lets make a Context and put data into it */</span>
+
+    <span class="o">...</span>
+</pre></div>
+
+
+<p>And, assuming you have a directory <code>/opt/templates</code> and the template <code>testtemplate.vm</code> is in there, then things would work just fine. If you try this and have a problem, be sure to look at the velocity.log for information - the error messages are pretty good for figuring out what is wrong.</p>
+<p>If you need to place objects into the Velocity properties, you may do so: the <code>java.util.Properties</code> class <em>does</em> accept Object values (which will only invalidate the use of its <code>load</code> and <code>store</code> methods).</p>
+<p>To combine multiple properties files, you may call several times <code>setProperties(Properties)</code>, <code>setProperty(String, Object)</code> or <code>addProperty(String, Object)</code> before calling <code>init()</code>.</p>
+<p>You may want to also consider using the Application Attributes feature described in the following section.</p>
+<h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
+<p>Since version 2.0, Velocity has switched to the <a href="http://www.slf4j.org/">SLF4J</a> logging facade.</p>
+<p>All you have to do to enable logging is to make sure that your classpath contains the slf4j-api jar, and one and only one slf4j binding jar towards your favourite logsystem or facade. See the <a href="#dependencies">dependecies</a> section for a list of SLF4J bindings.</p>
+<p>By default, Velocity will use a base logger named <code>org.apache.velocity</code>, and several children loggers (whose name is appended to the base logger name):</p>
+<ul>
+<li><code>directive</code>, and <code>directive.</code><em><code>[directivename]</code></em> for all logs related to VTL directives</li>
+<li><code>parser</code> for parser logs</li>
+<li><code>loader</code>, and <code>loader.</code><em><code>[loadername]</code></em> for resource loaders logs</li>
+<li><code>macro</code> for macro-related logs</li>
+<li><code>rendering</code> for everything related to actual rendering of templates, including introspection and method calls</li>
+<li><code>event</code> for logs emitted by the event cartridge.</li>
+</ul>
+<p>You can customize this logger in two ways:</p>
+<ul>
+<li>By programmatically giving Velocity a living instance of an org.slf4j.Logger object, using the runtime.log.instance property key.</li>
+<li>By configuring the name of the logger to be used by your velocity instance, using the runtime.log.name property key. It can be done from the velocity.properties file, if present.</li>
+</ul>
+<h2 id="space-gobbling">Space Gobbling<a class="headerlink" href="#space-gobbling" title="Permanent link">&para;</a></h2>
+<p>Since version 2.0, it's possible to control the whitespace and endline gobbling performed by Velocity during the rendering, so as to control the indentation of the generated code. Space gobbling only happens <strong>around</strong> directive and control elements (all elements starting with <code>#</code>).</p>
+<p>The <code>parser.space_gobbling</code> configuration key can take the following values: <code>none</code>, <code>bc</code> (aka backward compatible), <code>lines</code> (the default) and <code>structured</code>, each detailed below.</p>
+<h3 id="no-space-gobbling">No space gobbling<a class="headerlink" href="#no-space-gobbling" title="Permanent link">&para;</a></h3>
+<p>In some special circumstances, you may want to supress all space gobbling.</p>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <div class="codehilite">
+          <pre class="fixed">
+#set($foo = 'foo')<span style="color:green">&ldsh;</span>
+&lt;table&gt;<span style="color:green">&ldsh;</span>
+  &lt;tbody&gt;<span style="color:green">&ldsh;</span>
+#foreach($row in [1..2])<span style="color:green">&ldsh;</span>
+    &lt;tr&gt;<span style="color:green">&ldsh;</span>
+  #foreach($col in [1..2])<span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+    #set($text = "row $row, col $col")<span style="color:green">&ldsh;</span>
+        $text<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+  #end<span style="color:green">&ldsh;</span>
+    &lt;/tr&gt;<span style="color:green">&ldsh;</span>
+#end<span style="color:green">&ldsh;</span>
+  &lt;/tbody&gt;<span style="color:green">&ldsh;</span>
+&lt;/table&gt;<span style="color:green">&ldsh;</span>
+          </pre>
+        </div>
+      </td>
+      <td valign="center" style="padding:1em;">
+        produces
+      </td>
+      <td>
+        <div class="codehilite">
+          <pre class="fixed">
+<span style="color:green">&ldsh;</span>
+&lt;table&gt;<span style="color:green">&ldsh;</span>
+  &lt;tbody&gt;<span style="color:green">&ldsh;</span>
+<span style="color:green">&ldsh;</span>
+    &lt;tr&gt;<span style="color:green">&ldsh;</span>
+  <span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+    <span style="color:green">&ldsh;</span>
+        row 1, col 1<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+  <span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+    <span style="color:green">&ldsh;</span>
+        row 1, col 2<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+  <span style="color:green">&ldsh;</span>
+    &lt;/tr&gt;<span style="color:green">&ldsh;</span>
+<span style="color:green">&ldsh;</span>
+    &lt;tr&gt;<span style="color:green">&ldsh;</span>
+  <span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+    <span style="color:green">&ldsh;</span>
+        row 2, col 1<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+  <span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+    <span style="color:green">&ldsh;</span>
+        row 2, col 2<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+  <span style="color:green">&ldsh;</span>
+    &lt;/tr&gt;<span style="color:green">&ldsh;</span>
+<span style="color:green">&ldsh;</span>
+  &lt;/tbody&gt;<span style="color:green">&ldsh;</span>
+&lt;/table&gt;<span style="color:green">&ldsh;</span>
+          </pre>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="backward-compatible-space-gobbling">Backward compatible space gobbling<a class="headerlink" href="#backward-compatible-space-gobbling" title="Permanent link">&para;</a></h3>
+<p>This space gobbling mode mimics Velocity 1.x space gobbling. Basically, it eats all extra endline characters <strong>after</strong> directives, plus extra whitespaces <strong>before</strong> the <code>#set</code> directive whenever the previous line already contains a directive.</p>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <div class="codehilite">
+          <pre class="fixed">
+#set($foo = 'foo')<span style="color:green">&ldsh;</span>
+&lt;table&gt;<span style="color:green">&ldsh;</span>
+  &lt;tbody&gt;<span style="color:green">&ldsh;</span>
+#foreach($row in [1..2])<span style="color:green">&ldsh;</span>
+    &lt;tr&gt;<span style="color:green">&ldsh;</span>
+  #foreach($col in [1..2])<span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+    #set($text = "row $row, col $col")<span style="color:green">&ldsh;</span>
+        $text<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+  #end<span style="color:green">&ldsh;</span>
+    &lt;/tr&gt;<span style="color:green">&ldsh;</span>
+#end<span style="color:green">&ldsh;</span>
+  &lt;/tbody&gt;<span style="color:green">&ldsh;</span>
+&lt;/table&gt;<span style="color:green">&ldsh;</span>
+          </pre>
+        </div>
+      </td>
+      <td valign="center" style="padding:1em;">
+        produces
+      </td>
+      <td>
+        <div class="codehilite">
+          <pre class="fixed">
+&lt;table&gt;<span style="color:green">&ldsh;</span>
+  &lt;tbody&gt;<span style="color:green">&ldsh;</span>
+    &lt;tr&gt;<span style="color:green">&ldsh;</span>
+        &lt;td&gt;<span style="color:green">&ldsh;</span>
+            row 1, col 1<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+        &lt;td&gt;<span style="color:green">&ldsh;</span>
+            row 1, col 2<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+      &lt;/tr&gt;<span style="color:green">&ldsh;</span>
+    &lt;tr&gt;<span style="color:green">&ldsh;</span>
+        &lt;td&gt;<span style="color:green">&ldsh;</span>
+            row 2, col 1<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+        &lt;td&gt;<span style="color:green">&ldsh;</span>
+            row 2, col 2<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+      &lt;/tr&gt;<span style="color:green">&ldsh;</span>
+  &lt;/tbody&gt;<span style="color:green">&ldsh;</span>
+&lt;/table&gt;<span style="color:green">&ldsh;</span>
+          </pre>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>As you can see, the output is a bit cleaner, but its indentation is not yet perfect since spaces used to indent the VTL code are found back in it.</p>
+<h3 id="lines-space-gobbling">Lines space gobbling<a class="headerlink" href="#lines-space-gobbling" title="Permanent link">&para;</a></h3>
+<p>This is the default space gobbling mode. It gobbles all whitespace and endline characters from lines containing only a single VTL directive.</p>
+<p>This is for instance the approriate mode if you use two distinct indentation frameworks in your templates, one for the VTL, and the other for the generated language (HTML in this example).</p>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <div class="codehilite">
+          <pre class="fixed">
+#set($foo = 'foo')<span style="color:green">&ldsh;</span>
+&lt;table&gt;<span style="color:green">&ldsh;</span>
+  &lt;tbody&gt;<span style="color:green">&ldsh;</span>
+#foreach($row in [1..2])<span style="color:green">&ldsh;</span>
+    &lt;tr&gt;<span style="color:green">&ldsh;</span>
+  #foreach($col in [1..2])<span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+    #set($text = "row $row, col $col")<span style="color:green">&ldsh;</span>
+        $text<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+  #end<span style="color:green">&ldsh;</span>
+    &lt;/tr&gt;<span style="color:green">&ldsh;</span>
+#end<span style="color:green">&ldsh;</span>
+  &lt;/tbody&gt;<span style="color:green">&ldsh;</span>
+&lt;/table&gt;<span style="color:green">&ldsh;</span>
+          </pre>
+        </div>
+      </td>
+      <td valign="center" style="padding:1em;">
+        produces
+      </td>
+      <td>
+        <div class="codehilite">
+          <pre class="fixed">
+&lt;table&gt;
+  &lt;tbody&gt;<span style="color:green">&ldsh;</span>
+    &lt;tr&gt;<span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+        row 1, col 1<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+        row 1, col 2<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+    &lt;/tr&gt;<span style="color:green">&ldsh;</span>
+    &lt;tr&gt;<span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+        row 2, col 1<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+        row 2, col 2<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+    &lt;/tr&gt;<span style="color:green">&ldsh;</span>
+  &lt;/tbody&gt;<span style="color:green">&ldsh;</span>
+&lt;/table&gt;<span style="color:green">&ldsh;</span>
+          </pre>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="structured-space-gobbling">Structured space gobbling<a class="headerlink" href="#structured-space-gobbling" title="Permanent link">&para;</a></h3>
+<p>The lines gobbling mode is not enough if you want to use a single indentation framework for both VTL and the output language. Since you will want to further indent text portions contained inside a directive, this extra indentation has to be removed at runtime.</p>
+<p>Note: this is the only space gobbling mode that produces a bit of overhead at parsing time. Computationnaly speaking, the current implementation is in O(<code>depth</code><sup>2</sup>) where <code>depth</code> is the VTL directive recursion depth.</p>
+<table>
+  <tbody>
+    <tr>
+      <td>
+        <div class="codehilite">
+          <pre class="fixed">
+#set($foo = 'foo')<span style="color:green">&ldsh;</span>
+&lt;table&gt;<span style="color:green">&ldsh;</span>
+  &lt;tbody&gt;<span style="color:green">&ldsh;</span>
+    #foreach($row in [1..2])<span style="color:green">&ldsh;</span>
+      &lt;tr&gt;<span style="color:green">&ldsh;</span>
+        #foreach($col in [1..2])<span style="color:green">&ldsh;</span>
+          &lt;td&gt;<span style="color:green">&ldsh;</span>
+            #set($text = "row $row, col $col")<span style="color:green">&ldsh;</span>
+            $text<span style="color:green">&ldsh;</span>
+          &lt;/td&gt;<span style="color:green">&ldsh;</span>
+        #end<span style="color:green">&ldsh;</span>
+      &lt;/tr&gt;<span style="color:green">&ldsh;</span>
+    #end<span style="color:green">&ldsh;</span>
+  &lt;/tbody&gt;<span style="color:green">&ldsh;</span>
+&lt;/table&gt;<span style="color:green">&ldsh;</span>
+          </pre>
+        </div>
+      </td>
+      <td valign="center" style="padding:1em;">
+        produces
+      </td>
+      <td>
+        <div class="codehilite">
+          <pre class="fixed">
+&lt;table&gt;
+  &lt;tbody&gt;<span style="color:green">&ldsh;</span>
+    &lt;tr&gt;<span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+        row 1, col 1<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+        row 1, col 2<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+    &lt;/tr&gt;<span style="color:green">&ldsh;</span>
+    &lt;tr&gt;<span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+        row 2, col 1<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+      &lt;td&gt;<span style="color:green">&ldsh;</span>
+        row 2, col 2<span style="color:green">&ldsh;</span>
+      &lt;/td&gt;<span style="color:green">&ldsh;</span>
+    &lt;/tr&gt;<span style="color:green">&ldsh;</span>
+  &lt;/tbody&gt;<span style="color:green">&ldsh;</span>
+&lt;/table&gt;<span style="color:green">&ldsh;</span>
+          </pre>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="resource-loaders">Resource Loaders<a class="headerlink" href="#resource-loaders" title="Permanent link">&para;</a></h2>
+<p>One of the fundamental and important parts about Velocity is the resource management system and the resource loaders.  They are referred to as 'resources' here rather than 'templates' because the resource management system will also handle non-template reasources, specifically things that are loaded via the #include() directive.</p>
+<p>The resource loader system if very flexible, allowing one or more resource loaders to be in operation at the same time.  This allows tremendous flexibility in configuration and resource managment, and futher allows you to write your own resource loaders for your special needs.</p>
+<p>There are currently four kinds of resource loaders that are included with Velocity, each described below.  Note that in the example configuration properties given, a common name for the loader is shown (ex.'file' in <code>resource.loader.file.path</code>). This 'common name' may not work for your configuration, as resource loaders common names are defined by the <code>resource.loader</code> configuration entry. Also, each of these loaders is located in the package <code>org.apache.velocity.runtime.resource.loader</code>.</p>
+<ul>
+<li>
+<p><strong>FileResourceLoader :</strong> This loader gets resources from the filesystem. Its configuration properties include:</p>
+<ul>
+<li><code>resource.loader.file.path</code> = &lt;path to root of templates&gt; [ , &lt;path to root of templates&gt; ... ]</li>
+<li><code>resource.loader.file.cache</code> = true/false</li>
+<li><code>resource.loader.file.modification_check_interval</code> = &lt;seconds between checks&gt;</li>
+</ul>
+<p>This is the default loader (except when using VelocityTools, see below), and is configured, by default to get templates from the 'current directory'.  In the case of using Velocity with servlets, this can be a problem as you don't want to have to keep your templates in the directory from which you start your servlet engine.  See the documentation for your servlet or web framework (for example <a href="/tools/devel/view-servlet.html">VelocityViewServlet</a>) for more info on how to configure the location of the Velocity templates.</p>
+</li>
+<li>
+<p><strong>JarResourceLoader :</strong> This loader gets resource from specific jar files.  It is very similar to the FileResourceLoader, except that you have the convenience of bundling your templates into jars.  The properties are identical, except for <code>resource.loader.jar.path</code>, where you provide the full location of the jar(s) you wish to load resources from.  To specify a jar for the loader.path you use the standard JAR URL syntax of <code>java.net.JarURLConnection</code>.</p>
+</li>
+<li>
+<p><strong>ClasspathResourceLoader :</strong> This loader gets resources from the classloader. In general, this means that the ClasspathResourceLoader will load templates placed in the classpath (in jars, for example) While the classpath is a source of great pain and suffering in general, it is a very useful mechanism when working on a Servlet Spec 2.2 (or newer) compliant servlet runner. <a href="http://jakarta.apache.org/tomcat/" class="externalLink">Tomcat</a> is an example of such.  To use this loader effectively, all you must do is jar your templates, and put that jar into the WEB-INF/lib directory of your webapp.  There are no configuration options to worry about, nor is the absolute vs. relative path an issue, as it is with Jar and File resource loaders. Again, please note that the ClasspathResourceLoader is not only for use with a servlet container, but can be used in any application context.</p>
+</li>
+<li>
+<p><strong>URLResourceLoader :</strong> This loader gets resources from a URL connection. Its configuration properties include:</p>
+<ul>
+<li><code>resource.loader.url.root</code> = &lt;root URL path of templates&gt; [ , &lt;root URL path of templates&gt; ... ]</li>
+<li><code>resource.loader.url.cache</code> = true/false</li>
+<li><code>resource.loader.url.modification_check_interval</code> = &lt;seconds between checks&gt;</li>
+<li><code>resource.loader.url.timeout</code> = -1</li>
+</ul>
+<p>This loader simply downloads resources from configured URLs.  It works much like the FileResourceLoader, however, it can pull templates down from any valid URL to which the application can create a connection.</p>
+</li>
+<li>
+<p><strong>DataSourceResourceLoader :</strong>  This loader will load resources from a DataSource such as a database.  For more information on this loader, please see <a href="apidocs/org/apache/velocity/runtime/resource/loader/DataSourceResourceLoader.html">the javadoc for the class <code>org.apache.velocity.runtime.resource.loader.DataSourceResourceLoader</code></a>.</p>
+</li>
+</ul>
+<p>The <a href="/tools/devel/">VelocityTools</a> project also defines a <a href="/tools/devel/apidocs/org/apache/velocity/tools/view/WebappResourceLoader.html">WebappResourceLoader</a>, active by default, which maps '/' to the root of the webapp.</p>
+<p>Advanced users may also want to replace the Resource Manager or the Resource Cache: the Resource Manager is the main part of the resource (template and static content) management system, and is responsible for taking application requests for templates, finding them in the available resource loaders, and then optionally caching the parsed template. The Resource Cache is the mechanism that the Resource Manager uses to cache templates for quick reuse. While the default versions of these two facilities are suitable for most applications, it is possible to replace the default resource manager and resource cache with custom implementations. See the <a href="configuration.html#resource-management">related configuration options</a>.</p>
+<h2 id="application-attributes">Application Attributes<a class="headerlink" href="#application-attributes" title="Permanent link">&para;</a></h2>
+<p><em>Application Attributes</em> are name-value pairs that can be associated with a RuntimeInstance (either via the <code>VelocityEngine</code> or the <code>Velocity</code> singleton) and accessed from any part of the Velocity engine that has access to the RuntimeInstance.</p>
+<p>This feature was designed for applications that need to communicate between the application layer and custom parts of the Velocity engine, such as loggers, resource loaders, resource managers, etc.</p>
+<p>The Application Attribute API is very simple.  From the application layer, there is a method of the <code>VelocityEngine</code> and the <code>Velocity</code> classes:</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="kt">void</span> <span class="nf">setApplicationAttribute</span><span class="o">(</span> <span class="n">Object</span> <span class="n">key</span><span class="o">,</span> <span class="n">Object</span> <span class="n">value</span> <span class="o">);</span>
+</pre></div>
+
+
+<p>through which an application can store on Object under an application (or internal component) specified key.  There are no restrictions on the key or the value.  The value for a key may be set at any time - it is not required that this be set before init() is called.</p>
+<p>Internal components can access the key-value pairs if they have access to the object via the <code>RuntimeServices</code> interface, using the method</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="n">Object</span> <span class="nf">getApplicationAttribute</span><span class="o">(</span> <span class="n">Object</span> <span class="n">key</span> <span class="o">);</span>
+</pre></div>
+
+
+<p>Note that internal components cannot set the value of the key, just get it. if the internal component must communicate information to the application layer, it must do so via the Object passed as the value.</p>
+<h2 id="event-handlers">Event Handlers<a class="headerlink" href="#event-handlers" title="Permanent link">&para;</a></h2>
+<p>Velocity contains a fine-grained event handling system that allows you to customize the operation of the engine. Those events are synchronous, and act as callback handlers.</p>
+<p>For example, you may change the text of references that are inserted into a page, modify which templates are actually included with <code>#include</code> or <code>#parse</code>, or capture all invalid references.</p>
+<p>All event handler interfaces available in Velocity are in the package <code>org.apache.velocity.app.event</code>.  You may create your own implementation or use one of the sample implementations in the package <code>org.apache.velocity.app.event.implement</code>.  (See the javadocs for more details on the provided implementations).</p>
+<h3 id="orgapachevelocityappeventincludeeventhandler"><code>org.apache.velocity.app.event.IncludeEventHandler</code><a class="headerlink" href="#orgapachevelocityappeventincludeeventhandler" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>The <code>IncludeEventHandler</code> can be used to modify the template that is included in a page with <code>#include</code> or <code>#parse</code>.  For example, this may be used to make all includes relative to the current directory or to prevent access to unauthorized resources. Multiple <code>IncludeEventHandler</code>'s may be chained, with the return value of the final call used as the name of the template to retrieve.</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="n">IncludeEventHandler</span> <span class="kd">extends</span> <span class="n">EventHandler</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="n">String</span> <span class="nf">includeEvent</span><span class="o">(</span> <span class="n">Context</span> <span class="n">context</span><span class="o">,</span>
+                                <span class="n">String</span> <span class="n">includeResourcePath</span><span class="o">,</span> 
+                                <span class="n">String</span> <span class="n">currentResourcePath</span><span class="o">,</span> 
+                                <span class="n">String</span> <span class="n">directiveName</span> <span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Available implementations include:</p>
+<ul>
+<li><code>org.apache.velocity.app.event.implement.IncludeNotFound</code></li>
+<li><code>org.apache.velocity.app.event.implement.IncludeRelativePath</code></li>
+</ul>
+</blockquote>
+<h3 id="orgapachevelocityappeventinvalidreferenceeventhandler"><code>org.apache.velocity.app.event.InvalidReferenceEventHandler</code><a class="headerlink" href="#orgapachevelocityappeventinvalidreferenceeventhandler" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>Normally, when a template contains a bad reference an error message is logged and (unless it is part of a <code>#set</code> or <code>#if</code>), the reference is included verbatim in a page.  With the <code>InvalidReferenceEventHandler</code> this behavior can be changed.  Substitute values can be inserted, invalid references may be logged, or an exception can be thrown.  Multiple <code>InvalidReferenceEventHandler</code>'s may be chained.  The exact manner in which chained method calls behave will differ per method.  (See the javadoc for the details).</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="n">InvalidReferenceEventHandler</span> <span class="kd">extends</span> <span class="n">EventHandler</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">invalidGetMethod</span><span class="o">(</span> <span class="n">Context</span> <span class="n">context</span><span class="o">,</span> 
+                                    <span class="n">String</span> <span class="n">reference</span><span class="o">,</span> 
+                                    <span class="n">Object</span> <span class="n">object</span><span class="o">,</span> 
+                                    <span class="n">String</span> <span class="n">property</span><span class="o">,</span> 
+                                    <span class="n">Info</span> <span class="n">info</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">invalidSetMethod</span><span class="o">(</span> <span class="n">Context</span> <span class="n">context</span><span class="o">,</span> 
+                                     <span class="n">String</span> <span class="n">leftreference</span><span class="o">,</span> 
+                                     <span class="n">String</span> <span class="n">rightreference</span><span class="o">,</span> 
+                                     <span class="n">Info</span> <span class="n">info</span><span class="o">);</span>
+
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">invalidMethod</span><span class="o">(</span> <span class="n">Context</span> <span class="n">context</span><span class="o">,</span> 
+                                 <span class="n">String</span> <span class="n">reference</span><span class="o">,</span>
+                                 <span class="n">Object</span> <span class="n">object</span><span class="o">,</span> 
+                                 <span class="n">String</span> <span class="n">method</span><span class="o">,</span> 
+                                 <span class="n">Info</span> <span class="n">info</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>When a reference has an alternate value provided, as in <code>${foo.bar|'foo'}</code>, whenever <code>$foo.bar</code> is invalid, the invalid reference handler will only be called if the alternate value is invalid.</p>
+<p>There are three special cases where invalid reference events aren't triggered:</p>
+<ul>
+<li>When the reference is a quiet reference (this behavior can be reverted to the 1.7 behavior using the backward compatibility flag <code>event_handler.invalid_references.quiet = true</code>).</li>
+<li>when the reference is present in the context but has a null value, or the called method returned null (this behavior can be reverted to the 1.7 behavior using the backward compatibility flag <code>event_handler.invalid_references.null = true</code>).</li>
+<li>when the reference is just tested for validity in an <code>#if()</code> statement (this behavior can be reverted to the 1.7 behavior using the backward compatibility flag <code>event_handler.invalid_references.tested = true</code>).</li>
+</ul>
+<p>Available implementations include:</p>
+<ul>
+<li><code>org.apache.velocity.app.event.implement.ReportInvalidReferences</code><blockquote>
+<p>This event handler defines the <code>event_handler.invalid_references.exception</code> configuration flag (defaults to false). When true, the first encountered invalid reference will throw an exception.</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h3 id="orgapachevelocityappeventmethodexceptioneventhandler"><code>org.apache.velocity.app.event.MethodExceptionEventHandler</code><a class="headerlink" href="#orgapachevelocityappeventmethodexceptioneventhandler" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>When a user-supplied method throws an exception, the <code>MethodExceptionEventHandler</code> is invoked with the Class, method name and thrown Exception.  The handler can either return a valid Object to be used as the return value of the method call or throw the passed-in or new Exception, which will be wrapped and propogated to the user as a <code>MethodInvocationException</code>.  While <code>MethodExceptionEventHandler</code>'s can be chained only the first handler is actually called -- all others are ignored.</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="kd">interface</span> <span class="nc">MethodExceptionEventHandler</span> <span class="kd">extends</span> <span class="n">EventHandler</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">methodException</span><span class="o">(</span> <span class="n">Context</span> <span class="n">context</span><span class="o">,</span>
+                                   <span class="n">Class</span> <span class="n">claz</span><span class="o">,</span> 
+                                   <span class="n">String</span> <span class="n">method</span><span class="o">,</span> 
+                                   <span class="n">Exception</span> <span class="n">e</span> <span class="o">)</span>
+         <span class="kd">throws</span> <span class="n">Exception</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Available implementations include:</p>
+<ul>
+<li><code>org.apache.velocity.app.event.implement.PrintExceptions</code></li>
+</ul>
+</blockquote>
+<h3 id="orgapachevelocityappeventreferenceinsertioneventhandler"><code>org.apache.velocity.app.event.ReferenceInsertionEventHandler</code><a class="headerlink" href="#orgapachevelocityappeventreferenceinsertioneventhandler" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>A <code>ReferenceInsertionEventHandler</code> allows the developer to intercept each write of a reference ($foo) value to the output stream and modify that output.  Multiple <code>ReferenceInsertionEventHandler</code>'s may be chained with each step potentially altering the inserted reference.</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="kd">interface</span>  <span class="nc">ReferenceInsertionEventHandler</span> <span class="kd">extends</span> <span class="n">EventHandler</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="n">Object</span> <span class="nf">referenceInsert</span><span class="o">(</span> <span class="n">Context</span> <span class="n">context</span><span class="o">,</span>
+                                   <span class="n">String</span> <span class="n">reference</span><span class="o">,</span> 
+                                   <span class="n">Object</span> <span class="n">value</span>  <span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Available implementations include:</p>
+<ul>
+<li><code>org.apache.velocity.app.event.implement.EscapeHtmlReference</code> (deprecated, imractical use)</li>
+<li><code>org.apache.velocity.app.event.implement.EscapeJavascriptReference</code></li>
+<li><code>org.apache.velocity.app.event.implement.EscapeSqlReference</code> (deprecated, imractical use)</li>
+<li><code>org.apache.velocity.app.event.implement.EscapeXmlReference</code> (deprecated, imractical use)</li>
+</ul>
+</blockquote>
+<h3 id="registering-event-handlers">Registering Event Handlers<a class="headerlink" href="#registering-event-handlers" title="Permanent link">&para;</a></h3>
+<p>You may register event handlers in either of two manners.  The easiest way to register event handlers is to specify them in velocity.properties.  (Event handlers configured in this manner are referred to as "global" event handlers).  For example, the following property will escape HTML entities in any inserted reference.</p>
+<div class="codehilite"><pre><span class="na">event_handler.reference_insertion.class</span> <span class="o">=</span> <span class="s">org.apache.velocity.app.event.implement.EscapeHtmlReference</span>
+</pre></div>
+
+
+<p>Most event handler interfaces will also permit event handlers to be chained together.  Such a chain may be in a comma separated list or as additional lines with a property/value pair. For example, the following event handler properties install two <code>ReferenceInsertionEventHandler</code>'s.  The first will apply to references starting with "msg" (for example <code>$msgText</code>) and will escape HTML entities (e.g. turning <code>&amp;</code> into <code>&amp;amp;</code>).  The second will escape all references starting with "sql" (for example <code>$sqlText</code>) according to SQL escaping rules. (note that in these examples, the first two properties given relate to the event handler configuration while the second two properties are used by the specific event handler implementation).</p>
+<div class="codehilite"><pre><span class="na">event_handler.reference_insertion.class</span> <span class="o">=</span> <span class="s">org.apache.velocity.app.event.implement.EscapeHtmlReference</span>
+<span class="na">event_handler.reference_insertion.class</span> <span class="o">=</span> <span class="s">org.apache.velocity.app.event.implement.EscapeSqlReference</span>
+<span class="na">event_handler.escape.html.match</span> <span class="o">=</span> <span class="s">/msg.*/</span>
+<span class="na">event_handler.escape.sql.match</span> <span class="o">=</span> <span class="s">/sql.*/</span>
+</pre></div>
+
+
+<p>Event handlers may also be attached to a context via an <code>EventCartridge</code>.  This allows event handlers to be tied more closely to a specific template merge or group of merges.  The event handler will automatically be injected with the current context if it implements the <code>ContextAware</code> interface.  (Due to thread-safety reasons this is not possible with global event handlers).</p>
+<p>Note that most escaping reference insertion handlers were deprecated in Engine 2.1. They reveal themselves quite impractical, since they will for instance handle in the same way references insertions in plain text or in XML/HTML attribute values.</p>
+<p>The following code shows how to register an event handler with an EventCartridge and a context.</p>
+<div class="codehilite"><pre> <span class="o">...</span>
+
+<span class="kn">import</span> <span class="nn">org.apache.velocity.app.event.EventCartridge</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.velocity.app.event.ReferenceInsertionEventHandler</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.velocity.app.event.implement.EscapeHtmlReference</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.velocity.app.event.implement.EscapeSqlReference</span><span class="o">;</span>
+
+ <span class="o">...</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Test</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">myTest</span><span class="o">()</span>
+    <span class="o">{</span>
+     <span class="o">...</span>
+
+    <span class="cm">/**</span>
+<span class="cm">     * Make a cartridge to hold the event handlers </span>
+<span class="cm">     */</span>
+         <span class="n">EventCartridge</span> <span class="n">ec</span> <span class="o">=</span> <span class="k">new</span> <span class="n">EventCartridge</span><span class="o">();</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * then register and chain two escape-related handlers </span>
+<span class="cm">     */</span>
+         <span class="n">ec</span><span class="o">.</span><span class="na">addEventHandler</span><span class="o">(</span><span class="k">new</span> <span class="n">EscapeHtmlReference</span><span class="o">());</span>
+         <span class="n">ec</span><span class="o">.</span><span class="na">addEventHandler</span><span class="o">(</span><span class="k">new</span> <span class="n">EscapeSqlReference</span><span class="o">());</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * and then finally let it attach itself to the context</span>
+<span class="cm">     */</span>
+         <span class="n">ec</span><span class="o">.</span><span class="na">attachToContext</span><span class="o">(</span> <span class="n">context</span> <span class="o">);</span>
+
+    <span class="cm">/*</span>
+<span class="cm">     * now merge your template with the context as you normally</span>
+<span class="cm">     * do</span>
+<span class="cm">     */</span>
+
+     <span class="o">...</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<h2 id="customizing-introspection">Customizing Introspection<a class="headerlink" href="#customizing-introspection" title="Permanent link">&para;</a></h2>
+<p>The <a href="configuration.html#Pluggable-Introspection"><code>runtime.introspector.uberspect</code> configuration property</a> property takes a list of Uberspector class names that constitute the Velocity introspection chain. By means it, you can change the way context objects are introspected at runtime to map VTL properties and methods to Java calls.</p>
+<p>Here is the list of provided uberspectors (which are found in the <a href="apidocs/org/apache/velocity/util/introspection/package-summary.html"><code>org.apache.velocity.util.introspection</code></a> package).</p>
+<h3 id="standard-uberspectors">Standard Uberspectors<a class="headerlink" href="#standard-uberspectors" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="apidocs/org/apache/velocity/util/introspection/UberspectImpl.html">UberspectImpl</a><blockquote>
+<p>this is the default uberspector. It successively tries to resolve <code>$foo.bar</code> into <code>foo.getBar()</code>, <code>foo.get('bar')</code> or <code>foo.isBar()</code> (plus some case variants), and tries to match methods using arguments count and type. Unless you want to fondamentaly change the way Velocity resolves references methods and properties, this uberspector should appear somewhere within the introspection chain.</p>
+</blockquote>
+</li>
+<li><a href="apidocs/org/apache/velocity/util/introspection/ChainableUberspector.html">ChainableUberspector</a> (interface) and <a href="apidocs/org/apache/velocity/util/introspection/AbstractChainableUberspector.html">AbstractChainableUberspector</a> (meant to be inherited)<blockquote>
+<p>A Chainable uberspector is an uberspector that wraps the previous uberspector in the introspection chain.</p>
+</blockquote>
+</li>
+<li><a href="apidocs/org/apache/velocity/util/introspection/LinkingUberspector.html">LinkingUberspector</a><blockquote>
+<p>The Linking uberspector is meant for internal use only. It provides introspection chaining when the left uberspector of two following uberspectors of the introspection chain is not a ChainableUberspector. It first tries to delegate introspection to the left uberspector, and only calls the right one in case of failure.</p>
+</blockquote>
+</li>
+<li><a href="apidocs/org/apache/velocity/util/introspection/UberspectLoggable.html">UberspectLoggable</a> interface<blockquote>
+<p>When an uberspector implements the UberspectLoggable interface, it is provided a logger during initialization via the <code>setLog(Logger)</code> method.</p>
+</blockquote>
+</li>
+</ul>
+<p>If an Uberspector implements the <a href="apidocs/org/apache/velocity/util/RuntimeServicesAware.html">RuntimeServicesAware</a> interface, it will be provided a Velocity <a href="apidocs/org/apache/velocity/runtime/RuntimeServices.html">RuntimeServices</a> instance during initialization, via the <code>setRuntimeServices(RuntimeServices)</code> method.</p>
+<h3 id="uberspectors-providing-extra-features">Uberspectors providing extra features<a class="headerlink" href="#uberspectors-providing-extra-features" title="Permanent link">&para;</a></h3>
+<ul>
+<li><a href="apidocs/org/apache/velocity/util/introspection/DeprecatedCheckUberspector.html">DeprecatedCheckUberspector</a><blockquote>
+<p>This uberspector will emit warnings in the log whenever a VTL fragment uses a deprecated Java method. It is a Chainable uberspector that must be declared <em>after</em> its wrapped uberspector.</p>
+</blockquote>
+</li>
+<li><a href="apidocs/org/apache/velocity/util/introspection/SecureUberspector.html">SecureUberspector</a><blockquote>
+<p>This uberspector prevents classloader related method calls. Use this introspector for situations in which template writers are numerous or untrusted. Specifically, this introspector prevents creation of arbitrary objects or reflection on objects. It is a standalone uberspector.</p>
+</blockquote>
+</li>
+<li><a href="apidocs/org/apache/velocity/util/introspection/UberspectPublicFields">UberspectPublicFields</a><blockquote>
+<p>This uberspector exposes the public fields of objects. It can be prepended or suffixed to other uberspectors, depending on whether you want to priorize or not public fields versus potentially matching methods.</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="method-arguments-conversions">Method arguments conversions<a class="headerlink" href="#method-arguments-conversions" title="Permanent link">&para;</a></h3>
+<p>Since Velocity 2.0, besides the default conversions implicitly provided by Java (aka <a href="https://en.wikipedia.org/wiki/Object_type_%28object-oriented_programming%29">automatic boxing and unboxing</a>, and widening number conversions), method arguments will be converted as needed by the UberspectorImpl or SecureUberspector using the following conversions:</p>
+<ul>
+<li>boolean to number: <code>true</code> is converted to 1, false to 0</li>
+<li>boolean to string: <code>true</code> and <code>false</code> are respectively converted to "true" and "false"</li>
+<li>number to boolean: zero numbers are converted to <code>false</code>, everything else to <code>true</code></li>
+<li>number to string</li>
+<li>string to boolean: "true" is converted to <code>true</code>, every other string (including the null string) are converted to <code>false</code></li>
+<li>string to number: if the string does not represent a number or doesn't fit into the expected number type, an exception is thrown</li>
+<li>narrowing number conversion: if the number doesn't fit into the expected number type, an exception is thrown</li>
+<li>string to enum constant: will throw if the string doesn't represent a constant of the expected enum</li>
+<li>string to locale (since 2.1)</li>
+</ul>
+<p><span class="conversions">The following table resumes the possible conversions between a provided argument type (which is never a primary type) and an expected argument type, which can be <span class="strict">strict</span> when the expected type is assignable from the provided type without unboxing, <span class="implicit">implicit</span> when Java will take care of the necessary conversion or unboxing, <span class="explicit">explicit</span> when the conversion is provided by the default 2.0 conversion handler, and <span class="none">none</span> when no default conversion is possible.</span></p>
+<table class="conversions">
+  <thead>
+    <tr>
+      <th>
+        provided &rarr;<br/>
+        expected &darr;
+      </th>
+      <th>Boolean</th>
+      <th>Character</th>
+      <th>Byte</th>
+      <th>Short</th>
+      <th>Integer</th>
+      <th>Long</th>
+      <th>BigInteger</th>
+      <th>Float</th>
+      <th>Double</th>
+      <th>BigDecimal</th>
+      <th>Number</th>
+      <th>String</th>
+      <th>Object</th>
+      <th>null</th>
+    </tr>
+    <tr>
+      <th>boolean</th>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+    </tr>
+    <tr>
+      <th>char</th>
+      <td><span class="none">none</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+    </tr>
+    <tr>
+      <th>byte</th>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+    </tr>
+    <tr>
+      <th>short</th>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+    </tr>
+    <tr>
+      <th>int</th>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+    </tr>
+    <tr>
+      <th>long</th>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+    </tr>
+    <tr>
+      <th>float</th>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+    </tr>
+    <tr>
+      <th>double</th>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="implicit">implicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+    </tr>
+    <tr>
+      <th>Boolean</th>
+      <td><span class="strict">strict</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="strict">strict</span></td>
+    </tr>
+    <tr>
+      <th>Character</th>
+      <td><span class="none">none</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="strict">strict</span></td>
+    </tr>
+    <tr>
+      <th>Byte</th>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="strict">strict</span></td>
+    </tr>
+    <tr>
+      <th>Short</th>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="strict">strict</span></td>
+    </tr>
+    <tr>
+      <th>Integer</th>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="strict">strict</span></td>
+    </tr>
+    <tr>
+      <th>Long</th>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="strict">strict</span></td>
+    </tr>
+    <tr>
+          <th>BigInteger</th>
+          <td><span class="none">none</span></td>
+          <td><span class="none">none</span></td>
+          <td><span class="explicit">explicit</span></td>
+          <td><span class="explicit">explicit</span></td>
+          <td><span class="explicit">explicit</span></td>
+          <td><span class="explicit">explicit</span></td>
+          <td><span class="strict">strict</span></td>
+          <td><span class="none">none</span></td>
+          <td><span class="none">none</span></td>
+          <td><span class="explicit">explicit</span></td>
+          <td><span class="none">none</span></td>
+          <td><span class="explicit">explicit</span></td>
+          <td><span class="none">none</span></td>
+          <td><span class="strict">strict</span></td>
+        </tr>
+        <tr>
+      <th>Float</th>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+          <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+          <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="strict">strict</span></td>
+    </tr>
+    <tr>
+      <th>Double</th>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="strict">strict</span></td>
+    </tr>
+    <tr>
+      <th>BigDecimal</th>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="strict">strict</span></td>
+    </tr>
+    <tr>
+      <th>Number</th>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="none">none</span></td>
+      <td><span class="strict">strict</span></td>
+    </tr>
+    <tr>
+      <th>String</th>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="explicit">explicit</span></td>
+      <td><span class="strict">strict</span></td>
+    </tr>
+    <tr>
+      <th>Object</th>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+      <td><span class="strict">strict</span></td>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<p>You can provide a custom conversion handler class by use of the <code>runtime.conversion.handler</code> property. The class must implement the <a href="apidocs/org/apache/velocity/util/introspection/ConversionHandler.html"><code>org.apache.Velocity.util.introspection.ConversionHandler</code></a> interface. Set it to <code>none</code> to only accept default Java conversions, as for Velocity 1.x.</p>
+<p>You can also provide custom <a href="apidocs/org/apache/velocity/util/introspection/Converter.html"><code>Converter&lt;T&gt;</code></a> objects that handle a conversion towards a specific type:</p>
+<div class="codehilite"><pre><span class="kn">package</span> <span class="nn">mypackage</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.Date</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">org.apache.velocity.util.introspection.*</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">MyUberspector</span> <span class="kd">extends</span> <span class="n">UberspectorImpl</span>
+<span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">init</span><span class="o">()</span>
+    <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">init</span><span class="o">();</span>
+        <span class="n">getConversionHandler</span><span class="o">().</span><span class="na">addConverter</span><span class="o">(</span><span class="n">Integer</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">Date</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="n">ConvertToDate</span><span class="o">());</span>
+        <span class="n">getConversionHandler</span><span class="o">().</span><span class="na">addConverter</span><span class="o">(</span><span class="n">Long</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">Date</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="k">new</span> <span class="n">ConvertToDate</span><span class="o">());</span>
+    <span class="o">}</span>
+
+    <span class="kd">public</span> <span class="kd">static</span> <span class="kd">class</span> <span class="nc">ConvertToDate</span> <span class="kd">extends</span> <span class="n">Converter</span><span class="o">&lt;</span><span class="n">Date</span><span class="o">&gt;</span>
+    <span class="o">{</span>
+        <span class="nd">@Override</span>
+        <span class="kd">public</span> <span class="n">Date</span> <span class="nf">convert</span><span class="o">(</span><span class="n">Object</span> <span class="n">o</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="k">return</span> <span class="k">new</span> <span class="n">Date</span><span class="o">(((</span><span class="n">Number</span><span class="o">)</span><span class="n">o</span><span class="o">).</span><span class="na">longValue</span><span class="o">());</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>You'll then need to register your uberspector with <code>introspector.uberspect.class = mypackage.MyUberspector</code>. Another approach would be to inherit from <code>org.apache.util.introspection.TypeConversionHandlerImpl</code>, add converters within its constructor and register your conversion handler using the <code>introspector.conversion_handler.class</code> configuration property, or to directly provide Velocity with a living instance of a <code>org.apache.util.introspection.TypeConversionHandler</code> using the <code>runtime.conversion.handler.instance</code> configuration property.</p>
+<p><em>Velocity Engine 2.0 backward compatibility note</em>: the <a href="apidocs/org/apache/velocity/util/introspection/ConversionHandler.html"><code>org.apache.util.introspection.ConversionHandler</code></a> interface has been deprecated in favor of the <a href="apidocs/org/apache/velocity/util/introspection/TypeConversionHandler.html"><code>org.apache.util.introspection.TypeConversionHandler</code></a> interface. The new interface let one specify converters towards a <code>java.lang.reflect.Type</code> rather than a <code>java.lang.class</code>.</p>
+<h2 id="template-encoding-for-internationalization">Template Encoding for Internationalization<a class="headerlink" href="#template-encoding-for-internationalization" title="Permanent link">&para;</a></h2>
+<p>Velocity allows you to specify the character encoding of your template resources on a template by template basis.  The normal resource API's have been extended to take the encoding as an argument:</p>
+<p><code>org.apache.velocity.app.Velocity</code></p>
+<blockquote>
+<p><em><code>public static Template getTemplate(String name, String encoding)</code></em></p>
+<p><em><code>public static boolean mergeTemplate( String templateName, String encoding, Context context, Writer writer )</code></em></p>
+</blockquote>
+<p>The value for the <em>encoding</em> argument is the conventional encoding specification supported by your JVM, for example "UTF-8" or "ISO-8859-1".  For the official names for character sets, see <a href="http://www.iana.org/assignments/character-sets">here</a>.</p>
+<p>Note that this applies only to the encoding of the template itself - the output encoding is an application specific issue.</p>
+<h2 id="velocity-and-structured-data">Velocity and structured data<a class="headerlink" href="#velocity-and-structured-data" title="Permanent link">&para;</a></h2>
+<p>Velocity's flexibility and simple template language makes it an ideal environment for working with structured data, as XML, JSON, etc.</p>
+<p>Generally, the pattern for dealing with such structured data in Velocity is -for instance with XML data- to use something like <a href="http://www.jdom.org/">JDOM</a> to process your XML into a data structure with convenient Java access.  Then, you produce templates that access data directly out of the XML document - directly though the JDOM tree.  For example, start with an XML document such as:</p>
+<div class="codehilite"><pre><span class="nt">&lt;document&gt;</span>
+  <span class="nt">&lt;properties&gt;</span>
+    <span class="nt">&lt;title&gt;</span>Developer&#39;s Guide<span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;author</span> <span class="na">email=</span><span class="s">&quot;geirm@apache.org&quot;</span><span class="nt">&gt;</span>Velocity Doc Team<span class="nt">&lt;/author&gt;</span>
+  <span class="nt">&lt;/properties&gt;</span>
+<span class="nt">&lt;/document&gt;</span>
+</pre></div>
+
+
+<p>Now make a little Java program that includes code similar to:</p>
+<div class="codehilite"><pre><span class="o">...</span>
+
+<span class="n">SAXBuilder</span> <span class="n">builder</span><span class="o">;</span>
+<span class="n">Document</span> <span class="n">root</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+
+<span class="k">try</span>
+<span class="o">{</span>
+    <span class="n">builder</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SAXBuilder</span><span class="o">(</span>
+        <span class="s">&quot;org.apache.xerces.parsers.SAXParser&quot;</span> <span class="o">);</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="na">build</span><span class="o">(</span><span class="s">&quot;test.xml&quot;</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">catch</span><span class="o">(</span> <span class="n">Exception</span> <span class="n">ee</span><span class="o">)</span>
+<span class="o">{}</span>
+
+<span class="n">VelocityContext</span> <span class="n">vc</span> <span class="o">=</span> <span class="k">new</span> <span class="n">VelocityContext</span><span class="o">();</span>
+<span class="n">vc</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">&quot;root&quot;</span><span class="o">,</span> <span class="n">root</span><span class="o">.</span><span class="na">getRootElement</span><span class="o">());</span>
+
+
+<span class="o">...</span>
+</pre></div>
+
+
+<p>Now, make a regular Velocity template:</p>
+<div class="codehilite"><pre><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    The document title is
+      <span class="p">$</span><span class="nv">root</span><span class="p">.</span><span class="nv">getChild</span><span class="p">(</span><span class="s2">&quot;document&quot;</span><span class="p">).</span><span class="nv">getChild</span><span class="p">(</span><span class="s2">&quot;properties&quot;</span><span class="p">)</span>
+              .getChild(&quot;title&quot;).getText()
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p></html></p>
+<p>and render that template as you normally would, using the Context containing the JDOM tree. Of course, this isn't the prettiest of examples, but it shows the basics - that you can easily access XML data directly from a Velocity template.</p>
+<p>One real advantage of styling XML data in Velocity is that you have access to any other object or data that the application provides. You aren't limited to just using the data present in the XML document. You may add anything you want to the context to provide additional information for your output, or provide tools to help make working with the XML data easier. Bob McWhirter's <a href="http://sourceforge.net/projects/werken-xpath/">Werken XPath</a> is one such useful tool.</p>
+<p>One issue that arises with XML and Velocity is how to deal with XML entities. One technique is to combine the use of Velocimacros when you need to render an entity into the output stream:</p>
+<div class="codehilite"><pre><span class="cp">##</span><span class="c"> first, define the Velocimacro somewhere</span>
+
+<span class="cp">#</span><span class="nf">macro</span><span class="p">(</span><span class="nf">xenc</span> <span class="p">$</span><span class="nv">sometext</span><span class="p">)$</span><span class="nv">tools</span><span class="p">.</span><span class="nv">escapeEntities</span><span class="p">($</span><span class="nv">sometext</span><span class="p">)</span><span class="cp">#</span><span class="nf">end</span>
+
+<span class="cp">##</span><span class="c"> and use it as</span>
+
+<span class="cp">#</span><span class="nf">set</span><span class="p">(</span> <span class="p">$</span><span class="nv">sometext</span> <span class="o">=</span> <span class="s2">&quot; &lt; &quot;</span> <span class="p">)</span>
+<span class="p">&lt;</span><span class="nt">text</span><span class="p">&gt;</span><span class="cp">#</span><span class="nf">xenc</span><span class="p">($</span><span class="nv">sometext</span><span class="p">)&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>where the escapeEntities() is a method that does the escaping for you. Another trick would be to create an encoding utility that takes the context as a constructor parameter and only implements a method:</p>
+<div class="codehilite"><pre><span class="kd">public</span> <span class="n">String</span> <span class="nf">get</span><span class="o">(</span><span class="n">String</span> <span class="n">key</span><span class="o">)</span>
+<span class="o">{</span>
+    <span class="n">Object</span> <span class="n">obj</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="n">key</span><span class="o">)</span>
+    <span class="k">return</span> <span class="o">(</span><span class="n">obj</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+        <span class="o">?</span> <span class="n">Escape</span><span class="o">.</span><span class="na">getText</span><span class="o">(</span> <span class="n">obj</span><span class="o">.</span><span class="na">toString</span><span class="o">()</span> <span class="o">)</span>
+        <span class="o">:</span> <span class="s">&quot;&quot;</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+
+
+<p>Put it into the context as "xenc". Then you can use it as:</p>
+<div class="codehilite"><pre><span class="p">&lt;</span><span class="nt">text</span><span class="p">&gt;$</span><span class="nv">xenc</span><span class="p">.</span><span class="nv">sometext</span><span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>This takes advantage of Velocity's introspection process - it will try to call get("sometext") on the $xenc object in the Context - then the xenc object can then get the value from the Context, encode it, and return it.</p>
+<p>Alternatively, since Velocity makes it easy to implement custom Context objects, you could implement your own context which always applies the encoding to any string returned. Be careful to avoid rendering the output of method calls directly, as they could return objects or strings (which might need encoding). Place them first into the context with a #set() directive and the use that, for example:</p>
+<div class="codehilite"><pre><span class="cp">#</span><span class="nf">set</span><span class="p">(</span> <span class="p">$</span><span class="nv">sometext</span> <span class="o">=</span> <span class="p">$</span><span class="nv">jdomElement</span><span class="p">.</span><span class="nv">getText</span><span class="p">()</span> <span class="p">)</span>
+<span class="p">&lt;</span><span class="nt">text</span><span class="p">&gt;$</span><span class="nv">sometext</span><span class="p">&lt;/</span><span class="nt">text</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>Last but not least, you can make use of a custom ReferenceInsertionEventHandler to escape references at the time they are rendered. If you can easily control when to escape and when not to escape from within this handler, or if you're certain that you want to escape everything, it's one of the easiest way.</p>
+<p>The previous suggestions for dealing with XML entities came from Christoph Reck, an active participant in the Velocity community.</p>
+<h2 id="velocity-scripting">Velocity Scripting<a class="headerlink" href="#velocity-scripting" title="Permanent link">&para;</a></h2>
+<p>Velocity can be integrated into the Java Scripting Language Framework (as defined by the <a href="https://www.jcp.org/en/jsr/detail?id=223">JSR-223 API</a>).</p>
+<p>This section is a brief illustration of how to use Velocity Scripting framework through the JSR-223 API.</p>
+<p>Hello World example:</p>
+<div class="codehilite"><pre><span class="c1">// get script manager, create a new Velocity script engine factory and get an engine from it</span>
+<span class="n">ScriptEngineManager</span> <span class="n">manager</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ScriptEngineManager</span><span class="o">();</span>
+<span class="n">manager</span><span class="o">.</span><span class="na">registerEngineName</span><span class="o">(</span><span class="s">&quot;velocity&quot;</span><span class="o">,</span> <span class="k">new</span> <span class="n">VelocityScriptEngineFactory</span><span class="o">());</span>
+<span class="n">ScriptEngine</span> <span class="n">engine</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="na">getEngineByName</span><span class="o">(</span><span class="s">&quot;velocity&quot;</span><span class="o">);</span>
+
+<span class="n">System</span><span class="o">.</span><span class="na">setProperty</span><span class="o">(</span><span class="n">VelocityScriptEngine</span><span class="o">.</span><span class="na">VELOCITY_PROPERTIES</span><span class="o">,</span> <span class="s">&quot;path/to/velocity.properties&quot;</span><span class="o">);</span>
+<span class="n">String</span> <span class="n">script</span> <span class="o">=</span> <span class="s">&quot;Hello $world&quot;</span><span class="o">;</span>
+<span class="n">Writer</span> <span class="n">writer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringWriter</span><span class="o">();</span>
+<span class="n">engine</span><span class="o">.</span><span class="na">getContext</span><span class="o">().</span><span class="na">setWriter</span><span class="o">(</span><span class="n">writer</span><span class="o">);</span>
+<span class="n">Object</span> <span class="n">result</span> <span class="o">=</span> <span class="n">engine</span><span class="o">.</span><span class="na">eval</span><span class="o">(</span><span class="n">script</span><span class="o">);</span>
+<span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">writer</span><span class="o">);</span>
+</pre></div>
+
+
+<h2 id="customizing-the-vtl-parser">Customizing the VTL parser<a class="headerlink" href="#customizing-the-vtl-parser" title="Permanent link">&para;</a></h2>
+<p>Since 2.2, Velocity Engine can use a custom parser. You need to generate your custom parser class, let's say <code>com.foo.MyCustomParser</code>, by copy pasting the content of the <a href="https://raw.githubusercontent.com/apache/velocity-engine/master/velocity-custom-parser-example/pom.xml">velocity-custom-parser-example</a> maven module pom file inside one of your own modules pom.xml, and then adapting its <code>&lt;properties&gt;</code> section. There's a minimal maven knowledge required to understand what you are doing, but basically it boils down to do merge the content of the <code>&lt;properties&gt;</code>, <code>&lt;dependencies&gt;</code> and <code>&lt;build&gt;</code> sections in your target pom file.</p>
+<p>This custom parser will let you configure the following VTL characters:</p>
+<ul>
+<li><code>*</code> (used in <code>#*</code> multiline comments syntax)</li>
+<li><code>@</code> (used in <code>#@blockmacro</code> syntax)</li>
+<li><code>$</code> (used in <code>$reference</code> syntax)</li>
+<li><code>#</code> (used in <code>#*</code> and <code>##</code> comments, <code>#directive</code> and <code>#macro</code> syntaxes)</li>
+</ul>
+<p>Then, in the target project, you have to specify which parser to use from within the <code>velocity.properties</code> file:</p>
+<div class="codehilite"><pre><span class="na">parser.class</span> <span class="o">=</span> <span class="s">com.foo.MyCustomParser</span>
+</pre></div>
+
+
+<p>For instance, you may want to replace <code>#</code> with <code>%</code> because the target language (markdown for instance) already makes use of the <code>#</code> symbol.</p>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>We hope this brief guide was a helpful introduction to using Velocity in your Java projects, and thank you for you interest in Velocity.  We welcome any and all comments you may have about this documentation and the Velocity template engine itself.</p>
+<p>Please submit all detailed, thoughtful and constructive feedback through our <a href="/contact.html">mailing lists</a>.</p></div></div>
+        <hr/>
+        <div id="copyright">
+          Copyright &#169; 2020 The Apache Software Foundation, Licensed under the <a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a>.<br/>Apache and the Apache feather logo are trademarks of The Apache Software Foundation.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

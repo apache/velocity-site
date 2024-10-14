@@ -405,7 +405,7 @@ git push
 <p>Copy the <code>&lt;module&gt;/devel/</code> section to its <code>&lt;version&gt;</code> section (but do not yet refence it from the menu), and fix any SNAPSHOT link within.</p>
 <p>Change the content of the <code>changes_report</code> tag in <code>&lt;module&gt;/&lt;version&gt;/changes.mdtext</code> to <code>&lt;module&gt;/&lt;version&gt;-RC&lt;rc&gt;</code> (for instance: <code>{{changes_report(engine/2.3-RC2)}}</code>).</p>
 <p>Generate the corresponding javadoc with</p>
-<div class="codehilite"><pre>mvn javadoc:aggregate
+<div class="codehilite"><pre>mvn javadoc:aggregate -pl <span class="s1">&#39;!velocity-custom-parser-example&#39;</span>
 </pre></div>
 
 

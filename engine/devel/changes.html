@@ -235,6 +235,11 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     </thead>
     <tbody>
       <tr>
+        <td>2.4.1</td>
+        <td>2024-10-14</td>
+        <td/>
+      </tr>
+      <tr>
         <td>2.4</td>
         <td>2024-09-07</td>
         <td/>
@@ -322,7 +327,33 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     </tbody>
   </table>
 </p>
-<h3>Release 2.4 - 2024-09-07</h3><p>
+<h3>Release 2.4.1 - </h3><p>
+  <table class="standard">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Changes</th>
+        <th>By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Finding the topmost method when introspecting a class should stop at the first static method found Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-983">VELOCITY-983</a>. </td>
+        <td>tmortagne</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Direct evaluation of VTL code via <code> RuntimeInstance.evaluate() </code> should update the current rendering template information for local velocimacros to be visible in string literals interpolation. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-944">VELOCITY-944</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+    </tbody>
+  </table>
+</p><h3>Release 2.4 - 2024-09-07</h3><p>
   <table class="standard">
     <thead>
       <tr>
