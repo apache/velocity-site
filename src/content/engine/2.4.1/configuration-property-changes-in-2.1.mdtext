@@ -1,0 +1,72 @@
+## Configuration Properties Changes between Engine 2.0 and Engine 2.1+
+
+Velocity Engine configuration property names have been reviewed in Engine 2.1 for clarity and consistency.
+
+**Old property names are still functional but have been deprecated** and will be removed in Engine 3.0. Velocity will emit warnings in the logs when old property names are used.
+
+### Changes Summary
+
+2.0 property name | 2.1+ property name | Property purpose
+------------------|------------------ |-----------------
+runtime.log.instance | *unchanged* | org.slf4j.Logger instance
+runtime.log.name | *unchanged* | org.slf4j.Logger name
+runtime.log.invalid.references | runtime.log.log_invalid_references | whether to log invalid references
+*n/a* | runtime.log.log_invalid_method_calls (since 2.1) | whether to log invalid method calls
+resource.loader | resource.loaders | list of resource loader names
+&lt;name&gt;.resource.loader.&lt;prop&gt; | resource.loader.&lt;name&gt;.&lt;prop&gt; | property of a named resource loader
+&lt;name&gt;.resource.loader.modificationCheckInterval | resource.loader.&lt;name&gt;.modification_check_interval | modification check interval of a named resource loader
+resource.manager.instance | *unchanged* | resource manager live instance
+resource.manager.class | *unchanged* | resource manager class
+resource.manager.cache.class | *unchanged* | resource manager cache class
+resource.manager.defaultcache.size | resource.manager.cache.default_size | resource manager default cache size
+resource.manager.logwhenfound | resource.manager.log_when_found | whether to log when a resource is found
+&lt;scope&gt;.provide.scope.control | context.scope_control.&lt;scope&gt; | enabling scope control object in the context for a specific scope
+runtime.string.interning | runtime.string_interning | whether to use string interning
+directive.define.max.depth | directive.define.max_depth | max depth for the `#define` directive
+directive.foreach.maxloops | directive.foreach.max_loops | maximum number of loops of a `#foreach` directive
+directive.foreach.skip.invalid | directive.foreach.skip_invalid | whether to skip bad iterables
+directive.if.emptycheck | directive.if.empty_check | whether the `#if` directive checks objects for emptiness
+directive.include.output.errormsg.start | directive.include.output_error_start (deprecated) | error message prefix for `#include` and `#parse`
+directive.include.output.errormsg.end | directive.include.output_error_end (deprecated) | error message suffix for `#include` and `#parse`
+directive.parse.max.depth | directive.parse.max_depth | max depth for the `#parse` directive
+userdirective (undocumented) | runtime.custom_directives | list of custom directives
+eventhandler.referenceinsertion.class | event_handler.reference_insertion.class | list of reference insertion event handler classes
+eventhandler.methodexception.class | event_handler.method_exception.class | list of method exception event handler classes
+eventhandler.include.class | event_handler.include.class | list of file inclusion event handler classes
+eventhandler.invalidreferences.class | event_handler.invalid_references.class | list of invalid reference event handler classes
+velocimacro.library | velocimacro.library.path | path to the velocimacro library template
+velocimacro.library.autoreload | *unchanged* | whether to autoreload library
+velocimacro.permissions.allow.inline | velocimacro.inline.allow | whether to allow inline velocimacros
+velocimacro.permissions.allow.inline.to.replace.global | velocimacro.inline.replace_global | whether inline macros override global ones
+velocimacro.permissions.allow.inline.local.scope | velocimacro.inline.local_scope | whether inline macros have a local scope
+velocimacro.arguments.strict | *unchanged* | expect strict argments number
+velocimacro.messages.on (unused) | *deprecated* | obsolete property
+*n/a* | velocimacro.arguments.preserve_literals (since 2.1) | (1.7 BC flag) whether invalid references is literal provided argument or argument name ; note: deprecated in 2.2 in favor of velocimacro.enable_bc_mode
+velocimacro.max.depth | velocimacro.max_depth | velocimacros max calling depth
+velocimacro.body.reference | velocimacro.body_reference | name of the reference holding the body passed to a block macro
+runtime.references.strict | runtime.strict_mode.enable | enables strict rendering mode
+runtime.references.strict.escape | runtime.strict_mode.escape | toggles modified escaping in strict rendering mode
+runtime.introspector.uberspect | introspector.uberspect.class | list of chained uberspectors classnames
+introspector.restrict.packages | *unchanged* | restricted packages for SecureIntrospector
+introspector.restrict.classes | *unchanged* | restricted classes for SecureIntrospector
+runtime.conversion.handler.class (since 2.0) | introspector.conversion_handler.class | method arguments conversion handler classname
+*n/a* | introspector.conversion_handler.instance (since 2.1) | method arguments conversion handler instance
+runtime.interpolate.string.literals | runtime.interpolate_string_literals | whether to interpolate string literals in double quotes
+runtime.strict.math | runtime.strict_math | switch for ignoring nulls in math equations vs throwing exceptions
+context.autoreference.key | context.self_reference_key | key upon which a context should be accessible within itself
+*n/a* | parser.allow_hyphen_in_identifiers (since 2.1) | whether to allow '`-`' in identifiers (1.7 BC flag)
+parser.pool.class | *unchanged* | parser pool class
+space.gobbling | parser.space_gobbling | space gobbling mode
+
+Also, the default velocimacro library template has been renamed from `VM_global_library.vm` to `velocimacros.vtl` ; Velocity will check for the old default path if the new one is not found.
+
+## New Properties Description
+
+Velocity Engine 2.1 introduces the following new properties:
+
+- `velocimacro.arguments.preserve_literals`: 1.7.x backward compatibility flag: if true, when a macro has to dispay an invalid argument, it displays the literal name of the reference passed to the macro, not the literal name of the argument ; note: deprecated in 2.2 in favor of velocimacro.enable_bc_mode.
+- `parser.allow_hyphen_in_identifiers`: 1.7.x backward compatibility flag: if true, allow Velocity identifiers to contain an hyphen '`-`' in identifiers (a minus sign in a mathematical expression will then sometimes need a space around it, as was needed in 1.7.x).
+- `runtime.log.log_invalid_method_calls`: whether to log invalid method calls
+- `introspector.conversion_handler.instance`: live instance of an `org.apache.velocity.util.introspection.TypeConversionHandler` (or of a deprecated org.apache.velocity.util.introspection.ConversionHandler)
+
+

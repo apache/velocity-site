@@ -193,7 +193,7 @@ These steps must be performed **for each** release candidate.
     Generate the corresponding javadoc with
     
         :::shell
-        mvn javadoc:aggregate
+        mvn javadoc:aggregate -pl '!velocity-custom-parser-example'
     
     from the root of the module and commit the result in `<VERSION>/apidocs`.
     
