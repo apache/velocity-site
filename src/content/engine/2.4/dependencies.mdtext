@@ -14,7 +14,7 @@ slf4j-api | 1.7.36 | Yes | Yes | Yes | you'll also need an slf4j binding at runt
 commons-lang | 3.17.0 | Yes | Yes | Yes |
 junit | 4.13.2 | No | Yes | No |
 hsqldb | 2.7.3 | No | Yes | No |
-slf4j-simple | 1.7.30 | No | Yes | No | Your application will need *one* SLF4J binding, see below
+slf4j-simple | 1.7.36 | No | Yes | No | Your application will need *one* SLF4J binding, see below
 
 Here is a list of slf4j bindings:
 
