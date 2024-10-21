@@ -2,6 +2,29 @@
 
 <news xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://velocity.apache.org/NEWS/1.0.0" xsi:schemaLocation="http://velocity.apache.org/NEWS/1.0.0 http://velocity.apache.org/site/tools/velocity-site-news/xsd/news-1.0.0.xsd">
   <items>
+    <item id="engine241">
+        <date>2024-10-14</date>
+        <headline>Velocity Engine 2.4.1 released</headline>
+      <categories>
+        <category>velocity</category>
+        <category>engine</category>
+      </categories>
+      <text><![CDATA[
+        The Velocity developers are pleased to announce the release of Velocity Engine 2.4.1.
+
+        This is a maintenance release. Main changes:
+
+        * When searching for a method in class introspection, stop at the first static or accessible method found.
+
+        * Macros defined in an inline VTL evaluation should be visible to embedded string literals.
+
+        For a full list of changes, consult {{{https://velocity.apache.org/engine/2.4.1/changes.html}Velocity Engine 2.4.1 Changes section}} and {{{https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310104&version=12355157}JIRA changelog}}.
+
+        For notes on upgrading from Velocity 1.x, see {{{http://velocity.apache.org/engine/2.4.1/upgrading.html}Velocity Engine 2.4.1 Upgrading section}}.
+
+        Note for Velocity Tools users: Velocity Tools 3.1 is fully compatible with Velocity Engine 2.4.1.</p>
+      ]]></text>
+    </item>
     <item id="engine24">
         <date>2024-09-07</date>
         <headline>Velocity Engine 2.4 released</headline>

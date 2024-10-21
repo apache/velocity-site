@@ -4,5 +4,5 @@ Title: Apache Velocity Engine - Changes Report
 
 ### Release History
 
-{{changes_report(engine/2.4.1-rc1)}}
+{{changes_report(engine/2.4.1)}}
 

@@ -8,11 +8,12 @@ Velocity permits you to use a simple yet powerful template language to reference
 
 The Velocity engine subproject contains the documentation to get started using the Velocity templating language and embedding Velocity into your own applications. Please select [the last released version](2.4) to get started. Once you are more familiar with Velocity or if you need a feature not yet released, you can check out the [Development Site](devel).
 
-+ [Engine 2.4](2.4) pages.
++ [Engine 2.4.1](2.4.1) pages.
 + [Engine Development Version](devel/) pages.
 
 ## Older Releases
 
++ [Engine 2.4 Release](2.4)
 + [Engine 2.3 Release](2.3)
 + [Engine 2.2 Release](2.2)
 + [Engine 2.1 Release](2.1)
