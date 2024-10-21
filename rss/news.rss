@@ -5,6 +5,16 @@
     <link>http://velocity.apache.org</link>
     <description>Recent news from Apache Velocity Site</description>
     <item>
+      <title>Velocity Engine 2.4.1 released</title>
+      <link>http://velocity.apache.org/news.html#engine241</link>
+      <description>&lt;p&gt;The Velocity developers are pleased to announce the release of Velocity Engine 2.4.1.&lt;/p&gt;&lt;p&gt;This is a maintenance release. Main changes:&lt;/p&gt;&lt;p&gt;* When searching for a method in class introspection, stop at the first static or accessible method found.&lt;/p&gt;&lt;p&gt;* Macros defined in an inline VTL evaluation should be visible to embedded string literals.&lt;/p&gt;&lt;p&gt;For a full list of changes, consult &lt;a href=&quot;https://velocity.apache.org/engine/2.4.1/changes.html&quot;&gt;Velocity Engine 2.4.1 Changes section&lt;/a&gt; and &lt;a href=&quot;https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310104&amp;amp;version=12355157&quot;&gt;JIRA changelog&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;For notes on upgrading from Velocity 1.x, see &lt;a href=&quot;http://velocity.apache.org/engine/2.4.1/upgrading.html&quot;&gt;Velocity Engine 2.4.1 Upgrading section&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Note for Velocity Tools users: Velocity Tools 3.1 is fully compatible with Velocity Engine 2.4.1.&lt;/p&gt;&lt;/p&gt;</description>
+      <category>velocity</category>
+      <category>engine</category>
+      <pubDate>Mon, 14 Oct 2024 08:00:00 GMT</pubDate>
+      <guid>http://velocity.apache.org/news.html#engine241</guid>
+      <dc:date>2024-10-14T08:00:00Z</dc:date>
+    </item>
+    <item>
       <title>Velocity Engine 2.4 released</title>
       <link>http://velocity.apache.org/news.html#engine24</link>
       <description>&lt;p&gt;The Velocity developers are pleased to announce the release of Velocity Engine 2.4.&lt;/p&gt;&lt;p&gt;This is a maintenance release. Main changes:&lt;/p&gt;&lt;p&gt;* Fix an overzealous string to number conversion which induced a performace loss.&lt;/p&gt;&lt;p&gt;* Refactoring of the spring-velocity-support module.&lt;/p&gt;&lt;p&gt;* Review of DataSourceResourceLoader for thread safety.&lt;/p&gt;&lt;p&gt;* Add Java 16 record field property getters mapping.&lt;/p&gt;&lt;p&gt;For a full list of changes, consult &lt;a href=&quot;https://velocity.apache.org/engine/2.4/changes.html&quot;&gt;Velocity Engine 2.4 Changes section&lt;/a&gt; and &lt;a href=&quot;https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310104&amp;amp;version=12352138&quot;&gt;JIRA changelog&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;For notes on upgrading, see &lt;a href=&quot;http://velocity.apache.org/engine/2.4/upgrading.html&quot;&gt;Velocity Engine 2.4 Upgrading section&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Downloads of 2.4 are available &lt;a href=&quot;http://velocity.apache.org/download.cgi#velocity-engine-24&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
