@@ -276,6 +276,11 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </tbody>
 </table>
 <p>The release distribution is available as a combined source/binary distribution in tar.gz and zip formats, and can be downloaded from <a href="/download.cgi">our download page</a>.</p>
+<h2 id="security-model">Security Model<a class="headerlink" href="#security-model" title="Permanent link">&para;</a></h2>
+<h3 id="templates-loading">Templates Loading<a class="headerlink" href="#templates-loading" title="Permanent link">&para;</a></h3>
+<p>Velocity Engine and Velocity Tools rely on the template loaders defined in the <code>velocity.properties</code> configuration file and/or properties defined in the webapp descriptor or web container configuration. If those configurations are compromised, Velocity cannot ensure that templates do not come from a malicious source. This is <strong>NOT</strong> a Velocity vulnerability. If the attacker is already in control of the web application configuration files, they already have far more powerful attack vectors than template injection.</p>
+<h3 id="velocity-context">Velocity Context<a class="headerlink" href="#velocity-context" title="Permanent link">&para;</a></h3>
+<p>Velocity Engine provides a SecureUberspector helper class which helps ensure that the Velocity context does not contain any dangerous class in a user-facing template editing scenario. But this class and its configuration are just provided as <em>a starting point</em>: Velocity cannot know in advance how the Velocity context is populated and cannot possibly ban all potentially dangerous classes. It is the responsibility of the application authors to audit every object placed in the context to ensure that no dangerous class is accessible to template authors.</p>
 <h2 id="more-information">More Information<a class="headerlink" href="#more-information" title="Permanent link">&para;</a></h2>
 <p>For more information about the Apache Velocity Project, see</p>
 <ul>
