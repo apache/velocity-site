@@ -42,7 +42,7 @@ sub changes_report
     print $fh $xml;
     close $fh;
     my $summary = `xsltproc stylesheets/releases_history.xsl $filename`;
-    my $changes = `xsltproc stylesheets/changes.xsl $filename`;
+    my $changes = `xsltproc --stringparam project $project stylesheets/changes.xsl $filename`;
     unlink $filename;
     return $summary . $changes;
 }

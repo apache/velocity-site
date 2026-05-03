@@ -19,6 +19,7 @@
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
     version="1.0">
   <xsl:output method="xml" indent="yes" omit-xml-declaration="yes"/>
+  <xsl:param name="project" select="'engine'"/>
   <xsl:template match="//release">
     <h3>
       <xsl:text>Release </xsl:text>
@@ -61,6 +62,14 @@
           <xsl:text>Fixes </xsl:text>
           <a href="https://issues.apache.org/jira/browse/{@issue}">
             <xsl:value-of select="@issue"/>
+          </a>
+          <xsl:text>. </xsl:text>
+        </xsl:if>
+        <xsl:if test="@pr">
+          <xsl:text>GitHub PR </xsl:text>
+          <a href="https://github.com/apache/velocity-{$project}/pull/{@pr}">
+            <xsl:text>#</xsl:text>
+            <xsl:value-of select="@pr"/>
           </a>
           <xsl:text>. </xsl:text>
         </xsl:if>
