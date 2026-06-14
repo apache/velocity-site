@@ -94,7 +94,7 @@ These steps must be performed **for each** release candidate.
 
     If it's not the first release candidate you're trying to release, you have to drop the staged artifact from the nexus manager.
     
-    You have to revert the two commits created by the release script, in the reverse order, and delete the pushed RC tag. Those should be the two most recent commits, and should look like something like this in the git log:
+    To prepare the next candidate, revert the two version commits created by the release script (in reverse order) so the branch returns to its development version. Those are the two most recent commits, and look like this in the git log:
 
         * commit 1daf1668 (HEAD -> master, origin/master)
           Start 2.6-SNAPSHOT (reset <scm><tag>=HEAD)
@@ -108,8 +108,12 @@ These steps must be performed **for each** release candidate.
         git revert 1daf1668
         git revert 9cd6c031
         git push
-        git push --delete origin 2.5-RC2
-        git tag -d 2.5-RC2
+
+    Deleting and reusing a tag is acceptable **only** when restarting a candidate that was never put to a vote — a purely technical re-run (e.g. a broken build or signing setup). In that case alone:
+
+        :::shell
+        git push --delete origin 2.5-RC1
+        git tag -d 2.5-RC1
     
 
 * Complete and update the changelog source file `src/changes/changes.xml` (note: we may get rid of this changelog in the future since it is quite painful to maintain and seems highly redundant with the JIRA release notes).
