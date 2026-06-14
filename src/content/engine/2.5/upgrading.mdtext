@@ -59,7 +59,7 @@ The next major version will move to a `${ expression }` model, so VTL constructs
 
 | Deprecated | Replacement |
 |---|---|
-| `${foo\|'bar'}` (`\|` default value) | `#if($foo)$foo#{else}bar#end` |
+| `${foo|'bar'}` (`|` default value) | `#if($foo)$foo#{else}bar#end` |
 | `$foo.bar`, `$foo.m()`, `$foo[i]` **rendered to output** | formal `${foo.bar}` etc. |
 | `${$foo}`, `$!{$foo}` (extra `$` after `{`, re-added in 2.5 for 1.7 BC) | `${foo}` |
 
