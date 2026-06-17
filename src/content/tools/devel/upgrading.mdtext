@@ -4,6 +4,15 @@ Title: Apache Velocity Tools - Upgrading
 
 [TOC]
 
+## Upgrading to 4.0
+
+VelocityTools 4.0 moves to the **Jakarta EE** namespace: the view tools now use `jakarta.servlet.*`
+and require a Jakarta EE 10 servlet container (e.g. Tomcat 10.1+). The library requires **JDK 11+**
+to compile and run.
+
+Without skipping tests, building the project from source requires **JDK 17**, because the showcase example's integration
+test runs on an embedded Jetty 12 (Jakarta EE 10)
+
 ## Upgrading to 3.1
 
 No special action to take.

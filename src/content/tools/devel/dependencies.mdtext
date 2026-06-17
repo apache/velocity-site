@@ -6,7 +6,9 @@ VelocityTools requires certain external jar dependencies at different times. The
 
 Since VelocityTools relies on Velocity Engine, please also check [Engine dependencies](/engine/2.0/dependencies.html).
 
-Note: Java version 1.8+ (JDK 8) is required for compilation, testing and use of VelocityTools 3.x.
+Note: VelocityTools 4.x targets the Jakarta EE namespace and requires **JDK 11+** for compilation and use.
+Without skipping tests, building the project from source requires **JDK 17**, because the showcase example's
+integration test runs on an embedded Jetty 12 (Jakarta EE 10).
 {.note}
 
 ### GenericTools
