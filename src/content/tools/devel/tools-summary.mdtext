@@ -162,16 +162,23 @@ You will find here a summary of all the available standard tools, sufficient for
 `$esc.d` , `$esc.dollar` | renders a dollar sign ($)
 `$esc.e` , `$esc.exclamation` | renders an exclamation mark (!)
 `$esc.h` , `$esc.hash` | renders a hash (#)
+`$esc.n` , `$esc.newline` | renders a newline
 `$esc.q` , `$esc.quote` | renders a double quotation mark (")
 `$esc.s` , `$esc.singleQuote` | renders a single quotation mark (')
+`$esc.velocity(`&nbsp;*string*&nbsp;`)` | escapes Velocity's special `$` and `#` characters (poor man's escaping)
 `$esc.html(`&nbsp;*string*&nbsp;`)` | escapes the characters in a string using HTML entities
+`$esc.xml(`&nbsp;*string*&nbsp;`)` | escapes the characters in a String using XML entities
 `$esc.url(`&nbsp;*string*&nbsp;`)` | escapes the characters in a string using UTF-8 URL character encoding
+`$esc.unurl(`&nbsp;*string*&nbsp;`)` | un-escapes a UTF-8 URL-encoded string (the inverse of `$esc.url`)
 `$esc.java(`&nbsp;*string*&nbsp;`)` | escapes the characters in a String using Java String rules
 `$esc.javascript(`&nbsp;*string*&nbsp;`)` | escapes the characters in a String using JavaScript String rules
+`$esc.json(`&nbsp;*string*&nbsp;`)` | escapes the characters in a String using JSON String rules
 `$esc.sql(`&nbsp;*string*&nbsp;`)` | escapes the characters in a String to be suitable to pass to an SQL query
-`$esc.xml(`&nbsp;*string*&nbsp;`)` | escapes the characters in a String using XML entities
+`$esc.markdown(`&nbsp;*string*&nbsp;`)` | escapes the Markdown special characters in a String
+`$esc.apt(`&nbsp;*string*&nbsp;`)` | escapes the APT (Almost Plain Text) special characters in a String
 `$esc.propertyKey(`&nbsp;*string*&nbsp;`)` | escapes the characters in a String using java.util.Properties rules for escaping keys
 `$esc.propertyValue(`&nbsp;*string*&nbsp;`)` | escapes the characters in a String using java.util.Properties rules for escaping values
+`$esc.unicode(`&nbsp;*code*&nbsp;`)` | converts a hexadecimal Unicode code point (optionally `\u`-prefixed) to the matching character
 
 #### [**FieldTool**](apidocs/org/apache/velocity/tools/generic/FieldTool.html) - tool allowing easy access to public static fields in classes, such as string constants{#FieldTool}
 
