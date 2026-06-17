@@ -236,7 +236,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     <tbody>
       <tr>
         <td>2.5</td>
-        <td/>
+        <td>2026-06-14</td>
         <td/>
       </tr>
       <tr>
@@ -332,7 +332,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     </tbody>
   </table>
 </p>
-<h3>Release 2.5 - </h3><p>
+<h3>Release 2.5 - 2026-06-14</h3><p>
   <table class="standard">
     <thead>
       <tr>
@@ -341,7 +341,69 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <th>By</th>
       </tr>
     </thead>
-    <tbody/>
+    <tbody>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Fix precision loss when converting <code> Long </code> values to <code> BigDecimal </code> in VTL math operations. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-996">VELOCITY-996</a>. Thanks to ogawaffm.</td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Add deprecation warnings for VTL syntax constructs not supported by the next major version: the informal <code> $foo.bar </code> notation rendered to output, the <code> ${foo|default} </code> default-value operator, the extra <code> $ </code> in <code> ${$foo} </code> , and the <code> parser.allow_hyphen_in_identifiers </code> backward compatibility option. Gated by the new <code> runtime.deprecation.warn </code> property, off by default for now. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-995">VELOCITY-995</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td/>
+        <td>  <code> spring-velocity-support </code> now targets the current, Jakarta-based Spring framework (Spring 6.x and 7.x) on Java 17. The previous Spring 5.x / Java 8 support moves to the new <code> spring5-velocity-support </code> module. Note: while this is a minor Velocity release, it is a major upgrade for the <code> spring-velocity-support </code> artifact, which jumps from Spring 5 to 6/7. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-994">VELOCITY-994</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Add a new <code> introspector.restrict.methods </code> property to restrict method calls in the secure introspector. Block by default <code> VelocityEngine.init() </code> and <code> VelocityEngine.reset() </code> . </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Fix connection leaks in <code> DataSourceResourceLoader </code> . Deprecate <code> DatabaseObjectsFactory </code> in favor of <code> PreparedStatementsFactory </code> . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-989">VELOCITY-989</a>. Thanks to fschlimme.</td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Restore Velocity 1.7 behaviour: allow an extra dollar after <code> { </code> , i.e. <code> ${$foo} </code> and <code> $!{$foo} </code> . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-988">VELOCITY-988</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td>  <code> Map.size() </code> method is now called instead of any provided <code> size </code> property. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-986">VELOCITY-986</a>. GitHub PR <a href="https://github.com/apache/velocity-engine/pull/59">#59</a>. Thanks to ravimergu.</td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> Bump several dependencies and plugin versions. On JDK 8, dom4j 2.1.5 and Spring 5.3.39 are the latest supported. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Fix time zone dependency in <code> Velocity952TestCase </code> ( <code> testEnd2End </code> failed outside GMT+1). GitHub PR <a href="https://github.com/apache/velocity-engine/pull/55">#55</a>. Thanks to nate-dev.</td>
+        <td>cbrisson</td>
+      </tr>
+    </tbody>
   </table>
 </p><h3>Release 2.4.1 - 2024-10-14</h3><p>
   <table class="standard">
@@ -380,7 +442,9 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     </thead>
     <tbody>
       <tr>
-        <td/>
+        <td>
+          <img src="images/add.png"/>
+        </td>
         <td> Add a new compatibility flag for integer ranges immutability. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-948">VELOCITY-948</a>. </td>
         <td>cbrisson</td>
       </tr>
@@ -434,7 +498,9 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>cbrisson</td>
       </tr>
       <tr>
-        <td/>
+        <td>
+          <img src="images/add.png"/>
+        </td>
         <td> Support Java 16 records in property lookup. Thanks to J. Tóth Tamás.</td>
         <td>cbrisson</td>
       </tr>
@@ -458,7 +524,9 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>cbrisson</td>
       </tr>
       <tr>
-        <td/>
+        <td>
+          <img src="images/add.png"/>
+        </td>
         <td> Backported Spring framework Velocity Engine integration classes from Spring 4.x, in the new module <code> spring-velocity-support </code> . Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-933">VELOCITY-933</a>. </td>
         <td>cbrisson</td>
       </tr>
@@ -470,7 +538,9 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>wglass</td>
       </tr>
       <tr>
-        <td/>
+        <td>
+          <img src="images/add.png"/>
+        </td>
         <td> Added Travis CI. Thanks to mgrigorov.</td>
         <td>cbrisson</td>
       </tr>
@@ -494,7 +564,9 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     </thead>
     <tbody>
       <tr>
-        <td/>
+        <td>
+          <img src="images/add.png"/>
+        </td>
         <td> Deprecated 2.1 flag <code> velocimacro.arguments.preserve_literals </code> in favor of the new <code> valocimacro_enable_bc_mode </code> flag, which will also, like 1.7 does, use global context values as defaults for missing macro arguments which do not have an explicit default value. </td>
         <td>cbrisson</td>
       </tr>
