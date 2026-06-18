@@ -11,7 +11,29 @@ and require a Jakarta EE 10 servlet container (e.g. Tomcat 10.1+). The library r
 to compile and run.
 
 Without skipping tests, building the project from source requires **JDK 17**, because the showcase example's integration
-test runs on an embedded Jetty 12 (Jakarta EE 10)
+test runs on an embedded Jetty 12 (Jakarta EE 10).
+
+### Behavior changes
+
+`ResourceTool` now returns `null` for a missing resource key instead of the `???key???`
+placeholder. A missing key is then handled by the engine like any other null reference: a
+quiet reference displays nothing, and a non-quiet reference either renders literally in
+non-strict mode (e.g. `$text.missing`) with a warning in the logs, or throws in strict mode.
+
+`XmlTool.getPath()` now returns the value of a `path` attribute or child element when present,
+falling back to the node's XPath otherwise (mirroring `getName()`/`getNodeName()`); it is no
+longer deprecated. Use `getNodePath()` when you specifically need the node's XPath.
+
+## Upgrading to 3.2
+
+`XmlTool.getPath()` is deprecated in favor of `getNodePath()`, for homogeneity with
+`getName()`/`getNodeName()`. (In 4.0 `getPath()` is repurposed — see above.)
+
+`MathTool` now returns an integral result that exceeds the `long` range as a `Double` instead
+of silently saturating to `Long.MAX_VALUE`.
+
+`LinkTool` now applies and merges parameters on opaque URIs such as `mailto:` links, rather
+than ignoring them.
 
 ## Upgrading to 3.1
 

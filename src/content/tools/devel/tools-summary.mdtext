@@ -304,7 +304,7 @@ You will find here a summary of all the available standard tools, sufficient for
 `config.bundles` | coma-separated list of bundles (the first one being used as the default)
 `config.locale` [&nbsp;=&nbsp;JVM Locale&nbsp;] | current locale
 `config.defaultLocale` [&nbsp;=&nbsp;JVM Locale&nbsp;] | default locale
-`$text.`*key* | returns the resource with the specified name, if it exists
+`$text.`*key* | returns the resource with the specified name, or `null` if the key is missing (a warning is logged, letting the engine handle it like any null reference)
 `$text.`*prefix*`.keys` | returns a list of the available keys starting with the given prefix
 `$text.`*key*`.bundle(`&nbsp;*bundle*&nbsp;`)` | returns the resource with the specified name in the specified bundle, if it exists
 `$text.`*key*`.locale(`&nbsp;*locale*&nbsp;`)` | returns a new $text that will try to find the resource with the specified name for the specified locale
@@ -325,10 +325,11 @@ You will find here a summary of all the available standard tools, sufficient for
 `$xml.name` | asks `get(Object)` for "name"; if none, this will return the result of `getNodeName()`
 `$xml.nodeName` | returns the name of the root node; if the internal Node list has more than one Node, it will only return the name of the first node in the list
 `$xml.parent` | returns a new XmlTool instance that wraps the parent Element of the first/sole Node being wrapped by this instance
-`$xml.path` | returns the XPath that identifies the first/sole Node represented by this instance
+`$xml.path` | asks `get(Object)` for "path"; if none, this will return the result of `getNodePath()`
+`$xml.nodePath` | returns the XPath that identifies the first/sole Node represented by this instance
 `$xml.text` | returns the concatenated text content of all the internally held nodes; obviously, this is most useful when only one node is held
 `$xml.get(`&nbsp;*number*&nbsp;`)` | returns a new instance that wraps the specified Node from this instance's internal Node list
-`$xml.`*name*, `$xml.get(`&nbsp;*string*&nbsp;`)` | this will first attempt to find an attribute with the specified name and return its value; if no such attribute exists or its value is `null`, this will attempt to convert the given value to a Number and get the result of `get(Number)`; if the number conversion fails, then this will convert the object to a string; if that string does not start contain a '/', it appends the result of `getPath()` and a '/' to the front of it; finally, it delegates the string to the `find(String)` method and returns the result of that
+`$xml.`*name*, `$xml.get(`&nbsp;*string*&nbsp;`)` | this will first attempt to find an attribute with the specified name and return its value; if no such attribute exists or its value is `null`, this will attempt to convert the given value to a Number and get the result of `get(Number)`; if the number conversion fails, then this will convert the object to a string; if that string does not start contain a '/', it appends the result of `getNodePath()` and a '/' to the front of it; finally, it delegates the string to the `find(String)` method and returns the result of that
 `$xml.empty` | returns `true` if there are no Nodes internally held by this instance
 `$xml.iterator()` | returns an Iterator that returns new XmlTool instances for each Node held internally by this instance; this allows VTL like `#foreach($node in $xml)...#end`
 `$xml.node()` | returns the first/sole Node from this instance's internal Node list, if any
