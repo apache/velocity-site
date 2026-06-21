@@ -225,7 +225,7 @@
         It now uses Velocity Engine 2.0 and SLF4J.
 
 
-        For a complete list of changes, please visit {{{https://dist.apache.org/repos/dist/release/velocity/tools/3.0/release-notes.html}the Velocity Tools 3.0 releases notes}}.
+        For a complete list of changes, please visit {{{https://velocity.apache.org/tools/3.0/changes.html}the Velocity Tools 3.0 releases notes}}.
 
 
         For notes on upgrading from Velocity Engine 1.x and Velocity Tools 2.0, see {{{http://velocity.apache.org/engine/2.0/upgrading.html}Velocity Engine 2.0 Upgrading section}}
@@ -539,7 +539,7 @@
 
         This release contains numerous fixes, features and improvements.
         Please see the
-        {{{http://velocity.apache.org/engine/releases/velocity-1.6/changes-report.html}change log}}
+        {{{https://velocity.apache.org/engine/1.6/changes-report.html}change log}}
         for a full listing.  This should be a drop-in replacement for Velocity 1.5.
 
         Highlights in this release include:
@@ -660,7 +660,7 @@
         changes anticipated before 2.0 final is released.
         We are also more than happy to answer questions on the mailing lists.
         More information on the changes between Tools 1.x and 2.x may be found
-        {{{http://wiki.apache.org/velocity/VelocityTools2/Planning}here}}.
+        {{{https://cwiki.apache.org/confluence/display/VELOCITY/VelocityTools2}here}}.
         
         The Velocity developers are very interested in all feedback regarding
         Tools 2.0, especially regarding backwards compatibility with apps designed
@@ -739,7 +739,7 @@
         NumberTool and DateTool, the new ComparisonDateTool, and new abilities
         for EscapeTool and LinkTool. For a full listing of new features and bug
         fixes please see the
-        {{{http://velocity.apache.org/tools/releases/1.4/changes.html}change log}}.
+        {{{https://velocity.apache.org/tools/1.4/changes}change log}}.
 
         Downloads are available 
         {{{http://velocity.apache.org/download.cgi#tools}here}}.
