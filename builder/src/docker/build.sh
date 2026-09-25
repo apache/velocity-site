@@ -31,7 +31,7 @@ echo Post processing...
 find $VELOCITY/velocity-site-prod/ -name "*.html" | xargs sed -ri -e "s'<span></span>''g"
 
 echo Running web server...
-echo Review the changes at http://localhost:8080
+echo Review the changes at http://localhost:8000
 echo Press ctrl-c to exit.
 
 cd $VELOCITY/velocity-site-prod
