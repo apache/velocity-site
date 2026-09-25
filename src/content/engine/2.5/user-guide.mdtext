@@ -168,7 +168,7 @@ The second flavor of VTL references are properties, and properties have a distin
     ${customer.Address}
     ${purchase.Total}
 
-Note that Velocity does support *informal* expressions like *$customer.Address*, as long as there is no ambiguity with the surrounding context. But this syntax is **deprecated** since Velocity 2.5 (outside of places where there is no ambiguity, like inside a *#set* directive) and will be dropped in the next major version.
+Note that Velocity also supports the *informal* notation *$customer.Address*, as long as there is no ambiguity with the surrounding context.
 
 Take the first example, *${customer.Address}*. It can have two meanings. It can mean, Look in the hashtable identified as *customer* and return the value associated with the key *Address*. But it can also be referring to a method (references that refer to methods will be discussed in the next section); *${customer.Address}* could be an abbreviated way of writing *${customer.getAddress()}*. When your page is requested, Velocity will determine which of these two possibilities makes sense, and then return the appropriate value.
 
@@ -311,6 +311,16 @@ Formal and quiet reference notation can be used together, as demonstrated below.
 
     :::html+velocity
     <input type="text" name="email" value="$!{email}"/>
+
+## Alternate Values
+
+A reference can name an alternate value, rendered in its place when the reference is null, false, zero or empty:
+
+    :::html+velocity
+    <input type="text" name="email" value="${email|'nobody@example.com'}"/>
+    Hello ${customer.name|$anonymous}!
+
+The alternate value is any valid VTL expression, evaluated only when needed. It can only be written in the formal notation, `${ ... }`, and combines with the quiet notation: `$!{email|$fallback}` renders nothing when both are unset.
 
 ## Strict Rendering Mode
 

@@ -32,8 +32,7 @@ Examples:
 + Silent shorthand notation: `$!mudSlinger_9`
 + Formal notation: `${mudSlinger_9}`
 + Silent formal notation: `$!{mudSlinger_9}`
-
-*Deprecated since 2.5: the default-value syntax `${mudSlinger_9|$otherWheels}` (use an `#if` block instead) and the extra `$` form `${$mudSlinger_9}`. See the [upgrading guide](upgrading.html).*
++ Formal notation with an alternate value: `${mudSlinger_9|$otherWheels}` — rendered when the reference is null, false, zero or empty; the right-hand side is any valid VTL expression
 
 ### Properties
 
@@ -45,8 +44,8 @@ Examples:
 
 + Formal notation: `${customer.Address}`
 + Formal notation: `${purchase.Total}`
-
-*Deprecated since 2.5: the informal notation `$customer.Address` (without braces) when rendered to the output, and the default value `${person.name|'John Doe'}`. See the [upgrading guide](upgrading.html).*
++ Informal notation: `$customer.Address`
++ With an alternate value: `${person.name|'John Doe'}`
 
 ### Methods
 
@@ -62,8 +61,8 @@ Examples:
 
 + Formal notation: `${customer.getAddress()}`
 + Formal notation with parameter list: `${page.setTitle( "My Home Page" )}`
-
-*Deprecated since 2.5: the informal notation `$customer.getAddress()` (without braces) when rendered to the output, and the default value `${page.getTitle()|'Blank Page'}`. See the [upgrading guide](upgrading.html).*
++ Informal notation: `$customer.getAddress()` (formal notation is preferred)
++ With an alternate value: `${page.getTitle()|'Blank Page'}`
 
 VTL Properties can be used as a shorthand notation for VTL Methods that take *get* and *set*. Either *${object.getMethod()}* or *${object.setMethod()}* can be abbreviated as *${object.Method}*. It is generally preferable to use a Property when available. The main difference between Properties and Methods is that you can specify a parameter list to a Method.
 

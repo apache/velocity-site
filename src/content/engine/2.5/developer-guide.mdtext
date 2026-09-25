@@ -1638,6 +1638,8 @@ Then, in the target project, you have to specify which parser to use from within
 
 For instance, you may want to replace `#` with `%` because the target language (markdown for instance) already makes use of the `#` symbol.
 
+*Deprecated since 2.5*: the `parser.class` property is deprecated. The next major version keeps the capability by letting an application plug in a lexer, and this property has no effect there; the `$` character will not be configurable at all any more (`#`, `@` and `*` will), so a custom parser relying on `parser.char.dollar` has no future equivalent. The 2.x mechanism above keeps working in 2.x, and a 2.x custom parser class is not reusable there.
+
 ## Summary
 
 We hope this brief guide was a helpful introduction to using Velocity in your Java projects, and thank you for you interest in Velocity.  We welcome any and all comments you may have about this documentation and the Velocity template engine itself.
