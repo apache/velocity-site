@@ -228,6 +228,9 @@ a > img
 #bottom-nav { text-align: center; }
 #bottom-nav img { margin: 0.2em 0; }
 
+/* Center next Apache event logo */
+#apache-event-button img { display: block; width: 100%; max-width: 234px; height: 60px; margin: 0 auto; object-fit: cover; }
+
 #content
 {
     padding-left: 11em;
