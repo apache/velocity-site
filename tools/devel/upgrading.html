@@ -194,7 +194,12 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
             <div id="rss">
               <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
             </div>
-            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+            <div id="apache-event">
+              <b>The next Apache Event</b>
+              <div id="apache-event-button">
+                <a class="externalLink" href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png" alt="" class="img-fluid"</a>
+              </div>
+            </div>
           </div>
         </div>
         <div id="content"><div class="section-content"><style type="text/css">
@@ -212,6 +217,11 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <div class="toc">
 <ul>
 <li><a href="#upgrading-velocitytools">Upgrading VelocityTools</a></li>
+<li><a href="#upgrading-to-40">Upgrading to 4.0</a><ul>
+<li><a href="#behavior-changes">Behavior changes</a></li>
+</ul>
+</li>
+<li><a href="#upgrading-to-32">Upgrading to 3.2</a></li>
 <li><a href="#upgrading-to-31">Upgrading to 3.1</a></li>
 <li><a href="#upgrading-to-30">Upgrading to 3.0</a></li>
 <li><a href="#upgrading-to-20">Upgrading to 2.0</a><ul>
@@ -225,6 +235,27 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li><a href="#upgrading-to-14">Upgrading to 1.4</a></li>
 </ul>
 </div>
+<h2 id="upgrading-to-40">Upgrading to 4.0<a class="headerlink" href="#upgrading-to-40" title="Permanent link">&para;</a></h2>
+<p>VelocityTools 4.0 moves to the <strong>Jakarta EE</strong> namespace: the view tools now use <code>jakarta.servlet.*</code>
+and require a Jakarta EE 10 servlet container (e.g. Tomcat 10.1+). The library requires <strong>JDK 11+</strong>
+to compile and run.</p>
+<p>Without skipping tests, building the project from source requires <strong>JDK 17</strong>, because the showcase example's integration
+test runs on an embedded Jetty 12 (Jakarta EE 10).</p>
+<h3 id="behavior-changes">Behavior changes<a class="headerlink" href="#behavior-changes" title="Permanent link">&para;</a></h3>
+<p><code>ResourceTool</code> now returns <code>null</code> for a missing resource key instead of the <code>???key???</code>
+placeholder. A missing key is then handled by the engine like any other null reference: a
+quiet reference displays nothing, and a non-quiet reference either renders literally in
+non-strict mode (e.g. <code>$text.missing</code>) with a warning in the logs, or throws in strict mode.</p>
+<p><code>XmlTool.getPath()</code> now returns the value of a <code>path</code> attribute or child element when present,
+falling back to the node's XPath otherwise (mirroring <code>getName()</code>/<code>getNodeName()</code>); it is no
+longer deprecated. Use <code>getNodePath()</code> when you specifically need the node's XPath.</p>
+<h2 id="upgrading-to-32">Upgrading to 3.2<a class="headerlink" href="#upgrading-to-32" title="Permanent link">&para;</a></h2>
+<p><code>XmlTool.getPath()</code> is deprecated in favor of <code>getNodePath()</code>, for homogeneity with
+<code>getName()</code>/<code>getNodeName()</code>. (In 4.0 <code>getPath()</code> is repurposed — see above.)</p>
+<p><code>MathTool</code> now returns an integral result that exceeds the <code>long</code> range as a <code>Double</code> instead
+of silently saturating to <code>Long.MAX_VALUE</code>.</p>
+<p><code>LinkTool</code> now applies and merges parameters on opaque URIs such as <code>mailto:</code> links, rather
+than ignoring them.</p>
 <h2 id="upgrading-to-31">Upgrading to 3.1<a class="headerlink" href="#upgrading-to-31" title="Permanent link">&para;</a></h2>
 <p>No special action to take.</p>
 <h2 id="upgrading-to-30">Upgrading to 3.0<a class="headerlink" href="#upgrading-to-30" title="Permanent link">&para;</a></h2>

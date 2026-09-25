@@ -194,7 +194,12 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
             <div id="rss">
               <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
             </div>
-            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+            <div id="apache-event">
+              <b>The next Apache Event</b>
+              <div id="apache-event-button">
+                <a class="externalLink" href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png" alt="" class="img-fluid"</a>
+              </div>
+            </div>
           </div>
         </div>
         <div id="content"><div class="section-content"><style type="text/css">
@@ -659,6 +664,10 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <td>renders a hash (#)</td>
 </tr>
 <tr>
+<td><code>$esc.n</code> , <code>$esc.newline</code></td>
+<td>renders a newline</td>
+</tr>
+<tr>
 <td><code>$esc.q</code> , <code>$esc.quote</code></td>
 <td>renders a double quotation mark (")</td>
 </tr>
@@ -667,12 +676,24 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <td>renders a single quotation mark (')</td>
 </tr>
 <tr>
+<td><code>$esc.velocity(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
+<td>escapes Velocity's special <code>$</code> and <code>#</code> characters (poor man's escaping)</td>
+</tr>
+<tr>
 <td><code>$esc.html(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
 <td>escapes the characters in a string using HTML entities</td>
 </tr>
 <tr>
+<td><code>$esc.xml(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
+<td>escapes the characters in a String using XML entities</td>
+</tr>
+<tr>
 <td><code>$esc.url(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
 <td>escapes the characters in a string using UTF-8 URL character encoding</td>
+</tr>
+<tr>
+<td><code>$esc.unurl(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
+<td>un-escapes a UTF-8 URL-encoded string (the inverse of <code>$esc.url</code>)</td>
 </tr>
 <tr>
 <td><code>$esc.java(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
@@ -683,12 +704,20 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <td>escapes the characters in a String using JavaScript String rules</td>
 </tr>
 <tr>
+<td><code>$esc.json(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
+<td>escapes the characters in a String using JSON String rules</td>
+</tr>
+<tr>
 <td><code>$esc.sql(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
 <td>escapes the characters in a String to be suitable to pass to an SQL query</td>
 </tr>
 <tr>
-<td><code>$esc.xml(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
-<td>escapes the characters in a String using XML entities</td>
+<td><code>$esc.markdown(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
+<td>escapes the Markdown special characters in a String</td>
+</tr>
+<tr>
+<td><code>$esc.apt(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
+<td>escapes the APT (Almost Plain Text) special characters in a String</td>
 </tr>
 <tr>
 <td><code>$esc.propertyKey(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
@@ -697,6 +726,10 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <tr>
 <td><code>$esc.propertyValue(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
 <td>escapes the characters in a String using java.util.Properties rules for escaping values</td>
+</tr>
+<tr>
+<td><code>$esc.unicode(</code>&nbsp;<em>code</em>&nbsp;<code>)</code></td>
+<td>converts a hexadecimal Unicode code point (optionally <code>\u</code>-prefixed) to the matching character</td>
 </tr>
 </tbody>
 </table>
@@ -1128,7 +1161,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </tr>
 <tr>
 <td><code>$text.</code><em>key</em></td>
-<td>returns the resource with the specified name, if it exists</td>
+<td>returns the resource with the specified name, or <code>null</code> if the key is missing (a warning is logged, letting the engine handle it like any null reference)</td>
 </tr>
 <tr>
 <td><code>$text.</code><em>prefix</em><code>.keys</code></td>
@@ -1203,6 +1236,10 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </tr>
 <tr>
 <td><code>$xml.path</code></td>
+<td>asks <code>get(Object)</code> for "path"; if none, this will return the result of <code>getNodePath()</code></td>
+</tr>
+<tr>
+<td><code>$xml.nodePath</code></td>
 <td>returns the XPath that identifies the first/sole Node represented by this instance</td>
 </tr>
 <tr>
@@ -1215,7 +1252,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </tr>
 <tr>
 <td><code>$xml.</code><em>name</em>, <code>$xml.get(</code>&nbsp;<em>string</em>&nbsp;<code>)</code></td>
-<td>this will first attempt to find an attribute with the specified name and return its value; if no such attribute exists or its value is <code>null</code>, this will attempt to convert the given value to a Number and get the result of <code>get(Number)</code>; if the number conversion fails, then this will convert the object to a string; if that string does not start contain a '/', it appends the result of <code>getPath()</code> and a '/' to the front of it; finally, it delegates the string to the <code>find(String)</code> method and returns the result of that</td>
+<td>this will first attempt to find an attribute with the specified name and return its value; if no such attribute exists or its value is <code>null</code>, this will attempt to convert the given value to a Number and get the result of <code>get(Number)</code>; if the number conversion fails, then this will convert the object to a string; if that string does not start contain a '/', it appends the result of <code>getNodePath()</code> and a '/' to the front of it; finally, it delegates the string to the <code>find(String)</code> method and returns the result of that</td>
 </tr>
 <tr>
 <td><code>$xml.empty</code></td>

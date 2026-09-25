@@ -194,7 +194,12 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
             <div id="rss">
               <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
             </div>
-            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+            <div id="apache-event">
+              <b>The next Apache Event</b>
+              <div id="apache-event-button">
+                <a class="externalLink" href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png" alt="" class="img-fluid"</a>
+              </div>
+            </div>
           </div>
         </div>
         <div id="content"><div class="section-content"><style type="text/css">
@@ -211,7 +216,9 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permanent link">&para;</a></h2>
 <p>VelocityTools requires certain external jar dependencies at different times. These charts should help you determine which jars you need and when.</p>
 <p>Since VelocityTools relies on Velocity Engine, please also check <a href="/engine/2.0/dependencies.html">Engine dependencies</a>.</p>
-<p class="note">Note: Java version 1.8+ (JDK 8) is required for compilation, testing and use of VelocityTools 3.x.
+<p class="note">Note: VelocityTools 4.x targets the Jakarta EE namespace and requires <strong>JDK 11+</strong> for compilation and use.
+Without skipping tests, building the project from source requires <strong>JDK 17</strong>, because the showcase example's
+integration test runs on an embedded Jetty 12 (Jakarta EE 10).
 </p>
 <h3 id="generictools">GenericTools<a class="headerlink" href="#generictools" title="Permanent link">&para;</a></h3>
 <table class="table">

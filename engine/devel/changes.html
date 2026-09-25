@@ -208,7 +208,12 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
             <div id="rss">
               <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
             </div>
-            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+            <div id="apache-event">
+              <b>The next Apache Event</b>
+              <div id="apache-event-button">
+                <a class="externalLink" href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png" alt="" class="img-fluid"</a>
+              </div>
+            </div>
           </div>
         </div>
         <div id="content"><div class="section-content"><style type="text/css">
@@ -236,7 +241,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     <tbody>
       <tr>
         <td>2.5</td>
-        <td>2026-06-14</td>
+        <td>2026-09-25</td>
         <td/>
       </tr>
       <tr>
@@ -332,7 +337,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     </tbody>
   </table>
 </p>
-<h3>Release 2.5 - 2026-06-14</h3><p>
+<h3>Release 2.5 - 2026-09-25</h3><p>
   <table class="standard">
     <thead>
       <tr>
@@ -346,6 +351,41 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/fix.png"/>
         </td>
+        <td>  <code> InvalidReferenceEventHandler.invalidSetMethod() </code> now receives the whole assigned reference as its left reference, e.g. <code> foo.bar </code> for <code> #set($foo.bar = $null) </code> , instead of only its root name. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-1000">VELOCITY-1000</a>. Thanks to Peter SEVERIN.</td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td>  <code> SecureUberspector </code> now honours the configured type conversion handler. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-999">VELOCITY-999</a>. Thanks to Peter SEVERIN.</td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td>  <code> SecureUberspector </code> now checks <code> Class </code> receivers against <code> Class </code> before the superclass looks a method up among the static methods of the class they name (VELOCITY-102): reached that way, only <code> getName() </code> goes through, whatever the named class. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> Resource names are now normalized before being looked up by the loaders which resolve them against a root (file, classpath, jar and URL loaders): the <code> . </code> and <code> .. </code> segments are collapsed, and a name climbing above the root is refused, as if the resource did not exist. Loaders which use the name as an opaque key ( <code> DataSourceResourceLoader </code> , <code> StringResourceLoader </code> ) keep seeing it unchanged. See <code> ResourceLoader.normalizeResourceName() </code> . </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td>  <code> #evaluate </code> now honours the nesting depth limit set by <code> directive.parse.max_depth </code> (10 by default, zero or less meaning no limit). </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
         <td> Fix precision loss when converting <code> Long </code> values to <code> BigDecimal </code> in VTL math operations. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-996">VELOCITY-996</a>. Thanks to ogawaffm.</td>
         <td>cbrisson</td>
       </tr>
@@ -353,7 +393,12 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
         <td>
           <img src="images/add.png"/>
         </td>
-        <td> Add deprecation warnings for VTL syntax constructs not supported by the next major version: the informal <code> $foo.bar </code> notation rendered to output, the <code> ${foo|default} </code> default-value operator, the extra <code> $ </code> in <code> ${$foo} </code> , and the <code> parser.allow_hyphen_in_identifiers </code> backward compatibility option. Gated by the new <code> runtime.deprecation.warn </code> property, off by default for now. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-995">VELOCITY-995</a>. </td>
+        <td> Deprecate a backslash right before the closing quote of a double-quoted string, the <code> parser.allow_hyphen_in_identifiers </code> option, and lenient math ( <code> runtime.strict_math = false </code> , unsupported in the next major version); warnings gated by <code> runtime.deprecation.warn </code> , on by default. Fixes <a href="https://issues.apache.org/jira/browse/VELOCITY-995">VELOCITY-995</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td/>
+        <td> Deprecate macros old BC mode <code> velocimacro.enable_bc_mode </code> , old default macros library name <code> VM_global_library.vm </code> , <code> runtime.immutable_ranges = false </code> , <code> RuntimeServices.createNewParser() </code> , the <code> parser.class </code> setting and the <code> parser.char.dollar </code> build property (the next major version replaces the runtime parser properties by a pluggable lexer, and <code> $ </code> is not configurable there). </td>
         <td>cbrisson</td>
       </tr>
       <tr>

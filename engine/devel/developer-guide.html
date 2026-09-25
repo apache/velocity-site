@@ -208,7 +208,12 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
             <div id="rss">
               <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
             </div>
-            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+            <div id="apache-event">
+              <b>The next Apache Event</b>
+              <div id="apache-event-button">
+                <a class="externalLink" href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png" alt="" class="img-fluid"</a>
+              </div>
+            </div>
           </div>
         </div>
         <div id="content"><div class="section-content"><style type="text/css">
@@ -1817,6 +1822,7 @@ see the Javadoc API documentation.</p>
 
 
 <p>For instance, you may want to replace <code>#</code> with <code>%</code> because the target language (markdown for instance) already makes use of the <code>#</code> symbol.</p>
+<p><em>Deprecated since 2.5</em>: the <code>parser.class</code> property is deprecated. The next major version keeps the capability by letting an application plug in a lexer, and this property has no effect there; the <code>$</code> character will not be configurable at all any more (<code>#</code>, <code>@</code> and <code>*</code> will), so a custom parser relying on <code>parser.char.dollar</code> has no future equivalent. The 2.x mechanism above keeps working in 2.x, and a 2.x custom parser class is not reusable there.</p>
 <h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
 <p>We hope this brief guide was a helpful introduction to using Velocity in your Java projects, and thank you for you interest in Velocity.  We welcome any and all comments you may have about this documentation and the Velocity template engine itself.</p>
 <p>Please submit all detailed, thoughtful and constructive feedback through our <a href="/contact.html">mailing lists</a>.</p></div></div>

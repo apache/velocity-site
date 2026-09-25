@@ -208,7 +208,12 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
             <div id="rss">
               <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
             </div>
-            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+            <div id="apache-event">
+              <b>The next Apache Event</b>
+              <div id="apache-event-button">
+                <a class="externalLink" href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png" alt="" class="img-fluid"</a>
+              </div>
+            </div>
           </div>
         </div>
         <div id="content"><div class="section-content"><style type="text/css">
@@ -245,8 +250,8 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </ul>
 </li>
 <li><a href="#formal-reference-notation">Formal Reference Notation</a></li>
-<li><a href="#alternate-values">Alternate values</a></li>
 <li><a href="#quiet-reference-notation">Quiet Reference Notation</a></li>
+<li><a href="#alternate-values">Alternate Values</a></li>
 <li><a href="#strict-rendering-mode">Strict Rendering Mode</a></li>
 <li><a href="#case-substitution">Case Substitution</a></li>
 <li><a href="#directives">Directives</a><ul>
@@ -314,13 +319,14 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <p>You could embed the following VTL statement in the web page:</p>
 <div class="codehilite"><pre><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
   <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-    Hello <span class="p">$</span><span class="nv">customer</span><span class="p">.</span><span class="nv">Name</span>!
+    <span class="p">$</span><span class="nv">title</span>
+    Hello <span class="p">${</span><span class="nv">customer</span><span class="p">.</span><span class="nv">Name</span><span class="p">}</span>!
     <span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
     <span class="cp">#</span><span class="nf">foreach</span><span class="p">(</span> <span class="p">$</span><span class="nv">mud</span> <span class="o">in</span> <span class="p">$</span><span class="nv">mudsOnSpecial</span> <span class="p">)</span>
       <span class="cp">#</span><span class="nf">if</span><span class="p"> (</span> <span class="p">$</span><span class="nv">customer</span><span class="p">.</span><span class="nv">hasPurchased</span><span class="p">($</span><span class="nv">mud</span><span class="p">)</span> <span class="p">)</span>
         <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;</span>
           <span class="p">&lt;</span><span class="nt">td</span><span class="p">&gt;</span>
-            <span class="p">$</span><span class="nv">flogger</span><span class="p">.</span><span class="nv">getPromo</span><span class="p">(</span> <span class="p">$</span><span class="nv">mud</span> <span class="p">)</span>
+            <span class="p">${</span><span class="nv">flogger</span><span class="p">.</span><span class="nv">getPromo</span><span class="p">(</span> <span class="p">$</span><span class="nv">mud</span> <span class="p">)}</span>
           <span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;</span>
         <span class="p">&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
       <span class="cp">#</span><span class="nf">end</span>
@@ -342,7 +348,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 
 <p>This VTL statement, like all VTL statements, begins with the <em>#</em> character and contains a directive: <em>set</em>. When an online visitor requests your web page, the Velocity Templating Engine will search through your web page to find all <em>#</em> characters, then determine which mark the beginning of VTL statements, and which of the <em>#</em> characters that have nothing to do with VTL.</p>
 <p>The <em>#</em> character is followed by a directive, <em>set</em>. The <em>set</em> directive uses an expression (enclosed in brackets) -- an equation that assigns a <em>value</em> to a <em>variable</em>. The variable is listed on the left hand side and its value on the right hand side; the two are separated by an <em>=</em> character.</p>
-<p>In the example above, the variable is <em>$a</em> and the value is <em>Velocity</em>. This variable, like all references, begins with the <em>$</em> character. String values are always enclosed in quotes, either single or double quotes.  Single quotes will ensure that the quoted value will be assigned to the reference as is.  Double quotes allow you to use velocity references and directives to interpolate, such as "Hello $name", where the <em>$name</em> will be replaced by the current value before that string literal is assigned to the left hand side of the <em>=</em></p>
+<p>In the example above, the variable is <em>$a</em> and the value is <em>Velocity</em>. This variable, like all references, begins with the <em>$</em> character. References can also be expressions, surrounded by curly braces after the <em>$</em>: <em>${a.toUpperCase()}</em>. String values are always enclosed in quotes, either single or double quotes.  Single quotes will ensure that the quoted value will be assigned to the reference as is.  Double quotes allow you to use velocity references and directives to interpolate, such as "Hello $name", where the <em>$name</em> will be replaced by the current value before that string literal is assigned to the left hand side of the <em>=</em></p>
 <p>The following rule of thumb may be useful to better understand how Velocity works: <strong>References begin with <em>$</em> and are used to get something. Directives begin with <em>#</em> and are used to do something.</strong></p>
 <p>In the example above, <em>#set</em> is used to assign a value to a variable. The variable, <em>$a</em>, can then be used in the template to output "Velocity".</p>
 <h2 id="hello-velocity-world">Hello Velocity World!<a class="headerlink" href="#hello-velocity-world" title="Permanent link">&para;</a></h2>
@@ -425,55 +431,56 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 
 <p>The output will be the same for all instances of <em>$foo</em> that follow this directive.</p>
 <h3 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h3>
-<p>The second flavor of VTL references are properties, and properties have a distinctive format. The shorthand notation consists of a leading <em>$</em> character followed a VTL Identifier, followed by a dot character (".") and another VTL Identifier. These are examples of valid property references in the VTL:</p>
-<div class="codehilite"><pre><span class="p">$</span><span class="nv">customer</span><span class="p">.</span><span class="nv">Address</span><span class="x"></span>
-<span class="p">$</span><span class="nv">purchase</span><span class="p">.</span><span class="nv">Total</span><span class="x"></span>
+<p>The second flavor of VTL references are properties, and properties have a distinctive format. A property reference is a leading <em>$</em> character then an expression enclosed by <em>{</em> and <em>}</em>: a VTL Identifier, a dot character (".") and another VTL Identifier. These are examples of valid property references in the VTL:</p>
+<div class="codehilite"><pre><span class="p">${</span><span class="nv">customer</span><span class="p">.</span><span class="nv">Address</span><span class="p">}</span><span class="x"></span>
+<span class="p">${</span><span class="nv">purchase</span><span class="p">.</span><span class="nv">Total</span><span class="p">}</span><span class="x"></span>
 </pre></div>
 
 
-<p>Take the first example, <em>$customer.Address</em>. It can have two meanings. It can mean, Look in the hashtable identified as <em>customer</em> and return the value associated with the key <em>Address</em>. But <em>$customer.Address</em> can also be referring to a method (references that refer to methods will be discussed in the next section); <em>$customer.Address</em> could be an abbreviated way of writing <em>$customer.getAddress()</em>. When your page is requested, Velocity will determine which of these two possibilities makes sense, and then return the appropriate value.</p>
+<p>Note that Velocity also supports the <em>informal</em> notation <em>$customer.Address</em>, as long as there is no ambiguity with the surrounding context.</p>
+<p>Take the first example, <em>${customer.Address}</em>. It can have two meanings. It can mean, Look in the hashtable identified as <em>customer</em> and return the value associated with the key <em>Address</em>. But it can also be referring to a method (references that refer to methods will be discussed in the next section); <em>${customer.Address}</em> could be an abbreviated way of writing <em>${customer.getAddress()}</em>. When your page is requested, Velocity will determine which of these two possibilities makes sense, and then return the appropriate value.</p>
 <h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h3>
-<p>A method is defined in the Java code and is capable of doing something useful, like running a calculation or arriving at a decision. Methods are references that consist of a leading "$" character followed a VTL Identifier, followed by a VTL <em>Method Body</em>. A VTL Method Body consists of a VTL Identifier followed by an left parenthesis character ("("), followed by an optional parameter list, followed by right parenthesis character (")"). These are examples of valid method references in the VTL:</p>
-<div class="codehilite"><pre><span class="p">$</span><span class="nv">customer</span><span class="p">.</span><span class="nv">getAddress</span><span class="p">()</span><span class="x"></span>
-<span class="p">$</span><span class="nv">purchase</span><span class="p">.</span><span class="nv">getTotal</span><span class="p">()</span><span class="x"></span>
-<span class="p">$</span><span class="nv">page</span><span class="p">.</span><span class="nv">setTitle</span><span class="p">(</span> <span class="s2">&quot;My Home Page&quot;</span> <span class="p">)</span><span class="x"></span>
-<span class="p">$</span><span class="nv">person</span><span class="p">.</span><span class="nv">setAttributes</span><span class="p">(</span> <span class="p">[</span><span class="s2">&quot;Strange&quot;</span><span class="p">,</span> <span class="s2">&quot;Weird&quot;</span><span class="p">,</span> <span class="s2">&quot;Excited&quot;</span><span class="p">]</span> <span class="p">)</span><span class="x"></span>
+<p>A method is defined in the Java code and is capable of doing something useful, like running a calculation or arriving at a decision. Methods are references that consist of a leading "$" character then an expression enclosed by <em>{</em> and <em>}</em>: a VTL Identifier, followed by a VTL <em>Method Body</em>. A VTL Method Body consists of a VTL Identifier followed by an left parenthesis character ("("), followed by an optional parameter list, followed by right parenthesis character (")"). These are examples of valid method references in the VTL:</p>
+<div class="codehilite"><pre><span class="p">${</span><span class="nv">customer</span><span class="p">.</span><span class="nv">getAddress</span><span class="p">()}</span><span class="x"></span>
+<span class="p">${</span><span class="nv">purchase</span><span class="p">.</span><span class="nv">getTotal</span><span class="p">()}</span><span class="x"></span>
+<span class="p">${</span><span class="nv">page</span><span class="p">.</span><span class="nv">setTitle</span><span class="p">(</span> <span class="s2">&quot;My Home Page&quot;</span> <span class="p">)}</span><span class="x"></span>
+<span class="p">${</span><span class="nv">person</span><span class="p">.</span><span class="nv">setAttributes</span><span class="p">(</span> <span class="p">[</span><span class="s2">&quot;Strange&quot;</span><span class="p">,</span> <span class="s2">&quot;Weird&quot;</span><span class="p">,</span> <span class="s2">&quot;Excited&quot;</span><span class="p">]</span> <span class="p">)}</span><span class="x"></span>
 </pre></div>
 
 
-<p>The first two examples -- <em>$customer.getAddress()</em> and <em>$purchase.getTotal()</em> -- may look similar to those used in the Properties section above, <em>$customer.Address</em> and <em>$purchase.Total</em>. If you guessed that these examples must be related some in some fashion, you are correct!</p>
-<p>VTL Properties can be used as a shorthand notation for VTL Methods. The Property <em>$customer.Address</em> has the exact same effect as using the Method <em>$customer.getAddress()</em>. It is generally preferable to use a Property when available. The main difference between Properties and Methods is that you can specify a parameter list to a Method.</p>
-<p>The shorthand notation can be used for the following Methods</p>
-<div class="codehilite"><pre><span class="p">$</span><span class="nv">sun</span><span class="p">.</span><span class="nv">getPlanets</span><span class="p">()</span><span class="x"></span>
-<span class="p">$</span><span class="nv">annelid</span><span class="p">.</span><span class="nv">getDirt</span><span class="p">()</span><span class="x"></span>
-<span class="p">$</span><span class="nv">album</span><span class="p">.</span><span class="nv">getPhoto</span><span class="p">()</span><span class="x"></span>
+<p>The first two examples -- <em>${customer.getAddress()}</em> and <em>${purchase.getTotal()}</em> -- may look similar to those used in the Properties section above, <em>${customer.Address}</em> and <em>${purchase.Total}</em>. If you guessed that these examples must be related some in some fashion, you are correct!</p>
+<p>VTL Properties can be used as a shorthand notation for VTL Methods. The Property <em>${customer.Address}</em> has the exact same effect as using the Method <em>${customer.getAddress()}</em>. It is generally preferable to use a Property when available. The main difference between Properties and Methods is that you can specify a parameter list to a Method.</p>
+<p>The property shorthand can be used for the following Methods</p>
+<div class="codehilite"><pre><span class="p">${</span><span class="nv">sun</span><span class="p">.</span><span class="nv">getPlanets</span><span class="p">()}</span><span class="x"></span>
+<span class="p">${</span><span class="nv">annelid</span><span class="p">.</span><span class="nv">getDirt</span><span class="p">()}</span><span class="x"></span>
+<span class="p">${</span><span class="nv">album</span><span class="p">.</span><span class="nv">getPhoto</span><span class="p">()}</span><span class="x"></span>
 </pre></div>
 
 
 <p>We might expect these methods to return the names of planets belonging to the sun, feed our earthworm, or get a photograph from an album. Only the long notation works for the following Methods.</p>
-<div class="codehilite"><pre><span class="p">$</span><span class="nv">sun</span><span class="p">.</span><span class="nv">getPlanet</span><span class="p">(</span> <span class="p">[</span><span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="s2">&quot;Mars&quot;</span><span class="p">,</span> <span class="s2">&quot;Neptune&quot;</span><span class="p">]</span> <span class="p">)</span><span class="x"></span>
+<div class="codehilite"><pre><span class="p">${</span><span class="nv">sun</span><span class="p">.</span><span class="nv">getPlanet</span><span class="p">(</span> <span class="p">[</span><span class="s2">&quot;Earth&quot;</span><span class="p">,</span> <span class="s2">&quot;Mars&quot;</span><span class="p">,</span> <span class="s2">&quot;Neptune&quot;</span><span class="p">]</span> <span class="p">)}</span><span class="x"></span>
 <span class="cp">##</span><span class="c"> Can&#39;t pass a parameter list with $sun.Planets</span><span class="x"></span>
 
-<span class="p">$</span><span class="nv">sisyphus</span><span class="p">.</span><span class="nv">pushRock</span><span class="p">()</span><span class="x"></span>
+<span class="p">${</span><span class="nv">sisyphus</span><span class="p">.</span><span class="nv">pushRock</span><span class="p">()}</span><span class="x"></span>
 <span class="cp">##</span><span class="c"> Velocity assumes I mean $sisyphus.getRock()</span><span class="x"></span>
 
-<span class="p">$</span><span class="nv">book</span><span class="p">.</span><span class="nv">setTitle</span><span class="p">(</span> <span class="s2">&quot;Homage to Catalonia&quot;</span> <span class="p">)</span><span class="x"></span>
+<span class="p">${</span><span class="nv">book</span><span class="p">.</span><span class="nv">setTitle</span><span class="p">(</span> <span class="s2">&quot;Homage to Catalonia&quot;</span> <span class="p">)}</span><span class="x"></span>
 <span class="cp">##</span><span class="c"> Can&#39;t pass a parameter</span><span class="x"></span>
 </pre></div>
 
 
 <p>All array references are treated as if they are fixed-length lists. This means that you can call java.util.List methods and properties on array references.  So, if you have a reference to an array (let's say this one is a String[] with three values), you can do:</p>
-<div class="codehilite"><pre><span class="p">$</span><span class="nv">myarray</span><span class="p">.</span><span class="nv">isEmpty</span><span class="p">()</span><span class="x"> or </span><span class="p">$</span><span class="nv">myarray</span><span class="p">.</span><span class="nv">empty</span><span class="x"></span>
-<span class="p">$</span><span class="nv">myarray</span><span class="p">.</span><span class="nv">size</span><span class="p">()</span><span class="x"></span>
-<span class="p">$</span><span class="nv">myarray</span><span class="p">.</span><span class="nv">get</span><span class="p">(</span><span class="m">2</span><span class="p">)</span><span class="x"></span>
-<span class="p">$</span><span class="nv">myarray</span><span class="p">.</span><span class="nv">set</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">)</span><span class="x"></span>
+<div class="codehilite"><pre><span class="p">${</span><span class="nv">myarray</span><span class="p">.</span><span class="nv">isEmpty</span><span class="p">()}</span><span class="x"> or </span><span class="p">${</span><span class="nv">myarray</span><span class="p">.</span><span class="nv">empty</span><span class="p">}</span><span class="x"></span>
+<span class="p">${</span><span class="nv">myarray</span><span class="p">.</span><span class="nv">size</span><span class="p">()}</span><span class="x"></span>
+<span class="p">${</span><span class="nv">myarray</span><span class="p">.</span><span class="nv">get</span><span class="p">(</span><span class="m">2</span><span class="p">)}</span><span class="x"></span>
+<span class="p">${</span><span class="nv">myarray</span><span class="p">.</span><span class="nv">set</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">)}</span><span class="x"></span>
 </pre></div>
 
 
-<p>Velocity also supports vararg methods. A method like <code>azpublic void setPlanets(String... planets)</code> or even just <code>public void setPlanets(String[] planets)</code> can now accept any number of arguments when called in a template.</p>
-<div class="codehilite"><pre><span class="p">$</span><span class="nv">sun</span><span class="p">.</span><span class="nv">setPlanets</span><span class="p">(</span><span class="s1">&#39;Earth&#39;</span><span class="p">,</span> <span class="s1">&#39;Mars&#39;</span><span class="p">,</span> <span class="s1">&#39;Neptune&#39;</span><span class="p">)</span><span class="x"></span>
-<span class="p">$</span><span class="nv">sun</span><span class="p">.</span><span class="nv">setPlanets</span><span class="p">(</span><span class="s1">&#39;Mercury&#39;</span><span class="p">)</span><span class="x"></span>
-<span class="p">$</span><span class="nv">sun</span><span class="p">.</span><span class="nv">setPlanets</span><span class="p">()</span><span class="x"></span>
+<p>Velocity also supports vararg methods. A method like <code>public void setPlanets(String... planets)</code> or even just <code>public void setPlanets(String[] planets)</code> can now accept any number of arguments when called in a template.</p>
+<div class="codehilite"><pre><span class="p">${</span><span class="nv">sun</span><span class="p">.</span><span class="nv">setPlanets</span><span class="p">(</span><span class="s1">&#39;Earth&#39;</span><span class="p">,</span> <span class="s1">&#39;Mars&#39;</span><span class="p">,</span> <span class="s1">&#39;Neptune&#39;</span><span class="p">)}</span><span class="x"></span>
+<span class="p">${</span><span class="nv">sun</span><span class="p">.</span><span class="nv">setPlanets</span><span class="p">(</span><span class="s1">&#39;Mercury&#39;</span><span class="p">)}</span><span class="x"></span>
+<span class="p">${</span><span class="nv">sun</span><span class="p">.</span><span class="nv">setPlanets</span><span class="p">()}</span><span class="x"></span>
 <span class="cp">##</span><span class="c"> Will just pass in an empty, zero-length array</span><span class="x"></span>
 </pre></div>
 
@@ -499,18 +506,18 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <h3 id="rendering">Rendering<a class="headerlink" href="#rendering" title="Permanent link">&para;</a></h3>
 <p>The final value resulting from each and every reference (whether variable, property, or method) is converted to a String object when it is rendered into the final output. If there is an object that represents <em>$foo</em> (such as an Integer object), then Velocity will call its <code>.toString()</code> method to resolve the object into a String.</p>
 <h3 id="index-notation">Index Notation<a class="headerlink" href="#index-notation" title="Permanent link">&para;</a></h3>
-<p>Using the notation of the form <code>$foo[0]</code> can be used to access a given index of an object.  This form is synonymous with calling the get(Object) method on a given object i.e, <code>$foo.get(0)</code>, and provides essentially a syntactic shorthand for such operations. Since this simply calls the get method all of the following are valid uses:</p>
-<div class="codehilite"><pre><span class="p">$</span><span class="nv">foo</span><span class="x">[0]       </span><span class="cp">##</span><span class="c"> $foo takes in an Integer look up</span><span class="x"></span>
-<span class="p">$</span><span class="nv">foo</span><span class="x">[</span><span class="p">$</span><span class="nv">i</span><span class="x">]      </span><span class="cp">##</span><span class="c"> Using another reference as the index   </span><span class="x"></span>
-<span class="p">$</span><span class="nv">foo</span><span class="x">[&quot;bar&quot;]   </span><span class="cp">##</span><span class="c"> Passing a string where $foo may be a Map</span><span class="x"></span>
+<p>Using the notation of the form <code>${foo[0]}</code> can be used to access a given index of an object.  This form is synonymous with calling the get(Object) method on a given object i.e, <code>$foo.get(0)</code>, and provides essentially a syntactic shorthand for such operations. Since this simply calls the get method all of the following are valid uses:</p>
+<div class="codehilite"><pre><span class="p">${</span><span class="nv">foo</span><span class="x">[0]}       </span><span class="cp">##</span><span class="c"> $foo takes in an Integer look up</span><span class="x"></span>
+<span class="p">${</span><span class="nv">foo</span><span class="x">[</span><span class="p">$</span><span class="nv">i</span><span class="x">]}      </span><span class="cp">##</span><span class="c"> Using another reference as the index</span><span class="x"></span>
+<span class="p">${</span><span class="nv">foo</span><span class="x">[&quot;bar&quot;]}   </span><span class="cp">##</span><span class="c"> Passing a string where $foo may be a Map</span><span class="x"></span>
 </pre></div>
 
 
 <p>The bracketed syntax also works with Java arrays since Velocity wraps arrays in an access object that provides a <code>get(Integer)</code> method which returns the specified element.</p>
 <p>The bracketed syntax is valid anywhere <code>.get</code> is valid, for example:</p>
-<div class="codehilite"><pre><span class="p">$</span><span class="nv">foo</span><span class="p">.</span><span class="nv">bar</span><span class="x">[1].junk</span>
-<span class="p">$</span><span class="nv">foo</span><span class="p">.</span><span class="nv">callMethod</span><span class="p">()</span><span class="x">[1]</span>
-<span class="p">$</span><span class="nv">foo</span><span class="x">[&quot;apple&quot;][4]</span>
+<div class="codehilite"><pre><span class="p">${</span><span class="nv">foo</span><span class="p">.</span><span class="nv">bar</span><span class="x">[1].junk}</span>
+<span class="p">${</span><span class="nv">foo</span><span class="p">.</span><span class="nv">callMethod</span><span class="p">()</span><span class="x">[1]}</span>
+<span class="p">${</span><span class="nv">foo</span><span class="x">[&quot;apple&quot;][4]}</span>
 </pre></div>
 
 
@@ -523,15 +530,14 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 
 <p>The specified element is set with the given value. Velocity tries first the 'set' method on the element, then 'put' to make the assignment.</p>
 <h2 id="formal-reference-notation">Formal Reference Notation<a class="headerlink" href="#formal-reference-notation" title="Permanent link">&para;</a></h2>
-<p>Shorthand notation for references was used for the examples listed above, but there is also a formal notation for references, which is demonstrated below:</p>
+<p>We have already used the formal <code>${ }</code> notation for property and method references, where it is the recommended form since Velocity 2.5:</p>
 <div class="codehilite"><pre><span class="p">${</span><span class="nv">mudSlinger</span><span class="p">}</span><span class="x"></span>
 <span class="p">${</span><span class="nv">customer</span><span class="p">.</span><span class="nv">Address</span><span class="p">}</span><span class="x"></span>
 <span class="p">${</span><span class="nv">purchase</span><span class="p">.</span><span class="nv">getTotal</span><span class="p">()}</span><span class="x"></span>
 </pre></div>
 
 
-<p>In almost all cases you will use the shorthand notation for references, but in some cases the formal notation is required for correct processing.</p>
-<p>Suppose you were constructing a sentence on the fly where <em>$vice</em> was to be used as the base word in the noun of a sentence. The goal is to allow someone to choose the base word and produce one of the two following results: "Jack is a pyromaniac." or "Jack is a kleptomaniac.". Using the shorthand notation would be inadequate for this task. Consider the following example:</p>
+<p>The braces are also useful for a <em>plain</em> variable whenever it sits directly adjacent to text. Suppose you were constructing a sentence on the fly where <em>$vice</em> was to be used as the base word in the noun of a sentence. The goal is to allow someone to choose the base word and produce one of the two following results: "Jack is a pyromaniac." or "Jack is a kleptomaniac.". The brace-less notation would be inadequate for this task. Consider the following example:</p>
 <div class="codehilite"><pre><span class="x">Jack is a </span><span class="p">$</span><span class="nv">vicemaniac</span><span class="x">.</span>
 </pre></div>
 
@@ -542,13 +548,6 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 
 
 <p>Now Velocity knows that <em>$vice</em>, not <em>$vicemaniac</em>, is the reference. Formal notation is often useful when references are directly adjacent to text in a template.</p>
-<h2 id="alternate-values">Alternate values<a class="headerlink" href="#alternate-values" title="Permanent link">&para;</a></h2>
-<p>Formal reference notations can also be used to provide an <em>alternate value</em> whenever the boolean evaluation of a reference is false.</p>
-<div class="codehilite"><pre><span class="x">My name is </span><span class="p">${</span><span class="nv">name</span><span class="x">|&#39;John Doe&#39;}</span>
-</pre></div>
-
-
-<p>If $name is null, empty, false or zero (see <a href="#conditionals">Conditionals</a>), then the altername string <code>'John Doe'</code> will be displayed.</p>
 <h2 id="quiet-reference-notation">Quiet Reference Notation<a class="headerlink" href="#quiet-reference-notation" title="Permanent link">&para;</a></h2>
 <p>When Velocity encounters an undefined reference, its normal behavior is to output the image of the reference. For example, suppose the following reference appears as part of a VTL template.</p>
 <div class="codehilite"><pre><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;</span><span class="p">$</span><span class="nv">email</span><span class="s">&quot;</span><span class="p">/&gt;</span>
@@ -566,6 +565,14 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </pre></div>
 
 
+<h2 id="alternate-values">Alternate Values<a class="headerlink" href="#alternate-values" title="Permanent link">&para;</a></h2>
+<p>A reference can name an alternate value, rendered in its place when the reference is null, false, zero or empty:</p>
+<div class="codehilite"><pre><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;</span><span class="p">${</span><span class="nv">email</span><span class="s">|&#39;nobody@example.com&#39;}&quot;</span><span class="p">/&gt;</span>
+Hello <span class="p">${</span><span class="nv">customer</span><span class="p">.</span><span class="nv">name</span>|<span class="p">$</span><span class="nv">anonymous</span><span class="p">}</span>!
+</pre></div>
+
+
+<p>The alternate value is any valid VTL expression, evaluated only when needed. It can only be written in the formal notation, <code>${ ... }</code>, and combines with the quiet notation: <code>$!{email|$fallback}</code> renders nothing when both are unset.</p>
 <h2 id="strict-rendering-mode">Strict Rendering Mode<a class="headerlink" href="#strict-rendering-mode" title="Permanent link">&para;</a></h2>
 <p>The strict rendering mode is activated by setting the velocity configuration property 'runtime.strict_mode.enable' to true.  The general intent of this setting is to make Velocity behave more strictly in cases that are undefined or ambiguous, similar to a programming language, which may be more appropriate for some uses of Velocity. In such undefined or ambiguous cases Velocity will throw an exception.  The following discussion outlines the cases in which strict behavior is different from traditional behavior.</p>
 <p>With this setting references are required to be either placed explicitly into the context or defined with a #set directive or Velocity will throw an exception.  References that are in the context with a value of null will not produce an exception. Additionally, if an attempt is made to call a method or a property on an object within a reference that does not define the specified method or property then Velocity will throw an exception.  This is also true if there is an attempt to call a method or property on a null value.</p>
@@ -578,9 +585,9 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 
 
 <p>Also, The following statements show examples in which Velocity will throw an exception when attempting to call methods or properties that do not exist. In these examples $bar contains an object that defines a property 'foo' which returns a string, and 'retnull' which returns null.</p>
-<div class="codehilite"><pre><span class="p">$</span><span class="nv">bar</span><span class="p">.</span><span class="nv">bogus</span><span class="x">          </span><span class="cp">##</span><span class="c"> $bar does not provide property bogus, Exception</span><span class="x"></span>
-<span class="p">$</span><span class="nv">bar</span><span class="p">.</span><span class="nv">foo</span><span class="p">.</span><span class="nv">bogus</span><span class="x">      </span><span class="cp">##</span><span class="c"> $bar.foo does not provide property bogus, Exception</span><span class="x"></span>
-<span class="p">$</span><span class="nv">bar</span><span class="p">.</span><span class="nv">retnull</span><span class="p">.</span><span class="nv">bogus</span><span class="x">  </span><span class="cp">##</span><span class="c"> cannot call a property on null, Exception&lt;/pre&gt;</span><span class="x"></span>
+<div class="codehilite"><pre><span class="p">${</span><span class="nv">bar</span><span class="p">.</span><span class="nv">bogus</span><span class="p">}</span><span class="x">          </span><span class="cp">##</span><span class="c"> $bar does not provide property bogus, Exception</span><span class="x"></span>
+<span class="p">${</span><span class="nv">bar</span><span class="p">.</span><span class="nv">foo</span><span class="p">.</span><span class="nv">bogus</span><span class="p">}</span><span class="x">      </span><span class="cp">##</span><span class="c"> $bar.foo does not provide property bogus, Exception</span><span class="x"></span>
+<span class="p">${</span><span class="nv">bar</span><span class="p">.</span><span class="nv">retnull</span><span class="p">.</span><span class="nv">bogus</span><span class="p">}</span><span class="x">  </span><span class="cp">##</span><span class="c"> cannot call a property on null, Exception&lt;/pre&gt;</span><span class="x"></span>
 </pre></div>
 
 
@@ -622,7 +629,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 
 
 <p>These examples illustrate alternative uses for the same references. Velocity takes advantage of Java's introspection and bean features to resolve the reference names to both objects in the Context as well as the objects methods. It is possible to embed and evaluate references almost anywhere in your template.</p>
-<p>Velocity, which is modelled on the Bean specifications defined by Sun Microsystems, is case sensitive; however, its developers have strove to catch and correct user errors wherever possible. When the method <em>getFoo()</em> is referred to in a template by <code>$bar.foo</code>, Velocity will first try <code>$getfoo</code>. If this fails, it will then try <code>$getFoo</code>. Similarly, when a template refers to <code>$bar.Foo</code>, Velocity will try <em>$getFoo()</em> first and then try <em>getfoo()</em>.</p>
+<p>Velocity, which is modelled on the Bean specifications defined by Sun Microsystems, is case sensitive; however, its developers have strove to catch and correct user errors wherever possible. When the method <em>getFoo()</em> is referred to in a template by <code>${bar.foo}</code>, Velocity will first try <code>getfoo</code>. If this fails, it will then try <code>getFoo</code>. Similarly, when a template refers to <code>${bar.Foo}</code>, Velocity will try <em>getFoo()</em> first and then try <em>getfoo()</em>.</p>
 <p>Note: <em>References to instance variables in a template are not resolved.</em> Only references to the attribute equivalents of JavaBean getter/setter methods are resolved (i.e. <code>$foo.Name</code> does resolve to the class Foo's <code>getName()</code> instance method, but not to a public <code>Name</code> instance variable of Foo).</p>
 <h2 id="directives">Directives<a class="headerlink" href="#directives" title="Permanent link">&para;</a></h2>
 <p>References allow template designers to generate dynamic content for web sites, while <em>directives</em> -- easy to use script elements that can be used to creatively manipulate the output of Java code -- permit web designers to truly take charge of the appearance and content of the web site.</p>
@@ -828,7 +835,7 @@ $foo
 <p>Lets say that <em>$allProducts</em> is a Hashtable. If you wanted to retrieve the key values for the Hashtable as well as the objects within the Hashtable, you can use code like this:</p>
 <div class="codehilite"><pre><span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
 <span class="cp">#</span><span class="nf">foreach</span><span class="p">(</span> <span class="p">$</span><span class="nv">key</span> <span class="o">in</span> <span class="p">$</span><span class="nv">allProducts</span><span class="p">.</span><span class="nv">keySet</span><span class="p">()</span> <span class="p">)</span>
-    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Key: <span class="p">$</span><span class="nv">key</span> -&gt; Value: <span class="p">$</span><span class="nv">allProducts</span><span class="p">.</span><span class="nv">get</span><span class="p">($</span><span class="nv">key</span><span class="p">)&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;</span>Key: <span class="p">$</span><span class="nv">key</span> -&gt; Value: <span class="p">${</span><span class="nv">allProducts</span><span class="p">.</span><span class="nv">get</span><span class="p">($</span><span class="nv">key</span><span class="p">)}&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
 <span class="cp">#</span><span class="nf">end</span>
 <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
 </pre></div>
@@ -837,7 +844,7 @@ $foo
 <p>Velocity provides an easy way to get the loop counter so that you can do something like the following:</p>
 <div class="codehilite"><pre><span class="p">&lt;</span><span class="nt">table</span><span class="p">&gt;</span>
 <span class="cp">#</span><span class="nf">foreach</span><span class="p">(</span> <span class="p">$</span><span class="nv">customer</span> <span class="o">in</span> <span class="p">$</span><span class="nv">customerList</span> <span class="p">)</span>
-    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;$</span><span class="nv">foreach</span><span class="p">.</span><span class="nv">count</span><span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;$</span><span class="nv">customer</span><span class="p">.</span><span class="nv">Name</span><span class="p">&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">tr</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;${</span><span class="nv">foreach</span><span class="p">.</span><span class="nv">count</span><span class="p">}&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;</span><span class="nt">td</span><span class="p">&gt;${</span><span class="nv">customer</span><span class="p">.</span><span class="nv">Name</span><span class="p">}&lt;/</span><span class="nt">td</span><span class="p">&gt;&lt;/</span><span class="nt">tr</span><span class="p">&gt;</span>
 <span class="cp">#</span><span class="nf">end</span>
 <span class="p">&lt;/</span><span class="nt">table</span><span class="p">&gt;</span>
 </pre></div>
@@ -866,7 +873,7 @@ $foo
 <span class="x">    </span><span class="cp">#</span><span class="nf">if</span><span class="p">(</span> <span class="p">$</span><span class="nv">foreach</span><span class="p">.</span><span class="nv">count</span> <span class="o">&gt;</span> <span class="m">5</span> <span class="p">)</span><span class="x"></span>
 <span class="x">        </span><span class="cp">#</span><span class="nf">break</span><span class="x"></span>
 <span class="x">    </span><span class="cp">#</span><span class="nf">end</span><span class="x"></span>
-<span class="x">    </span><span class="p">$</span><span class="nv">customer</span><span class="p">.</span><span class="nv">Name</span><span class="x"></span>
+<span class="x">    </span><span class="p">${</span><span class="nv">customer</span><span class="p">.</span><span class="nv">Name</span><span class="p">}</span><span class="x"></span>
 <span class="cp">#</span><span class="nf">end</span><span class="x"></span>
 </pre></div>
 

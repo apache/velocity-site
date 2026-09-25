@@ -171,7 +171,10 @@ extends <a href="DeprecatedRuntimeConstants.html" title="interface in org.apache
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#DEFAULT_PARSER_CLASS" class="member-name-link">DEFAULT_PARSER_CLASS</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Default parser class</div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">since 2.5, with <a href="#PARSER_CLASS"><code>PARSER_CLASS</code></a>: the next major version replaces the runtime
+ parser properties by a pluggable lexer, and names another default.</div>
+</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#DEFAULT_RUNTIME_DIRECTIVES" class="member-name-link">DEFAULT_RUNTIME_DIRECTIVES</a></code></div>
@@ -305,7 +308,9 @@ extends <a href="DeprecatedRuntimeConstants.html" title="interface in org.apache
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#IMMUTABLE_RANGES" class="member-name-link">IMMUTABLE_RANGES</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Switch for the immutability of integer ranges.</div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">since 2.5: ranges will always be immutable in the next major version</div>
+</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#INPUT_ENCODING" class="member-name-link">INPUT_ENCODING</a></code></div>
@@ -345,12 +350,17 @@ extends <a href="DeprecatedRuntimeConstants.html" title="interface in org.apache
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#PARSE_DIRECTIVE_MAXDEPTH" class="member-name-link">PARSE_DIRECTIVE_MAXDEPTH</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">Maximum recursion depth allowed for the #parse directive.</div>
+<div class="block">Maximum nesting depth allowed for the #parse and #evaluate directives, which share the
+ same template name stack: a chain mixing both directives is counted as a whole
+ (#evaluate honours this limit since 2.5).</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#PARSER_CLASS" class="member-name-link">PARSER_CLASS</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Property specifying the parser class to use</div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">since 2.5: the next major version replaces the runtime parser properties by a
+ pluggable lexer; this key has no effect there.</div>
+</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#PARSER_HYPHEN_ALLOWED" class="member-name-link">PARSER_HYPHEN_ALLOWED</a></code></div>
@@ -444,7 +454,7 @@ extends <a href="DeprecatedRuntimeConstants.html" title="interface in org.apache
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#RUNTIME_DEPRECATION_WARN" class="member-name-link">RUNTIME_DEPRECATION_WARN</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">Whether to warn about deprecated VTL syntax constructs (off by default, will be turned on in the next 2.x release).</div>
+<div class="block">Whether to warn about deprecated VTL syntax constructs (on by default).</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#RUNTIME_LOG_INSTANCE" class="member-name-link">RUNTIME_LOG_INSTANCE</a></code></div>
@@ -519,11 +529,11 @@ extends <a href="DeprecatedRuntimeConstants.html" title="interface in org.apache
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#VM_ENABLE_BC_MODE" class="member-name-link">VM_ENABLE_BC_MODE</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">This flag enable the 1.7 backward compatible mode for velocimacros (defaults to false):
- 
-     
-         preserve argument literals: when displaying null or invalid non-quiet references,
-         use the argument literal reference instead of the one in the macro block.</div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">since 2.5, without replacement: the next major version does not provide this
+ compatibility mode; a null argument renders the parameter's own literal and a missing
+ argument is null, as since 2.0.</div>
+</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#VM_LIBRARY" class="member-name-link">VM_LIBRARY</a></code></div>
@@ -754,7 +764,9 @@ extends <a href="DeprecatedRuntimeConstants.html" title="interface in org.apache
 <section class="detail" id="PARSE_DIRECTIVE_MAXDEPTH">
 <h3>PARSE_DIRECTIVE_MAXDEPTH</h3>
 <div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">PARSE_DIRECTIVE_MAXDEPTH</span></div>
-<div class="block">Maximum recursion depth allowed for the #parse directive.</div>
+<div class="block">Maximum nesting depth allowed for the #parse and #evaluate directives, which share the
+ same template name stack: a chain mixing both directives is counted as a whole
+ (#evaluate honours this limit since 2.5).</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1423,7 +1435,13 @@ extends <a href="DeprecatedRuntimeConstants.html" title="interface in org.apache
 <li>
 <section class="detail" id="VM_ENABLE_BC_MODE">
 <h3>VM_ENABLE_BC_MODE</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">VM_ENABLE_BC_MODE</span></div>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">VM_ENABLE_BC_MODE</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">since 2.5, without replacement: the next major version does not provide this
+ compatibility mode; a null argument renders the parameter's own literal and a missing
+ argument is null, as since 2.0.</div>
+</div>
 <div class="block">This flag enable the 1.7 backward compatible mode for velocimacros (defaults to false):
  <ul>
      <li>
@@ -1629,8 +1647,18 @@ extends <a href="DeprecatedRuntimeConstants.html" title="interface in org.apache
 <li>
 <section class="detail" id="PARSER_CLASS">
 <h3>PARSER_CLASS</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">PARSER_CLASS</span></div>
-<div class="block">Property specifying the parser class to use</div>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">PARSER_CLASS</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">since 2.5: the next major version replaces the runtime parser properties by a
+ pluggable lexer; this key has no effect there.</div>
+</div>
+<div class="block">Property specifying the parser class to use.
+ <p>The four sigils the named parser lexes are not configured here: they are build-time inputs
+ of its generation (the <code>parser.char.dollar</code>, <code>parser.char.hash</code>,
+ <code>parser.char.at</code> and <code>parser.char.asterisk</code> properties of the build which
+ generates it, as <code>velocity-custom-parser-example</code> shows), and the engine reads them
+ back from the parser itself.</p></div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>2.2</dd>
@@ -1646,7 +1674,12 @@ extends <a href="DeprecatedRuntimeConstants.html" title="interface in org.apache
 <li>
 <section class="detail" id="DEFAULT_PARSER_CLASS">
 <h3>DEFAULT_PARSER_CLASS</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">DEFAULT_PARSER_CLASS</span></div>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">DEFAULT_PARSER_CLASS</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">since 2.5, with <a href="#PARSER_CLASS"><code>PARSER_CLASS</code></a>: the next major version replaces the runtime
+ parser properties by a pluggable lexer, and names another default.</div>
+</div>
 <div class="block">Default parser class</div>
 <dl class="notes">
 <dt>Since:</dt>
@@ -1741,7 +1774,11 @@ extends <a href="DeprecatedRuntimeConstants.html" title="interface in org.apache
 <li>
 <section class="detail" id="IMMUTABLE_RANGES">
 <h3>IMMUTABLE_RANGES</h3>
-<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">IMMUTABLE_RANGES</span></div>
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">IMMUTABLE_RANGES</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">since 2.5: ranges will always be immutable in the next major version</div>
+</div>
 <div class="block">Switch for the immutability of integer ranges.</div>
 <dl class="notes">
 <dt>See Also:</dt>
@@ -1757,7 +1794,7 @@ extends <a href="DeprecatedRuntimeConstants.html" title="interface in org.apache
 <section class="detail" id="RUNTIME_DEPRECATION_WARN">
 <h3>RUNTIME_DEPRECATION_WARN</h3>
 <div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">RUNTIME_DEPRECATION_WARN</span></div>
-<div class="block">Whether to warn about deprecated VTL syntax constructs (off by default, will be turned on in the next 2.x release).</div>
+<div class="block">Whether to warn about deprecated VTL syntax constructs (on by default).</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>

@@ -194,7 +194,12 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
             <div id="rss">
               <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
             </div>
-            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+            <div id="apache-event">
+              <b>The next Apache Event</b>
+              <div id="apache-event-button">
+                <a class="externalLink" href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png" alt="" class="img-fluid"</a>
+              </div>
+            </div>
           </div>
         </div>
         <div id="content"><div class="section-content"><style type="text/css">
@@ -220,6 +225,16 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
       </tr>
     </thead>
     <tbody>
+      <tr>
+        <td>4.0</td>
+        <td>TBD</td>
+        <td/>
+      </tr>
+      <tr>
+        <td>3.2</td>
+        <td>TBD</td>
+        <td/>
+      </tr>
       <tr>
         <td>3.1</td>
         <td>2021-02-27</td>
@@ -273,7 +288,156 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
     </tbody>
   </table>
 </p>
-<h3>Release 3.1 - 2021-02-27</h3><p>
+<h3>Release 4.0 - TBD</h3><p>
+  <table class="standard">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Changes</th>
+        <th>By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> New module spring-mvc-velocity-view: a Spring Web MVC view layer (VelocityViewResolver, VelocityToolboxView, VelocityConfigurer) backed by Velocity and the Velocity Tools toolbox, for Spring 6/7 — reviving the tools-related part of the Velocity support removed from Spring 5. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-215">VELTOOLS-215</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> switch 4.x branch from javax to jakarta, bump to jvm 11+ Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-202">VELTOOLS-202</a>. Thanks to eduarddrenth.</td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td/>
+        <td> Showcase example integration test now runs on an embedded Jetty 12 (Jakarta EE 10) via jetty-ee10-maven-plugin instead of cargo; running integration tests now requires JDK 17. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-216">VELTOOLS-216</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td/>
+        <td> XmlTool.getPath() now returns the "path" attribute or child element when present, before falling back to the node path (mirroring getName()/getNodeName()), and is no longer deprecated. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-194">VELTOOLS-194</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> ResourceTool now returns null for a missing key instead of a "???key???" placeholder, so that strict mode throws and non-strict mode renders the reference literally (a warning is still logged). Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-167">VELTOOLS-167</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+    </tbody>
+  </table>
+</p><h3>Release 3.2 - TBD</h3><p>
+  <table class="standard">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Changes</th>
+        <th>By</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> tools's XML session scope createSesison="false" was ignored Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-214">VELTOOLS-214</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> LinkTool no longer drops parameters on opaque (e.g. mailto:) URIs; param() values are merged into the scheme-specific part, including any query already present in the URI. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-143">VELTOOLS-143</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> EscapeTool: json() is now a synonym for java(). Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-184">VELTOOLS-184</a>. Thanks to David Walton.</td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> A failed shared VelocityView initialization is now cached, so dependent servlets, filters and tags fail fast instead of each retrying the doomed initialization. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-186">VELTOOLS-186</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> XmlTool: namespace-prefixed XPath expressions now resolve against the document's in-scope namespace declarations. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-188">VELTOOLS-188</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td/>
+        <td> XmlTool.getPath() is deprecated in favor of getNodePath(), for homogeneity with getName()/getNodeName(). Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-194">VELTOOLS-194</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> MathTool now returns an integral result that exceeds the long range as a Double instead of silently saturating to Long.MAX_VALUE. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-196">VELTOOLS-196</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> XmlTool.toString() now decodes text and CDATA content and no longer trims it. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-197">VELTOOLS-197</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> ConversionUtils is now thread-safe and caches its parsing helpers. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-198">VELTOOLS-198</a>. Thanks to odoral.</td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> ClassTool now lists inherited public methods in safe mode. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-199">VELTOOLS-199</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td/>
+        <td> Documented $esc.unicode() in the javadoc. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-201">VELTOOLS-201</a>. </td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/fix.png"/>
+        </td>
+        <td> ClassUtils.getClass(String) no longer fails when the context class loader is null. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-211">VELTOOLS-211</a>. Thanks to jghansell.</td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> EscapeTool: new markdown() method. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-212">VELTOOLS-212</a>. Thanks to Claudenw.</td>
+        <td>cbrisson</td>
+      </tr>
+      <tr>
+        <td>
+          <img src="images/add.png"/>
+        </td>
+        <td> EscapeTool: new apt() method. Fixes <a href="https://issues.apache.org/jira/browse/VELTOOLS-213">VELTOOLS-213</a>. Thanks to Claudenw.</td>
+        <td>cbrisson</td>
+      </tr>
+    </tbody>
+  </table>
+</p><h3>Release 3.1 - 2021-02-27</h3><p>
   <table class="standard">
     <thead>
       <tr>

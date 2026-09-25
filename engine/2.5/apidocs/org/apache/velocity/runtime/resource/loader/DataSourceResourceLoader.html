@@ -285,9 +285,14 @@ loadScripts(document, 'script');</script>
 <div class="block">Given a template, check to see if the source of InputStream
  has been modified.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDataSource(javax.sql.DataSource)" class="member-name-link">setDataSource</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html" title="class or interface in javax.sql" class="external-link">DataSource</a>&nbsp;dataSource)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#normalizeResourceName(java.lang.String)" class="member-name-link">normalizeResourceName</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Resource names are opaque keys here: they are used as given.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDataSource(javax.sql.DataSource)" class="member-name-link">setDataSource</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/javax/sql/DataSource.html" title="class or interface in javax.sql" class="external-link">DataSource</a>&nbsp;dataSource)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the DataSource used by this resource loader.</div>
 </div>
 </div>
@@ -354,6 +359,23 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>dataSource</code> - The data source for this ResourceLoader.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="normalizeResourceName(java.lang.String)">
+<h3>normalizeResourceName</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">normalizeResourceName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+<div class="block">Resource names are opaque keys here: they are used as given.</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="ResourceLoader.html#normalizeResourceName(java.lang.String)">normalizeResourceName</a></code>&nbsp;in class&nbsp;<code><a href="ResourceLoader.html" title="class in org.apache.velocity.runtime.resource.loader">ResourceLoader</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>name</code> - resource name</dd>
+<dt>Returns:</dt>
+<dd>the name, unchanged</dd>
+<dt>Since:</dt>
+<dd>2.5</dd>
 </dl>
 </section>
 </li>

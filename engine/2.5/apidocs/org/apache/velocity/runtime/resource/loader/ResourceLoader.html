@@ -226,19 +226,25 @@ loadScripts(document, 'script');</script>
 <div class="block">Given a template, check to see if the source of InputStream
  has been modified.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resourceExists(java.lang.String)" class="member-name-link">resourceExists</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;resourceName)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#normalizeResourceName(java.lang.String)" class="member-name-link">normalizeResourceName</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Normalize a resource name before it is looked up, and tell whether it is acceptable
+ at all.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resourceExists(java.lang.String)" class="member-name-link">resourceExists</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;resourceName)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Check whether any given resource exists.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCachingOn(boolean)" class="member-name-link">setCachingOn</a><wbr>(boolean&nbsp;value)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCachingOn(boolean)" class="member-name-link">setCachingOn</a><wbr>(boolean&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the caching state.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setModificationCheckInterval(long)" class="member-name-link">setModificationCheckInterval</a><wbr>(long&nbsp;modificationCheckInterval)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setModificationCheckInterval(long)" class="member-name-link">setModificationCheckInterval</a><wbr>(long&nbsp;modificationCheckInterval)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the interval at which the InputStream source
  should be checked for modifications.</div>
 </div>
@@ -455,6 +461,33 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>The modification check interval.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="normalizeResourceName(java.lang.String)">
+<h3>normalizeResourceName</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">normalizeResourceName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+<div class="block"><p>Normalize a resource name before it is looked up, and tell whether it is acceptable
+ at all. The default implementation collapses the <code>.</code> and <code>..</code>
+ segments of the name, taking <code>/</code> as the separator, and returns
+ <code>null</code> for a name whose <code>..</code> segments climb above the resource
+ root: <code>a/../b.vm</code> is <code>b.vm</code>, while <code>../b.vm</code> and
+ <code>a/../../b.vm</code> are refused. A leading <code>/</code> is preserved, each
+ loader having its own way of handling it.</p>
+
+ <p>This is meant for the loaders which resolve a name against one or several roots
+ (file, classpath, jar and URL loaders do call it, and refuse a name for which it
+ returns <code>null</code>). Loaders which use the name as an opaque key, like
+ <code>DataSourceResourceLoader</code> and <code>StringResourceLoader</code>, do not
+ call it: their keys may contain anything, including <code>..</code> segments.</p></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>name</code> - resource name, as asked by the application or by a directive</dd>
+<dt>Returns:</dt>
+<dd>the name to look up, or <code>null</code> if the name is not acceptable</dd>
+<dt>Since:</dt>
+<dd>2.5</dd>
 </dl>
 </section>
 </li>

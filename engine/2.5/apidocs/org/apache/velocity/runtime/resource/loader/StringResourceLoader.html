@@ -305,21 +305,26 @@ loadScripts(document, 'script');</script>
 <div class="block">Given a template, check to see if the source of InputStream
  has been modified.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../util/StringResourceRepository.html" title="interface in org.apache.velocity.runtime.resource.util">StringResourceRepository</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#removeRepository(java.lang.String)" class="member-name-link">removeRepository</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#normalizeResourceName(java.lang.String)" class="member-name-link">normalizeResourceName</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Resource names are opaque keys here: they are used as given.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../util/StringResourceRepository.html" title="interface in org.apache.velocity.runtime.resource.util">StringResourceRepository</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#removeRepository(java.lang.String)" class="member-name-link">removeRepository</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Removes the <a href="../util/StringResourceRepository.html" title="interface in org.apache.velocity.runtime.resource.util"><code>StringResourceRepository</code></a> stored under the specified
  name.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resourceExists(java.lang.String)" class="member-name-link">resourceExists</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resourceExists(java.lang.String)" class="member-name-link">resourceExists</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Overrides superclass for better performance.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setRepository(java.lang.String,org.apache.velocity.runtime.resource.util.StringResourceRepository)" class="member-name-link">setRepository</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setRepository(java.lang.String,org.apache.velocity.runtime.resource.util.StringResourceRepository)" class="member-name-link">setRepository</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  <a href="../util/StringResourceRepository.html" title="interface in org.apache.velocity.runtime.resource.util">StringResourceRepository</a>&nbsp;repo)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Sets the specified <a href="../util/StringResourceRepository.html" title="interface in org.apache.velocity.runtime.resource.util"><code>StringResourceRepository</code></a> in static storage
  under the specified name.</div>
 </div>
@@ -599,6 +604,23 @@ loadScripts(document, 'script');</script>
 <dd>whether resource exists</dd>
 <dt>Since:</dt>
 <dd>1.6</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="normalizeResourceName(java.lang.String)">
+<h3>normalizeResourceName</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">normalizeResourceName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+<div class="block">Resource names are opaque keys here: they are used as given.</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="ResourceLoader.html#normalizeResourceName(java.lang.String)">normalizeResourceName</a></code>&nbsp;in class&nbsp;<code><a href="ResourceLoader.html" title="class in org.apache.velocity.runtime.resource.loader">ResourceLoader</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>name</code> - resource name</dd>
+<dt>Returns:</dt>
+<dd>the name, unchanged</dd>
+<dt>Since:</dt>
+<dd>2.5</dd>
 </dl>
 </section>
 </li>

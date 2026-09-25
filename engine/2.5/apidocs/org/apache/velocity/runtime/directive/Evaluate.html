@@ -100,7 +100,12 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Evaluate</span>
 <span class="extends-implements">extends <a href="Directive.html" title="class in org.apache.velocity.runtime.directive">Directive</a></span></div>
 <div class="block">Evaluates the directive argument as a VTL string, using the existing
- context.</div>
+ context.
+ <p>
+ The nesting depth is limited by the <code>directive.parse.max_depth</code> property
+ (10 by default, zero or less meaning unlimited): <code>#evaluate</code> and
+ <code>#parse</code> share the same template name stack, so a chain mixing both
+ directives is counted as a whole against that one limit.</div>
 <dl class="notes">
 <dt>Since:</dt>
 <dd>1.6</dd>

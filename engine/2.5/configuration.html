@@ -208,7 +208,12 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
             <div id="rss">
               <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
             </div>
-            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+            <div id="apache-event">
+              <b>The next Apache Event</b>
+              <div id="apache-event-button">
+                <a class="externalLink" href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png" alt="" class="img-fluid"</a>
+              </div>
+            </div>
           </div>
         </div>
         <div id="content"><div class="section-content"><style type="text/css">
@@ -227,7 +232,10 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <ul>
 <li><a href="#configuration">Configuration</a></li>
 <li><a href="#configuring-velocity">Configuring Velocity</a></li>
-<li><a href="#configuration-summary-tree">Configuration Summary Tree</a></li>
+<li><a href="#configuration-summary-tree">Configuration Summary Tree</a><ul>
+<li><a href="#deprecated-settings">Deprecated Settings</a></li>
+</ul>
+</li>
 <li><a href="#logging">Logging</a></li>
 <li><a href="#vtl-directives">VTL Directives</a><ul>
 <li><a href="#define-directive">#define() Directive</a></li>
@@ -264,7 +272,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <p>Please see the section <a href="developer-guide.html#using-velocity"><strong>Using Velocity</strong></a> for discussion on the configuration API.</p>
 <p>The properties key names have been reviewed in Engine 2.1. Old names are still functional but will emit a deprecation warning in the log. See the <a href="configuration-property-changes-in-2.1.html"><strong>table of correspondance</strong></a>.</p>
 <h2 id="configuration-summary-tree">Configuration Summary Tree<a class="headerlink" href="#configuration-summary-tree" title="Permanent link">&para;</a></h2>
-<p>The following tree gathers all non deprecated configuration properties with their default values.</p>
+<p>The following tree gathers all configuration properties with their default values. None of these defaults is deprecated, except <code>runtime.strict_math = false</code> (see below).</p>
 <div class="codehilite"><pre><span class="na">context. +-- scope_control. +-- define</span> <span class="o">=</span> <span class="s">false</span>
 <span class="na">         |                  +-- evaluate</span> <span class="o">=</span> <span class="s">false</span>
 <span class="na">         |                  +-- foreach</span> <span class="o">=</span> <span class="s">true</span>
@@ -310,7 +318,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <span class="na">                       +-- log_when_found</span> <span class="o">=</span> <span class="s">true</span>
 
 <span class="na">runtime. +-- custom_directives</span> <span class="o">=</span> <span class="s">*classname*, *classname* ...</span>
-<span class="na">         +-- deprecation.warn</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">         +-- deprecation.warn</span> <span class="o">=</span> <span class="s">true</span>
 <span class="na">         +-- immutable_ranges</span> <span class="o">=</span> <span class="s">true</span>
 <span class="na">         +-- interpolate_string_literals</span> <span class="o">=</span> <span class="s">true</span>
 <span class="na">         +-- log. +-- instance</span> <span class="o">=</span> <span class="s">*Java Object instance*</span>
@@ -334,6 +342,19 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </pre></div>
 
 
+<h3 id="deprecated-settings">Deprecated Settings<a class="headerlink" href="#deprecated-settings" title="Permanent link">&para;</a></h3>
+<p>The following settings are deprecated since 2.5, in preparation for the next major version. Each of them logs a warning at engine initialization, unless <code>runtime.deprecation.warn</code> is set to false.</p>
+<div class="codehilite"><pre><span class="na">parser. +-- allow_hyphen_in_identifiers</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">        +-- class</span> <span class="o">=</span> <span class="s">*classname*</span>
+
+<span class="na">runtime. +-- immutable_ranges</span> <span class="o">=</span> <span class="s">false</span>
+<span class="na">         +-- strict_math</span> <span class="o">=</span> <span class="s">false      (the default value: set it to true)</span>
+
+<span class="na">velocimacro. +-- enable_bc_mode</span> <span class="o">=</span> <span class="s">true</span>
+</pre></div>
+
+
+<p>The pre-2.1 property names are deprecated as well, see the <a href="configuration-property-changes-in-2.1.html"><strong>table of correspondance</strong></a>.</p>
 <h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
 <p><strong><code>runtime.log.instance</code></strong> = <em>Java Object instance</em></p>
 <blockquote>
@@ -408,7 +429,7 @@ Defines the beginning and ending tags for an in-stream error message in the case
 </blockquote>
 <p><strong><code>directive.parse.max_depth = 10</code></strong></p>
 <blockquote>
-<p>Defines the allowable parse depth for a template. A template may #parse() another template which itself may have a #parse() directive.  This value prevents runaway #parse() recursion.</p>
+<p>Defines the allowable nesting depth of <code>#parse()</code> and, since 2.5, <code>#evaluate()</code>. A template may #parse() another template which itself may have a #parse() directive, and evaluated VTL may itself contain <code>#evaluate()</code> or <code>#parse()</code>; the two directives share the same nesting stack, so a mixed chain counts together. Once the limit is reached the directive renders nothing and an error is logged instead of the recursion running until the thread's stack is exhausted. A value of 0 or less means no limit.</p>
 </blockquote>
 <h3 id="custom-directives">custom directives<a class="headerlink" href="#custom-directives" title="Permanent link">&para;</a></h3>
 <p><strong><code>runtime.custom_directives =</code></strong> <em>empty</em></p>
@@ -480,7 +501,7 @@ Defines the beginning and ending tags for an in-stream error message in the case
 <h2 id="velocimacros">Velocimacros<a class="headerlink" href="#velocimacros" title="Permanent link">&para;</a></h2>
 <p><strong><code>velocimacro.library.path = velocimacros.vtl</code></strong></p>
 <blockquote>
-<p><em>Multi-valued key.  Will accept CSV for value.</em> Filename(s) of Velocimacro library to be loaded when the Velocity Runtime engine starts.  These Velocimacros are accessable to all templates.  The file is assumed to be relative to the root of the file loader resource path. If the default (<code>velocimacro.vtl</code> since 2.1) is not found, the old default (<code>VM_global_library.vm</code>) is also searched for.</p>
+<p><em>Multi-valued key.  Will accept CSV for value.</em> Filename(s) of Velocimacro library to be loaded when the Velocity Runtime engine starts.  These Velocimacros are accessable to all templates.  The file is assumed to be relative to the root of the file loader resource path. If the default (<code>velocimacros.vtl</code> since 2.1) is not found, the old default (<code>VM_global_library.vm</code>) is also searched for. <em>Deprecated since 2.5</em>: the old default name <code>VM_global_library.vm</code> is not searched for any more in the next major version (the <code>velocimacros.vtl</code> default still is); when a library is found under the old name, a startup warning asks for it to be renamed or declared here.</p>
 </blockquote>
 <p><strong><code>velocimacro.inline.allow = true</code></strong></p>
 <blockquote>
@@ -502,7 +523,7 @@ Defines the beginning and ending tags for an in-stream error message in the case
 <blockquote>
 <p>When set to true, will throw a <code>ParseErrorException</code> when parsing a template containing a macro with an invalid number of arguments. Is set to false by default to maintain backwards compatibility with templates written before this feature became available.</p>
 </blockquote>
-<p><strong><code>velocimacro.enable_bc_mode = false</code></strong></p>
+<p><strong><code>velocimacro.enable_bc_mode = false</code></strong> <em>(deprecated since 2.5)</em></p>
 <blockquote>
 <p>This flag enables Velocimacro backward compatible mode. It has two effects:</p>
 <ol>
@@ -523,7 +544,7 @@ Defines the beginning and ending tags for an in-stream error message in the case
 </pre></div>
 
 
-<p>will display <code>$foo</code>. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to use the global context value, that is render <code>hello</code>.</p>
+<p>will display <code>$foo</code>. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to use the global context value, that is render <code>hello</code>. <em>Deprecated since 2.5</em>, without replacement: the next major version does not provide this compatibility mode (the 2.0 behaviours above are the only ones); enabling it emits a startup warning.</p>
 </li>
 </ol>
 </blockquote>
@@ -546,19 +567,19 @@ Defines the beginning and ending tags for an in-stream error message in the case
 <p>Controls interpolation mechanism of VTL String Literals.  Note that a VTL StringLiteral is specifically a string using double quotes that is used in a #set() statement, a method call of a reference, a parameter to a VM, or as an argument to a VTL directive in general.  See the VTL reference for further information.</p>
 </blockquote>
 <h2 id="ranges">Ranges<a class="headerlink" href="#ranges" title="Permanent link">&para;</a></h2>
-<p><strong><code>runtime.immutable_ranges = true</code></strong></p>
+<p><strong><code>runtime.immutable_ranges = true</code></strong> <em>(deprecated since 2.5)</em></p>
 <blockquote>
-<p>Controls whether the <code>java.util.List</code> object return by the VTL range operator [ <em>a</em> .. <em>b</em> ] is an immutable list (the default since Velocity 2.1) or a mutable list backed by a <code>java.util.ArrayList</code> object.</p>
+<p>Controls whether the <code>java.util.List</code> object return by the VTL range operator [ <em>a</em> .. <em>b</em> ] is an immutable list (the default since Velocity 2.1) or a mutable list backed by a <code>java.util.ArrayList</code> object. <em>Deprecated since 2.5</em>: ranges are always immutable in the next major version; setting this key to <code>false</code> emits a startup warning.</p>
 </blockquote>
 <h2 id="math">Math<a class="headerlink" href="#math" title="Permanent link">&para;</a></h2>
 <p><strong><code>runtime.strict_math = false</code></strong></p>
 <blockquote>
-<p>Affects all math operations in VTL. If changed to true, this will cause Velocity to throw a MathException whenever one side of a math operation has a null value (e.g. <code>#set( $foo = $null * 5 )</code>) or when trying to divide by zero.  If this value is left <code>false</code>, then rendering will continue and that math operation will be ignored.</p>
+<p>Affects all math operations in VTL. If changed to true, this will cause Velocity to throw a MathException whenever one side of a math operation has a null value (e.g. <code>#set( $foo = $null * 5 )</code>) or when trying to divide by zero.  If this value is left <code>false</code>, then rendering will continue and that math operation will be ignored. <em>Deprecated since 2.5</em>: the lenient behaviour is going away — the next major version always enforces strict math — so leaving this value <code>false</code> emits a startup warning when <code>runtime.deprecation.warn</code> is on.</p>
 </blockquote>
 <h2 id="deprecation-warnings">Deprecation Warnings<a class="headerlink" href="#deprecation-warnings" title="Permanent link">&para;</a></h2>
-<p><strong><code>runtime.deprecation.warn = false</code></strong></p>
+<p><strong><code>runtime.deprecation.warn = true</code></strong></p>
 <blockquote>
-<p>When set to true, logs a warning for VTL syntax constructs and configuration options that are deprecated in preparation for the next major version (the informal <code>$foo.bar</code> notation in output, the <code>${foo|default}</code> operator, the extra <code>$</code> in <code>${$foo}</code>, and the <code>parser.allow_hyphen_in_identifiers</code> option). Off by default, since this is a drop-in minor release and the informal notation is pervasive; enable it to audit a template base ahead of the next major. See the <a href="upgrading.html">upgrading guide</a>.</p>
+<p>When true, logs a warning for the VTL syntax constructs and configuration options that are deprecated in preparation for the next major version: a backslash right before the closing quote of a double-quoted string (use a single-quoted string), the <code>parser.allow_hyphen_in_identifiers</code> option, and lenient math (<code>runtime.strict_math = false</code>, warned once at initialization). On by default; set it to false to silence them while a template base is being migrated. See the <a href="upgrading.html">upgrading guide</a>.</p>
 </blockquote>
 <h2 id="parser-configuration">Parser Configuration<a class="headerlink" href="#parser-configuration" title="Permanent link">&para;</a></h2>
 <p><strong><code>parser.pool.class = org.apache.velocity.runtime.ParserPoolImpl</code></strong></p>

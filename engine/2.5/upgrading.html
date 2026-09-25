@@ -208,7 +208,12 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
             <div id="rss">
               <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
             </div>
-            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+            <div id="apache-event">
+              <b>The next Apache Event</b>
+              <div id="apache-event-button">
+                <a class="externalLink" href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png" alt="" class="img-fluid"</a>
+              </div>
+            </div>
           </div>
         </div>
         <div id="content"><div class="section-content"><style type="text/css">
@@ -231,7 +236,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li><a href="#upgrading-from-velocity-241-to-velocity-25">Upgrading from Velocity 2.4.1 to Velocity 2.5</a><ul>
 <li><a href="#behavior-api-changes">Behavior / API Changes</a></li>
 <li><a href="#vtl-changes">VTL Changes</a><ul>
-<li><a href="#syntax-deprecations-preparing-for-the-next-major-version">Syntax deprecations (preparing for the next major version)</a></li>
+<li><a href="#syntax-and-configuration-deprecations-preparing-for-the-next-major-version">Syntax and configuration deprecations (preparing for the next major version)</a></li>
 </ul>
 </li>
 </ul>
@@ -302,44 +307,27 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <h2 id="upgrading-from-velocity-241-to-velocity-25">Upgrading from Velocity 2.4.1 to Velocity 2.5<a class="headerlink" href="#upgrading-from-velocity-241-to-velocity-25" title="Permanent link">&para;</a></h2>
 <h3 id="behavior-api-changes">Behavior / API Changes<a class="headerlink" href="#behavior-api-changes" title="Permanent link">&para;</a></h3>
 <ul>
-<li><strong>Spring support modules reorganized.</strong> The <code>spring-velocity-support</code> artifact now targets the current, Jakarta-based Spring framework (Spring 6.x and 7.x) on Java 17. Although this is a minor Velocity release, it is a <em>major</em> upgrade for that module, which jumps from Spring 5 to Spring 6/7. Applications still on <strong>Spring 5.x / Java 8</strong> must switch their dependency to the new <code>spring5-velocity-support</code> artifact (same packages and classes, no code change).</li>
+<li><strong>Spring support modules reorganized.</strong> The <code>spring-velocity-support</code> artifact now targets the current, Jakarta-based Spring framework (Spring 6.x and 7.x) on Java 17. Although this is a minor Velocity release, it is a <em>major</em> upgrade for that module, which jumps from Spring 5 to Spring 6/7. Applications still on <strong>Spring 5.x / Java 8</strong> must switch their dependency to the new <code>spring5-velocity-support</code> artifact.</li>
 <li>New <code>introspector.restrict.methods</code> property to restrict only specific method calls in the secure introspector. By default it now blocks <code>VelocityEngine.init()</code> and <code>VelocityEngine.reset()</code>.</li>
 <li><code>Map.size()</code> is now invoked instead of any provided <code>size</code> property. Templates that defined a <code>size</code> property on a map-like object and expected it to shadow the method will see a behavior change.</li>
 <li><code>DatabaseObjectsFactory</code> is deprecated in favor of <code>PreparedStatementsFactory</code>, alongside a connection-leak fix in <code>DataSourceResourceLoader</code>.</li>
+<li><code>#evaluate()</code> now honours the nesting depth limit of <code>directive.parse.max_depth</code> (default 10). Both <code>#parse</code> and <code>#evaluate</code> push on the same template name stack, so a chain mixing them counts as a whole.</li>
+<li>Resource names are normalized before a loader sees them: <code>.</code> and <code>..</code> segments are resolved, and a name that would climb above a configured resource root (<code>../secret.txt</code>) is refused as not found.</li>
+<li><code>SecureUberspector</code> forbids a template to reach a class's static methods through <code>$value.getClass()</code> or <code>$value.class</code>.</li>
+<li>Custom parser: the <code>parser.class</code> property is deprecated: the next major version will use a pluggable lexer instead, so the <a href="developer-guide.html#customizing-the-vtl-parser">custom parser building process</a> will provide an equivalent way of customizing the parsing, with one caveat, though: the <code>$</code> character will no longer be configurable at all in the next major version, only <code>#</code>, <code>@</code> and <code>*</code> will, so a parser built with <code>parser.char.dollar</code> has no future equivalent.</li>
+<li>SecureUberspector now honours the configured type conversion handler.</li>
 </ul>
 <h3 id="vtl-changes">VTL Changes<a class="headerlink" href="#vtl-changes" title="Permanent link">&para;</a></h3>
-<h4 id="syntax-deprecations-preparing-for-the-next-major-version">Syntax deprecations (preparing for the next major version)<a class="headerlink" href="#syntax-deprecations-preparing-for-the-next-major-version" title="Permanent link">&para;</a></h4>
-<p>The next major version will move to a <code>${ expression }</code> model, so VTL constructs that cannot map onto it are deprecated starting with 2.5. Nothing is removed in 2.x — these still work, but they will be dropped in the next major version. Affected forms and their replacements:</p>
-<table class="table">
-<thead>
-<tr>
-<th>Deprecated</th>
-<th>Replacement</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>${foo|'bar'}</code> (<code>|</code> default value)</td>
-<td><code>#if($foo)$foo#{else}bar#end</code></td>
-</tr>
-<tr>
-<td><code>$foo.bar</code>, <code>$foo.m()</code>, <code>$foo[i]</code> <strong>rendered to output</strong></td>
-<td>formal <code>${foo.bar}</code> etc.</td>
-</tr>
-<tr>
-<td><code>${$foo}</code>, <code>$!{$foo}</code> (extra <code>$</code> after <code>{</code>, re-added in 2.5 for 1.7 BC)</td>
-<td><code>${foo}</code></td>
-</tr>
-</tbody>
-</table>
-<p>Only references <strong>rendered to the output</strong> are affected by the formal-notation deprecation: that is where <code>$foo.bar</code> is ambiguous (is <code>.bar</code> a property access or literal text?). In any position where the surrounding syntax already delimits the reference — <code>#set</code> left- and right-hand sides, directive and macro arguments, indexes, sub-expressions, inside <code>${ }</code> — informal notation stays perfectly valid and raises no warning. Note that the content of interpolated double-quoted strings counts as output text.</p>
-<p>One configuration option <code>parser.allow_hyphen_in_identifiers</code> is also deprecated for the same reason: <code>$foo-bar</code> will become an invalid syntax in the next major release.</p>
-<p>These deprecations are <strong>silent by default</strong>. To surface them, set:</p>
-<div class="codehilite"><pre><span class="na">runtime.deprecation.warn</span> <span class="o">=</span> <span class="s">true</span>
-</pre></div>
-
-
-<p>The <strong>next</strong> minor release will turn it on by default.</p>
+<h4 id="syntax-and-configuration-deprecations-preparing-for-the-next-major-version">Syntax and configuration deprecations (preparing for the next major version)<a class="headerlink" href="#syntax-and-configuration-deprecations-preparing-for-the-next-major-version" title="Permanent link">&para;</a></h4>
+<ul>
+<li>corner case: support for an interpolated double-quoted string ending with <code>\</code> is deprecated.</li>
+<li>the <code>velocimacro.enable_bc_mode = true</code> configuration is deprecated (it allowed null or missing macro arguments to render caller's bare references instead of the macro definition ones, after trying to resolve missing arguments from the caller context).</li>
+<li>the implicit loading of the 1.x macro libraries file <code>VM_global_library.vm</code> is deprecated. Use <code>velocimacros.vtl</code> or make its path explicit in the configuration.</li>
+<li>the <code>runtime.immutable_ranges = false</code> configuration is deprecated.</li>
+<li>the <code>runtime.strict_math = false</code> configuration is deprecated. Note that <code>false</code> is still the default value for 2.5, so relying on the default value <em>will</em> produce a deprecation warning.</li>
+<li>the <code>parser.allow_hyphen_in_identifiers</code> configuration is deprecated.</li>
+</ul>
+<p>All the corresponding deprecation warning messages can be turned off with <code>runtime.deprecation.warn = false</code>.</p>
 <h2 id="upgrading-from-velocity-23-to-velocity-241">Upgrading from Velocity 2.3 to Velocity 2.4.1<a class="headerlink" href="#upgrading-from-velocity-23-to-velocity-241" title="Permanent link">&para;</a></h2>
 <h3 id="behavior-api-changes_1">Behavior / API Changes<a class="headerlink" href="#behavior-api-changes_1" title="Permanent link">&para;</a></h3>
 <ul>

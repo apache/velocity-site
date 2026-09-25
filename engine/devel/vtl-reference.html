@@ -208,7 +208,12 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
             <div id="rss">
               <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
             </div>
-            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+            <div id="apache-event">
+              <b>The next Apache Event</b>
+              <div id="apache-event-button">
+                <a class="externalLink" href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png" alt="" class="img-fluid"</a>
+              </div>
+            </div>
           </div>
         </div>
         <div id="content"><div class="section-content"><style type="text/css">
@@ -261,52 +266,43 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <p>In the following syntax references, <em>identifier</em> refers to:</p>
 <p><span class="blue">(</span> <strong>a..z</strong> <span class="bigger blue">|</span> <strong>A..Z</strong> <span class="bigger blue">|</span> <strong>_</strong> <span class="blue">)</span> <span class="blue">[</span> <span class="blue">(</span> <strong>a..z</strong> <span class="bigger blue">|</span> <strong>A..Z</strong> <span class="bigger blue">|</span> <strong>0..9</strong> <span class="bigger blue">|</span> <strong>_</strong> <span class="blue">)</span> <span class="blue">,</span> <span class="blue">(</span> <strong>a..z</strong> <span class="bigger blue">|</span> <strong>A..Z</strong> <span class="bigger blue">|</span> <strong>0..9</strong> <span class="bigger blue">|</span> <strong>_</strong> <span class="blue">), ...</span> <span class="blue">]</span></p>
 <p>that is, a letter or an underscore followed by any number of letters, numbers and underscores.</p>
-<p>If the <code>parser.allow_hyphen_in_identifiers</code> configuration value is set to true, then the <strong>-</strong> hyphen is also allowed in identifiers (and must be surrounded by spaces to be interpreted as an arithmetic minus operator).</p>
+<p>If the <code>parser.allow_hyphen_in_identifiers</code> configuration value is set to true (<em>deprecated since 2.5</em>), then the <strong>-</strong> hyphen is also allowed in identifiers (and must be surrounded by spaces to be interpreted as an arithmetic minus operator).</p>
 <h3 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h3>
 <p>Notation:</p>
-<p><strong>$</strong> <span class="blue">[</span> <strong>!</strong> <span class="blue">]</span> <span class="blue">[</span> <strong>{</strong> <span class="blue">]</span> <em>identifier</em> <span class="blue">[</span> <span class="blue">[</span> <strong>|</strong> <em>alternate value</em> <span class="blue">]</span> <strong>}</strong> <span class="blue">]</span></p>
-<p>Usage:</p>
-<ul>
-<li><em>alternate value</em>: alternate expression to use if the reference is null, empty, false or zero</li>
-</ul>
+<p><strong>$</strong> <span class="blue">[</span> <strong>!</strong> <span class="blue">]</span> <span class="blue">[</span> <strong>{</strong> <span class="blue">]</span> <em>identifier</em> <span class="blue">[</span> <strong>}</strong> <span class="blue">]</span></p>
 <p>Examples:</p>
 <ul>
 <li>Shorthand notation: <code>$mudSlinger_9</code></li>
-<li>Silent Shorthand notation: <code>$!mudSlinger_9</code></li>
+<li>Silent shorthand notation: <code>$!mudSlinger_9</code></li>
 <li>Formal notation: <code>${mudSlinger_9}</code></li>
-<li>Silent Formal notation: <code>$!{mudSlinger_9}</code></li>
-<li>Alternate value: <code>${mudSlinger_9|$otherWheels}</code></li>
+<li>Silent formal notation: <code>$!{mudSlinger_9}</code></li>
+<li>Formal notation with an alternate value: <code>${mudSlinger_9|$otherWheels}</code> — rendered when the reference is null, false, zero or empty; the right-hand side is any valid VTL expression</li>
 </ul>
-<p><em>Note that for backward compatibility reasons, it's possible to enable '<strong><code>-</code></strong>' as a valid character in variables identifiers, <a href="configuration.html#parser-configuration">see the parser configuration section</a>.</em></p>
 <h3 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h3>
 <p>Notation:</p>
-<p><strong>$</strong> <span class="blue">[</span> <strong>{</strong> <span class="blue">]</span> <em>identifier</em> <strong>.</strong> <em>identifier</em> <span class="blue">[</span> <span class="blue">[</span> <strong>|</strong> <em>alternate value</em> <span class="blue">]</span> <strong>}</strong> <span class="blue">]</span></p>
-<p>Usage:</p>
-<ul>
-<li><em>alternate value</em>: alternate expression to use if the property is null, empty, false or zero</li>
-</ul>
+<p><strong>${</strong> <em>identifier</em> <strong>.</strong> <em>identifier</em> <strong>}</strong></p>
 <p>Examples:</p>
 <ul>
-<li>Regular Notation: <code>$customer.Address</code></li>
-<li>Formal Notation: <code>${purchase.Total}</code></li>
-<li>Alternate Value: <code>${person.name|'John Doe'}</code></li>
+<li>Formal notation: <code>${customer.Address}</code></li>
+<li>Formal notation: <code>${purchase.Total}</code></li>
+<li>Informal notation: <code>$customer.Address</code></li>
+<li>With an alternate value: <code>${person.name|'John Doe'}</code></li>
 </ul>
 <h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h3>
 <p>Notation:</p>
-<p><strong>$</strong> <span class="blue">[</span> <strong>{</strong> <span class="blue">]</span> <em>identifier</em> <strong>.</strong> <em>identifier</em> <strong>(</strong> <span class="blue">[</span> <em>parameter list...</em> <span class="blue">]</span> <strong>)</strong> <span class="blue">[</span> <span class="blue">[</span> <strong>|</strong> <em>alternate value</em> <span class="blue">]</span> <strong>}</strong> <span class="blue">]</span></p>
+<p><strong>${</strong> <em>identifier</em> <strong>.</strong> <em>identifier</em> <strong>(</strong> <span class="blue">[</span> <em>parameter list...</em> <span class="blue">]</span> <strong>)</strong> <strong>}</strong></p>
 <p>Usage:</p>
 <ul>
-<li><em>alternate value</em>: alternate expression to use if the method returns null, empty, false or zero</li>
-<li><em>parameter list</em>: optional coma-separated list of expressions</li>
+<li><em>parameter list</em>: optional comma-separated list of expressions</li>
 </ul>
 <p>Examples:</p>
 <ul>
-<li>Regular Notation: <code>$customer.getAddress()</code></li>
-<li>Formal Notation: <code>${purchase.getTotal()}</code></li>
-<li>Regular Notation with Parameter List: <code>$page.setTitle( "My Home Page" )</code></li>
-<li>Alternate value: <code>${page.getTitle()|'Blank Page'}</code></li>
+<li>Formal notation: <code>${customer.getAddress()}</code></li>
+<li>Formal notation with parameter list: <code>${page.setTitle( "My Home Page" )}</code></li>
+<li>Informal notation: <code>$customer.getAddress()</code> (formal notation is preferred)</li>
+<li>With an alternate value: <code>${page.getTitle()|'Blank Page'}</code></li>
 </ul>
-<p>VTL Properties can be used as a shorthand notation for VTL Methods that take <em>get</em> and <em>set</em>. Either <em>$object.getMethod()</em> or <em>$object.setMethod()</em> can be abbreviated as <em>$object.Method</em>. It is generally preferable to use a Property when available. The main difference between Properties and Methods is that you can specify a parameter list to a Method.</p>
+<p>VTL Properties can be used as a shorthand notation for VTL Methods that take <em>get</em> and <em>set</em>. Either <em>${object.getMethod()}</em> or <em>${object.setMethod()}</em> can be abbreviated as <em>${object.Method}</em>. It is generally preferable to use a Property when available. The main difference between Properties and Methods is that you can specify a parameter list to a Method.</p>
 <p>Each method argument can be any valid VTL expression.</p>
 <h2 id="directives">Directives<a class="headerlink" href="#directives" title="Permanent link">&para;</a></h2>
 <h3 id="set-establishes-the-value-of-a-reference">#set - Establishes the value of a reference<a class="headerlink" href="#set-establishes-the-value-of-a-reference" title="Permanent link">&para;</a></h3>

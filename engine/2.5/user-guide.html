@@ -208,7 +208,12 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
             <div id="rss">
               <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
             </div>
-            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+            <div id="apache-event">
+              <b>The next Apache Event</b>
+              <div id="apache-event-button">
+                <a class="externalLink" href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png" alt="" class="img-fluid"</a>
+              </div>
+            </div>
           </div>
         </div>
         <div id="content"><div class="section-content"><style type="text/css">
@@ -246,6 +251,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </li>
 <li><a href="#formal-reference-notation">Formal Reference Notation</a></li>
 <li><a href="#quiet-reference-notation">Quiet Reference Notation</a></li>
+<li><a href="#alternate-values">Alternate Values</a></li>
 <li><a href="#strict-rendering-mode">Strict Rendering Mode</a></li>
 <li><a href="#case-substitution">Case Substitution</a></li>
 <li><a href="#directives">Directives</a><ul>
@@ -431,7 +437,7 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </pre></div>
 
 
-<p>Note that Velocity does support <em>informal</em> expressions like <em>$customer.Address</em>, as long as there is no ambiguity with the surrounding context. But this syntax is <strong>deprecated</strong> since Velocity 2.5 (outside of places where there is no ambiguity, like inside a <em>#set</em> directive) and will be dropped in the next major version.</p>
+<p>Note that Velocity also supports the <em>informal</em> notation <em>$customer.Address</em>, as long as there is no ambiguity with the surrounding context.</p>
 <p>Take the first example, <em>${customer.Address}</em>. It can have two meanings. It can mean, Look in the hashtable identified as <em>customer</em> and return the value associated with the key <em>Address</em>. But it can also be referring to a method (references that refer to methods will be discussed in the next section); <em>${customer.Address}</em> could be an abbreviated way of writing <em>${customer.getAddress()}</em>. When your page is requested, Velocity will determine which of these two possibilities makes sense, and then return the appropriate value.</p>
 <h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h3>
 <p>A method is defined in the Java code and is capable of doing something useful, like running a calculation or arriving at a decision. Methods are references that consist of a leading "$" character then an expression enclosed by <em>{</em> and <em>}</em>: a VTL Identifier, followed by a VTL <em>Method Body</em>. A VTL Method Body consists of a VTL Identifier followed by an left parenthesis character ("("), followed by an optional parameter list, followed by right parenthesis character (")"). These are examples of valid method references in the VTL:</p>
@@ -559,6 +565,14 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 </pre></div>
 
 
+<h2 id="alternate-values">Alternate Values<a class="headerlink" href="#alternate-values" title="Permanent link">&para;</a></h2>
+<p>A reference can name an alternate value, rendered in its place when the reference is null, false, zero or empty:</p>
+<div class="codehilite"><pre><span class="p">&lt;</span><span class="nt">input</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text&quot;</span> <span class="na">name</span><span class="o">=</span><span class="s">&quot;email&quot;</span> <span class="na">value</span><span class="o">=</span><span class="s">&quot;</span><span class="p">${</span><span class="nv">email</span><span class="s">|&#39;nobody@example.com&#39;}&quot;</span><span class="p">/&gt;</span>
+Hello <span class="p">${</span><span class="nv">customer</span><span class="p">.</span><span class="nv">name</span>|<span class="p">$</span><span class="nv">anonymous</span><span class="p">}</span>!
+</pre></div>
+
+
+<p>The alternate value is any valid VTL expression, evaluated only when needed. It can only be written in the formal notation, <code>${ ... }</code>, and combines with the quiet notation: <code>$!{email|$fallback}</code> renders nothing when both are unset.</p>
 <h2 id="strict-rendering-mode">Strict Rendering Mode<a class="headerlink" href="#strict-rendering-mode" title="Permanent link">&para;</a></h2>
 <p>The strict rendering mode is activated by setting the velocity configuration property 'runtime.strict_mode.enable' to true.  The general intent of this setting is to make Velocity behave more strictly in cases that are undefined or ambiguous, similar to a programming language, which may be more appropriate for some uses of Velocity. In such undefined or ambiguous cases Velocity will throw an exception.  The following discussion outlines the cases in which strict behavior is different from traditional behavior.</p>
 <p>With this setting references are required to be either placed explicitly into the context or defined with a #set directive or Velocity will throw an exception.  References that are in the context with a value of null will not produce an exception. Additionally, if an attempt is made to call a method or a property on an object within a reference that does not define the specified method or property then Velocity will throw an exception.  This is also true if there is an attempt to call a method or property on a null value.</p>

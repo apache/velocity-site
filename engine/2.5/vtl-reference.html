@@ -208,7 +208,12 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
             <div id="rss">
               <a class="poweredBy" href="/rss/news.rss" title="Velocity News Feed"><img class="poweredBy" alt="Velocity News Feed" src="/images/feed-icon-24x24.jpg"></a>
             </div>
-            <iframe src="https://www.apache.org/ads/buttonbar.html" style="border-width:0; float: left" frameborder="0" scrolling="no" width="135" height="265"></iframe>
+            <div id="apache-event">
+              <b>The next Apache Event</b>
+              <div id="apache-event-button">
+                <a class="externalLink" href="https://www.apache.org/events/current-event.html"><img src="https://www.apache.org/events/current-event-234x60.png" alt="" class="img-fluid"</a>
+              </div>
+            </div>
           </div>
         </div>
         <div id="content"><div class="section-content"><style type="text/css">
@@ -271,8 +276,8 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <li>Silent shorthand notation: <code>$!mudSlinger_9</code></li>
 <li>Formal notation: <code>${mudSlinger_9}</code></li>
 <li>Silent formal notation: <code>$!{mudSlinger_9}</code></li>
+<li>Formal notation with an alternate value: <code>${mudSlinger_9|$otherWheels}</code> — rendered when the reference is null, false, zero or empty; the right-hand side is any valid VTL expression</li>
 </ul>
-<p><em>Deprecated since 2.5: the default-value syntax <code>${mudSlinger_9|$otherWheels}</code> (use an <code>#if</code> block instead) and the extra <code>$</code> form <code>${$mudSlinger_9}</code>. See the <a href="upgrading.html">upgrading guide</a>.</em></p>
 <h3 id="properties">Properties<a class="headerlink" href="#properties" title="Permanent link">&para;</a></h3>
 <p>Notation:</p>
 <p><strong>${</strong> <em>identifier</em> <strong>.</strong> <em>identifier</em> <strong>}</strong></p>
@@ -280,8 +285,9 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <ul>
 <li>Formal notation: <code>${customer.Address}</code></li>
 <li>Formal notation: <code>${purchase.Total}</code></li>
+<li>Informal notation: <code>$customer.Address</code></li>
+<li>With an alternate value: <code>${person.name|'John Doe'}</code></li>
 </ul>
-<p><em>Deprecated since 2.5: the informal notation <code>$customer.Address</code> (without braces) when rendered to the output, and the default value <code>${person.name|'John Doe'}</code>. See the <a href="upgrading.html">upgrading guide</a>.</em></p>
 <h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permanent link">&para;</a></h3>
 <p>Notation:</p>
 <p><strong>${</strong> <em>identifier</em> <strong>.</strong> <em>identifier</em> <strong>(</strong> <span class="blue">[</span> <em>parameter list...</em> <span class="blue">]</span> <strong>)</strong> <strong>}</strong></p>
@@ -293,8 +299,9 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 <ul>
 <li>Formal notation: <code>${customer.getAddress()}</code></li>
 <li>Formal notation with parameter list: <code>${page.setTitle( "My Home Page" )}</code></li>
+<li>Informal notation: <code>$customer.getAddress()</code> (formal notation is preferred)</li>
+<li>With an alternate value: <code>${page.getTitle()|'Blank Page'}</code></li>
 </ul>
-<p><em>Deprecated since 2.5: the informal notation <code>$customer.getAddress()</code> (without braces) when rendered to the output, and the default value <code>${page.getTitle()|'Blank Page'}</code>. See the <a href="upgrading.html">upgrading guide</a>.</em></p>
 <p>VTL Properties can be used as a shorthand notation for VTL Methods that take <em>get</em> and <em>set</em>. Either <em>${object.getMethod()}</em> or <em>${object.setMethod()}</em> can be abbreviated as <em>${object.Method}</em>. It is generally preferable to use a Property when available. The main difference between Properties and Methods is that you can specify a parameter list to a Method.</p>
 <p>Each method argument can be any valid VTL expression.</p>
 <h2 id="directives">Directives<a class="headerlink" href="#directives" title="Permanent link">&para;</a></h2>
