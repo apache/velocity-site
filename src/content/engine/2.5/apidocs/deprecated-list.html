@@ -276,21 +276,41 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">see <a href="org/apache/velocity/runtime/RuntimeConstants.html#VM_PERM_INLINE_LOCAL"><code>RuntimeConstants.VM_PERM_INLINE_LOCAL</code></a></div>
 </div>
-<div class="col-summary-item-name odd-row-color"><a href="org/apache/velocity/runtime/RuntimeConstants.html#DS_RESOURCE_LOADER_DATASOURCE">org.apache.velocity.runtime.RuntimeConstants.DS_RESOURCE_LOADER_DATASOURCE</a></div>
+<div class="col-summary-item-name odd-row-color"><a href="org/apache/velocity/runtime/RuntimeConstants.html#DEFAULT_PARSER_CLASS">org.apache.velocity.runtime.RuntimeConstants.DEFAULT_PARSER_CLASS</a></div>
 <div class="col-last odd-row-color">
+<div class="block">since 2.5, with <a href="org/apache/velocity/runtime/RuntimeConstants.html#PARSER_CLASS"><code>RuntimeConstants.PARSER_CLASS</code></a>: the next major version replaces the runtime
+ parser properties by a pluggable lexer, and names another default.</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="org/apache/velocity/runtime/RuntimeConstants.html#DS_RESOURCE_LOADER_DATASOURCE">org.apache.velocity.runtime.RuntimeConstants.DS_RESOURCE_LOADER_DATASOURCE</a></div>
+<div class="col-last even-row-color">
 <div class="block">Use <a href="org/apache/velocity/runtime/RuntimeConstants.html#DS_RESOURCE_LOADER_DATASOURCE_URL"><code>RuntimeConstants.DS_RESOURCE_LOADER_DATASOURCE_URL</code></a> instead.</div>
 </div>
-<div class="col-summary-item-name even-row-color"><a href="org/apache/velocity/runtime/RuntimeConstants.html#ERRORMSG_END">org.apache.velocity.runtime.RuntimeConstants.ERRORMSG_END</a></div>
-<div class="col-last even-row-color">
-<div class="block">if/how errors are displayed is not the concern of the engine, which should throw in all cases</div>
-</div>
-<div class="col-summary-item-name odd-row-color"><a href="org/apache/velocity/runtime/RuntimeConstants.html#ERRORMSG_START">org.apache.velocity.runtime.RuntimeConstants.ERRORMSG_START</a></div>
+<div class="col-summary-item-name odd-row-color"><a href="org/apache/velocity/runtime/RuntimeConstants.html#ERRORMSG_END">org.apache.velocity.runtime.RuntimeConstants.ERRORMSG_END</a></div>
 <div class="col-last odd-row-color">
 <div class="block">if/how errors are displayed is not the concern of the engine, which should throw in all cases</div>
 </div>
-<div class="col-summary-item-name even-row-color"><a href="org/apache/velocity/runtime/RuntimeConstants.html#PROVIDE_SCOPE_CONTROL">org.apache.velocity.runtime.RuntimeConstants.PROVIDE_SCOPE_CONTROL</a></div>
+<div class="col-summary-item-name even-row-color"><a href="org/apache/velocity/runtime/RuntimeConstants.html#ERRORMSG_START">org.apache.velocity.runtime.RuntimeConstants.ERRORMSG_START</a></div>
 <div class="col-last even-row-color">
+<div class="block">if/how errors are displayed is not the concern of the engine, which should throw in all cases</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="org/apache/velocity/runtime/RuntimeConstants.html#IMMUTABLE_RANGES">org.apache.velocity.runtime.RuntimeConstants.IMMUTABLE_RANGES</a></div>
+<div class="col-last odd-row-color">
+<div class="block">since 2.5: ranges will always be immutable in the next major version</div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="org/apache/velocity/runtime/RuntimeConstants.html#PARSER_CLASS">org.apache.velocity.runtime.RuntimeConstants.PARSER_CLASS</a></div>
+<div class="col-last even-row-color">
+<div class="block">since 2.5: the next major version replaces the runtime parser properties by a
+ pluggable lexer; this key has no effect there.</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="org/apache/velocity/runtime/RuntimeConstants.html#PROVIDE_SCOPE_CONTROL">org.apache.velocity.runtime.RuntimeConstants.PROVIDE_SCOPE_CONTROL</a></div>
+<div class="col-last odd-row-color">
 <div class="block">use <code>context.scope_control.&lt;scope_name&gt; = true/false</code></div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="org/apache/velocity/runtime/RuntimeConstants.html#VM_ENABLE_BC_MODE">org.apache.velocity.runtime.RuntimeConstants.VM_ENABLE_BC_MODE</a></div>
+<div class="col-last even-row-color">
+<div class="block">since 2.5, without replacement: the next major version does not provide this
+ compatibility mode; a null argument renders the parameter's own literal and a missing
+ argument is null, as since 2.0.</div>
 </div>
 <div class="col-summary-item-name odd-row-color"><a href="org/apache/velocity/runtime/RuntimeConstants.html#VM_MESSAGES_ON">org.apache.velocity.runtime.RuntimeConstants.VM_MESSAGES_ON</a></div>
 <div class="col-last odd-row-color">
@@ -314,6 +334,14 @@ loadScripts(document, 'script');</script>
 <div class="col-summary-item-name odd-row-color"><a href="org/apache/velocity/runtime/resource/loader/DataSourceResourceLoader.html#getReader(java.sql.ResultSet,java.lang.String,java.lang.String)">org.apache.velocity.runtime.resource.loader.DataSourceResourceLoader.getReader<wbr>(ResultSet, String, String)</a></div>
 <div class="col-last odd-row-color">
 <div class="block">the 'encoding' parameter is useless, it should have been set in the database. Use <a href="org/apache/velocity/runtime/resource/loader/DataSourceResourceLoader.html#getReader(java.sql.ResultSet,java.lang.String)"><code>DataSourceResourceLoader.getReader(ResultSet, String)</code></a></div>
+</div>
+<div class="col-summary-item-name even-row-color"><a href="org/apache/velocity/runtime/RuntimeInstance.html#createNewParser()">org.apache.velocity.runtime.RuntimeInstance.createNewParser()</a></div>
+<div class="col-last even-row-color">
+<div class="block">since 2.5: the next major version has no pluggable parser to hand out.</div>
+</div>
+<div class="col-summary-item-name odd-row-color"><a href="org/apache/velocity/runtime/RuntimeServices.html#createNewParser()">org.apache.velocity.runtime.RuntimeServices.createNewParser()</a></div>
+<div class="col-last odd-row-color">
+<div class="block">since 2.5: the next major version has no pluggable parser to hand out.</div>
 </div>
 <div class="col-summary-item-name even-row-color"><a href="org/apache/velocity/spring/VelocityEngineUtils.html#mergeTemplate(org.apache.velocity.app.VelocityEngine,java.lang.String,java.util.Map,java.io.Writer)">org.apache.velocity.spring.VelocityEngineUtils.mergeTemplate<wbr>(VelocityEngine, String, Map&lt;String, Object&gt;, Writer)</a></div>
 <div class="col-last even-row-color">

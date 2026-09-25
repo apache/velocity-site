@@ -142,10 +142,16 @@ implements <a href="SecureIntrospectorControl.html" title="interface in org.apac
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;badMethods,
  org.slf4j.Logger&nbsp;log)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.lang.String%5B%5D,java.lang.String%5B%5D,org.slf4j.Logger)" class="member-name-link">SecureIntrospectorImpl</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;badClasses,
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.lang.String%5B%5D,java.lang.String%5B%5D,java.lang.String%5B%5D,org.slf4j.Logger,org.apache.velocity.util.introspection.TypeConversionHandler)" class="member-name-link">SecureIntrospectorImpl</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;badClasses,
+ <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;badPackages,
+ <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;badMethods,
+ org.slf4j.Logger&nbsp;log,
+ <a href="TypeConversionHandler.html" title="interface in org.apache.velocity.util.introspection">TypeConversionHandler</a>&nbsp;conversionHandler)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String%5B%5D,java.lang.String%5B%5D,org.slf4j.Logger)" class="member-name-link">SecureIntrospectorImpl</a><wbr>(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;badClasses,
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;badPackages,
  org.slf4j.Logger&nbsp;log)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Backwards-compatible constructor without method-level restrictions.</div>
 </div>
 </div>
@@ -223,6 +229,27 @@ implements <a href="SecureIntrospectorControl.html" title="interface in org.apac
 </dl>
 </section>
 </li>
+<li>
+<section class="detail" id="&lt;init&gt;(java.lang.String[],java.lang.String[],java.lang.String[],org.slf4j.Logger,org.apache.velocity.util.introspection.TypeConversionHandler)">
+<h3>SecureIntrospectorImpl</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SecureIntrospectorImpl</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;badClasses,
+ <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;badPackages,
+ <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>[]&nbsp;badMethods,
+ org.slf4j.Logger&nbsp;log,
+ <a href="TypeConversionHandler.html" title="interface in org.apache.velocity.util.introspection">TypeConversionHandler</a>&nbsp;conversionHandler)</span></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>badClasses</code> - fully-qualified class names whose methods are entirely blocked (exact match)</dd>
+<dd><code>badPackages</code> - package names whose classes are entirely blocked (exact match)</dd>
+<dd><code>badMethods</code> - method specs of the form <code>fully.qualified.ClassName.methodName</code>;
+                   restriction applies to the named class and all its subclasses, all overloads</dd>
+<dd><code>log</code> - logger</dd>
+<dd><code>conversionHandler</code> - conversion handler, may be null</dd>
+<dt>Since:</dt>
+<dd>2.5</dd>
+</dl>
+</section>
+</li>
 </ul>
 </section>
 </li>
@@ -261,7 +288,8 @@ implements <a href="SecureIntrospectorControl.html" title="interface in org.apac
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">checkObjectExecutePermission</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&nbsp;clazz,
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;methodName)</span></div>
 <div class="block">Determine which methods and classes to prevent from executing.  Always blocks
- methods wait() and notify().  Always allows methods on Number, Boolean, and String.
+ methods wait() and notify().  Always allows the instance methods of Number, Boolean
+ and String.
  Prohibits method calls on classes related to reflection and system operations.
  For the complete list, see the properties <code>introspector.restrict.classes</code>,
  <code>introspector.restrict.packages</code> and <code>introspector.restrict.methods</code>.</div>

@@ -1208,11 +1208,15 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeInstance.html#createNewParser()" class="member-name-link">createNewParser()</a> - Method in class org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeInstance.html" title="class in org.apache.velocity.runtime">RuntimeInstance</a></dt>
 <dd>
-<div class="block">Returns a JavaCC generated Parser.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">since 2.5: the next major version has no pluggable parser to hand out.</div>
+</div>
 </dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeServices.html#createNewParser()" class="member-name-link">createNewParser()</a> - Method in interface org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeServices.html" title="interface in org.apache.velocity.runtime">RuntimeServices</a></dt>
 <dd>
-<div class="block">Create a new parser instance.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">since 2.5: the next major version has no pluggable parser to hand out.</div>
+</div>
 </dd>
 <dt><a href="org/apache/velocity/runtime/resource/loader/StringResourceLoader.html#createRepository(java.lang.String,java.lang.String)" class="member-name-link">createRepository(String, String)</a> - Method in class org.apache.velocity.runtime.resource.loader.<a href="org/apache/velocity/runtime/resource/loader/StringResourceLoader.html" title="class in org.apache.velocity.runtime.resource.loader">StringResourceLoader</a></dt>
 <dd>&nbsp;</dd>
@@ -1322,7 +1326,10 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeConstants.html#DEFAULT_PARSER_CLASS" class="member-name-link">DEFAULT_PARSER_CLASS</a> - Static variable in interface org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeConstants.html" title="interface in org.apache.velocity.runtime">RuntimeConstants</a></dt>
 <dd>
-<div class="block">Default parser class</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">since 2.5, with <a href="org/apache/velocity/runtime/RuntimeConstants.html#PARSER_CLASS"><code>RuntimeConstants.PARSER_CLASS</code></a>: the next major version replaces the runtime
+ parser properties by a pluggable lexer, and names another default.</div>
+</div>
 </dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeConstants.html#DEFAULT_RUNTIME_DIRECTIVES" class="member-name-link">DEFAULT_RUNTIME_DIRECTIVES</a> - Static variable in interface org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeConstants.html" title="interface in org.apache.velocity.runtime">RuntimeConstants</a></dt>
 <dd>
@@ -3253,6 +3260,10 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Method</div>
 </dd>
+<dt><a href="org/apache/velocity/util/introspection/SecureUberspector.html#getMethod(java.lang.Object,java.lang.String,java.lang.Object%5B%5D,org.apache.velocity.util.introspection.Info)" class="member-name-link">getMethod(Object, String, Object[], Info)</a> - Method in class org.apache.velocity.util.introspection.<a href="org/apache/velocity/util/introspection/SecureUberspector.html" title="class in org.apache.velocity.util.introspection">SecureUberspector</a></dt>
+<dd>
+<div class="block">Get a method from the given object.</div>
+</dd>
 <dt><a href="org/apache/velocity/util/introspection/Uberspect.html#getMethod(java.lang.Object,java.lang.String,java.lang.Object%5B%5D,org.apache.velocity.util.introspection.Info)" class="member-name-link">getMethod(Object, String, Object[], Info)</a> - Method in interface org.apache.velocity.util.introspection.<a href="org/apache/velocity/util/introspection/Uberspect.html" title="interface in org.apache.velocity.util.introspection">Uberspect</a></dt>
 <dd>
 <div class="block">Returns a general method, corresponding to $foo.bar( $woogie )</div>
@@ -4185,7 +4196,9 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeConstants.html#IMMUTABLE_RANGES" class="member-name-link">IMMUTABLE_RANGES</a> - Static variable in interface org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeConstants.html" title="interface in org.apache.velocity.runtime">RuntimeConstants</a></dt>
 <dd>
-<div class="block">Switch for the immutability of integer ranges.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">since 2.5: ranges will always be immutable in the next major version</div>
+</div>
 </dd>
 <dt><a href="org/apache/velocity/runtime/parser/StandardParserConstants.html#IN_FORMAL_COMMENT" class="member-name-link">IN_FORMAL_COMMENT</a> - Static variable in interface org.apache.velocity.runtime.parser.<a href="org/apache/velocity/runtime/parser/StandardParserConstants.html" title="interface in org.apache.velocity.runtime.parser">StandardParserConstants</a></dt>
 <dd>
@@ -6063,6 +6076,19 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeConstants.SpaceGobbling.html#NONE" class="member-name-link">NONE</a> - Enum constant in enum org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeConstants.SpaceGobbling.html" title="enum in org.apache.velocity.runtime">RuntimeConstants.SpaceGobbling</a></dt>
 <dd>&nbsp;</dd>
+<dt><a href="org/apache/velocity/runtime/resource/loader/DataSourceResourceLoader.html#normalizeResourceName(java.lang.String)" class="member-name-link">normalizeResourceName(String)</a> - Method in class org.apache.velocity.runtime.resource.loader.<a href="org/apache/velocity/runtime/resource/loader/DataSourceResourceLoader.html" title="class in org.apache.velocity.runtime.resource.loader">DataSourceResourceLoader</a></dt>
+<dd>
+<div class="block">Resource names are opaque keys here: they are used as given.</div>
+</dd>
+<dt><a href="org/apache/velocity/runtime/resource/loader/ResourceLoader.html#normalizeResourceName(java.lang.String)" class="member-name-link">normalizeResourceName(String)</a> - Method in class org.apache.velocity.runtime.resource.loader.<a href="org/apache/velocity/runtime/resource/loader/ResourceLoader.html" title="class in org.apache.velocity.runtime.resource.loader">ResourceLoader</a></dt>
+<dd>
+<div class="block">Normalize a resource name before it is looked up, and tell whether it is acceptable
+ at all.</div>
+</dd>
+<dt><a href="org/apache/velocity/runtime/resource/loader/StringResourceLoader.html#normalizeResourceName(java.lang.String)" class="member-name-link">normalizeResourceName(String)</a> - Method in class org.apache.velocity.runtime.resource.loader.<a href="org/apache/velocity/runtime/resource/loader/StringResourceLoader.html" title="class in org.apache.velocity.runtime.resource.loader">StringResourceLoader</a></dt>
+<dd>
+<div class="block">Resource names are opaque keys here: they are used as given.</div>
+</dd>
 <dt><a href="org/apache/velocity/util/DuckType.Types.html#NUMBER" class="member-name-link">NUMBER</a> - Enum constant in enum org.apache.velocity.util.<a href="org/apache/velocity/util/DuckType.Types.html" title="enum in org.apache.velocity.util">DuckType.Types</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeConstants.html#NUMBER_OF_PARSERS" class="member-name-link">NUMBER_OF_PARSERS</a> - Static variable in interface org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeConstants.html" title="interface in org.apache.velocity.runtime">RuntimeConstants</a></dt>
@@ -6437,7 +6463,9 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeConstants.html#PARSE_DIRECTIVE_MAXDEPTH" class="member-name-link">PARSE_DIRECTIVE_MAXDEPTH</a> - Static variable in interface org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeConstants.html" title="interface in org.apache.velocity.runtime">RuntimeConstants</a></dt>
 <dd>
-<div class="block">Maximum recursion depth allowed for the #parse directive.</div>
+<div class="block">Maximum nesting depth allowed for the #parse and #evaluate directives, which share the
+ same template name stack: a chain mixing both directives is counted as a whole
+ (#evaluate honours this limit since 2.5).</div>
 </dd>
 <dt><a href="org/apache/velocity/exception/ParseErrorException.html" class="type-name-link" title="class in org.apache.velocity.exception">ParseErrorException</a> - Exception Class in <a href="org/apache/velocity/exception/package-summary.html">org.apache.velocity.exception</a></dt>
 <dd>
@@ -6495,7 +6523,10 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeConstants.html#PARSER_CLASS" class="member-name-link">PARSER_CLASS</a> - Static variable in interface org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeConstants.html" title="interface in org.apache.velocity.runtime">RuntimeConstants</a></dt>
 <dd>
-<div class="block">Property specifying the parser class to use</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">since 2.5: the next major version replaces the runtime parser properties by a
+ pluggable lexer; this key has no effect there.</div>
+</div>
 </dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeConstants.html#PARSER_HYPHEN_ALLOWED" class="member-name-link">PARSER_HYPHEN_ALLOWED</a> - Static variable in interface org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeConstants.html" title="interface in org.apache.velocity.runtime">RuntimeConstants</a></dt>
 <dd>
@@ -7432,7 +7463,7 @@ loadScripts(document, 'script');</script>
 </dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeConstants.html#RUNTIME_DEPRECATION_WARN" class="member-name-link">RUNTIME_DEPRECATION_WARN</a> - Static variable in interface org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeConstants.html" title="interface in org.apache.velocity.runtime">RuntimeConstants</a></dt>
 <dd>
-<div class="block">Whether to warn about deprecated VTL syntax constructs (off by default, will be turned on in the next 2.x release).</div>
+<div class="block">Whether to warn about deprecated VTL syntax constructs (on by default).</div>
 </dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeConstants.html#RUNTIME_LOG_INSTANCE" class="member-name-link">RUNTIME_LOG_INSTANCE</a> - Static variable in interface org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeConstants.html" title="interface in org.apache.velocity.runtime">RuntimeConstants</a></dt>
 <dd>
@@ -7541,6 +7572,8 @@ loadScripts(document, 'script');</script>
 <div class="block">Prevent "dangerous" classloader/reflection related calls.</div>
 </dd>
 <dt><a href="org/apache/velocity/util/introspection/SecureIntrospectorImpl.html#%3Cinit%3E(java.lang.String%5B%5D,java.lang.String%5B%5D,java.lang.String%5B%5D,org.slf4j.Logger)" class="member-name-link">SecureIntrospectorImpl(String[], String[], String[], Logger)</a> - Constructor for class org.apache.velocity.util.introspection.<a href="org/apache/velocity/util/introspection/SecureIntrospectorImpl.html" title="class in org.apache.velocity.util.introspection">SecureIntrospectorImpl</a></dt>
+<dd>&nbsp;</dd>
+<dt><a href="org/apache/velocity/util/introspection/SecureIntrospectorImpl.html#%3Cinit%3E(java.lang.String%5B%5D,java.lang.String%5B%5D,java.lang.String%5B%5D,org.slf4j.Logger,org.apache.velocity.util.introspection.TypeConversionHandler)" class="member-name-link">SecureIntrospectorImpl(String[], String[], String[], Logger, TypeConversionHandler)</a> - Constructor for class org.apache.velocity.util.introspection.<a href="org/apache/velocity/util/introspection/SecureIntrospectorImpl.html" title="class in org.apache.velocity.util.introspection">SecureIntrospectorImpl</a></dt>
 <dd>&nbsp;</dd>
 <dt><a href="org/apache/velocity/util/introspection/SecureIntrospectorImpl.html#%3Cinit%3E(java.lang.String%5B%5D,java.lang.String%5B%5D,org.slf4j.Logger)" class="member-name-link">SecureIntrospectorImpl(String[], String[], Logger)</a> - Constructor for class org.apache.velocity.util.introspection.<a href="org/apache/velocity/util/introspection/SecureIntrospectorImpl.html" title="class in org.apache.velocity.util.introspection">SecureIntrospectorImpl</a></dt>
 <dd>
@@ -7687,7 +7720,7 @@ loadScripts(document, 'script');</script>
 <dd>&nbsp;</dd>
 <dt><a href="org/apache/velocity/runtime/parser/node/ASTReference.html#setExtraDollar(boolean)" class="member-name-link">setExtraDollar(boolean)</a> - Method in class org.apache.velocity.runtime.parser.node.<a href="org/apache/velocity/runtime/parser/node/ASTReference.html" title="class in org.apache.velocity.runtime.parser.node">ASTReference</a></dt>
 <dd>
-<div class="block">Marks this reference as carrying the deprecated extra '$' after '{'.</div>
+<div class="block">Marks this reference as carrying the extra '$' after '{'.</div>
 </dd>
 <dt><a href="org/apache/velocity/runtime/parser/node/PublicFieldExecutor.html#setField(java.lang.reflect.Field)" class="member-name-link">setField(Field)</a> - Method in class org.apache.velocity.runtime.parser.node.<a href="org/apache/velocity/runtime/parser/node/PublicFieldExecutor.html" title="class in org.apache.velocity.runtime.parser.node">PublicFieldExecutor</a></dt>
 <dd>&nbsp;</dd>
@@ -9326,11 +9359,11 @@ the order they are declared.</div>
 </dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeConstants.html#VM_ENABLE_BC_MODE" class="member-name-link">VM_ENABLE_BC_MODE</a> - Static variable in interface org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeConstants.html" title="interface in org.apache.velocity.runtime">RuntimeConstants</a></dt>
 <dd>
-<div class="block">This flag enable the 1.7 backward compatible mode for velocimacros (defaults to false):
- 
-     
-         preserve argument literals: when displaying null or invalid non-quiet references,
-         use the argument literal reference instead of the one in the macro block.</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">since 2.5, without replacement: the next major version does not provide this
+ compatibility mode; a null argument renders the parameter's own literal and a missing
+ argument is null, as since 2.0.</div>
+</div>
 </dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeConstants.html#VM_LIBRARY" class="member-name-link">VM_LIBRARY</a> - Static variable in interface org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeConstants.html" title="interface in org.apache.velocity.runtime">RuntimeConstants</a></dt>
 <dd>
