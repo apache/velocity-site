@@ -18,7 +18,7 @@ The properties key names have been reviewed in Engine 2.1. Old names are still f
 
 ## Configuration Summary Tree
 
-The following tree gathers all non deprecated configuration properties with their default values.
+The following tree gathers all configuration properties with their default values. None of these defaults is deprecated, except `runtime.strict_math = false` (see below).
 
     :::properties
     context. +-- scope_control. +-- define = false
@@ -48,8 +48,7 @@ The following tree gathers all non deprecated configuration properties with thei
                   |                       +-- instance = *Java Object instance*
                   +-- uberspect.class = org.apache.velocity.util.introspection.UberspectImpl
     
-    parser. +-- allow_hyphen_in_identifiers = false
-            +-- pool. +-- class = org.apache.velocity.runtime.ParserPoolImpl
+    parser. +-- pool. +-- class = org.apache.velocity.runtime.ParserPoolImpl
             |         +-- size = 20
             +-- space_gobbling = lines
     
@@ -67,6 +66,7 @@ The following tree gathers all non deprecated configuration properties with thei
                            +-- log_when_found = true
     
     runtime. +-- custom_directives = *classname*, *classname* ...
+             +-- deprecation.warn = true
              +-- immutable_ranges = true
              +-- interpolate_string_literals = true
              +-- log. +-- instance = *Java Object instance*
@@ -87,6 +87,21 @@ The following tree gathers all non deprecated configuration properties with thei
                  |           +-- replace_global = false
                  +-- library. +-- autoreload = false
                               +-- path = velocimacros.vtl 
+
+### Deprecated Settings
+
+The following settings are deprecated since 2.5, in preparation for the next major version. Each of them logs a warning at engine initialization, unless `runtime.deprecation.warn` is set to false.
+
+    :::properties
+    parser. +-- allow_hyphen_in_identifiers = true
+            +-- class = *classname*
+    
+    runtime. +-- immutable_ranges = false
+             +-- strict_math = false      (the default value: set it to true)
+    
+    velocimacro. +-- enable_bc_mode = true
+
+The pre-2.1 property names are deprecated as well, see the [**table of correspondance**](configuration-property-changes-in-2.1.html).
 
 ## Logging
 
@@ -165,7 +180,7 @@ Be aware that it can have a (probably very) small performance impact.
 
 **`directive.parse.max_depth = 10`**
 
-> Defines the allowable parse depth for a template. A template may #parse() another template which itself may have a #parse() directive.  This value prevents runaway #parse() recursion.
+> Defines the allowable nesting depth of `#parse()` and, since 2.5, `#evaluate()`. A template may #parse() another template which itself may have a #parse() directive, and evaluated VTL may itself contain `#evaluate()` or `#parse()`; the two directives share the same nesting stack, so a mixed chain counts together. Once the limit is reached the directive renders nothing and an error is logged instead of the recursion running until the thread's stack is exhausted. A value of 0 or less means no limit.
 
 ### custom directives
 
@@ -240,7 +255,7 @@ The following resource management configuration keys only apply to the default R
 
 **`velocimacro.library.path = velocimacros.vtl `**
 
-> *Multi-valued key.  Will accept CSV for value.* Filename(s) of Velocimacro library to be loaded when the Velocity Runtime engine starts.  These Velocimacros are accessable to all templates.  The file is assumed to be relative to the root of the file loader resource path. If the default (<code>velocimacro.vtl</code> since 2.1) is not found, the old default (<code>VM_global_library.vm</code>) is also searched for.
+> *Multi-valued key.  Will accept CSV for value.* Filename(s) of Velocimacro library to be loaded when the Velocity Runtime engine starts.  These Velocimacros are accessable to all templates.  The file is assumed to be relative to the root of the file loader resource path. If the default (<code>velocimacros.vtl</code> since 2.1) is not found, the old default (<code>VM_global_library.vm</code>) is also searched for. *Deprecated since 2.5*: the old default name `VM_global_library.vm` is not searched for any more in the next major version (the `velocimacros.vtl` default still is); when a library is found under the old name, a startup warning asks for it to be renamed or declared here.
 
 **`velocimacro.inline.allow = true`**
 
@@ -262,7 +277,7 @@ The following resource management configuration keys only apply to the default R
 
 > When set to true, will throw a `ParseErrorException` when parsing a template containing a macro with an invalid number of arguments. Is set to false by default to maintain backwards compatibility with templates written before this feature became available.
 
-**`velocimacro.enable_bc_mode = false`**
+**`velocimacro.enable_bc_mode = false`** *(deprecated since 2.5)*
 
 > This flag enables Velocimacro backward compatible mode. It has two effects:
 > 
@@ -279,7 +294,7 @@ The following resource management configuration keys only apply to the default R
 >         #macro( display $foo ) $foo #end
 >         #set( $foo = 'hello' )
 >         #display()
-> will display `$foo`. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to use the global context value, that is render `hello`.
+> will display `$foo`. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to use the global context value, that is render `hello`. *Deprecated since 2.5*, without replacement: the next major version does not provide this compatibility mode (the 2.0 behaviours above are the only ones); enabling it emits a startup warning.
 
 **`velocimacro.body_reference = false`**
 
@@ -303,15 +318,21 @@ The following resource management configuration keys only apply to the default R
 
 ## Ranges
 
-**`runtime.immutable_ranges = true`**
+**`runtime.immutable_ranges = true`** *(deprecated since 2.5)*
 
-> Controls whether the `java.util.List` object return by the VTL range operator [ *a* .. *b* ] is an immutable list (the default since Velocity 2.1) or a mutable list backed by a `java.util.ArrayList` object.
+> Controls whether the `java.util.List` object return by the VTL range operator [ *a* .. *b* ] is an immutable list (the default since Velocity 2.1) or a mutable list backed by a `java.util.ArrayList` object. *Deprecated since 2.5*: ranges are always immutable in the next major version; setting this key to `false` emits a startup warning.
 
 ## Math
 
 **`runtime.strict_math = false`**
 
-> Affects all math operations in VTL. If changed to true, this will cause Velocity to throw a MathException whenever one side of a math operation has a null value (e.g. `#set( $foo = $null * 5 )`) or when trying to divide by zero.  If this value is left `false`, then rendering will continue and that math operation will be ignored.
+> Affects all math operations in VTL. If changed to true, this will cause Velocity to throw a MathException whenever one side of a math operation has a null value (e.g. `#set( $foo = $null * 5 )`) or when trying to divide by zero.  If this value is left `false`, then rendering will continue and that math operation will be ignored. *Deprecated since 2.5*: the lenient behaviour is going away — the next major version always enforces strict math — so leaving this value `false` emits a startup warning when `runtime.deprecation.warn` is on.
+
+## Deprecation Warnings
+
+**`runtime.deprecation.warn = true`**
+
+> When true, logs a warning for the VTL syntax constructs and configuration options that are deprecated in preparation for the next major version: a backslash right before the closing quote of a double-quoted string (use a single-quoted string), the `parser.allow_hyphen_in_identifiers` option, and lenient math (`runtime.strict_math = false`, warned once at initialization). On by default; set it to false to silence them while a template base is being migrated. See the [upgrading guide](upgrading.html).
 
 ## Parser Configuration
 
@@ -323,9 +344,11 @@ The following resource management configuration keys only apply to the default R
 
 > This property is used by the default pooling implementation to set the number of parser instances that Velocity will create at startup and keep in a pool.  The default of 20 parsers should be more than enough for most uses.  In the event that Velocity does run out of parsers, it will indicate so in the log, and dynamically create overflow instances as needed.  Note that these extra parsers will not be added to the pool, and will be discarded after use.  This will result in very slow operation compared to the normal usage of pooled parsers, but this is considered an exceptional condition.  A web application using Velocity as its view engine might exhibit this behavior under extremely high concurrency (such as when getting Slashdotted).  If you see a corresponding message referencing the `parser.pool.size` property in your log files, please increment this property immediately to avoid performance degradation.
 
-**`parser.allow_hyphen_in_identifiers = false`**
+**`parser.allow_hyphen_in_identifiers = false`** *(deprecated since 2.5)*
 
 > This is a backward compatibility option, false by default, which allows the '**`-`**' character inside variable identifiers (available since 2.1). If enabled, be warned that you will have to surround the mathematical minus sign with spaces for it to be correctly interpreted.
+>
+> *Deprecated since 2.5*: a hyphenated identifier such as `$foo-bar` cannot be expressed in the next major version. Enabling this option emits a startup warning when `runtime.deprecation.warn` is on.
 
 ## Event Handlers
 

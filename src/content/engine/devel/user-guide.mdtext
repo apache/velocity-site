@@ -31,13 +31,14 @@ You could embed the following VTL statement in the web page:
     :::html+velocity
     <html>
       <body>
-        Hello $customer.Name!
+        $title
+        Hello ${customer.Name}!
         <table>
         #foreach( $mud in $mudsOnSpecial )
           #if ( $customer.hasPurchased($mud) )
             <tr>
               <td>
-                $flogger.getPromo( $mud )
+                ${flogger.getPromo( $mud )}
               </td>
             </tr>
           #end
@@ -63,7 +64,7 @@ This VTL statement, like all VTL statements, begins with the *#* character and c
 
 The *#* character is followed by a directive, *set*. The *set* directive uses an expression (enclosed in brackets) -- an equation that assigns a *value* to a *variable*. The variable is listed on the left hand side and its value on the right hand side; the two are separated by an *=* character.
 
-In the example above, the variable is *$a* and the value is *Velocity*. This variable, like all references, begins with the *$* character. String values are always enclosed in quotes, either single or double quotes.  Single quotes will ensure that the quoted value will be assigned to the reference as is.  Double quotes allow you to use velocity references and directives to interpolate, such as "Hello $name", where the *$name* will be replaced by the current value before that string literal is assigned to the left hand side of the *=*
+In the example above, the variable is *$a* and the value is *Velocity*. This variable, like all references, begins with the *$* character. References can also be expressions, surrounded by curly braces after the *$*: *${a.toUpperCase()}*. String values are always enclosed in quotes, either single or double quotes.  Single quotes will ensure that the quoted value will be assigned to the reference as is.  Double quotes allow you to use velocity references and directives to interpolate, such as "Hello $name", where the *$name* will be replaced by the current value before that string literal is assigned to the left hand side of the *=*
  
  
 The following rule of thumb may be useful to better understand how Velocity works: **References begin with *$* and are used to get something. Directives begin with *#* and are used to do something.**
@@ -161,61 +162,63 @@ The output will be the same for all instances of *$foo* that follow this directi
 
 ### Properties
 
-The second flavor of VTL references are properties, and properties have a distinctive format. The shorthand notation consists of a leading *$* character followed a VTL Identifier, followed by a dot character (".") and another VTL Identifier. These are examples of valid property references in the VTL:
+The second flavor of VTL references are properties, and properties have a distinctive format. A property reference is a leading *$* character then an expression enclosed by *{* and *}*: a VTL Identifier, a dot character (".") and another VTL Identifier. These are examples of valid property references in the VTL:
 
     :::velocity
-    $customer.Address
-    $purchase.Total
+    ${customer.Address}
+    ${purchase.Total}
 
-Take the first example, *$customer.Address*. It can have two meanings. It can mean, Look in the hashtable identified as *customer* and return the value associated with the key *Address*. But *$customer.Address* can also be referring to a method (references that refer to methods will be discussed in the next section); *$customer.Address* could be an abbreviated way of writing *$customer.getAddress()*. When your page is requested, Velocity will determine which of these two possibilities makes sense, and then return the appropriate value.
+Note that Velocity also supports the *informal* notation *$customer.Address*, as long as there is no ambiguity with the surrounding context.
+
+Take the first example, *${customer.Address}*. It can have two meanings. It can mean, Look in the hashtable identified as *customer* and return the value associated with the key *Address*. But it can also be referring to a method (references that refer to methods will be discussed in the next section); *${customer.Address}* could be an abbreviated way of writing *${customer.getAddress()}*. When your page is requested, Velocity will determine which of these two possibilities makes sense, and then return the appropriate value.
 
 ### Methods
 
-A method is defined in the Java code and is capable of doing something useful, like running a calculation or arriving at a decision. Methods are references that consist of a leading "$" character followed a VTL Identifier, followed by a VTL *Method Body*. A VTL Method Body consists of a VTL Identifier followed by an left parenthesis character ("("), followed by an optional parameter list, followed by right parenthesis character (")"). These are examples of valid method references in the VTL:
+A method is defined in the Java code and is capable of doing something useful, like running a calculation or arriving at a decision. Methods are references that consist of a leading "$" character then an expression enclosed by *{* and *}*: a VTL Identifier, followed by a VTL *Method Body*. A VTL Method Body consists of a VTL Identifier followed by an left parenthesis character ("("), followed by an optional parameter list, followed by right parenthesis character (")"). These are examples of valid method references in the VTL:
 
     :::velocity
-    $customer.getAddress()
-    $purchase.getTotal()
-    $page.setTitle( "My Home Page" )
-    $person.setAttributes( ["Strange", "Weird", "Excited"] )
+    ${customer.getAddress()}
+    ${purchase.getTotal()}
+    ${page.setTitle( "My Home Page" )}
+    ${person.setAttributes( ["Strange", "Weird", "Excited"] )}
 
-The first two examples -- *$customer.getAddress()* and *$purchase.getTotal()* -- may look similar to those used in the Properties section above, *$customer.Address* and *$purchase.Total*. If you guessed that these examples must be related some in some fashion, you are correct!
+The first two examples -- *${customer.getAddress()}* and *${purchase.getTotal()}* -- may look similar to those used in the Properties section above, *${customer.Address}* and *${purchase.Total}*. If you guessed that these examples must be related some in some fashion, you are correct!
 
-VTL Properties can be used as a shorthand notation for VTL Methods. The Property *$customer.Address* has the exact same effect as using the Method *$customer.getAddress()*. It is generally preferable to use a Property when available. The main difference between Properties and Methods is that you can specify a parameter list to a Method.
+VTL Properties can be used as a shorthand notation for VTL Methods. The Property *${customer.Address}* has the exact same effect as using the Method *${customer.getAddress()}*. It is generally preferable to use a Property when available. The main difference between Properties and Methods is that you can specify a parameter list to a Method.
 
-The shorthand notation can be used for the following Methods
+The property shorthand can be used for the following Methods
 
     :::velocity
-    $sun.getPlanets()
-    $annelid.getDirt()
-    $album.getPhoto()
+    ${sun.getPlanets()}
+    ${annelid.getDirt()}
+    ${album.getPhoto()}
 
 We might expect these methods to return the names of planets belonging to the sun, feed our earthworm, or get a photograph from an album. Only the long notation works for the following Methods.
 
     :::velocity
-    $sun.getPlanet( ["Earth", "Mars", "Neptune"] )
+    ${sun.getPlanet( ["Earth", "Mars", "Neptune"] )}
     ## Can't pass a parameter list with $sun.Planets
-    
-    $sisyphus.pushRock()
+
+    ${sisyphus.pushRock()}
     ## Velocity assumes I mean $sisyphus.getRock()
-    
-    $book.setTitle( "Homage to Catalonia" )
+
+    ${book.setTitle( "Homage to Catalonia" )}
     ## Can't pass a parameter
 
 All array references are treated as if they are fixed-length lists. This means that you can call java.util.List methods and properties on array references.  So, if you have a reference to an array (let's say this one is a String[] with three values), you can do:
 
     :::velocity
-    $myarray.isEmpty() or $myarray.empty
-    $myarray.size()
-    $myarray.get(2)
-    $myarray.set(1, 'test')
+    ${myarray.isEmpty()} or ${myarray.empty}
+    ${myarray.size()}
+    ${myarray.get(2)}
+    ${myarray.set(1, 'test')}
 
-Velocity also supports vararg methods. A method like `azpublic void setPlanets(String... planets)` or even just `public void setPlanets(String[] planets)` can now accept any number of arguments when called in a template.
+Velocity also supports vararg methods. A method like `public void setPlanets(String... planets)` or even just `public void setPlanets(String[] planets)` can now accept any number of arguments when called in a template.
 
     :::velocity
-    $sun.setPlanets('Earth', 'Mars', 'Neptune')
-    $sun.setPlanets('Mercury')
-    $sun.setPlanets()
+    ${sun.setPlanets('Earth', 'Mars', 'Neptune')}
+    ${sun.setPlanets('Mercury')}
+    ${sun.setPlanets()}
     ## Will just pass in an empty, zero-length array
 
 As of Velocity 2.0, method calls now provides implicit conversions between all Java basic builtin types: numbers, booleans and strings.
@@ -244,21 +247,21 @@ The final value resulting from each and every reference (whether variable, prope
 
 ### Index Notation
 
-Using the notation of the form `$foo[0]` can be used to access a given index of an object.  This form is synonymous with calling the get(Object) method on a given object i.e, `$foo.get(0)`, and provides essentially a syntactic shorthand for such operations. Since this simply calls the get method all of the following are valid uses:
+Using the notation of the form `${foo[0]}` can be used to access a given index of an object.  This form is synonymous with calling the get(Object) method on a given object i.e, `$foo.get(0)`, and provides essentially a syntactic shorthand for such operations. Since this simply calls the get method all of the following are valid uses:
 
     :::velocity
-    $foo[0]       ## $foo takes in an Integer look up
-    $foo[$i]      ## Using another reference as the index   
-    $foo["bar"]   ## Passing a string where $foo may be a Map
+    ${foo[0]}       ## $foo takes in an Integer look up
+    ${foo[$i]}      ## Using another reference as the index
+    ${foo["bar"]}   ## Passing a string where $foo may be a Map
 
 The bracketed syntax also works with Java arrays since Velocity wraps arrays in an access object that provides a `get(Integer)` method which returns the specified element.
 
 The bracketed syntax is valid anywhere `.get` is valid, for example:
 
     :::velocity
-    $foo.bar[1].junk
-    $foo.callMethod()[1]
-    $foo["apple"][4]
+    ${foo.bar[1].junk}
+    ${foo.callMethod()[1]}
+    ${foo["apple"][4]}
     
 A reference can also be set using index notation, for example:
 
@@ -271,16 +274,14 @@ The specified element is set with the given value. Velocity tries first the 'set
 
 ## Formal Reference Notation
 
-Shorthand notation for references was used for the examples listed above, but there is also a formal notation for references, which is demonstrated below:
+We have already used the formal `${ }` notation for property and method references, where it is the recommended form since Velocity 2.5:
 
     :::velocity
     ${mudSlinger}
     ${customer.Address}
     ${purchase.getTotal()}
 
-In almost all cases you will use the shorthand notation for references, but in some cases the formal notation is required for correct processing.
-
-Suppose you were constructing a sentence on the fly where *$vice* was to be used as the base word in the noun of a sentence. The goal is to allow someone to choose the base word and produce one of the two following results: "Jack is a pyromaniac." or "Jack is a kleptomaniac.". Using the shorthand notation would be inadequate for this task. Consider the following example:
+The braces are also useful for a *plain* variable whenever it sits directly adjacent to text. Suppose you were constructing a sentence on the fly where *$vice* was to be used as the base word in the noun of a sentence. The goal is to allow someone to choose the base word and produce one of the two following results: "Jack is a pyromaniac." or "Jack is a kleptomaniac.". The brace-less notation would be inadequate for this task. Consider the following example:
 
     :::velocity
     Jack is a $vicemaniac.
@@ -291,15 +292,6 @@ There is ambiguity here, and Velocity assumes that *$vicemaniac*, not *$vice*, i
     Jack is a ${vice}maniac.
 
 Now Velocity knows that *$vice*, not *$vicemaniac*, is the reference. Formal notation is often useful when references are directly adjacent to text in a template.
-
-## Alternate values
-
-Formal reference notations can also be used to provide an *alternate value* whenever the boolean evaluation of a reference is false.
-
-    :::velocity
-    My name is ${name|'John Doe'}
-
-If $name is null, empty, false or zero (see [Conditionals](#conditionals)), then the altername string `'John Doe'` will be displayed.
 
 ## Quiet Reference Notation
 
@@ -320,6 +312,16 @@ Formal and quiet reference notation can be used together, as demonstrated below.
     :::html+velocity
     <input type="text" name="email" value="$!{email}"/>
 
+## Alternate Values
+
+A reference can name an alternate value, rendered in its place when the reference is null, false, zero or empty:
+
+    :::html+velocity
+    <input type="text" name="email" value="${email|'nobody@example.com'}"/>
+    Hello ${customer.name|$anonymous}!
+
+The alternate value is any valid VTL expression, evaluated only when needed. It can only be written in the formal notation, `${ ... }`, and combines with the quiet notation: `$!{email|$fallback}` renders nothing when both are unset.
+
 ## Strict Rendering Mode
 
 The strict rendering mode is activated by setting the velocity configuration property 'runtime.strict_mode.enable' to true.  The general intent of this setting is to make Velocity behave more strictly in cases that are undefined or ambiguous, similar to a programming language, which may be more appropriate for some uses of Velocity. In such undefined or ambiguous cases Velocity will throw an exception.  The following discussion outlines the cases in which strict behavior is different from traditional behavior.
@@ -337,9 +339,9 @@ In the following examples $bar is defined but $foo is not, and all these stateme
 Also, The following statements show examples in which Velocity will throw an exception when attempting to call methods or properties that do not exist. In these examples $bar contains an object that defines a property 'foo' which returns a string, and 'retnull' which returns null.
 
     :::velocity
-    $bar.bogus          ## $bar does not provide property bogus, Exception
-    $bar.foo.bogus      ## $bar.foo does not provide property bogus, Exception
-    $bar.retnull.bogus  ## cannot call a property on null, Exception</pre>
+    ${bar.bogus}          ## $bar does not provide property bogus, Exception
+    ${bar.foo.bogus}      ## $bar.foo does not provide property bogus, Exception
+    ${bar.retnull.bogus}  ## cannot call a property on null, Exception</pre>
 
 In general strict rendering mode behavior is true for all situations in which references are used except for a special case within the #if directive.  If a reference is used within a #if or #elseif directive without any methods or properties, and if it is not being compared to another value, then undefined references are allowed.  This behavior provides an easy way to test if a reference is defined before using it in a template.  In the following example where $foo is not defined the statements will not throw an exception.
 
@@ -382,7 +384,7 @@ Now that you are familiar with references, you can begin to apply them effective
 
 These examples illustrate alternative uses for the same references. Velocity takes advantage of Java's introspection and bean features to resolve the reference names to both objects in the Context as well as the objects methods. It is possible to embed and evaluate references almost anywhere in your template.
 
-Velocity, which is modelled on the Bean specifications defined by Sun Microsystems, is case sensitive; however, its developers have strove to catch and correct user errors wherever possible. When the method *getFoo()* is referred to in a template by `$bar.foo`, Velocity will first try `$getfoo`. If this fails, it will then try `$getFoo`. Similarly, when a template refers to `$bar.Foo`, Velocity will try *$getFoo()* first and then try *getfoo()*.
+Velocity, which is modelled on the Bean specifications defined by Sun Microsystems, is case sensitive; however, its developers have strove to catch and correct user errors wherever possible. When the method *getFoo()* is referred to in a template by `${bar.foo}`, Velocity will first try `getfoo`. If this fails, it will then try `getFoo`. Similarly, when a template refers to `${bar.Foo}`, Velocity will try *getFoo()* first and then try *getfoo()*.
 
 Note: *References to instance variables in a template are not resolved.* Only references to the attribute equivalents of JavaBean getter/setter methods are resolved (i.e. `$foo.Name` does resolve to the class Foo's `getName()` instance method, but not to a public `Name` instance variable of Foo).
 
@@ -614,7 +616,7 @@ Lets say that *$allProducts* is a Hashtable. If you wanted to retrieve the key v
     :::html+velocity
     <ul>
     #foreach( $key in $allProducts.keySet() )
-        <li>Key: $key -> Value: $allProducts.get($key)</li>
+        <li>Key: $key -> Value: ${allProducts.get($key)}</li>
     #end
     </ul>
 
@@ -623,7 +625,7 @@ Velocity provides an easy way to get the loop counter so that you can do somethi
     :::html+velocity
     <table>
     #foreach( $customer in $customerList )
-        <tr><td>$foreach.count</td><td>$customer.Name</td></tr>
+        <tr><td>${foreach.count}</td><td>${customer.Name}</td></tr>
     #end
     </table>
 
@@ -653,7 +655,7 @@ If you want to stop looping in a foreach from within your template, you can now 
         #if( $foreach.count > 5 )
             #break
         #end
-        $customer.Name
+        ${customer.Name}
     #end
 
 ### Include

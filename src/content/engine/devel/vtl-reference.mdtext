@@ -18,63 +18,53 @@ In the following syntax references, *identifier* refers to:
 
 that is, a letter or an underscore followed by any number of letters, numbers and underscores.
 
-If the `parser.allow_hyphen_in_identifiers` configuration value is set to true, then the **-** hyphen is also allowed in identifiers (and must be surrounded by spaces to be interpreted as an arithmetic minus operator).
+If the `parser.allow_hyphen_in_identifiers` configuration value is set to true (*deprecated since 2.5*), then the **-** hyphen is also allowed in identifiers (and must be surrounded by spaces to be interpreted as an arithmetic minus operator).
 
 ### Variables
 
 Notation:
 
-**$** <span class="blue">[</span> **!** <span class="blue">]</span> <span class="blue">[</span> **{** <span class="blue">]</span> *identifier* <span class="blue">[</span> <span class="blue">[</span> **|** *alternate value* <span class="blue">]</span> **}** <span class="blue">]</span>
-
-Usage:
-
-+ *alternate value*: alternate expression to use if the reference is null, empty, false or zero
+**$** <span class="blue">[</span> **!** <span class="blue">]</span> <span class="blue">[</span> **{** <span class="blue">]</span> *identifier* <span class="blue">[</span> **}** <span class="blue">]</span>
 
 Examples:
 
 + Shorthand notation: `$mudSlinger_9`
-+ Silent Shorthand notation: `$!mudSlinger_9`
++ Silent shorthand notation: `$!mudSlinger_9`
 + Formal notation: `${mudSlinger_9}`
-+ Silent Formal notation: `$!{mudSlinger_9}`
-+ Alternate value: `${mudSlinger_9|$otherWheels}`
-
-*Note that for backward compatibility reasons, it's possible to enable '**`-`**' as a valid character in variables identifiers, [see the parser configuration section](configuration.html#parser-configuration).*
++ Silent formal notation: `$!{mudSlinger_9}`
++ Formal notation with an alternate value: `${mudSlinger_9|$otherWheels}` — rendered when the reference is null, false, zero or empty; the right-hand side is any valid VTL expression
 
 ### Properties
 
 Notation:
 
-**$** <span class="blue">[</span> **{** <span class="blue">]</span> *identifier* **.** *identifier* <span class="blue">[</span> <span class="blue">[</span> **|** *alternate value* <span class="blue">]</span> **}** <span class="blue">]</span>
-
-Usage:
-
-+ *alternate value*: alternate expression to use if the property is null, empty, false or zero
+**${** *identifier* **.** *identifier* **}**
 
 Examples:
 
-+ Regular Notation: `$customer.Address`
-+ Formal Notation: `${purchase.Total}`
-+ Alternate Value: `${person.name|'John Doe'}`
++ Formal notation: `${customer.Address}`
++ Formal notation: `${purchase.Total}`
++ Informal notation: `$customer.Address`
++ With an alternate value: `${person.name|'John Doe'}`
 
 ### Methods
 
 Notation:
 
-**$** <span class="blue">[</span> **{** <span class="blue">]</span> *identifier* **.** *identifier* **(** <span class="blue">[</span> *parameter list...* <span class="blue">]</span> **)** <span class="blue">[</span> <span class="blue">[</span> **|** *alternate value* <span class="blue">]</span> **}** <span class="blue">]</span>
+**${** *identifier* **.** *identifier* **(** <span class="blue">[</span> *parameter list...* <span class="blue">]</span> **)** **}**
 
 Usage:
 
-+ *alternate value*: alternate expression to use if the method returns null, empty, false or zero
-+ *parameter list*: optional coma-separated list of expressions
++ *parameter list*: optional comma-separated list of expressions
 
 Examples:
 
-+ Regular Notation: `$customer.getAddress()`
-+ Formal Notation: `${purchase.getTotal()}`
-+ Regular Notation with Parameter List: `$page.setTitle( "My Home Page" )`
-+ Alternate value: `${page.getTitle()|'Blank Page'}`
++ Formal notation: `${customer.getAddress()}`
++ Formal notation with parameter list: `${page.setTitle( "My Home Page" )}`
++ Informal notation: `$customer.getAddress()` (formal notation is preferred)
++ With an alternate value: `${page.getTitle()|'Blank Page'}`
 
-VTL Properties can be used as a shorthand notation for VTL Methods that take *get* and *set*. Either *$object.getMethod()* or *$object.setMethod()* can be abbreviated as *$object.Method*. It is generally preferable to use a Property when available. The main difference between Properties and Methods is that you can specify a parameter list to a Method.
+VTL Properties can be used as a shorthand notation for VTL Methods that take *get* and *set*. Either *${object.getMethod()}* or *${object.setMethod()}* can be abbreviated as *${object.Method}*. It is generally preferable to use a Property when available. The main difference between Properties and Methods is that you can specify a parameter list to a Method.
 
 Each method argument can be any valid VTL expression.
 

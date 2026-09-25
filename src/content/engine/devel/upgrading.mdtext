@@ -42,6 +42,33 @@ To maximize backward compatibility of the last Velocity 2.x with Velocity 1.x, b
 
 Also, please note that since version 2.1, Velocity requires Java JDK 1.8+ for building and Java JRE 1.8+ at runtime.
 
+## Upgrading from Velocity 2.4.1 to Velocity 2.5
+
+### Behavior / API Changes
+
++ **Spring support modules reorganized.** The `spring-velocity-support` artifact now targets the current, Jakarta-based Spring framework (Spring 6.x and 7.x) on Java 17. Although this is a minor Velocity release, it is a *major* upgrade for that module, which jumps from Spring 5 to Spring 6/7. Applications still on **Spring 5.x / Java 8** must switch their dependency to the new `spring5-velocity-support` artifact.
++ New `introspector.restrict.methods` property to restrict only specific method calls in the secure introspector. By default it now blocks `VelocityEngine.init()` and `VelocityEngine.reset()`.
++ `Map.size()` is now invoked instead of any provided `size` property. Templates that defined a `size` property on a map-like object and expected it to shadow the method will see a behavior change.
++ `DatabaseObjectsFactory` is deprecated in favor of `PreparedStatementsFactory`, alongside a connection-leak fix in `DataSourceResourceLoader`.
++ `#evaluate()` now honours the nesting depth limit of `directive.parse.max_depth` (default 10). Both `#parse` and ` #evaluate` push on the same template name stack, so a chain mixing them counts as a whole.
++ Resource names are normalized before a loader sees them: `.` and `..` segments are resolved, and a name that would climb above a configured resource root (`../secret.txt`) is refused as not found.
++ `SecureUberspector` forbids a template to reach a class's static methods through `$value.getClass()` or `$value.class`.
++ Custom parser: the `parser.class` property is deprecated: the next major version will use a pluggable lexer instead, so the [custom parser building process](developer-guide.html#customizing-the-vtl-parser) will provide an equivalent way of customizing the parsing, with one caveat, though: the `$` character will no longer be configurable at all in the next major version, only `#`, `@` and `*` will, so a parser built with `parser.char.dollar` has no future equivalent.
++ SecureUberspector now honours the configured type conversion handler.
+
+### VTL Changes
+
+#### Syntax and configuration deprecations (preparing for the next major version)
+
+- corner case: support for an interpolated double-quoted string ending with `\` is deprecated.
+- the `velocimacro.enable_bc_mode = true` configuration is deprecated (it allowed null or missing macro arguments to render caller's bare references instead of the macro definition ones, after trying to resolve missing arguments from the caller context).
+- the implicit loading of the 1.x macro libraries file `VM_global_library.vm` is deprecated. Use `velocimacros.vtl` or make its path explicit in the configuration.
+- the `runtime.immutable_ranges = false` configuration is deprecated.
+- the `runtime.strict_math = false` configuration is deprecated. Note that `false` is still the default value for 2.5, so relying on the default value *will* produce a deprecation warning.
+- the `parser.allow_hyphen_in_identifiers` configuration is deprecated.
+
+All the corresponding deprecation warning messages can be turned off with `runtime.deprecation.warn = false`.
+
 ## Upgrading from Velocity 2.3 to Velocity 2.4.1
 
 ### Behavior / API Changes
