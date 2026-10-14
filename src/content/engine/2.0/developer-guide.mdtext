@@ -425,7 +425,7 @@ Once we know about these basic helpers, it is easy to write a Java program that 
         }
     }
 
-When we run this program, and have the template ` testtemplate.vm` in the same directory as our program (because we used the default configuration properties, and the defaul place to load templates from is the current directory...), our output should be:
+When we run this program, and have the template ` testtemplate.vm` in the same directory as our program (because we used the default configuration properties, and the default place to load templates from is the current directory...), our output should be:
 
     template : Hi!  This Velocity from the Jakarta project.
     
@@ -438,7 +438,7 @@ where the template we used, testtemplate.vm, is
 
 That's all there is to it!  Note that we didn't have to use both `mergeTemplate()` and `evaluate()` in our program.  They are both included there for demonstration purposes. You will probably use only one of the methods, but depending on you application requirements,  you are free to do what you wish.
 
-This appears to be a little different from the 'fundamental pattern' that was mentioned at the beginning of this guide, but it really is the same thing.  First, you are making a context and filling it with the data needed.  Where this examples differs is that in the part of the above example where `mergeTemplate()` is used, `mergeTemplate()` is doing the work of getting the template and merging it for you, using the lower-level calls in the Runtime class. In the second example, you are making your template dynamically via the String, so that is analgous to the 'choose template' part of the process, and the `evaluate()` method does the merging for you using lower level calls.
+This appears to be a little different from the 'fundamental pattern' that was mentioned at the beginning of this guide, but it really is the same thing.  First, you are making a context and filling it with the data needed.  Where this example differs is that in the part of the above example where `mergeTemplate()` is used, `mergeTemplate()` is doing the work of getting the template and merging it for you, using the lower-level calls in the Runtime class. In the second example, you are making your template dynamically via the String, so that is analogous to the 'choose template' part of the process, and the `evaluate()` method does the merging for you using lower level calls.
 
 So the example above sticks to the same simple pattern of using the Velocity template engine, but the utility functions do some of the repeated drudge work, or allow you other options for your template content other than template files.
 
