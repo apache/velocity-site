@@ -19,7 +19,7 @@ our @patterns = (
 	[qr"\.mdtext$", standard => { template => "single_narrative.html" }],
 );
 
-# The %dependecies hash is used when building pages that reference or depend
+# The %dependencies hash is used when building pages that reference or depend
 # upon other pages -- e.g. a sitemap, which depends upon the pages that it
 # links to.  The keys for %dependencies are filepaths, and the values are
 # arrayrefs containing other filepaths.
