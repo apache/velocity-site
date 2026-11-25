@@ -98,8 +98,6 @@ The following settings are deprecated since 2.5, in preparation for the next maj
     
     runtime. +-- immutable_ranges = false
              +-- strict_math = false      (the default value: set it to true)
-    
-    velocimacro. +-- enable_bc_mode = true
 
 The pre-2.1 property names are deprecated as well, see the [**table of correspondance**](configuration-property-changes-in-2.1.html).
 
@@ -263,11 +261,21 @@ The following resource management configuration keys only apply to the default R
 
 **`velocimacro.inline.replace_global = false`**
 
-> Controls if a Velocimacro defind 'inline' in a template can replace a Velocimacro defined in a library loaded at startup.
+> Controls what happens when a template defines a Velocimacro whose name is already taken, by a library or by another template: when false, the first definition is kept; when true, the latest one replaces it. This holds for the whole engine, unless `velocimacro.inline.local_scope` is true (see below).
 
 **`velocimacro.inline.local_scope = false`**
 
-> Controls 'private' templates namespaces for Velocimacros.  When true, a #macro() directive in a template  creates a Velocimacro that is accessable only from the defining template.  This means that Velocimacros cannot be shared unless they are in the global or local library loaded at startup. (See above.)  It also means that templates cannot interfere with each other.  This property also allows a technique where there is a 'default' Velocimacro definition in the global or local library, and a template can 'override' the implementation for use within that template. This occurrs because when this property is true, the template's namespace is searched for a Velocimacro before the global namespace, therefore allowing the override mechanism.
+> When true, a Velocimacro defined in a template belongs to that template, not to the whole engine: other merges never see it. A call looks for its Velocimacro in this order:
+>
+> 1. the template the call is written in;
+> 2. the libraries loaded at startup;
+> 3. the other templates of the merge (the merged template and those parsed so far), the latest first.
+>
+> With `velocimacro.inline.replace_global` also true, steps 2 and 3 are swapped: a template can then override a library Velocimacro, including for the library Velocimacros which call it.
+>
+> A call inside a Velocimacro body is looked up from the template which defines that Velocimacro.
+>
+> Some of this is new in 2.5: see the [upgrade notes](upgrading.html).
 
 **`velocimacro.library.autoreload = false`**
 
@@ -277,7 +285,7 @@ The following resource management configuration keys only apply to the default R
 
 > When set to true, will throw a `ParseErrorException` when parsing a template containing a macro with an invalid number of arguments. Is set to false by default to maintain backwards compatibility with templates written before this feature became available.
 
-**`velocimacro.enable_bc_mode = false`** *(deprecated since 2.5)*
+**`velocimacro.enable_bc_mode = false`**
 
 > This flag enables Velocimacro backward compatible mode. It has two effects:
 > 
@@ -294,7 +302,7 @@ The following resource management configuration keys only apply to the default R
 >         #macro( display $foo ) $foo #end
 >         #set( $foo = 'hello' )
 >         #display()
-> will display `$foo`. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to use the global context value, that is render `hello`. *Deprecated since 2.5*, without replacement: the next major version does not provide this compatibility mode (the 2.0 behaviours above are the only ones); enabling it emits a startup warning.
+> will display `$foo`. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to use the global context value, that is render `hello`.
 
 **`velocimacro.body_reference = false`**
 
