@@ -529,11 +529,11 @@ extends <a href="DeprecatedRuntimeConstants.html" title="interface in org.apache
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#VM_ENABLE_BC_MODE" class="member-name-link">VM_ENABLE_BC_MODE</a></code></div>
 <div class="col-last even-row-color">
-<div class="block"><span class="deprecated-label">Deprecated.</span>
-<div class="deprecation-comment">since 2.5, without replacement: the next major version does not provide this
- compatibility mode; a null argument renders the parameter's own literal and a missing
- argument is null, as since 2.0.</div>
-</div>
+<div class="block">This flag enable the 1.7 backward compatible mode for velocimacros (defaults to false):
+ 
+     
+         preserve argument literals: when displaying null or invalid non-quiet references,
+         use the argument literal reference instead of the one in the macro block.</div>
 </div>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#VM_LIBRARY" class="member-name-link">VM_LIBRARY</a></code></div>
@@ -1435,13 +1435,7 @@ extends <a href="DeprecatedRuntimeConstants.html" title="interface in org.apache
 <li>
 <section class="detail" id="VM_ENABLE_BC_MODE">
 <h3>VM_ENABLE_BC_MODE</h3>
-<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
-</span><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">VM_ENABLE_BC_MODE</span></div>
-<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
-<div class="deprecation-comment">since 2.5, without replacement: the next major version does not provide this
- compatibility mode; a null argument renders the parameter's own literal and a missing
- argument is null, as since 2.0.</div>
-</div>
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">VM_ENABLE_BC_MODE</span></div>
 <div class="block">This flag enable the 1.7 backward compatible mode for velocimacros (defaults to false):
  <ul>
      <li>

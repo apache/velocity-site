@@ -219,8 +219,10 @@ implements <a href="SecureIntrospectorControl.html" title="interface in org.apac
  org.slf4j.Logger&nbsp;log)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>badClasses</code> - fully-qualified class names whose methods are entirely blocked (exact match)</dd>
-<dd><code>badPackages</code> - package names whose classes are entirely blocked (exact match)</dd>
+<dd><code>badClasses</code> - fully-qualified names of the classes and interfaces whose methods are entirely blocked,
+                   along with the methods of the classes extending or implementing them</dd>
+<dd><code>badPackages</code> - names of the packages whose classes are entirely blocked (exact match, a class
+                    extending a class of a restricted package from another package is not blocked)</dd>
 <dd><code>badMethods</code> - method specs of the form <code>fully.qualified.ClassName.methodName</code>;
                    restriction applies to the named class and all its subclasses, all overloads</dd>
 <dd><code>log</code> - logger</dd>
@@ -239,8 +241,10 @@ implements <a href="SecureIntrospectorControl.html" title="interface in org.apac
  <a href="TypeConversionHandler.html" title="interface in org.apache.velocity.util.introspection">TypeConversionHandler</a>&nbsp;conversionHandler)</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>badClasses</code> - fully-qualified class names whose methods are entirely blocked (exact match)</dd>
-<dd><code>badPackages</code> - package names whose classes are entirely blocked (exact match)</dd>
+<dd><code>badClasses</code> - fully-qualified names of the classes and interfaces whose methods are entirely blocked,
+                   along with the methods of the classes extending or implementing them</dd>
+<dd><code>badPackages</code> - names of the packages whose classes are entirely blocked (exact match, a class
+                    extending a class of a restricted package from another package is not blocked)</dd>
 <dd><code>badMethods</code> - method specs of the form <code>fully.qualified.ClassName.methodName</code>;
                    restriction applies to the named class and all its subclasses, all overloads</dd>
 <dd><code>log</code> - logger</dd>
@@ -267,7 +271,7 @@ implements <a href="SecureIntrospectorControl.html" title="interface in org.apac
                  throws <span class="exceptions"><a href="https://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></span></div>
 <div class="block">Get the Method object corresponding to the given class, name and parameters.
  Will check for appropriate execute permissions and return null if the method
- is not allowed to be executed.</div>
+ is not allowed to be executed. A warning is only logged when the refused method exists.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="Introspector.html#getMethod(java.lang.Class,java.lang.String,java.lang.Object%5B%5D)">getMethod</a></code>&nbsp;in class&nbsp;<code><a href="Introspector.html" title="class in org.apache.velocity.util.introspection">Introspector</a></code></dd>
@@ -288,11 +292,13 @@ implements <a href="SecureIntrospectorControl.html" title="interface in org.apac
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">checkObjectExecutePermission</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;?&gt;&nbsp;clazz,
  <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;methodName)</span></div>
 <div class="block">Determine which methods and classes to prevent from executing.  Always blocks
- methods wait() and notify().  Always allows the instance methods of Number, Boolean
- and String.
+ methods wait() and notify().  Always allows methods on Number, Boolean and String,
+ unless listed in <code>introspector.restrict.methods</code>.
  Prohibits method calls on classes related to reflection and system operations.
  For the complete list, see the properties <code>introspector.restrict.classes</code>,
- <code>introspector.restrict.packages</code> and <code>introspector.restrict.methods</code>.</div>
+ <code>introspector.restrict.packages</code> and <code>introspector.restrict.methods</code>.
+ A restricted class or interface also restricts the classes extending or implementing it,
+ while a restricted package only restricts the classes it contains.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="SecureIntrospectorControl.html#checkObjectExecutePermission(java.lang.Class,java.lang.String)">checkObjectExecutePermission</a></code>&nbsp;in interface&nbsp;<code><a href="SecureIntrospectorControl.html" title="interface in org.apache.velocity.util.introspection">SecureIntrospectorControl</a></code></dd>
