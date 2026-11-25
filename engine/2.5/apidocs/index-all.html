@@ -3260,10 +3260,6 @@ loadScripts(document, 'script');</script>
 <dd>
 <div class="block">Method</div>
 </dd>
-<dt><a href="org/apache/velocity/util/introspection/SecureUberspector.html#getMethod(java.lang.Object,java.lang.String,java.lang.Object%5B%5D,org.apache.velocity.util.introspection.Info)" class="member-name-link">getMethod(Object, String, Object[], Info)</a> - Method in class org.apache.velocity.util.introspection.<a href="org/apache/velocity/util/introspection/SecureUberspector.html" title="class in org.apache.velocity.util.introspection">SecureUberspector</a></dt>
-<dd>
-<div class="block">Get a method from the given object.</div>
-</dd>
 <dt><a href="org/apache/velocity/util/introspection/Uberspect.html#getMethod(java.lang.Object,java.lang.String,java.lang.Object%5B%5D,org.apache.velocity.util.introspection.Info)" class="member-name-link">getMethod(Object, String, Object[], Info)</a> - Method in interface org.apache.velocity.util.introspection.<a href="org/apache/velocity/util/introspection/Uberspect.html" title="interface in org.apache.velocity.util.introspection">Uberspect</a></dt>
 <dd>
 <div class="block">Returns a general method, corresponding to $foo.bar( $woogie )</div>
@@ -9359,11 +9355,11 @@ the order they are declared.</div>
 </dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeConstants.html#VM_ENABLE_BC_MODE" class="member-name-link">VM_ENABLE_BC_MODE</a> - Static variable in interface org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeConstants.html" title="interface in org.apache.velocity.runtime">RuntimeConstants</a></dt>
 <dd>
-<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
-<div class="deprecation-comment">since 2.5, without replacement: the next major version does not provide this
- compatibility mode; a null argument renders the parameter's own literal and a missing
- argument is null, as since 2.0.</div>
-</div>
+<div class="block">This flag enable the 1.7 backward compatible mode for velocimacros (defaults to false):
+ 
+     
+         preserve argument literals: when displaying null or invalid non-quiet references,
+         use the argument literal reference instead of the one in the macro block.</div>
 </dd>
 <dt><a href="org/apache/velocity/runtime/RuntimeConstants.html#VM_LIBRARY" class="member-name-link">VM_LIBRARY</a> - Static variable in interface org.apache.velocity.runtime.<a href="org/apache/velocity/runtime/RuntimeConstants.html" title="interface in org.apache.velocity.runtime">RuntimeConstants</a></dt>
 <dd>

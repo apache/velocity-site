@@ -349,8 +349,6 @@ h2:hover > .headerlink, h3:hover > .headerlink, h1:hover > .headerlink, h6:hover
 
 <span class="na">runtime. +-- immutable_ranges</span> <span class="o">=</span> <span class="s">false</span>
 <span class="na">         +-- strict_math</span> <span class="o">=</span> <span class="s">false      (the default value: set it to true)</span>
-
-<span class="na">velocimacro. +-- enable_bc_mode</span> <span class="o">=</span> <span class="s">true</span>
 </pre></div>
 
 
@@ -509,11 +507,19 @@ Defines the beginning and ending tags for an in-stream error message in the case
 </blockquote>
 <p><strong><code>velocimacro.inline.replace_global = false</code></strong></p>
 <blockquote>
-<p>Controls if a Velocimacro defind 'inline' in a template can replace a Velocimacro defined in a library loaded at startup.</p>
+<p>Controls what happens when a template defines a Velocimacro whose name is already taken, by a library or by another template: when false, the first definition is kept; when true, the latest one replaces it. This holds for the whole engine, unless <code>velocimacro.inline.local_scope</code> is true (see below).</p>
 </blockquote>
 <p><strong><code>velocimacro.inline.local_scope = false</code></strong></p>
 <blockquote>
-<p>Controls 'private' templates namespaces for Velocimacros.  When true, a #macro() directive in a template  creates a Velocimacro that is accessable only from the defining template.  This means that Velocimacros cannot be shared unless they are in the global or local library loaded at startup. (See above.)  It also means that templates cannot interfere with each other.  This property also allows a technique where there is a 'default' Velocimacro definition in the global or local library, and a template can 'override' the implementation for use within that template. This occurrs because when this property is true, the template's namespace is searched for a Velocimacro before the global namespace, therefore allowing the override mechanism.</p>
+<p>When true, a Velocimacro defined in a template belongs to that template, not to the whole engine: other merges never see it. A call looks for its Velocimacro in this order:</p>
+<ol>
+<li>the template the call is written in;</li>
+<li>the libraries loaded at startup;</li>
+<li>the other templates of the merge (the merged template and those parsed so far), the latest first.</li>
+</ol>
+<p>With <code>velocimacro.inline.replace_global</code> also true, steps 2 and 3 are swapped: a template can then override a library Velocimacro, including for the library Velocimacros which call it.</p>
+<p>A call inside a Velocimacro body is looked up from the template which defines that Velocimacro.</p>
+<p>Some of this is new in 2.5: see the <a href="upgrading.html">upgrade notes</a>.</p>
 </blockquote>
 <p><strong><code>velocimacro.library.autoreload = false</code></strong></p>
 <blockquote>
@@ -523,7 +529,7 @@ Defines the beginning and ending tags for an in-stream error message in the case
 <blockquote>
 <p>When set to true, will throw a <code>ParseErrorException</code> when parsing a template containing a macro with an invalid number of arguments. Is set to false by default to maintain backwards compatibility with templates written before this feature became available.</p>
 </blockquote>
-<p><strong><code>velocimacro.enable_bc_mode = false</code></strong> <em>(deprecated since 2.5)</em></p>
+<p><strong><code>velocimacro.enable_bc_mode = false</code></strong></p>
 <blockquote>
 <p>This flag enables Velocimacro backward compatible mode. It has two effects:</p>
 <ol>
@@ -544,7 +550,7 @@ Defines the beginning and ending tags for an in-stream error message in the case
 </pre></div>
 
 
-<p>will display <code>$foo</code>. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to use the global context value, that is render <code>hello</code>. <em>Deprecated since 2.5</em>, without replacement: the next major version does not provide this compatibility mode (the 2.0 behaviours above are the only ones); enabling it emits a startup warning.</p>
+<p>will display <code>$foo</code>. When B.C. mode is enabled, Velocity will mimic the 1.x behavior which is to use the global context value, that is render <code>hello</code>.</p>
 </li>
 </ol>
 </blockquote>

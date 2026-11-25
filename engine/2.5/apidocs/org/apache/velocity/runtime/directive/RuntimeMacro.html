@@ -319,12 +319,14 @@ loadScripts(document, 'script');</script>
 <a href="../../exception/ParseErrorException.html" title="class in org.apache.velocity.exception">ParseErrorException</a>,
 <a href="../../exception/MethodInvocationException.html" title="class in org.apache.velocity.exception">MethodInvocationException</a></span></div>
 <div class="block">Velocimacro implementation is not known at the init time. So look for
- a implementation in the macro libraries and if finds one renders it. The
- actual rendering is delegated to the VelocimacroProxy object. When
- looking for a macro we first loot at the template with has the
- macro call then we look at the macro libraries in the order they appear
- in the list. If a macro has many definitions above look up will
- determine the precedence.</div>
+ an implementation and if finds one renders it. The
+ actual rendering is delegated to the VelocimacroProxy object. A call asks,
+ in this order: the macros of the template it is written in; if inline macros
+ replace global ones, those of the other templates of the merge, the latest
+ entered first; the global macros; the other templates of the merge, the latest
+ entered first. The templates of a merge are the libraries it was given, its root
+ template and what was <code>#parse</code>d so far. A template only has macros
+ of its own under <code>velocimacro.inline.local_scope</code>.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Directive.html#render(org.apache.velocity.context.InternalContextAdapter,java.io.Writer,org.apache.velocity.runtime.parser.node.Node)">render</a></code>&nbsp;in class&nbsp;<code><a href="Directive.html" title="class in org.apache.velocity.runtime.directive">Directive</a></code></dd>
