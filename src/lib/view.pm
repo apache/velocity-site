@@ -27,12 +27,20 @@ sub recent_news { return `xsltproc stylesheets/recent_news.xsl content/news.xml`
 sub project_news { return `xsltproc stylesheets/project_news.xsl content/news.xml`; }
 sub format_date { return time2str("%A, %e %B %Y", str2time(shift)); } ## xsltproc doesn't know XSLT 2.0 
 sub format_date_short { return time2str("%a, %e %b %Y", str2time(shift)); } ## xsltproc doesn't know XSLT 2.0 format-date function
+# a failed download stops the build: it would publish an empty page otherwise
+sub fetch
+{
+    my $url = shift;
+    my $content = get $url;
+    die "Could not fetch $url\n" unless defined $content and length $content;
+    return $content;
+}
 sub changes_report
 {
     my ($project, $tag) = split '/', shift;
-    my $url = "https://gitbox.apache.org/repos/asf?p=velocity-$project.git;a=blob_plain;f=src/changes/changes.xml;hb=$tag";
+    my $url = "https://raw.githubusercontent.com/apache/velocity-$project/$tag/src/changes/changes.xml";
     print("Generating changes report from " . $url . "\n");
-    my $xml = get $url;
+    my $xml = fetch $url;
 
     # hack to fix an error in the XML up to 1.7
     $xml =~ s/<scope>/&lt;scope&gt;/;
@@ -81,7 +89,7 @@ sub source_file
 }
 sub team()
 {
-    my $xml = get 'https://gitbox.apache.org/repos/asf?p=velocity-master.git;a=blob_plain;f=pom/pom.xml;hb=HEAD';
+    my $xml = fetch 'https://raw.githubusercontent.com/apache/velocity-master/HEAD/pom/pom.xml';
     my ($fh, $filename) = tempfile("XXXXXX");
     binmode $fh, ":encoding(UTF-8)";
     print $fh $xml;
