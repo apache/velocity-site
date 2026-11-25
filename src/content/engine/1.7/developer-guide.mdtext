@@ -350,13 +350,13 @@ The most common approaches to initializing Velocity will be something like:
 1. Setup the configuration values you wish to set in a file in the same format as org/apache/velocity/runtime/defaults/velocity.properties (the default set),  or in a `java.util.Properties`, and then call either `init( filename )` or `init( Properties )`
 2. Set the configuration values individually using `setProperty()` and then call `init()`.  This method is generally used by more advanced applications that already have their own configuration management system - this allows the application so configure Velocity based upon values it generates at runtime, for example.
 
-Once the runtime is initialized, you can do with it what you wish.. This mostly revolves around rendering templates into an output stream, and the Velocity utility class allows you to do this easily.  Currently, here are the methods and a brief description of what they do:
+Once the runtime is initialized, you can do with it what you wish. This mostly revolves around rendering templates into an output stream, and the Velocity utility class allows you to do this easily.  Currently, here are the methods and a brief description of what they do:
 
 + ` evaluate( Context context,  Writer out, String logTag, String instring )`
 
     `evaluate( Context context, Writer writer, String logTag, InputStream instream )`
 
-    These methods will render the input, in either the form of String or InputStream to an output Writer, using a Context that you provide. This is a very convenienient method to use for token replacement of strings, or if you keep 'templates' of VTL-containing content in a place like a database or other non-file storage, or simply generate such dynamically.
+    These methods will render the input, in either the form of String or InputStream to an output Writer, using a Context that you provide. This is a very convenient method to use for token replacement of strings, or if you keep 'templates' of VTL-containing content in a place like a database or other non-file storage, or simply generate such dynamically.
 
 + `invokeVelocimacro( String vmName, String namespace, String params[],
     Context context, Writer writer )`
@@ -408,7 +408,7 @@ Once we know about these basic helpers, it is easy to write Java program that us
         }
     }
 
-When we run this program, and have the template ` testtemplate.vm` in the same directory as our program (because we used the default configuration properties, and the defaul place to load templates from is the current directory...), our output should be:
+When we run this program, and have the template ` testtemplate.vm` in the same directory as our program (because we used the default configuration properties, and the default place to load templates from is the current directory...), our output should be:
 
     template : Hi!  This Velocity from the Jakarta project.
     
@@ -420,7 +420,7 @@ where the template we used, testtemplate.vm, is
 
 That's all there is to it!  Note that we didn't have to use both `mergeTemplate()` and `evaluate()` in our program.  They are both included there for demonstration purposes. You will probably use only one of the methods, but depending on you application requirements,  you are free to do what you wish.
 
-This appears to be a little different from the 'fundamental pattern' that was mentioned at the beginning of this guide, but it really is the same thing.  First, you are making a context and filling it with the data needed.  Where this examples differs is that in the part of the above example where `mergeTemplate()` is used, `mergeTemplate()` is doing the work of getting the template and merging it for you, using the lower-level calls in the Runtime class. In the second example, you are making your template dynamically via the String, so that is analgous to the 'choose template' part of the process, and the `evaluate()` method does the merging for you using lower level calls.
+This appears to be a little different from the 'fundamental pattern' that was mentioned at the beginning of this guide, but it really is the same thing.  First, you are making a context and filling it with the data needed.  Where this example differs is that in the part of the above example where `mergeTemplate()` is used, `mergeTemplate()` is doing the work of getting the template and merging it for you, using the lower-level calls in the Runtime class. In the second example, you are making your template dynamically via the String, so that is analogous to the 'choose template' part of the process, and the `evaluate()` method does the merging for you using lower level calls.
 
 So the example above sticks to the same simply pattern of using the Velocity template engine, but the utility functions do some of the repeated drudge work, or allow you other options for your template content other than template files.
 
